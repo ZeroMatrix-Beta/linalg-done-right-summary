@@ -3,7 +3,7 @@
 
 \setcounter{thm}{1}
 \begin{mydef} [linear combination]
-  $a_1 v_1 + \cdots + a_m v_m$ is called a \qt{linear combination} of a list of vectors $v_1, \dots, v_m$, for some scalars $a_1, \ddd, a_m \in \myF$.
+  $a_1 v_1 + \cdots + a_m v_m$ is called a \qt{linear combination} of a list of vectors $v_1, \dots, v_m$  ($a_1, \ddd, a_m \in \myF$).
 \end{mydef}
 
 \setcounter{thm}{3}
@@ -16,7 +16,7 @@
     \end{aligned}
   \end{equation}
 
-  The definition also implies that $\myspan{ 0} = \{0\}$, or written differently,^ $\myspan{\vec 0} = \{\vec 0\}$ . Note that sometimes we write $\vec 0$ and somtetimes we write $0$ throughout this document.
+  The definition also implies that $\myspan{ 0} = \{0\}$, or written differently, $\myspan{\vec 0} = \{\vec 0\}$ . Note that sometimes we write $\vec 0$ and somtetimes we write $0$ throughout this document. Later on, $0$ sometimes also means the zero-operator.
 \end{mydef}
 
 \mce{6}
@@ -43,7 +43,12 @@
   \]
 
   Thus, $\myspan{v_1, \ddd, v_m}$ is a subspace of $V$ by \ref{thm: conditions for a subspace}.
-  Every subspace of $V$ that contains each $v_k$ is closed under scalar multiplication and addition and therefore, contains $\myspan{v_1, \ddd, v_m}$. Hence, $\myspan{v_1, \ddd, v_m}$ is the smallest subspace containing each $v_1, \ddd, v_m$. The fact that $\myspan{v_1, \ddd, v_m}$ contains every vector in the list should be obvious.
+  Every subspace of $V$ that contains each $v_k$ is closed under scalar multiplication and addition and therefore, contains $\myspan{v_1, \ddd, v_m}$. Hence, $\myspan{v_1, \ddd, v_m}$ is the smallest subspace containing each $v_1, \ddd, v_m$. The fact that
+  \begin{equation}
+    v_j \in \myspan{v_1, \ddd, v_m} \quad (j = 1, \ddd, m)
+  \end{equation}
+
+  is obvious.
 \end{prf}
 
 
@@ -125,19 +130,20 @@
       w & =a_1 v_1 + \cdots + a_m v_m \myand \\
       w & =c_1 v_1 + \cdots + c_m v_m \\
       & \iff \\
-      0 & = \underbrace{(a_1 - c_1)}_{= \, 0\text{?}} v_1 + \cdots + \underbrace{(a_m -c_m)}_{= \, 0\text{?}} v_m
+      0 & = \underbrace{(a_1 - c_1)}_{= \, 0\text{?}} v_1 + \cdots + \underbrace{(a_m -c_m)}_{= \, 0\text{?}} v_m.
     \end{aligned}
   \end{equation}
 
-  if $a_1 = c_1, a_2 = c_2, \, \dots \, , a_m = c_m$ is the only solution, the representation of $w$ as a linear combination of $v_1, \ldots, v_m$ is unique and the only way to add them up together equaling $0$ is $0v_1+\cdots+0v_m=0$. Both of these definitions are equivalent.
+  If $a_1 = c_1, a_2 = c_2, \, \dots \, , a_m = c_m$ is the only solution, the representation of $w$ as a linear combination of $v_1, \ldots, v_m$ is unique and the only way to add them up together equaling $0$ is $0v_1+\cdots+0v_m=0$. Both of these definitions are equivalent.
 
-  The empty list $()$ is also defined to be linearly independent.
+  Note: The empty list $()$ is also defined to be linearly independent.
 \end{mydef}
 
 
 %\textbf{2.16}
 \begin{mydef} [linear dependence]
-  Otherwise, $\oneTillM{v}$ is called \qt{linearly dependent}.
+  Otherwise, $\oneTillM{v}$ is called \qt{linearly dependent}. For example, let $V$ be a $2$-dimensional vector space and let $u, v \in V$ be linearly dependent. Then we have $a, b$ such that $au + bv = 0$ with
+  $a \neq 0$ and $b \neq 0$. Thus, we can write: $u = \left( -\sfrac{b}{a} \right) v$.
 \end{mydef}
 
 %	\textbf{2.19} Linear dependence lemma:\\

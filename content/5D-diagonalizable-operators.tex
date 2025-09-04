@@ -26,23 +26,26 @@
   \label{thm: sum of eigenspaces is a direct sum}
   Suppose $T\in \linmap (V)$ and $\lambda_1, \dots, \lambda_m$ are distinct eigenvalues of $T$. Then
   \begin{equation}
-    E(\lambda_1, T) + \cdots + E(\lambda_m, T) $ is a direct sum.$
+    E(\lambda_1, T) + \cdots + E(\lambda_m, T)
   \end{equation}
+
+  is a direct sum $\left(\text{i.e., } \sum_{i=1}^{m} E(\lambda_i, T) = \bigoplus_{i=1}^{m} E(\lambda_i, T)\right)$.
+
   Furthermore, if $V$ is finite-dimensional, then
   \begin{equation}
     \begin{aligned}
       \dim E(\lambda_1, T) + \cdots + \dim E(\lambda_m, T)
       & = \dim \left( E(\lambda_1, T)  \oplus \cdots \oplus E(\lambda_m, T) \right) \\
-      & \leq \dim V
+      & \leq \dim V.
     \end{aligned}
   \end{equation}
 \end{thm}
 \begin{prf}
   Let $\lambda_1, \ddd, \lambda_m$ be distinct eigenvalues. Suppose $v_1 + \cdots + v_m = 0$, where each $v_k \in E(\lambda_k, T)$ for $k = 1, \ddd, m $. This means $\forall k \in \{ 1, \ddd, m\}: v_k = 0$, because eigenvectors corresponding to distinct eigenvalues are linearly independent by \ref{thm: linearly independent eigenvectors}. Thus, $E(\lambda_1, T) + \cdots + E(\lambda_m, T)$ is a direct sum by \ref{thm: condition for a direct sum}.
-  By \ref{thm: a sum is a direct sum if and only if the dimensions add up}, the dimensions of a direct sum add up. By \ref{thm: dimension of a subspace}, the dimension of a subspace is always smaller or equal to the space itself, if it is \fd. Therefore,
+  By \ref{thm: a sum is a direct sum if and only if the dimensions add up}, the dimensions of a direct sum add up, and by \ref{thm: dimension of a subspace}, the dimension of a subspace is always $\leq$ to the space itself, if it is \fd. Therefore,
   \begin{equation}
-      \dim E(\lambda_1, T) + \cdots + \dim E(\lambda_m, T)
-    = \dim \left( E(\lambda_1, T)  \oplus \cdots \oplus E(\lambda_m, T) \right) \leq \dim V
+    \dim \left( \underbrace{E(\lambda_1, T)  \oplus \cdots \oplus E(\lambda_m, T)}_{\text{subpace of $V$}} \right)
+    =  \dim E(\lambda_1, T) + \cdots + \dim E(\lambda_m, T) \leq \dim V
   \end{equation}
   \vspace{-1em}
 \end{prf}
@@ -51,7 +54,7 @@
 \setcounter{thm}{54}
 \begin{thm} [conditions equivalent to diagonalizability]
   \label{thm: conditions equivalent to diagonalizability}
-  Let $\lambda_1, \dots,\lambda_m$ denote the distinct eigenvalues of $T\in \linmap (V)$, so $\lambda_j \neq \lambda_k$. Then the following are equivalent:
+  Let $\lambda_1, \dots,\lambda_m$ denote the distinct (i.e., $\lambda_j \neq \lambda_k$) eigenvalues of $T\in \linmap (V)$. Then the following are equivalent:
   \begin{enumerate}[label=\textbf{(\alph*)}]
     \item $T$ is diagonalizable.
     \item $V$ has a basis consisting of eigenvectors of $T$.
@@ -59,63 +62,77 @@
     \item $\dim V = \dim E(\lambda_1, T) + \cdots + \dim E(\lambda_m, T)$.
   \end{enumerate}
 \end{thm}
-\begin{prf}
-  \StepOne Let $\lambda_1, \ddd, \lambda_m$ be distinct eigenvalues of $T \in \linmap (V)$ for the whole proof. First, suppose (a) holds.
+\begin{prf} We prove (a) $\iff$ (b), (b) $\implies$ (c), $(c) \implies (d)$, and then $(d) \implies (b)$. Let $\lambda_1, \ddd, \lambda_m$ be distinct eigenvalues of $T \in \linmap (V)$ for the whole prove.
+
+  \StepOne Suppose (a) holds. The matrix of $T$ looks like as follows.
   \begin{equation}
-    \implies
     \mmatrix(T) =
     \left( {\begin{array}{ccc}
         \lambda_1 &         & 0 \\
         &  \ddots &    \\
-        0      &         & \lambda_n
+        0      &         & \lambda_m
     \end{array} } \right)
   \end{equation}
 
-  with respect to a basis $v_1, \ddd, v_n$. This is the case $\iff$ $Tv_k = \lambda_k v_k$ for $k = 1, \ddd, n$. Thus (a) and (b) are equivalent, i.e. (a) $\iff$ (b).
+  with respect to a basis $v_1, \ddd, v_m$. This is the case $\iff$ $Tv_k = \lambda_k v_k$ for $k = 1, \ddd, m$. Thus (a) and (b) are equivalent, i.e. (a) $\iff$ (b).
 
   \StepTwo Now, suppose (b) holds; thus $V$ has a basis consisting of eigenvectors of $T$. Hence, every vector in $V$ is a linear combination of such basis, which implies
   \begin{equation}
     V = E(\lambda_1, T) + \cdots + E(\lambda_m, T).
   \end{equation}
 
-  \ref{thm: sum of eigenspaces is a direct sum} shows that this is a direct sum. This proves that (b) implies (c).
+  By \ref{thm: sum of eigenspaces is a direct sum}, distinctness of all $\lambda_j$'s implies that this is a direct sum $\left(\text{i.e., } V=\bigoplus_{j=1}^{m}  E(\lambda_j, T) \right)$. This proves that (b) $\implies$ (c).
 
-  \StepThree That (c) implies (d) follows immidiately from \ref{thm: a sum is a direct sum if and only if the dimensions add up}, which states that the dimensions of a direct sum add up.
+  \StepThree (c) $\implies$ (d) follows immidiately from \ref{thm: a sum is a direct sum if and only if the dimensions add up}, which states that the dimensions of a direct sum add up $\left(\text{i.e., } \dim \left(\bigoplus_{j=1}^m E(\lambda_j, T)\right) = \sum_{j=1}^{m} \dim V_j \right)$.
 
   \StepFour Finally, suppose (d) holds; thus
   \begin{equation}
     \dim V = \dim E(\lambda_1, T) + \cdots + \dim E(\lambda_m, T).
   \end{equation}
 
-  Choose a basis of each $E(\lambda_m, T)$; put all these together to form a list $v_1, \ddd, v_n$ of eigenvectors of $T$, where $n = \dim V$. Suppose $a_1 v_1 + \cdots + a_n v_n = 0$, where $a_1, \ddd, a_n \in \myF$.
-  Now $\forall k \in \{1, \ddd, m \}$, let
+  Choose a basis of each $E(\lambda_m, T)$; put all these together to form a list
   \begin{equation}
-    u_k := \hspace{-1.5em} \sum_{\substack{v_j \in E(\lambda_k, T) \\ \text{$v_j$ is a basis vector}}} \hspace{-1.5em} (a_j v_j)
+    \label{eq: list of vectors v}
+    v_1, \ddd, v_n
+  \end{equation}
+  of eigenvectors of $T$, where $n = \dim V$. We want to show that \eqref{eq: list of vectors v} forms a basis of $V$. To this end, suppose for some $a_1, \ddd, a_n \in \myF$:
+  \begin{equation}
+    \label{eq: sum of vs}
+    a_1 v_1 + \cdots + a_n v_n = 0.
+.  \end{equation}
+
+  Now, for every $k = 1, \ddd, m $, let
+  \begin{equation}
+    u_k := \hspace{-1.5em} \sum_{\substack{v_j \in E(\lambda_k, T), \text{ such that} \\ \text{$v_j$ is a basis vector of $E(\lambda_k, T)$}}} \hspace{-1.5em} (a_j v_j)
   \end{equation}
 
-  denote the $k$-th sum of the terms $a_jv_j$, where the $v_j$'s belong to the basis of $E(\lambda_k, T)$. This means $u_k \in E(\lambda_k, T)$ is an eigenvector with eigenvalue $\lambda_k$.
-  Thus, $\forall k \in \{1, \ddd, m \}$:
+  denote the $k$-th sum of the terms $a_jv_j$, where the $v_j$'s belong to the basis of $E(\lambda_k, T)$. This means that $u_k \in E(\lambda_k, T)$ is an eigenvector with eigenvalue $\lambda_k$.
+  Therefore, for every $k = 1, \ddd, m$,´ we have
   \begin{equation}
-    u_k \in E(\lambda_k, T)$ and $u_1 + \cdots + u_m = 0.
+    u_k \in E(\lambda_k, T)
   \end{equation}
 
-  Since by \ref{thm: linearly independent eigenvectors},
-  every list of eigenvectors of $T$, in this case $u_1, \ddd, u_m$, corresponding to distinct eigenvalues of $T$, in this case $\lambda_1, \ddd, \lambda_m$, is linearly independent, it follows that
+  and
+  \begin{equation}
+    u_1 + \cdots + u_m = 0,
+  \end{equation}
+
+  as this is the same sum we had earlier \eqref{eq: sum of vs}. By \ref{thm: linearly independent eigenvectors},
+  every list of eigenvectors of $T$ corresponding to distinct eigenvalues of $T$ is linearly independent. This forces
   \begin{equation}
     u_k = 0 \quad \forall k \in \{1, \ddd, m \}.
   \end{equation}
 
-  $\implies$ all $a_j$'s $=0$, because the $v$'s are bases of the $E$'s  (eigenspaces), and their corresponding sums (the $u_k$'s) all equal to $0$. Thus $v_1, \ldots, v_m$ is a linearly independent list and hence a basis of $V$ by \ref{thm: linearly independent list of the right length is a basis}. Thus (d) implies (b), completing the proof.
+  This implies that all the $a$'s must be $0$, because the $v$'s are bases of the $E$'s  (eigenspaces), and their corresponding sums (the $u$'s) all equal to $0$. Therefore, $v_1, \ldots, v_n$ is a linearly independent list, and hence, a basis of $V$, by \ref{thm: linearly independent list of the right length is a basis} ($n = \dim V$). Now, we have shown that (d) $\implies$ (b), completing the proof.
 \end{prf}
 
 \setcounter{thm}{57}
 \begin{thm} [enough eigenvalues implies diagonalizability]
   \label{thm: enough eigenvalues implies diagonalizability}
-  $T\in \linmap(V)$ has $\dim V$ distinct eigenvalues
-    $\implies$ $T$ is diagonalizable.
+  If $T\in \linmap(V)$ has $\dim V$ distinct eigenvalues, then $T$ is diagonalizable.
 \end{thm}
 \begin{prf}
-  Let $\lambda_1, \ldots, \lambda_{\dim V}$ be the eigenvalues of the eigenvectors $v_1, \ldots, v_{\dim V}$, which are linearly independent by \autoref{thm: linearly independent eigenvectors}. So we have a basis consisting of $\dim V$ eigenvectors. So $T$ is diagonalizable by \ref{thm: conditions equivalent to diagonalizability}
+  Let $\lambda_1, \ldots, \lambda_{\dim V}$ be the eigenvalues of the eigenvectors $v_1, \ldots, v_{\dim V}$, which are linearly independent by \autoref{thm: linearly independent eigenvectors}. So, we have a basis consisting of $\dim V$ eigenvectors. Hence, $T$ is diagonalizable by \ref{thm: conditions equivalent to diagonalizability}.
 \end{prf}
 
 \setcounter{thm}{61}
@@ -207,9 +224,9 @@
 %5.65
 \begin{thm}[restriction of diagonalizable operator to invariant subspace]
   \label{thm: restriction of diagonalizable operator to invariant subspace}
-  Let $T\in \linmap(V)$. Suppose $T$ is diagonalizable and $U$ is a subspace of $V$ that is invariant under $T$.
+  Let $T\in \linmap(V)$. Suppose $T$ is diagonalizable and $U$ is a subspace of $V$ that is invariant under $T$. Then
   \begin{equation}
-    \implies$ $\left.T\right|_U$ is a diagonalizable operator on $U.
+    \left.T\right|_U$ is a diagonalizable operator on U$
   \end{equation}
 \end{thm}
 \begin{prf}

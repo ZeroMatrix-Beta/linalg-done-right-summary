@@ -1,0 +1,60 @@
+\section*{Exercises about Upper-Triangular Matrices}
+
+\exercise{10}
+\begin{xrcs}
+  Suppose $T \in \linmap(V)$ and $v_1, \ddd, v_n$ is a basis of $V$. Show that the following are equivalent.
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item The matrix $\mmatrix(T)$ of $T$ with respect to $v_1, \ddd, v_n$ is lower triangular.
+    \item $\myspan{v_k, \dots, v_n}$ is invariant under $T$ for each $k = 1, \ddd, n$.
+    \item $T v_k \in \myspan{v_k, \dots, v_n}$ for each $k = 1, \ddd, n$.
+  \end{enumerate}
+
+  \begin{xprf}
+    Like in \ref{thm: conditions for upper-triangular matrix}, we will prove that (a) $\implies$ (b) $\implies$ (c) $\implies$ (a).
+
+    \StepOne Suppose (a) holds and fix $k \in \{1, \ddd, n \}$. Consider $j \in \{k, \ddd, n\}$ (i.e., $k  \leq j$). The matrix $\mmatrix(T)$ of $T$ looks as follows.
+
+    \begin{minipage}{\linewidth}
+      \begin{equation}
+        \mathcal{M} (T) =
+        \begin{blockarray}{cccccc}
+          & v_1     & \cdots & v_j    &   \cdots & v_n     \\
+          \begin{block}{c(ccccc)}
+            v_1    & A_{1,1} &        &          &        &  \\
+            \vdots & \vdots  & \ddots &          &        &  \\
+            v_j &    A_{j,1} & \cdots & A_{j,j}  &        &  \\
+            \vdots & \vdots  & \ddots & \vdots   & \ddots &  \\
+            v_n    & A_{n,1} & \cdots & A_{n,j}  & \cdots & A_{n,n} \\
+          \end{block}
+        \end{blockarray}.
+      \end{equation}
+    \end{minipage}
+
+    We have
+    \begin{equation}
+      Tv_j = A_{j,j} v_{j} + A_{j+1,j} v_{j+1} + \cdots + A_{n,j} v_{n} =  \sum_{\ell=1}^{n} A_{\ell,j} v_\ell.
+    \end{equation}
+
+    Therefore, $T v_j \in \myspan{v_j, \ddd, v_n}$. Because
+    \begin{equation}
+      \myspan{v_j, \ddd, v_n} \subseteq \myspan{v_k, \ddd, v_n},
+    \end{equation}
+
+    it's immediate that $Tv_j \in \myspan {v_k, \ddd, v_n}$. Since $v_j$ could be any basis vector in the list $v_k, \ddd, v_n$, $\myspan {v_k, \ddd, v_n}$ is invariant under $T$, completing the proof that (a) implies (b).
+
+    \StepTwo Now, suppose (b) holds. Hence, we assume $\myspan{v_k, \ddd, v_n}$ is invariant under $T$ for each $k = 1, \ddd, n$. In particular,
+    \begin{equation}
+      T v_j \in \myspan{v_j, \ddd, v_n} \quad \forall j \in \{1, \ddd, n\}.
+    \end{equation}
+
+    Thus, (b) implies (c)
+
+    \StepThree Finally, suppose (c) holds. Therefore, $T v_k \in \myspan{v_k, \ldots, v_n}$ for $k = 1, \ddd, n$. This implies that for a fixed $k$, there exist scalars $a_k, \dots, a_n \in \myF$ such that
+    \begin{equation}
+      \label{eq: equation for T v_k}
+      T v_k = a_k v_k + \cdots + a_n v_n = 0 v_1 + 0 v_2 + \cdots + 0 v_{k-1} + a_k v_k + \cdots + a_n v_n.
+    \end{equation}
+
+    This implies that all the entries above the diagonal of $\mmatrix (T)$ are $0$, because the list $v_1, \ldots, v_n$ is linearly independent and we cannot choose another representation for $T v_k$ in respect to that list. Therefore, the scalars $a_k, \dots, a_n$ coincide with the entries of $\mmatrix(T)$. Thus, $\mmatrix(T)$ is a lower-triangular matrix, completing the proof that (c) implies (a).
+  \end{xprf}
+\end{xrcs}

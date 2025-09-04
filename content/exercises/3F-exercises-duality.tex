@@ -4,41 +4,44 @@
 
 \begin{xrcs}
   Explain why each linear functional is surjective or the zero map.
+
   \begin{xsol}
     $\varphi \in \dual{V} = \lin{V}{\myF}$ implies that for every $\lambda \in \myF$, and every $v \in V$,
     \begin{equation}
       \varphi (\lambda v) = \lambda \varphi(v).
     \end{equation}
 
-    If $\varphi$ is not the zero map, then $\varphi$ evaluated at $v \in V$ or $\lambda v \in V$ is a scalar in  $\myF$ for some $v \in V$ (i.e, $\varphi(v) \in \myF$ and $ \varphi(\lambda v) = \lambda \varphi(v) \in \myF$). Hence, $\myrange \varphi = \myF$, since $\lambda  \in \myF$ was arbitrary.
+    If $\varphi$ is not the zero map, then $\varphi$ evaluated at $v \in V$ or $\lambda v \in V$ is a scalar in  $\myF$ for some $v \in V$ for which it holds that $\varphi(v) \neq 0$. In this case, we have $\varphi(v) \in \myF$ and $ \varphi(\lambda v) = \lambda \varphi(v) \in \myF$. Hence, $\myrange \varphi = \myF$, since $\lambda  \in \myF$ was arbitrary.
   \end{xsol}
 \end{xrcs}
 
 \exercise{3}
 \begin{xrcs}
   Suppose $V$ is finite-dimensional and $v \in V$ is nonzero. Prove that there exists $\varphi \in \dual{V}$ such that $\varphi(v) = 1$.
+
   \begin{xsol}
-    Let $v_1, \ddd, v_n$ be a basis of $V$. Let $v \in V$ be nonzero such that $v = a_1 v_1 + \cdots + a_n v_n$, where $a_i \in \myF$. Since $v$ is nonzero, where exists a $k$ such that $a_k \neq 0$. Define $\varphi: V \to \real$ by
+    Let $v_1, \ddd, v_n$ be a basis of $V$. Let $v \in V$ be nonzero such that $v = a_1 v_1 + \cdots + a_n v_n$, where $a_i \in \myF$. Since $v$ is nonzero, there exists a $k$ such that $a_k \neq 0$. Define $\varphi: V \to \real$ by
     \begin{equation}
-      \varphi (u) = \frac{c_i}{a_i},
+      \varphi (u) = \frac{c_k}{a_k},
     \end{equation}
 
     whenever $u = c_1 v_1 + \dots + c_n v_n \in V$. Note that this definition corresponds to the use of the linear map lemma (\ref{thm: linear map lemma}), where we define $\varphi$ on each basis vector as follows:
     \begin{equation}
       \varphi (v_1) = 0, \;  \ddd, \;
       \varphi(v_{k-1}) = 0, \;
-      \varphi(v_k) = \frac{1}{a_i}, \;
+      \varphi(v_k) = \frac{1}{a_k}, \;
       \varphi(v_{k+1}) = 0, \;  \ddd, \;
       \varphi(v_n) = 0.
     \end{equation}
 
-    Hence, $\varphi(a_1 v_1 + \cdots + a_n v_n) = \frac{a_i}{a_i} = 1$. It is easy to check that $\varphi$ is a linear map.
+    Hence, $\varphi(a_1 v_1 + \cdots + a_n v_n) = \frac{a_k}{a_k} = 1$. It is easy to check that $\varphi$ is a linear map.
   \end{xsol}
 \end{xrcs}
 
 \exercise{5}
 \begin{xrcs}
   Suppose $V$ is finite dimensional and $U$ is a subspace to $V$, where $U \neq V$. Prove that there exists a $\varphi \in \dual{V}$ such that $\varphi (u) = 0$ for every $u \in U$ but $\varphi \neq 0$.
+
   \begin{xsol}
     Choose $W \subset V$ such that $V = U \oplus W$. Hence, there is a basis
     \begin{equation}
@@ -65,6 +68,7 @@
     \item Show that $1, x-5, \ddd, (x-5)^m$ is a basis of $\polyn_m(\real)$.
     \item What is the dual basis of the basis in (a)?
   \end{enumerate}
+
   \begin{xsol}
     We first start the exercise by solving it for $\polyn_4(\real)$ straight forward before solving it more abstract and generic for $\polyn_m(\real)$. Recall that $e_0 = x^0, e_1 = x^1, \ddd, e_4 = x^4$ is the standard basis of $\polyn_4(\real)$. We want to show that $v_0 = 1, v_1 = x-5, \ddd, v_4 = (x-5)^4$ is a basis as well. If we do some rewiting and expansion of the formulas, we get
     \begin{equation}
@@ -169,6 +173,7 @@
     \end{equation}
 
     Now, $\psi_j(e_k) = \binom{k}{j} 5^{k-j}$, taylor polynomials. (why?).
+
     ChatGTP: Now, why is $\psi_j(e_k) = \binom{k}{j} \cdot 5^{k-j}$?
     We want to define the dual basis $\{\psi_j\}_{j=0}^m$ of $\{v_k\}_{k=0}^m$, meaning we require
     \[
@@ -202,6 +207,7 @@
      \label{eq: equation for psi}
      \psi = \psi(v_1) \varphi_1 + \cdots +  \psi(v_n) \varphi_n.
   \end{equation}
+
   \begin{xsol}
     For a given $\psi \in \dual{V}$, let $\Gamma \in \dual{V}$ defined by
     \begin{equation}
@@ -333,26 +339,62 @@
     \dual{T} = 0 \iff T = 0.
   \end{equation}
   \begin{xprf}
-    \Leftarrowdirection If $T = 0$, then for each $\varphi \in \dual{W}$ we have
-    \begin{equation}
-      \dual{T} (\varphi) (v) = \varphi(T(v)) = \varphi(0) = 0.
-    \end{equation}
-
-    Hence, $\dual{T} (\varphi)$ is always sent to a map in $\dual{W}$ that is the zero map.
-
     \Rightarrowdirection Assume $\dual{T} = 0$. By definition, $\dual{T} = \varphi \circ T = 0$ for every $\varphi \in \dual{W}$. If $W = \{0\}$, then necessarily $T = 0$, so $\dual{T} = 0$ holds trivially.
-
-    Now, assume $W \neq 0$ and let $w_1, \ddd, w_n$ be a basis of $W$. Suppose for the sake of contradiction that $T \neq 0$. Hence, there exists a nonzero $v \in V$ and a nonzero $w \in W$ such that $w=T(v)$. Express $w$ as $a_1 w_1 + \cdots + a_n w_n$. Since $w \neq 0$, pick $k$ such that $a_k \neq 0$. Define $\varphi \in \dual{W}$ by
+    For this reason, assume for now that $W \neq 0$ and let $w_1, \ddd, w_n$ be a basis of $W$. Suppose for the sake of contradiction that $T \neq 0$. Hence, there exists a nonzero $v \in V$ and a nonzero $w \in W$ such that $w=T(v)$. Express $w$ as $w=a_1 w_1 + \cdots + a_n w_n$. Since $w \neq 0$, pick $k$ such that $a_k \neq 0$. Define $\varphi \in \dual{W}$ by
     \begin{equation}
       \varphi(b_1 w_1 + \cdots + b_n w_n) = \frac{b_k}{a_k},
     \end{equation}
 
     where $b_k$ is the $k$-th coordinate of $\varphi$'s input. Hence, $\varphi(w) =1$.
-    But then,
+    But then
     \begin{equation}
       \dual{T}(\varphi) (v) = \varphi(T(v)) = \varphi(w) = 1 \neq 0.
     \end{equation}
 
     Thus, $\dual{T}(\varphi) \neq 0$, contradicting $\dual{T} = 0$. Hence, $T = 0$.
+
+    \Leftarrowdirection If $T = 0$, then for each $\varphi \in \dual{W}$ and $\dual{T} \in \lin{\dual{W}}{\dual{V}}$ we have
+    \begin{equation}
+      \dual{T} (\varphi) (v) = \varphi(T(v)) = \varphi(0) = 0.
+    \end{equation}
+
+    Hence, $\dual{T} (\varphi)$ is always sent to a map in $\dual{W}$ that is the zero map.
+  \end{xprf}
+\end{xrcs}
+
+
+\exercise{16}
+\begin{xrcs}
+  Suppose $V$ and $W$ are finite-dimensional and $T \in \linmap(V,W)$. Prove that
+  \begin{equation}
+      T$ is invertible $\iff$ $\dual{T} \in \linmap(\dual{W}, \dual{V})$ is invertible.$
+  \end{equation}
+
+  \begin{xprf}
+    \Rightarrowdirection Let $T \in \linmap(V,W)$ be invertible and $T^{-1} \in \linmap(W,V)$ be the inverse of $T$. We want first want to show that $\dual{\left(T^{-1} \right) }$ is the inverse of $\dual{T} $, that is
+    \begin{equation}
+      \dual{\left(T^{-1} \right) } = \left(\dual{T} \right)^{-1}.
+    \end{equation}
+
+    For $\dual{\left(T^{-1} \right) } \in \lin{\dual{V}}{\dual{W}}$ to be an inverse of $\dual{T} \in \lin{\dual{W}}{\dual{V}}$, it must hold that $\dual{\left(T^{-1} \right) } \dual{T} = I_{W'}$ and $\dual{T} \dual{\left(T^{-1} \right) } = I_{V'}$. Note that $I_W \neq I_{W'}$ and $I_V \neq I_{V'}$. Therefore, let's compute for $\psi \in \dual{V}$:
+    \begin{equation}
+      \left(\dual{ \left(T^{-1}\right) } \circ \dual{T} \right)(\psi) = \dual{\left(T^{-1}\right)} \left(\psi \circ T ^ {-1}\right)
+      = \left(\psi \circ  T \right) \circ T^{-1} = \psi \circ \left(T T^{-1} \right) = \psi .
+    \end{equation}
+
+    Thus, $\dual{T}  \dual{\left(T^{-1} \right) } = I_{V'}$. The other composition works by the same argument. Let $\psi \in \dual{W}$. So,
+    \begin{equation}
+      \left(\dual{T} \circ \dual{\left(T^{-1}\right)}\right)(\varphi) = \dual{T} \left(\varphi \circ T^{-1} \right)
+      = \left(\varphi \circ T^{-1} \right) \circ T = \varphi \circ \left(T^{-1} T \right) = \varphi,
+    \end{equation}
+
+    for that $ \dual{\left(T^{-1} \right) } \dual{T} = I_{W'}$. Hence, $\dual{T}$ is invertible with $\dual{\left(T^{-1} \right) } = \left(\dual{T} \right)^{-1}$.
+
+    \Leftarrowdirection If $\dual{T}$ is invertible, then it is surjective (see \ref{thm: injectivity is equivalent to surjectivity}). Take any nonzero $v \in V$ and $\varphi \in \dual{V}$ with $\varphi (v^) \neq 0$. Surjectivity of $\dual{T}$ yields $\psi \in \dual{W}$ with $\dual{T} (\psi) = \varphi$, or $\varphi = \psi \circ T$. Therefore,
+    \begin{equation}
+      0 \neq \varphi(v) = \psi(Tv) = (\psi \circ T) (v).
+    \end{equation}
+
+    This implies that $Tv \neq 0$, and thus, $\mynull T = \{ 0\}$ (since $v$ was arbitrary and nonzero). This forces $T$ to be injective. Because $\dual{T}$ is invertible, we have $\mydim \dual{W} = \mydim \dual{V}$, and hence, $\mydim W = \mydim V$. An injective linear map between finite-dimensional vector spaces of the same dimension is surjective, so $T$ is bijectiive, and therefore, invertible.
   \end{xprf}
 \end{xrcs}

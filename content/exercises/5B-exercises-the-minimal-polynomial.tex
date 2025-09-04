@@ -128,6 +128,7 @@
 \exercise{4}
 \begin{xrcs}
   Suppose $\myF = \compl$, $T \in \linmap(V)$, $p \in \polyn(\compl)$, and $\alpha \in \compl$. Prove that $\alpha$ is an eigenvalue of $p(T)$ $\iff$ $\alpha = p(\lambda)$ for some eigenvalue $\lambda$ of $T$.
+
   \begin{xprf}
     If $\lambda$ is an eigenvalue of $T$, then $\exists v \in V$ such that
     \begin{align}
@@ -165,7 +166,7 @@
       \end{aligned}
     \end{equation}
 
-    Hence, $e_1, \ddd, e_n$ are the $\dim \myF^n = n$ distinct eigenvectors with corresponding eigenvalues $1, 2,  \ddd, n$. This makes $Te_1, \ddd, Te_n$ linearly independent as well. Using \ref{thm: eigenvalues are the zeros of the minimal polynomial}, we conclude that the minimal polynomial of $T$ looks like this:
+    Hence, $e_1, \ddd, e_n$ are $\dim \myF^n = n$ distinct eigenvectors with corresponding eigenvalues $1, \ddd, n$. This makes $Te_1, \ddd, Te_n$ linearly independent as well. Using \ref{thm: eigenvalues are the zeros of the minimal polynomial}, we conclude that the minimal polynomial of $T$ looks like this:
     \begin{equation}
       \label{eq: minmal polynomial of T(x_1, x_2, x_3, ..., x_n) = (x_1, 2 x_2, 3 x_3, ...,  n x_n)}
       p(z) = (z-1)(z-2)\cdots(z-n) \quad \forall z \in \myF^n.

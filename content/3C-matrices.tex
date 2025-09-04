@@ -7,7 +7,7 @@
   \label{def: matrix of a linear map}
   Let $T \in \linmap (V,W)$ and let $v_1, \dots, v_n$ be a basis of $V$ and let $w_1, \dots, w_m$ be a basis of $W$. The \qt{matrix of $T$} with respect to these bases is the $m$-by-$n$ matrix $\mmatrix(T)$ whose entries $A_{j,k}$ are defined by
   \begin{equation}
-    T v_k = A_{1,k} w_1 + \cdots + A_{m,k} w_m \equiv \sum_{j=1}^{m} A_{j,k} w_j.
+    T v_k = A_{1,k} w_1 + \cdots + A_{m,k} w_m = \sum_{j=1}^{m} A_{j,k} w_j.
   \end{equation}
   If the bases are not clear from the context, one writes $\mmatrix(T, (v_1, \dots, v_n),(w_1, \dots, w_m))$. One remembers how to construct $\mmatrix(T)$, if one writes the bases on left hand side and on top of the matrix. It looks as follows:
   \begin{equation}
@@ -22,6 +22,13 @@
       \end{blockarray}
   \end{equation}
 \end{mydef}
+
+\begin{mydef-non} [matrix notation for operators (see later)]
+  For $T \in \linmap(V)$ we use the notation
+  \begin{equation}
+    \mathcal{M}(T, (\onetilln{v})) := \mathcal{M}(T, (\onetilln{v}),(\onetilln{v}))
+  \end{equation}
+\end{mydef-non}
 
 \subsection{Addition and Scalar Multiplication of Matrices}
 
@@ -41,7 +48,7 @@
   $\myF^{m,n}$ denotes the set of all $m$-by-$n$ matrices with entries in $\myF$, where $m,n \in \nat$
 \end{mydef}
 
-\begin{thm} % no []
+\begin{thm} [dimension of $\myF^{m,n}$]
   \label{thm: the dimension of the vector space of all m by n matrices is mn}
   $\myF^{m,n}$ is a vector space with $\dim \myF^{m,n}=mn$.
 \end{thm}
@@ -58,7 +65,7 @@ Consider the linear maps $T: U \to V$ and $S: V \to W$. The composition $ST$ is 
 %One can choose a definition of matrix multiplication that forces this question to have a positive answer.
 
 Later on, matrix multiplication will be defined accordingly such that this question has a positive answer.
-For now, let $A := \mmatrix(S)\in \myF^{m,n}$ and $B := \mmatrix(T)\in \myF^{m,p}$. Now have a look at the matrices of $S$ and $T$:
+For now, let $A := \mmatrix(S)\in \myF^{m,n}$ and $B := \mmatrix(T)\in \myF^{m,p}$. The matrices of $S$ and $T$ look as follows,
 \begin{equation}
   A := \mathcal{M} (S) =
   \begin{blockarray}{cccccc}
@@ -98,7 +105,7 @@ For $1 \leq k \leq p$, we have
 \end{equation}
 
 \begin{minipage}{\linewidth-40pt}
-  Thus $\mmatrix(ST)$ is  the $m$-by-$p$ matrix whose entry in row $j$, column $k$ equals
+  Thus, $\mmatrix(ST)$ is  the $m$-by-$p$ matrix whose entry in row $j$, column $k$ equals
   $\sum_{r=1}^{n} A_{j,r}  B_{r,k}.$
 \begin{equation}
   \mathcal{M} (ST) =
@@ -184,16 +191,19 @@ For $1 \leq k \leq p$, we have
 \end{thm}
 
 \setcounter{thm}{49}
-\begin{thm}
+\begin{thm} [linear combination of columns]
+  \label{thm: linear combination of columns}
 %  $b=\left(\begin{matrix}b_1\\ \vdots \\ b_n \end{matrix}\right)
   Suppose $A \in \myF^{m,n}$ and  $b = (b_1, \ldots, b_n)^{t}\in \myF^{n,1}$. Then
   \begin{equation}
-    Ab = b_1 A_{\mathsmaller{\bullet}, 1} + \dots + b_n A_{\mathsmaller{\bullet},n}. \quad $See \ref{def: transpose} for the definition of $^t.
+    Ab = b_1 A_{\mathsmaller{\bullet}, 1} + \dots + b_n A_{\mathsmaller{\bullet},n}.
   \end{equation}
+
+  See \ref{def: transpose} for the definition of $(^t)$.
 \end{thm}
 
 \begin{thm}[matrix multiplication as linear comb. of columns or rows]
-  \phantom{.} Let $C\in\myF^{m,c}$ and $R\in\myF^{c,n}$.
+  Let $C\in\myF^{m,c}$ and $R\in\myF^{c,n}$.
 
   \bfemph{Column-wise:} If $k \in \{1,\ldots,n\}$, then column $k$ of $CR\in \myF^{m,n}$ is a linear combination of the columns of $C$, with the coefficients of this linear combination coming from column $k$ of $R$ [$R_{\mathsmaller{\bullet}, k}$].
   \begin{equation}

@@ -106,16 +106,17 @@
   \end{thm}
 
   %\textbf{3.71}
-  \begin{thm}
+  \begin{thm} [$\linmap (V,W)$ and $\myF^{m, n}$ are isomorphic]
     \label{thm: the space of linear maps and the space of all matrices are isomorphic}
     Suppose $\oneTillN{v}$ is a basis of $V$ and $\oneTillM{w}$ is a basis of $W$. Then $\mathcal{M}$ is an isomorphism between $\lvw$ and $\mathbb{F}^{m,n}$.
   \end{thm}
 
   %\textbf{3.72}
-  \begin{thm}
-    Suppose $V,W$ are \fd.
+  \begin{thm} [$\dim \lvw = (\dim V)\cdot(\dim W)$]
+    \label{thm: dimension of L(V,W) = dim L (V) * dim W (W)}
+    Suppose $V,W$ are \fd. Then $\lvw$ is finite-dimensional and
     \begin{equation}
-      \implies \lvw $ is \fd and $\dim \lvw = (\dim V)\cdot(\dim W)
+      \dim \lvw = (\dim V)\cdot(\dim W).
     \end{equation}
   \end{thm}
   \begin{prf}
@@ -128,7 +129,7 @@
     Let $u \in V$ and $\onetillm{v}$ be a basis of $V$ such that
   \begin{equation}
     u=b_1v_1+\dots+b_mv_m. $ We define $
-        \mathcal{M}(u) :\equiv
+        \mathcal{M}(u) :=
       \left (
       \begin{matrix}
         b_1 \\ \vdots \\ b_m
@@ -183,9 +184,6 @@
     \begin{equation}
       \dim \myrange T = $ column rank of $ \mmatrix (T)
     \end{equation}
-  \begin{mydef-non}
-  $\mathcal{M}(T, (\onetilln{v})) :\equiv \mathcal{M}(T, (\onetilln{v}),(\onetilln{v}))$
-\end{mydef-non}
   \end{thm}
 
   \subsection{Change of basis}

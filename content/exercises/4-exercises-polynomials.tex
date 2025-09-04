@@ -1,3 +1,52 @@
 \section*{Exercises about Polynomials}
 
+\exercise{4}
+\begin{xrcs}
+  Suppose $m$ is a positive integer. Is the set
+  \begin{equation}
+    \{0\} \cup \{ p \in \polyn (\myF) : \deg p = m \} = S
+  \end{equation}
+
+  a subspace of $\polyn (\myF)$?
+
+  \begin{xsol}
+    The set in question is not a subspace of $\polyn (\myF)$, because it is not closed under addition. Take $m = 4$, then $p = 1  + 2 x^2 + 3 x^3 + 4 x^4$ and $s = 4 x^4$ are both in $S$, but $p - s$ is not.
+  \end{xsol}
+\end{xrcs}
+
+\exercise{5}
+\begin{xrcs}
+  Is the set
+  \begin{equation}
+    \{0\} \cup \{ p \in \polyn (\myF) : \deg p \text{ is even} \} = S
+  \end{equation}
+
+  a subspace of $\polyn (\myF)$?
+
+  \begin{xsol}
+    The same counter-example as in the previous question applies to this one.
+  \end{xsol}
+\end{xrcs}
+
 \exercise{6}
+\begin{xrcs}
+  Suppose that $m$ and $n$ are positive integers with $m \neq n$, and suppose $\lambda_1, \ddd, \lambda_m \in \myF$. Prove that there exists a polynomial $p \in \polyn(\myF)$ with $\deg p = m$ such that $0 = p(\lambda_1) = \cdots = p(\lambda_m)$ and such that $p$ has no other zeros.
+
+  \begin{xprf}
+    Define $p \in \polyn_n (\myF)$ by
+    \begin{equation}
+      \begin{aligned}
+        p (z)
+          &= (z-\lambda_1) (z-\lambda_2) \cdots (z-\lambda_{m-1}) \underbrace{(z-\lambda_m)(z-\lambda_m)\cdot(z-\lambda_m)}_{n-m+1 \text{ times}} \\
+          &= \left(\sum_{k = 1}^{m-1} (z-\lambda_k) \right) (z-\lambda_m)^{n-m+1}.
+      \end{aligned} \qquad \forall z \in \myF
+    \end{equation}
+  \end{xprf}
+
+  If $p$ would have another root than $\lambda_1, \ddd, \lambda_m \in \myF$, say $\lambda_{\text{fresh}}$, we could write $p$ as
+  \begin{equation}
+    p(z) = (z- \lambda_{\text{fresh}}) q(z) \quad \forall z \in \myF,
+  \end{equation}
+
+  where $q \in \polyn_{n-1} (\myF)$ would have one $(z-\lambda_j)$-term less than $p$. But this is impossible and contradicts the allready exising structure of $p$. Hence, $p$ has no other zeros.
+\end{xrcs}

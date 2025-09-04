@@ -24,9 +24,9 @@
 \setcounter{thm}{109}
 %\textbf{3.110}
 \begin{thm}
-  The dual space of $V$, denoted by $\dual{V}$ or $V^{*}$, is the vector space of all linear functionals on $V$.
+  The dual space of $V$, denoted by $\dual{V}$ or $V^{*}$, is the vector space of all linear functionals on $V$, i.e.
   \begin{equation}
-    \dual{V} :\equiv \linmap(V, \myF)
+    \dual{V} := \linmap(V, \myF).
   \end{equation}
 \end{thm}
 
@@ -89,14 +89,12 @@
 %\textbf{3.118}
 \setcounter{thm}{117}
 \begin{mydef}[dual map, $\dual{T}$]
-  The \qt{dual map} $\dual{T}$ of $T \in \linmap(V,W)$ is the linear map $\dual{T} \in \lin{W'}{V'}$ defined like this:
+  The \qt{dual map} $\dual{T}$ of $T \in \lin{V}{W}$ is the linear map $\dual{T} \in \lin{W'}{V'} = \lin{\lin{W}{\myF}}{\lin{V}{\myF}}$ defined as follows.
 \begin{equation}
-    \dual{T}(\varphi) :\equiv \varphi \circ T \quad \forall \phi \in \dual{W}.
+    \dual{T}(\varphi) := \varphi \circ T \quad \text{ for every } \phi \in \dual{W}=\lin{W}{\myF}.
 \end{equation}
 
-    So we have for a $\varphi \in \dual{W}=\lin{W}{\mathbb{F}}$ that $T'(\varphi) \in V' = \lin{V}{\mathbb{F}}$. So $\dual{T} \in \linmap(V,W)$ is indeed a map from $W'$ to $V'$
-
-    Dual maps are indeed linear maps.
+    Therefore, we have that $\dual{T}(\varphi) \in \dual{V} = \lin{V}{\myF}$. Hence, $\dual{T} \in \lin{\dual{W}}{\dual{V}}$ is indeed a map from $\dual{W}$ to $\dual{V}$, since
 \begin{itemize}
       \item $\varphi, \psi \in \dual{W} \implies T' (\varphi + \psi) = (\varphi + \psi) \circ T = \varphi \circ T + \psi \circ T = T' (\varphi) + T'(\psi)$
     \item $\lambda \in \mathbb{F}, \varphi \in W' \implies T' (\lambda \varphi) = (\lambda \varphi) \circ T = \lambda (\varphi \circ T) = \lambda T' (\varphi)$

@@ -324,7 +324,7 @@
 
 % use \linmap for L or \lin{arg1}{arg2} for L(arg1, arg2)
 \newcommand{\linmap}{\mathcal{L}}
-\newcommand{\lin}[2]{{\mathcal{L}(#1, #2)}}
+\newcommand{\lin}[2]{{\mathcal{L}\left (#1, #2\right )}}
 
 % null and range
 \newcommand{\mynull}{\operatorname{null}}
@@ -338,7 +338,9 @@
 \newcommand{\odd}{\operatorname{odd}}
 
 % dual space
-\newcommand{\dual}[1]{\displaystyle#1\mathlarger{'}}
+%\newcommand{\dual}[1]{\displaystyle#1\mathlarger{'}}
+\newcommand{\dual}[1]{\displaystyle #1'}
+
 
 % legacy
 
@@ -402,17 +404,17 @@ drop lifted shadow,
 %\renewcommand{\thesubsubsection}{\thesubsection\Alph{subsubsection}} % e.g. 2B1, 2B2
 
 \titleformat{\chapter}[block]
-{\bfseries\scshape}{\underline{\relscale{1.2}#1 {\footnotesize (Chapter \thechapter)}}}{0em}{\large}
+{\bfseries\scshape}{\underline{\relscale{1.5}#1 {\footnotesize (Chapter \thechapter)}}}{0em}{\large}
 
-\titleformat{\section}{\relscale{1.1}\bfseries\scshape}{}{0em}{\underline{#1 {\footnotesize(Section  \thesection)}}}[]
+\titleformat{\section}{\relscale{1.4}\bfseries\scshape}{}{0em}{\underline{#1 {\footnotesize(Section  \thesection)}}}[]
 
 \titleformat{name=\section,numberless}
 [runin] % shape
-{\relscale{1.1}\bfseries\scshape} % format
+{\relscale{1.3}\bfseries\scshape} % format
 {} % label
 {0em} % sep
 {} % before-code
 [\underline{#1 \thesection}] % after-code
 
-\titleformat{\subsection}{\relscale{1.1}\bfseries\scshape}{}{0em}{\underline{#1 {\footnotesize (Sub-Section \thesubsection)}}} %large
+\titleformat{\subsection}{\relscale{1.3}\bfseries\scshape}{}{0em}{\underline{#1 {\footnotesize (Sub-Section \thesubsection)}}} %large
 % END custom chapter format ********************************

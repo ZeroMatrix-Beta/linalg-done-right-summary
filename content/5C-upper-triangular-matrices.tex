@@ -2,16 +2,18 @@
 
 \setcounter{thm}{38}
 \begin{thm} [conditions for upper-triangular matrix]
-  \label{conditions for upper-triangular matrix}
+  \label{thm: conditions for upper-triangular matrix}
   If $T \in \linmap (V)$ and $v_1, \dots, v_n$ is a basis of $V$, then the following are equivalent.
   \begin{enumerate}[label=\textbf{(\alph*)}]
     \item The matrix $\mmatrix(T)$ of $T$ with respect to $v_1, \dots, v_n$ is upper triangular.
-    \item $\myspan{v_1, \dots, v_k}$ is invariant under $T$. $\quad \forall k \in \{ 1, \dots, n\}$
-    \item $T v_k \in \myspan{v_1, \dots, v_k}. \quad \forall k \in \{1, \dots, n\}$
+    \item $\myspan{v_1, \dots, v_k}$ is invariant under $T$ for every $k =  1, \dots, n$.
+    \item $T v_k \in \myspan{v_1, \dots, v_k}$ for every $k =1, \dots, n.$
   \end{enumerate}
 \end{thm}
 \begin{prf}
-  First, suppose (a) holds. So like in \ref{def: matrix of a linear map}, the matrix of $T$ looks like this:
+  We prove (a) $\implies$ (b) $\implies$ (c) $\implies$ (a).
+
+  \StepOne Suppose (a) holds and $j, k \in \{1, \ddd, n \}$ with $j \leq k$.  The matrix of $T$ looks like this:
 
   \begin{minipage}{\linewidth}
   \begin{equation}
@@ -20,8 +22,8 @@
     & v_1     & \cdots & v_j      & \cdots & v_n     \\
     \begin{block}{c(ccccc)}
       v_1    & A_{1,1} & \cdots & A_{1,j}  & \cdots & A_{1,n} \\
-      \vdots &         & \ddots & \vdots   &   *    & \vdots  \\
-      v_j &         &        & A_{j,j}  &   *    & \vdots  \\
+      \vdots &         & \ddots & \vdots   & \ddots & \vdots  \\
+      v_j    &         &        & A_{j,j}  & \cdots & A_{j,n}  \\
       \vdots &         &        &          & \ddots & \vdots  \\
       v_n    &         &        &          &        & A_{n,n} \\
     \end{block}
@@ -29,43 +31,43 @@
   \end{equation}
   \end{minipage}
 
-  \StepOne Using a modified version of the equation in \ref{def: matrix of a linear map}, we have for $j\in \{1, \ddd, n \}$:
+  By definition of the matrix entries (\ref{def: matrix of a linear map}), we have that
   \begin{equation}
-    T v_j = A_{1,j} v_j + \cdots + A_{j,j} v_j = \sum_{l=1}^{j} A_{l,j} v_j.
+    T v_j = A_{1,j} v_1 + A_{2,j} v_2 + \cdots + A_{j,j} v_j = \sum_{\ell=1}^{j} A_{\ell,j} v_\ell.
   \end{equation}
 
-  This implies
+  Hence, the upper-triangular structure of $\mmatrix(T)$  implies
   \begin{equation}
-    T v_j \in \myspan{v_1, \ddd, v_j} \quad \forall j\in \{1, \ddd, n \}
+    T v_j \in \myspan{v_1, \ddd, v_j}.
   \end{equation}
 
-  Now suppose $j, k \in \{1, \ddd, n \}$ such that $j \leq  k.$ Because
+  Because
   \begin{equation}
     \myspan{v_1, \ddd, v_j} \subseteq \myspan{v_1, \ddd, v_k},
   \end{equation}
 
-  we see that
+  it's immediate that
   \begin{equation}
-    T v_j \in \myspan{v_1, \ddd, v_k} \quad \mytext{(for each} j \in \{1, \ddd, k\}).
+    T v_j \in \myspan{v_1, \ddd, v_k}.
   \end{equation}
 
-  Thus, $\myspan{v_1, \ddd, v_k}$ is invariant under $T$, completing the proof that (a) implies (b)
+  Since we had $j \in \{1, \ddd, k\}$ and so $v_j$ could be any basis vector in the list $v_1, \ddd, v_k$, $\myspan{v_1, \ddd, v_k}$ is invariant under $T$, completing the proof that (a) implies (b).
 
-  \StepTwo Now suppose (b) holds. Hence, we assume $\myspan{v_1, \ddd, v_k}$ is invariant under $T$ for each $k \in \{1, \ddd, n\}$. In particular
+  \StepTwo Now, suppose (b) holds. Hence, we assume $\myspan{v_1, \ddd, v_k}$ is invariant under $T$ for each $k \in \{1, \ddd, n\}$. In particular
   \begin{equation}
     T v_k \in \myspan{v_1, \ldots, v_k} \quad \forall k \in \{1 \ldots n\}.
   \end{equation}
 
-  Thus (b) implies (c).
+  Thus, (b) implies (c).
 
-  \StepThree Now suppose (c) holds. Therefore, $T v_k \in \myspan{v_1, \ldots, v_k}$ for $k = 1, \ddd, n$. This implies that there exists $a_1, \dots, a_k \in \myF$, such that
+  \StepThree Finally, suppose (c) holds. Hence, $T v_k \in \myspan{v_1, \ldots, v_k}$ for $k = 1, \ddd, n$. This implies that there exist $a_k, \dots, a_n \in \myF$, such that
   \begin{equation}
     \label{eq: equation for T v_k}
-    T v_k = a_1 v_1 + \cdots + a_k v_k.
+    T v_k = a_1 v_1 + \cdots + a_k v_k = a_1 v_1 + \cdots + a_k v_k + 0 v_{k+1} + \cdots + 0 v_n.
   \end{equation}
 
-  Hence, all the entries under the diagonal of $\mmatrix (T)$ are $0$, because the list $v_1, \ldots, v_n$ is linearly independent and we can not choose another representation for $T v_k$ in respect to that list as in \eqref{eq: equation for T v_k}. Thus, $\mmatrix(T)$ is an upper-triangular matrix, completing the proof that (c) implies (a).
-  Afterall, we have shown that (a) $\implies$ (b) $\implies$ (c) $\implies$ (a)
+  Hence, all the entries below the diagonal of $\mmatrix (T)$ are $0$, because the list $v_1, \ldots, v_n$ is linearly independent and we cannot choose another representation for $T v_k$ in respect to that list. Thus, $\mmatrix(T)$ is an upper-triangular matrix, completing the proof that (c) implies (a).
+  After all, we have shown that (a) $\implies$ (b) $\implies$ (c) $\implies$ (a).
 \end{prf}
 
 \begin{thm}[equation satisfied by operator with upper-triangular matrix]
@@ -200,8 +202,8 @@
   \begin{equation}
     \mmatrix(T) =
     \begin{pmatrix}
-        \lambda_1 &         &  * \\
-                  &  \ddots &    \\
+        \lambda_1 &  \cdots       &  * \\
+                  &  \ddots & \vdots   \\
            0      &         & \lambda_n
     \end{pmatrix}
   \end{equation}
@@ -225,7 +227,7 @@
   \begin{equation}
     \exists v \in \myspan{v_1, \ldots, v_n}: v\neq0$ and $(T-\lambda_k I)v=0.
   \end{equation}
-  Thus $\lambda_k$ is an eigenvalue of $T$ with eigenvector $v$. Hence we have shown that every entry of the diagonal of $\mmatrix(T)$ is an eigenvalue of $T$.
+  Thus, $\lambda_k$ is an eigenvalue of $T$ with eigenvector $v$. Hence we have shown that every entry of the diagonal of $\mmatrix(T)$ is an eigenvalue of $T$.
 
   To prove $T$ has no other eigenvalues, let
   \begin{equation}
@@ -248,23 +250,28 @@
 
 \end{thm}
 \begin{prf}
-  \Rightarrowdirection Suppose $T \in \linmap(V)$ has an upper-triangular matrix with respect to some basis of $V$. Let $\alpha_1, \ddd, \alpha_n$ denote the diagonal entries of that matrix.
+  \Rightarrowdirection Suppose $T \in \linmap(V)$ has an upper-triangular matrix with respect to some basis of $V$. Let $\alpha_1, \ddd, \alpha_n$ denote the diagonal entries of that matrix. I.e.,
   \begin{equation}
   \mmatrix(T) =
   \left( {\begin{array}{ccc}
-      \alpha_1 &         &  \mathlarger{*} \\
-      &  \ddots &    \\
+      \alpha_1 &     \cdots     &  \mathlarger{*} \\
+      &  \ddots & \vdots   \\
       0      &         & \alpha_n
-  \end{array} } \right)
+  \end{array} } \right).
   \end{equation}
 
-  Let $q\in \polyn(\myF)$, \st
+  Let $q\in \polyn(\myF)$ \st
   \begin{equation}
     q(z) := (z-\alpha_1) \cdots (z-\alpha_n).
   \end{equation}
 
-  Then $q(T) = 0$, by \ref{thm: equation satisfied by operator with upper triangular matrix}. $\implies$ $q$ is a polynomial multiple of the minimal polynomial of $T$. \\
-  $\implies$ the minimal polynomial of $T$ equals $(z-\lambda_1) \cdots (z-\lambda_m)$ for some $\lambda_1, \ddd, \lambda_m \in \myF$ with
+  Then $q(T) = 0$, by \ref{thm: equation satisfied by operator with upper triangular matrix}. Hence, $q$ is a polynomial multiple of the minimal polynomial of $T$, by \ref{thm: every zero polynomial is a multiple of the minimal polynomial}.
+  Therefore, the minimal polynomial $p$ of $T$ equals
+  \begin{equation}
+    p(z) = (z-\lambda_1) \cdots (z-\lambda_m) \quad \forall z \in \myF, \quad (\lambda_1, \ddd, \lambda_m \in \myF)
+  \end{equation}
+
+  and we have
   \begin{equation}
     \{ \lambda_1 , \ddd, \lambda_m \} \subseteq \{\alpha_1, \ddd, \alpha_n \}.
   \end{equation}
@@ -272,16 +279,16 @@
   \Leftarrowdirection Let $p \in \polyn(\myF)$ be the minimal polynomial of $T$ \st
   \begin{equation}
     \label{eq: definition of the minimal polynomial}
-    p(z) := (z-\lambda_1) \cdots (z-\lambda_m) \mytext{for some} \lambda_1, \ddd, \lambda_m \in \myF.
+    p(z) = (z-\lambda_1) \cdots (z-\lambda_m) \quad \forall z \in \myF, \quad (\lambda_1, \ddd, \lambda_m \in \myF)
   \end{equation}
 
-  If $m=1$, then $z-\lambda_1$ is the minimal polynomial of $T$. $\implies$ $T=\lambda_1I$, which implies that the matrix of $T$ is the identity matrix times a scalar.
+  If $m=1$, then $z-\lambda_1$ is the minimal polynomial of $T$. Thus, $T=\lambda_1I$, which implies that the matrix of $T$ is the identity matrix times a scalar.
   \begin{equation}
-    \mmatrix(T) = \lambda_1 I_{\dim V}
+    \mmatrix(T) = \lambda_1 [I_{\dim V}]
   \end{equation}
 
-  So $\mmatrix(T)$ is upper triangular. Therefore we are ready to use induction over $m$.
-  Now suppose $m > 1$ and the result holds for all smaller integers / polynomials. Let
+  Thus, $\mmatrix(T)$ is upper triangular. Therefore we are ready to use induction over $m$.
+  Now, suppose $m > 1$ and the result holds for all smaller integers / polynomials. Let
   \begin{equation}
     \label{eq: definition of U}
     U := \myrange(T - \lambda_m I)

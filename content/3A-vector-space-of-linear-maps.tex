@@ -80,8 +80,8 @@
   Suppose $S, T \in \lvw$ and $\lambda \in \mathbb{F}.$ \\
   The sum $S+T \in \linmap (V,W)$ and the product $\lambda T \in \linmap (V,W)$ are defined by:
   \begin{itemize}
-    \item $(S+T)(v) :\equiv Sv+Tv \quad \forall v \in V$
-    \item $(\lambda T)(v) : \equiv \lambda (Tv) \quad \forall v \in V$
+    \item $(S+T)(v) := Sv+Tv \quad \forall v \in V$
+    \item $(\lambda T)(v) : = \lambda (Tv) \quad \forall v \in V$
   \end{itemize}
 \end{mydef}
 
@@ -95,15 +95,17 @@
 % 3.7
 \setcounter{thm}{6}
 \begin{mydef}
-  Let $T \in \lin{U}{V}$ and $S \in \lin{V}{W}$. We define the \qt{product} $ST \in \lin{U}{W}$ as follows:
+  If $T \in \lin{U}{V}$ and $S \in \lin{V}{W}$, then the \qt{product} $ST \in \lin{U}{W}$ is defined by
   \begin{itemize}
-    \item[] $(ST)(u) :\equiv S(Tu) \quad \forall u \in U$
+    \item[] $(ST)(u) := S(Tu) \quad \forall u \in U$.
   \end{itemize}
-  Thus $ST$ is just the usual composition  $S \circ T$ of two functions. But with linear functions, we have distributive and associative properties.
+
+  Thus, $ST$ is just the usual composition  $S \circ T$ of two functions. But with linear maps, we have distributive and associative properties (see next result), so the notations seems natural.
 \end{mydef}
 
 % 3.8
 \begin{thm} [algebraic properties of products of linear maps]
+  \label{thm: algebraic properties of products of linear maps}
   With these definitions we have
   \begin{itemize}
     \item \bfemph{associativity:} $(T_1 T_2) T_3 = T_1 (T_2 T_3)$, whenever $T_3$ maps into the domain of $T_2$ and $T_2$ maps into the Domain of $T_1$.
