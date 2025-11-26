@@ -382,8 +382,10 @@ are the coefficients of the minimal polynomial of $T$.
     \item The zeros of the minimal polynomial of $T$ are the eigenvalues of $T$.
     \item If $V$ is a complex vector space, the minimal polynomial has the form
     \begin{equation}
-      (z-\lambda_1)\cdots(z-\lambda_m), \mytext{where} \lambda_1, \dots, \lambda_m
-    \end{equation} are the eigenvalues of $T$, possibly with repetitions ($\lambda_i = \lambda_j, i \neq j$).
+      (z-\lambda_1)\cdots(z-\lambda_m),
+    \end{equation}
+
+    where $\lambda_1, \dots, \lambda_m$ are the eigenvalues of $T$, possibly with repetitions (may be $\lambda_i = \lambda_j$ for $i \neq j$).
   \end{enumerate}
 \end{thm}
 \begin{prf} Let $p$ be the minimal polynomial of $T$.
@@ -425,10 +427,9 @@ are the coefficients of the minimal polynomial of $T$.
 \setcounter{thm}{28}
 \begin{thm}[every \qt{zero-polynomial} is a multiple of the minimal polynomial]
   \label{thm: every zero polynomial is a multiple of the minimal polynomial}
-  Let $T\in \linmap(V)$ and $q \in \mathcal{P} (\myF)$. Then
-  \begin{equation}
-    q(T)=0 \iff q \mytext{is a multiple of the minimal polynomial of} T.
-  \end{equation}
+  Let $T\in \linmap(V)$ and $q \in \mathcal{P} (\myF)$. Then $q(T)=0$ $\iff$ $q$ is a multiple of the minimal polynomial of $T$.
+
+  Or equivalently: The minimal polynomial of $T$ devides every polynomial $q$ for which $q(T) = 0$ (sometimes written as $m_T \mid q$).
 \end{thm}
 \begin{prf}
   Let $p$ denote the minimal polynomial of $T$.

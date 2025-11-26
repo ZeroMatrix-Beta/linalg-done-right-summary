@@ -31,12 +31,16 @@
 \end{thm}
 
 %\textbf{3.111}
-\begin{thm}
+\begin{thm} [$dim \dual{V} = dim V$]
   \label{thm: dim V' = dim V}
-  $\dim \dual{V} = \dim V$.
+  Suppose $V$ is finite-dimensional. Then $\dual{V'}$ is also finite-dimensional and
+  \begin{equation}
+    \dim \dual{V} = \dim V.
+  \end{equation}
 \end{thm}
 \begin{prf}
-  $\dim \dual{V} = \dim \mathcal{L}(V, \mathbb{F})=(\dim V) \cdot (\dim \mathbb{F}) = \dim V $
+  By \ref{thm: dimension of L(V,W) = dim L (V) * dim W (W)}, we have
+  $\dim \dual{V} = \dim \mathcal{L}(V, \myF)=(\dim V) \cdot (\dim \myF) = \dim V.$
 \end{prf}
 
 
@@ -94,7 +98,7 @@
     \dual{T}(\varphi) := \varphi \circ T \quad \text{ for every } \phi \in \dual{W}=\lin{W}{\myF}.
 \end{equation}
 
-    Therefore, we have that $\dual{T}(\varphi) \in \dual{V} = \lin{V}{\myF}$. Hence, $\dual{T} \in \lin{\dual{W}}{\dual{V}}$ is indeed a map from $\dual{W}$ to $\dual{V}$, since
+    Therefore, we have that $\dual{T}(\varphi) \in \dual{V} = \lin{V}{\myF}$. Hence, $\dual{T} \in \lin{\dual{W}}{\dual{V}}$ is indeed a linear map from $\dual{W}$ to $\dual{V}$, since
 \begin{itemize}
       \item $\varphi, \psi \in \dual{W} \implies T' (\varphi + \psi) = (\varphi + \psi) \circ T = \varphi \circ T + \psi \circ T = T' (\varphi) + T'(\psi)$
     \item $\lambda \in \mathbb{F}, \varphi \in W' \implies T' (\lambda \varphi) = (\lambda \varphi) \circ T = \lambda (\varphi \circ T) = \lambda T' (\varphi)$

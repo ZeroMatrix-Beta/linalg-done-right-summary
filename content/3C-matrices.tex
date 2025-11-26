@@ -52,6 +52,10 @@
   \label{thm: the dimension of the vector space of all m by n matrices is mn}
   $\myF^{m,n}$ is a vector space with $\dim \myF^{m,n}=mn$.
 \end{thm}
+\begin{prf}
+  It is easy to verify that $\myF^{m,n}$ is a vector space. The list of length $mn$ that consists of distinct $m$-by-$n$ matrices that have $0$ in all entries exept a $1$ in one entry is a basis of $\myF^{m,n}$. Hence,
+  $\dim \myF^{m,n}=mn$.
+\end{prf}
 
 
 \subsection{Matrix Multiplication}
@@ -135,16 +139,17 @@ For $1 \leq k \leq p$, we have
     (AB)_{j,k} :\equiv \sum_{r=1}^{n} A_{j,r} B_{r,k}.
   \end{equation} %for $A\in \myF^{m,n}$, $B\in \myF^{n,p}$, $AB \in \myF^{m,p}$
 
-  \begin{minipage}{\linewidth}
+
     The octave code for calculating the entry $j,k$ of the result of $A, B$ with the \qt{sum-scheme} like above looks as follows
 
     \octave{standard_matrix_mult.m}
-  \end{minipage}
+
 \end{mydef}
 
 % 3.43
 \setcounter{thm}{42}
 \begin{thm}[matrix of product of linear maps]
+  \label{thm: matrix of product of linear maps1}
   If $T \in \linmap(U,V)$ and $S\in \linmap(V,W)$, then
   \begin{equation}
     \mmatrix(ST) = \mmatrix(S) \mmatrix(T).
@@ -169,11 +174,11 @@ For $1 \leq k \leq p$, we have
     (AB)_{j,k} = A_{j, \mathsmaller{\bullet}} B_{\mathsmaller{\bullet}, k}
   \end{equation}
 
-  \begin{minipage}{\linewidth}
+
     The octave code for multiplying rows and columns directly at entry $j,k$ looks as follows
 
     \octave{row_times_column_matrix_mult.m}
-  \end{minipage}
+
 \end{thm}
 
 % 3.48

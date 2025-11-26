@@ -90,6 +90,8 @@
     \end{equation}
 
     we have found and eigenvector $\psi$ with the same eigenvalue $\lambda$.
+
+    Or: $\lambda$ is eigenvalue of $T$ $\iff$ $T-\lambda I$ is not injective $\iff$ $\dual{(T-\lambda I)}$ is not surjective $\iff$ $\dual{T} - \lambda I$ is not invertible $\iff$ $\lambda$ is an eigenvalue of $\dual{T}$.
   \end{xsol}
 \end{xrcs}
 
@@ -214,19 +216,21 @@
         \Leftarrowdirection Assume $T^m$ is injective for some fixed $m \geq 1$. If $m=1$ we are done. If $m>1$, take $v_1, v_2 \in V$ with $T(v_1) = T(v_2)$. Apply $T^{m-1}$ to both sides to get $T^{m-1} (T(v_1)) = T^{m-1} (T(v_2))$. Injectivity of $T^{m}$ forces $v_1 = v_2$. Thus, $T$ is injective.
       }
       \item{
-        \Rightarrowdirection Suppose $T$ is surjective. For $m=1$ the statement is trivial. Fix $m \geq 1$ and suppose as induction hypothesis that $T^m$ is surjective. Let $y\in V$ be arbitrary. Since $T$ is surjective there exists $z\in V$ with $T(z)=y$. By the induction hypothesis, there exists $v\in V$ with $T^m(v)=z$. Thus,
+        \Rightarrowdirection Suppose $T$ is surjective. For $m=1$ the statement is trivial. Fix $m \geq 1$ and assume that $T^m$ is surjective. Let $y\in V$ be arbitrary. Since $T$ is surjective, there exists $z\in V$ with $T(z)=y$. By the induction hypothesis, there exists $v\in V$ with $T^m(v)=z$. Thus,
         \begin{equation}
           T^{m+1}(v)=T(T^m(v))=T(z)=y.
         \end{equation}
 
-        Hence, $T^{m+1}$ is surjective. (Equivalently: a finite composition of surjective maps is surjective.)
+        Hence, $T^{m+1}$ is surjective.
 
-        \Leftarrowdirection Assume $T^m$ is surjective for some fixed $m\ge 1$. Let $y\in V$ be arbitrary. Choose $v\in V$ with $T^m(v)=y$ (possible since $T^m$ is surjective). Put $x:=T^{m-1}(v)$. Then
+        (Or: A finite composition of surjective maps (not necessarely linear) is surjective.)
+
+        \Leftarrowdirection Assume $T^m$ is surjective for some fixed $m\ge 1$. Let $y\in V$ be arbitrary. Choose $v\in V$ with $T^m(v)=y$ (always possible, since $T^m$ is surjective). Put $x:=T^{m-1}(v)$. Then
         \begin{equation}
-          y=T(x)=T(T^{m-1}(v))=T^m(v),
+          y=T(x)=T(T^{m-1}(v))=T^m(v).
         \end{equation}
 
-        so, $T$ is surjective.
+        Hence, $T$ is surjective.
       }
     \end{enumerate}
   \end{xprf}
@@ -234,7 +238,7 @@
 
 \exercise{40}
 \begin{xrcs}
-  Suppose $S,T \in \linmap (V), $ and $S$ is invertible. Suppose $p \in \polyn(\myF)$ is a polynomial. Prove that
+  Suppose $S,T \in \linmap (V)$, and $S$ is invertible. Suppose $p \in \polyn(\myF)$ is a polynomial. Prove that
   \begin{equation}
     p(STS^{-1}) = S p(T) S ^{-1}.
   \end{equation}

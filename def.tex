@@ -54,7 +54,7 @@
 
 % spacing inside and after math equations:
 \setlength{\abovedisplayskip}{0.1em}
-\setlength{\belowdisplayskip}{0em}
+\setlength{\belowdisplayskip}{0.2em}
 \setlength{\abovedisplayshortskip}{0pt}
 \setlength{\belowdisplayshortskip}{0pt}
 \setlength{\jot}{0pt}
@@ -238,6 +238,9 @@
 % quotes
 \newcommand\qt[1]{\textit{``#1''}}
 
+% set
+\newcommand\set[1]{ \left\{ \, #1 \,\right\}}
+
 \newcommand{\ip}[2]{\left \langle #1 \, {\displaystyle\mathlarger,} \, #2 \right \rangle}
 \newcommand{\innp}[2]{\left \langle #1, #2 \right \rangle}
 \newcommand{\norm}[1]{\left \lVert #1 \right \rVert}
@@ -273,6 +276,7 @@
 
 % Matrix symbol M:
 \newcommand{\mmatrix}{\mathcal{M}}
+\newcommand{\m}[1]{\mathcal{M} \left(#1\right)}
 
 % use \span{..} for span(..)
 \newcommand{\myspan}[1]{\operatorname{span} (#1)}
@@ -324,6 +328,7 @@
 
 % use \linmap for L or \lin{arg1}{arg2} for L(arg1, arg2)
 \newcommand{\linmap}{\mathcal{L}}
+\newcommand{\op}{\mathcal{L}}
 \newcommand{\lin}[2]{{\mathcal{L}\left (#1, #2\right )}}
 
 % null and range

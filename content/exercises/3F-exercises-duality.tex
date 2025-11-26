@@ -390,11 +390,11 @@
 
     for that $ \dual{\left(T^{-1} \right) } \dual{T} = I_{W'}$. Hence, $\dual{T}$ is invertible with $\dual{\left(T^{-1} \right) } = \left(\dual{T} \right)^{-1}$.
 
-    \Leftarrowdirection If $\dual{T}$ is invertible, then it is surjective (see \ref{thm: injectivity is equivalent to surjectivity}). Take any nonzero $v \in V$ and $\varphi \in \dual{V}$ with $\varphi (v^) \neq 0$. Surjectivity of $\dual{T}$ yields $\psi \in \dual{W}$ with $\dual{T} (\psi) = \varphi$, or $\varphi = \psi \circ T$. Therefore,
+    \Leftarrowdirection If $\dual{T}$ is invertible, then it is surjective (and also injective) by \ref{thm: injectivity is equivalent to surjectivity}. Take any nonzero $v \in V$ and $\varphi \in \dual{V}$ with $\varphi (v) \neq 0$. Surjectivity of $\dual{T}$ yields a $\psi \in \dual{W}$ with $\dual{T} (\psi) = \varphi$, or $\varphi = \psi \circ T$. Therefore,
     \begin{equation}
       0 \neq \varphi(v) = \psi(Tv) = (\psi \circ T) (v).
     \end{equation}
 
-    This implies that $Tv \neq 0$, and thus, $\mynull T = \{ 0\}$ (since $v$ was arbitrary and nonzero). This forces $T$ to be injective. Because $\dual{T}$ is invertible, we have $\mydim \dual{W} = \mydim \dual{V}$, and hence, $\mydim W = \mydim V$. An injective linear map between finite-dimensional vector spaces of the same dimension is surjective, so $T$ is bijectiive, and therefore, invertible.
+    This implies that $Tv \neq 0$, and thus, $\mynull T = \{ 0\}$ (since $v$ was arbitrary and nonzero). This forces $T$ to be injective. Because $\dual{T}$ is invertible, we have $\mydim \dual{W} = \mydim \dual{V}$, and hence, $\mydim W = \mydim V$ (see \ref{thm: dim V' = dim V}). An injective linear map between finite-dimensional vector spaces of the same dimension is surjective, so $T$ is bijectiive, and therefore, invertible.
   \end{xprf}
 \end{xrcs}

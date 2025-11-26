@@ -42,7 +42,7 @@
 \end{thm}
 \begin{prf}
   Let $\lambda_1, \ddd, \lambda_m$ be distinct eigenvalues. Suppose $v_1 + \cdots + v_m = 0$, where each $v_k \in E(\lambda_k, T)$ for $k = 1, \ddd, m $. This means $\forall k \in \{ 1, \ddd, m\}: v_k = 0$, because eigenvectors corresponding to distinct eigenvalues are linearly independent by \ref{thm: linearly independent eigenvectors}. Thus, $E(\lambda_1, T) + \cdots + E(\lambda_m, T)$ is a direct sum by \ref{thm: condition for a direct sum}.
-  By \ref{thm: a sum is a direct sum if and only if the dimensions add up}, the dimensions of a direct sum add up, and by \ref{thm: dimension of a subspace}, the dimension of a subspace is always $\leq$ to the space itself, if it is \fd. Therefore,
+  By \ref{thm: a sum is a direct sum if and only if the dimensions add up}, the dimensions of a direct sum add up, and by \ref{thm: dimension of a subspace}, the dimension of a subspace is always $\leq$ to the space itself (if it is \fd). Therefore,
   \begin{equation}
     \dim \left( \underbrace{E(\lambda_1, T)  \oplus \cdots \oplus E(\lambda_m, T)}_{\text{subpace of $V$}} \right)
     =  \dim E(\lambda_1, T) + \cdots + \dim E(\lambda_m, T) \leq \dim V
@@ -62,7 +62,7 @@
     \item $\dim V = \dim E(\lambda_1, T) + \cdots + \dim E(\lambda_m, T)$.
   \end{enumerate}
 \end{thm}
-\begin{prf} We prove (a) $\iff$ (b), (b) $\implies$ (c), $(c) \implies (d)$, and then $(d) \implies (b)$. Let $\lambda_1, \ddd, \lambda_m$ be distinct eigenvalues of $T \in \linmap (V)$ for the whole prove.
+\begin{prf} We prove (a) $\iff$ (b), (b) $\implies$ (c), (c) $\implies$ (d), and then (d) $\implies$ (b). Let $\lambda_1, \ddd, \lambda_m$ be distinct eigenvalues of $T \in \linmap (V)$ for the whole prove.
 
   \StepOne Suppose (a) holds. The matrix of $T$ looks like as follows.
   \begin{equation}
@@ -141,39 +141,43 @@
   \label{thm: necessary and sufficient condition for diagonalizability}
   Let $T\in \linmap (V)$, $\dim V \neq \infty$. Then $T$ is diagonalizable $\iff$ the minimal polynomial of $T$ equals
   \begin{equation}
-    (z-\lambda_1) \cdots (z-\lambda_m), \where \lambda_1, \dots, \lambda_m \in \myF \myand \lambda_i \neq  \lambda_j $ for $ i,j \in \{1, \ddd, m \}.
+    (z-\lambda_1) \cdots (z-\lambda_m),
   \end{equation}
+
+  where $\lambda_1, \dots, \lambda_m \in \myF \myand \lambda_i \neq  \lambda_j $ for $ i,j \in \{1, \ddd, m \}$.
 \end{thm}
 \begin{prf} For this proof, let $T\in \linmap (V)$ be finite-dimensional ($\dim V \neq \infty$).
 
-  \Rightarrowdirection Suppose $T$ is diagonalizable. Thus there is a basis $v_1, \ddd, v_n$ of $V$ consisting of eigenvalues of $T$.  Let $\lambda_1, \ddd, \lambda_m$ be said distinct eigenvalues of $T$. % TODO: ?
-  \begin{equation}
-    \implies \forall v_j \; \exists \lambda_k $ \st $ (T-\lambda_k I)v_j = 0.
-  \end{equation}
-
-  Thus
+  \Rightarrowdirection Suppose $T$ is diagonalizable. Thus, there exists a basis $v_1, \ddd, v_n$ of $V$ consisting of eigenvectors of $T$.  Let $\lambda_1, \ddd, \lambda_m$ be said distinct eigenvalues of $T$. Therefore, for every $v_j$ we have  $(T-\lambda_k I)v_j = 0.$
+  Thus,
   \begin{equation}
     (T-\lambda_1) \cdots (T-\lambda_m I)v_j =0,
   \end{equation}
 
-  which implies the minimal polynomial equals $(z-\lambda_1)\cdots(z-\lambda_m).$
+  which implies the minimal polynomial equals $(z-\lambda_1)\cdots(z-\lambda_m).$ (Why?)
 
   \Leftarrowdirection Suppose the minimal polynomial of $T$ equals $(z-\lambda_1) \cdots (z-\lambda_m)$ for some $\lambda_1, \ddd, \lambda_m \in  \myF$ with $\lambda_i \neq \lambda_j$.
-  $\implies$ $(T-\lambda_1 I) \cdots (T-\lambda_m I)=0.$ Hence, if we drop one factor we get
+  Write
   \begin{equation}
-    \label{eq: (t-l1 I)***(t-l_{m-1}I)=0}
-    (T-\lambda_1 I) \cdots (T-\lambda_{m-1} I)=0.
+    \label{eq: (t-l1 I)***(t-l_{m}I)=0}
+    (T-\lambda_1 I) \cdots (T-\lambda_{m-1} I) (T-\lambda_m I)=0.
   \end{equation}
+
+%  Hence, if we drop one factor $((T-\lambda_1 I) \cdots (T-\lambda_{m-1} I) \xcancel{(T-\lambda_m I)})$ we get
+%  \begin{equation}
+%
+%    (T-\lambda_1 I) \cdots (T-\lambda_{m-1} I)=0.
+%  \end{equation}
 
   Suppose $m=1$. Then $T-\lambda_1 I = 0$ $\iff$ $T=\lambda_1 I$, so $T$ is diagonalizable. This is our base case for induction over $m \in \nat$.
-  Now suppose $m>1$ and the desired result holds for all values smaller than $m$. Like in the proof of theorem \ref{thm: necessary and sufficient condition to have an upper-triangular-matrix}, we observe that $\myrange (T-\lambda_m I)$ is invariant under $T$ (using \ref{thm: null space and range of p(T) are invariant under T} with $p(z) := z-\lambda_m$). Now, let
+  Now, suppose $m>1$ that and the desired result holds for all values smaller than $m$. Like in the proof of theorem \ref{thm: necessary and sufficient condition to have an upper-triangular-matrix}, we observe that $\myrange (T-\lambda_m I)$ is invariant under any polynomial of $T$ (using \ref{thm: null space and range of p(T) are invariant under T} with $p(z) := z-\lambda_m$). Now, define
   \begin{equation}
     \label{eq: 2nd definition of U}
-    U := \myrange(T - \lambda_m I)
+    U := \myrange(T - \lambda_m I).
   \end{equation}
 
-  This means that $\left . T \right |_{U)} $ is an operator on $U$.
-  If $u \in \myrange (T-\lambda_m I)$, then $u = (T-\lambda_m I)v$ for some $v \in V$. Together with \eqref{eq: (t-l1 I)***(t-l_{m-1}I)=0}, we have that
+  This means that $\left . T \right |_{U} $ is an operator on $U$.
+  If $u \in \myrange (T-\lambda_m I)$, then $u = (T-\lambda_m I)v$ for some $v \in V$. Together with \eqref{eq: (t-l1 I)***(t-l_{m}I)=0}, we have that
   \begin{align}
     \label{eq: equation for u and v}
     (T-\lambda_1 I) \cdots (T- \lambda_{m-1} I)u
@@ -181,9 +185,14 @@
     &=0. % \mytext{(since $v$ consists of $v_j$'s)}
   \end{align}
 
-  Since $u \in U$ was arbitrary, we have that $q(z) := (z-\lambda_1)\cdots (z-\lambda_{m-1})$ is a polynomial \st $q(T)(u)=0 \quad \forall u \in U$. By \ref{thm: every zero polynomial is a multiple of the minimal polynomial}, $q(z)$ is a polynomial multiple of the minimal polynomial of $\left . T \right |_{U}$.
+  Since $u \in U$ was arbitrary, $q(z) := (z-\lambda_1)\cdots (z-\lambda_{m-1})$ is a polynomial \st $q(T)(u)=0 $ for every $ u \in U$. By \ref{thm: every zero polynomial is a multiple of the minimal polynomial}, $q(z)$ is a polynomial multiple of the minimal polynomial of $\left . T \right |_{U}$.
   By our induction hypothesis, there is a basis of $U$ consisting of eigenvectors of $\left . T \right |_U$ and therefore, as well as eigenvectors of $T$.
-  Suppose $x\in U \cap \mynull (T-\lambda_m I)$. Hence, $Tx = \lambda_m x$, because $Tx -\lambda Ix=0$. Equation \eqref{eq: equation for u and v} implies that
+  Suppose
+  \begin{equation}
+    x\in U \cap \mynull (T-\lambda_m I) = U \cap E(\lambda_m, T).
+  \end{equation}
+
+  Hence, $Tx = \lambda_m x$, because $Tx -\lambda_m Ix=(T-\lambda_m I)x = 0$. Since $x \in U$, equation \eqref{eq: equation for u and v} implies that
   \begin{equation}
     \begin{aligned}
       0 & = (T-\lambda_1 I) \cdots (T- \lambda_{m-1} I)x \\
@@ -197,27 +206,27 @@
     U \cap \mynull (T-\lambda_m I) = \{0\}.
   \end{equation}
 
-  Thus, $U + \mynull (T-\lambda_m I)$ is a direct sum by \ref{thm: sum and intersection of two subspaces}.
-  \[
+  Thus, $U + \mynull (T-\lambda_m I)$ is a direct sum by \ref{thm: sum and intersection of two subspaces}. That is,
+  \begin{equation}
     U + \mynull (T-\lambda_m I) = U \oplus \mynull (T-\lambda_m I)
-  \]
+  \end{equation}
 
   Since $(T-\lambda_m I) \in \linmap (V)$ we can use the Rank Nullity Theorem \ref{rank-nullity-theorem} to conclude that
   \begin{equation}
     \dim V = \dim U + \dim \mynull (T-\lambda_m I).
   \end{equation}
 
-  Theorem \ref{thm: a sum is a direct sum if and only if the dimensions add up} states that a sum is a direct sum $\iff$ the dimensions add up to the dimension of the sum. This means that we can rewrite the equation above to
+  \ref{thm: a sum is a direct sum if and only if the dimensions add up} states that a sum is a direct sum $\iff$ the dimensions add up to the dimension of the sum. This means that we can rewrite the equation above to
   \begin{equation}
     \dim V = \dim (U \oplus \mynull (T-\lambda_m I))
   \end{equation}
 
   According to \ref{thm: subspace of full dimension equals the whole space}, together with the fact that $U \oplus \mynull (T-\lambda_m I) \subseteq V$, this implies
   \begin{equation}
-    V=U \oplus \mynull (T-\lambda_m I)
+    V=U \oplus \mynull (T-\lambda_m I) = U \oplus E(\lambda_m, T).
   \end{equation}
 
-  Every vector in $\mynull (T-\lambda_m I)$ is an eigenvector of $T$ with eigenvalue $\lambda_m$. Earlier in this proof we saw that there is basis of $\myrange(T-\lambda_mI)$ consisting of eigenvectors $T$ using our induction hypothesis on this smaller subspace of $V$. Adjoining to that basis a basis of $\mynull(T-\lambda_mI)$ gives a basis of $V$ consisting of eigenvecors of $T$. The matrix $\mmatrix(T)$ of $T$ with respect to this basis is a diagonal matrix, as desired, using \ref{thm: conditions equivalent to diagonalizability}. According to that theorem, $V$ has a basis consisting of eigenvectors of $T \in \linmap(V)$ $\iff$ it is diagonalizable. As a side node, this theorem states that $V = E(\lambda_1, T) \oplus \cdots \oplus E(\lambda_m, T)$, which correlates with $V=U\oplus \mynull (T-\lambda_m I)$.
+  Every vector in $\mynull (T-\lambda_m I)$ is an eigenvector of $T$ with eigenvalue $\lambda_m$. Earlier in this proof we saw that there is basis of $U=\myrange(T-\lambda_mI)$ consisting of eigenvectors of $T$ (using our induction hypothesis on this smaller subspace of $V$). Adjoining to that basis a basis of $E(\lambda_m, T) = \mynull(T-\lambda_mI)$ gives a basis of $V$ consisting of eigenvecors of $T$. The matrix $\mmatrix(T)$ of $T$ with respect to this basis is a diagonal matrix, as desired, using \ref{thm: conditions equivalent to diagonalizability} (according to that theorem, $V$ has a basis consisting of eigenvectors of $T \in \linmap(V)$ $\iff$ it is diagonalizable). As a side node, this theorem states that $V = E(\lambda_1, T) \oplus \cdots \oplus E(\lambda_m, T)$, which correlates with $V=U\oplus \mynull (T-\lambda_m I)$.
 \end{prf}
 
 \setcounter{thm}{64}

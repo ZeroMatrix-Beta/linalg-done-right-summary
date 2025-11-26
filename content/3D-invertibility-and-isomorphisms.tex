@@ -40,7 +40,12 @@
     \label{thm: injectivity is equivalent to surjectivity}
     For $T\in \linmap(V,W)$, if $V$ and $W$ are finite-dimensional, injectivity is equivalent to surjectivity:
     \begin{equation}
-        T$ is invertible $\iff$ $T$ is injective $\iff$ $T$ is surjective.$
+      T$ is invertible $\iff$ $T$ is injective $\iff$ $T$ is surjective.$
+    \end{equation}
+
+    Equivalently:
+    \begin{equation}
+      T$ is not invertible $\iff$ $T$ is not injective $\iff$ $T$ is not surjective.$
     \end{equation}
   \end{thm}
   \begin{prf}
@@ -99,17 +104,25 @@
   %\textbf{3.70}
   \begin{thm}[dimension shows whether vector spaces are isomorphic]
     \label{thm: dimension shows whether vector spaces are isomorphic}
-    Two \fd vector spaces $U$, $V$ over $\mathbb{F}$ are isomorphic $\iff$ they have the same dimension.
-    \begin{equation}
-      \dim U = \dim V.
-    \end{equation}
+    Two \fd vector spaces $U$, $V$ over $\mathbb{F}$ are isomorphic $\iff$ they have the same dimension (i.e., $\dim U = \dim V$).
   \end{thm}
+  \begin{prf}
+    exercise
+
+    \Rightarrowdirection rank-nullity theorem
+
+    \Leftarrowdirection surjectivity and injectivity.
+  \end{prf}
+
 
   %\textbf{3.71}
   \begin{thm} [$\linmap (V,W)$ and $\myF^{m, n}$ are isomorphic]
     \label{thm: the space of linear maps and the space of all matrices are isomorphic}
     Suppose $\oneTillN{v}$ is a basis of $V$ and $\oneTillM{w}$ is a basis of $W$. Then $\mathcal{M}$ is an isomorphism between $\lvw$ and $\mathbb{F}^{m,n}$.
   \end{thm}
+  \begin{prf}
+    exercise (inectivity and surjectivity)
+  \end{prf}
 
   %\textbf{3.72}
   \begin{thm} [$\dim \lvw = (\dim V)\cdot(\dim W)$]
@@ -120,7 +133,15 @@
     \end{equation}
   \end{thm}
   \begin{prf}
-    The desired result follows from \ref{thm: the space of linear maps and the space of all matrices are isomorphic}, \ref{thm: dimension shows whether vector spaces are isomorphic}, and \ref{thm: the dimension of the vector space of all m by n matrices is mn}. (Why?)
+    %The desired result follows from \ref{thm: the space of linear maps and the space of all matrices are isomorphic}, \ref{thm: dimension shows whether vector spaces are isomorphic}, and \ref{thm: the dimension of the vector space of all m by n matrices is mn}.
+
+    Suppose $v_1, \ddd, v_n$ is a basis of $V$ and $w_1, \ddd, w_m$ is a basis of $W$.
+    By \ref{thm: the space of linear maps and the space of all matrices are isomorphic}, there is an an isomorphism between $\lin{V}{W}$ and $\myF^{m,n}$, and thus, they have the same dimension. Now, \ref{thm: the dimension of the vector space of all m by n matrices is mn} tells us that $\dim \myF^{m,n} = m  n$, therefore
+    \begin{equation}
+      \dim \lin{V}{W} = \dim \myF^{m,n} = m\cdot n = (\dim V)\cdot(\dim W),
+    \end{equation}
+
+    as desired.
   \end{prf}
 
   \subsection{Linear Maps Thought of as Matrix Multiplication}
@@ -204,8 +225,9 @@
     \end{itemize}
   \end{mydef}
 
-  % 3.81
+  \mce{81}
   \begin{thm} [matrix of product of linear maps]
+    \label{thm: matrix of product of linear maps2}
     Suppose $T\in \mathcal{L}(U,V)$ and $S\in \lvw$. If $\onetillm{u}$ is a basis of $U$, $\onetilln{v}$ is a basis of $V$ and $\onetill{w}{p}$ is a basis of $W$. Note that $\dim U = m$, $\dim V = n$, $\dim W = p$. Then we have:
     \begin{equation}
     \begin{aligned}
@@ -221,32 +243,62 @@
       \mathcal{M}(ST) = \mathcal{M}(S) \cdot \mathcal{M}(T)
     \end{equation}
   \end{thm}
+  \begin{prf}
+    This is just another way of writing \ref{thm: matrix of product of linear maps1}.
+  \end{prf}
+
+  \mce{82}
+  \begin{thm} [matrix of identity operator with respect to two bases]
+    \label{thm: matrix of identity operator with respect to two bases}
+    Suppose that $u_1, \ddd, u_m$ and $v_1, \ddd, v_m$ are bases of $V$. Then the matrices
+    \begin{equation}
+      \m{I, (u_1, \ddd, u_m), (v_1, \ddd, v_m)} \qquad \text{and} \qquad \m{I, (v_1, \ddd, v_m), (u_1, \ddd,u_m)}
+    \end{equation}
+
+    are invertible, and each is the inverse of the other.
+  \end{thm}
+  \begin{prf}
+    Carefull application of \ref{thm: matrix of product of linear maps2} yields
+    \begin{equation}
+      \m{I_V} = I_n = \m{I_V I_V} = \m{I_V, (v_1, \ddd, v_m), (u_1, \ddd, u_m)} \cdot \m{I_V, (u_1, \ddd, u_m), (v_1, \ddd, v_m)}.
+    \end{equation}
+
+    Now, interchange the roles of the $u$'s and the $v$'s, getting
+    \begin{equation}
+      \m{I_V} = I_n = \m{I_V I_V} = \m{I_V, (u_1, \ddd, u_m), (v_1, \ddd, v_m)} \cdot \m{I_V, (v_1, \ddd, v_m), (u_1, \ddd, u_m)}.
+    \end{equation}
+
+    So, the product of both matrices equal to $I_n$, which is the identity in $\myF^{n,n}$.
+  \end{prf}
 
   % 3.84
   \setcounter{thm}{83}
   \begin{thm}[change-of-basis formula:]
-    Suppose $T \in \linmap(V)$. Let
+    Let $T \in \op(V)$. Suppose $u_1, \ddd, u_m$ and $v_1, \ddd, v_m$ are bases of $V$ and . Let
     \begin{equation}
-          V = \myspan{\onetillm{u}}
-          $ and $V= \myspan{\onetillm{v}}
+      \begin{aligned}
+        A & := \m {T, (u_1, \ddd, u_m)}, \\
+        B & := \m {T, (v_1, \ddd, v_m)}, \text{ and }\\
+        C & := \m {I, (u_1, \ddd, u_m), (v_1, \ddd, v_m)}. \\
+      \end{aligned}
     \end{equation}
 
-  such that the $u$'s and $v$'s both form a basis. Let $A=\mmatrix(T, (\onetillm{u}))$ and $B=\mmatrix(T,(\onetillm{v})).$
-
-   Let $C=\mmatrix(I, \onetillm{u}, \onetillm{v}).$ Then
+    Then
     \begin{equation}
-    A = C^{-1} B C
+      A = C^{-1} B C.
     \end{equation}
   \end{thm}
 
   % 3.86
   \setcounter{thm}{85}
   \begin{thm}
-    If $\onetillm{v}$ is a basis $V$ and $T\in \mathcal{L}$ is invertible, then
+    If $v_1, \ddd, v_m$ is a basis $V$ and $T \in \op{V}$ is invertible, then
     \begin{equation}
-      \begin{aligned}
-        \mmatrix(T^{-1}) & = (\mmatrix(T))^{-1} \; \text{or with different notation} \\
-        \mmatrix(T^{-1}, (\onetillm{v})) & =\mmatrix(T, (\onetillm{v}))^{-1}
-      \end{aligned}
+      \mmatrix(T^{-1}) = (\mmatrix(T))^{-1},
+    \end{equation}
+
+    where both matrices are with respect to the basis $v_1, \ddd, v_m$, that is
+    \begin{equation}
+      \mmatrix(T^{-1}, (\onetillm{v})) =\mmatrix(T, (\onetillm{v}))^{-1}.
     \end{equation}
   \end{thm}

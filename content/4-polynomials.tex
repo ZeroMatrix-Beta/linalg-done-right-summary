@@ -184,7 +184,7 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
 \begin{prf}
   Let $p \in \polyn(\compl)$ be defined by
   \begin{equation}
-    p(z) := a_0 + a_1 z + \ldots + a_m z^m \quad (\forall c \in  \compl),
+    p(z) := a_0 + a_1 z + \ldots + a_m z^m \quad (\forall z \in  \compl),
   \end{equation}
 
   where $a_0, \ldots, a_m \in \real$. Suppose $\lambda \in \compl$ is a zero of $p$. Then
@@ -202,35 +202,45 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
 
 \begin{thm} [factorization of a quadratic polynomial]
   \label{thm: factorization of a quadratic polynomial}
-  Let $p(x)=x^2+bx+c \in \polyn_2(\real)$ such that $b,c \in \real$. Then $p$ can be written as
-  $p(x)=x^2 + bx + c$ $=$ $(x-\lambda_1)(x-\lambda_2)$ with $\lambda_1, \lambda_2 \in \mathbb{R} \iff b^2 \geq 4c$.
+  Let $p(x)=x^2+bx+c$ ($\forall x \in \real$) such that $b,c \in \real$. Then $p$ can be written as
+  \begin{equation}
+      p(x)=(x-\lambda_1)(x-\lambda_2) \quad (\forall x \in \real)
+  \end{equation}
+
+  with $\lambda_1, \lambda_2 \in \mathbb{R} \iff b^2 \geq 4c$.
 \end{thm}
 \begin{prf}
-  Let $x^2+bx+c=\left(x+\tfrac{b}{2} \right)^2+\left(c-\tfrac{b^2}{4} \right)$. Therefore, if $b^2<4c$, the last term is always positive and no factoriza\-tion is possible because it has no zeros by \ref{factororing-out-zeros-of-a-polynomial-always-possible}.
+  Write
+  \begin{equation}
+    \begin{aligned}
+      x^2+bx+c
+      & =\left(x^2 + 2 \left(\tfrac{b}{2}\right) + \left(\tfrac{b}{2}\right)^2 \right) +\left(c-\tfrac{b^2}{4} \right) \\
+      & = \left(x+\tfrac{b}{2} \right)^2+\left(c-\tfrac{b^2}{4} \right).
+    \end{aligned}
+  \end{equation}
 
-  If $b^2 \geq 4c$, we define $d^2 :\equiv \tfrac{b^2}{4}-c$ which makes
+  Therefore, if $b^2<4c$, the first and the second term are always positive and by \ref{factororing-out-zeros-of-a-polynomial-always-possible}, no factoriza\-tion is possible,  because $p$ has no zeros.
+  If $b^2 \geq 4c$, set $d^2 := \left({b^2} / {4}-c\right)$ and rewrite $p$ as
   \begin{equation}
 	  \begin{aligned}
-	    p(x)&=x^2+bx+c
-		  = \left (x+\tfrac{b}{2} \right )^2-d^2
-		  = \left ( \left(x+\tfrac{b}{2} \right) +d \right) \cdot \left ( \left(x+\tfrac{b}{2} \right) - d \right) \\
-		  &= \left (x-\left(-d -\tfrac{b}{2} \right) \right) \cdot \left (x-\left(d-\tfrac{b}{2} \right)\right)
-		  =\left(x-\lambda_1 \right) \cdot \left(x-\lambda_2\right)
+	    p(x)&=x^2+bx+c \\
+		  &= \left (x+\tfrac{b}{2} \right )^2-d^2 \\
+		  &= \left ( \left(x+\tfrac{b}{2} \right) +d \right) \cdot \left ( \left(x+\tfrac{b}{2} \right) - d \right) \\
+		  &= \left (x-\left(-d -\tfrac{b}{2} \right) \right) \cdot \left (x-\left(d-\tfrac{b}{2} \right)\right) \\
+		  &= \left(x-\lambda_1 \right) \cdot \left(x-\lambda_2\right) \qquad \qquad \qquad (\forall x \in \real)
 	  \end{aligned}
   \end{equation}
-  for
-  \begin{equation}
-    \lambda_1 :\equiv -d-\tfrac{b}{2} \mytext{and} \lambda_2 :\equiv d-\tfrac{b}{2}.
-  \end{equation}
 
+  for $\lambda_1 := -d-{b}/{2}$ and $\lambda_2 := d-{b}/{2}$,
   which is the same as the well known midnight formula:
   \begin{equation}
     \lambda_{1,2} = \frac{-b \pm \sqrt{b^2-4c}}{2}
   \end{equation}
-  which also shows, that $b^2 \geq 4c$ is a necessary condition for real solutions for $\lambda_{1,2}$.
+
+  The formula above also shows that $b^2 \geq 4c$ is a necessary condition for real solutions (i.e., for $\lambda_{1,2})$.
 \end{prf}
 
-The next result gives a factorization of a polynomial over $\real$. The second version of the fundamental theorem of algebra \ref{fundamental-theorem-of-algebra-second-version} gives a factorization of $p$ with complex coefficients. Complex but nonreal zeros of $p$ come in pairs, see \ref{thm: polynomials with real coefficients have nonreal zeros in pairs}. Multiplying terms of the form $(x-\lambda)$ and $(x-\overline{\lambda})$ together, we get
+\prooffont{Remark:} The next result gives a factorization of a polynomial over $\real$. The second version of the fundamental theorem of algebra \ref{fundamental-theorem-of-algebra-second-version} gives a factorization of $p$ with complex coefficients. Complex but nonreal zeros of $p$ come in pairs (see \ref{thm: polynomials with real coefficients have nonreal zeros in pairs}). Multiplying terms of the form $(x-\lambda)$ and $(x-\overline{\lambda})$ together yields
 \[
   (x^2 - 2( \realpart \lambda) x + |\lambda|^2),
 \]
