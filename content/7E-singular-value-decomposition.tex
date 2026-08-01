@@ -3,7 +3,7 @@
 \subsection{Singular Values}
 
 \mce{64}
-\begin{thm}[properties of $T*T$]
+\begin{thm}[properties of $T^*T$]
   \label{thm: properties of T^*T}
   Suppose $T \in \linmap(V,W)$. Then
   \begin{enumerate}[label=\textbf{(\alph*)}]
@@ -15,7 +15,7 @@
 \end{thm}
 
 \begin{mydef}[singular values]
-  Suppose $T \in \linmap (V,W)$. The \qt{singular values} of $T$ are the nonegative square roots of the eigenvalues of $T^*T$, listed in decreasing order, each included as many times as the dimension of the corresponding eigencspace of $T^*T$.
+  Suppose $T \in \linmap (V,W)$. The \qt{singular values} of $T$ are the nonnegative square roots of the eigenvalues of $T^*T$, listed in decreasing order, each included as many times as the dimension of the corresponding eigenspace of $T^*T$.
 \end{mydef}
 
 \mce{68}
@@ -36,11 +36,11 @@ The table below compares eigenvalues with singular values.
   \hline
   context: vector spaces & context: inner product spaces \\
   \hline
-  defined only for linear maps from a vector space to itself & defined for linear maps from an inner producte space to a possibly different inner product space \\
+  defined only for linear maps from a vector space to itself & defined for linear maps from an inner product space to a possibly different inner product space \\
   \hline
   can be arbitrary real numbers (if $\myF = \real$) or complex numbers (if $\myF=\compl$) & are nonnegative numbers \\
   \hline
-  can be the emptly list if $\myF = \real$ & length of list equals dimension of domain \\
+  can be the empty list if $\myF = \real$ & length of list equals dimension of domain \\
   \hline
   includes $0$ $\iff$ operator is not invertible & includes $0$ $\iff$ linear map is not injective \\
   \hline
@@ -50,7 +50,7 @@ The table below compares eigenvalues with singular values.
 
 \mce{69}
 \begin{thm}[isometries characterized through singular values]
-  \label{thm: isometries characterized by having all singular a values equal 1}
+  \label{thm: isometries characterized by having all singular values equal 1}
   Suppose $S \in \linmap (V,W)$. Then
   \[
     S$ is an isometry $ \iff $ all singular values of $S$ equal $1.
@@ -83,7 +83,7 @@ The table below compares the spectral theorem with the singular value decomposit
   produces a single orthonormal basis &
   produces two orthonormal lists, one for domain space and one for range space, that are not necessarily the same even when range space equals domain space \\
   \hline
-  different proofs depending on wether $\myF = \real$ or $\myF = \compl$ & same proof works regardless of whether $\myF = \real$ or $\myF = \compl$ \\
+  different proofs depending on whether $\myF = \real$ or $\myF = \compl$ & same proof works regardless of whether $\myF = \real$ or $\myF = \compl$ \\
   \hline
 \end{tabular}
 

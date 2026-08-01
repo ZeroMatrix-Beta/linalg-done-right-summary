@@ -24,7 +24,7 @@
   \begin{equation}
     Tu = Tv \implies u = v \quad \forall u,v \in V.
   \end{equation}
-  Or analogous:
+  Or analogously:
   \begin{equation}
     u \neq v \implies Tu \neq Tv \quad \forall u,v \in V.
   \end{equation}
@@ -90,7 +90,7 @@
 \setcounter{thm}{18}
 \begin{mydef} [surjectivity]
   \label{def: surjectivity}
-  If $\myrange T=W$, then $T:V\to W$ is called \qt{surjektive} or \qt{onto}.
+  If $\myrange T=W$, then $T:V\to W$ is called \qt{surjective} or \qt{onto}.
 \end{mydef}
 
 \subsection{Fundamental Theorem of Linear Maps}
@@ -109,14 +109,14 @@
   Note that $T \in \linmap(V,W)$ is not a typo.
 \end{thm}
 \begin{prf}
-  Let $u_1, \ddd, u_m$ be a basis of $\mynull T$ with $\dim \mynull T = m$. Using \ref{thm: every linearly independent list of vectors in a finite-dimensional vector space can be extended to a basis of the vector space}, this basis which forms a linearly independent list inside $V$, can be extendend to a basis of $V$ which looks like this
+  Let $u_1, \ddd, u_m$ be a basis of $\mynull T$ with $\dim \mynull T = m$. Using \ref{thm: every linearly independent list of vectors in a finite-dimensional vector space can be extended to a basis of the vector space}, this basis which forms a linearly independent list inside $V$, can be extended to a basis of $V$ which looks like this
   \[
     u_1, \ddd, u_m, v_1, \ddd, v_n \mytext{(we have been using the fact that $V$ is finite-dimensional.)}
   \]
 
   Thus $\dim V = m+n$. To complete the proof, we need to show that $\myrange T$ is finite-dimensional and $\dim \myrange T = n$. We will do this by proving that $Tv_1, \ddd, Tv_n$ is a basis of $\myrange T$.
 
-  Let $v \in V$ sucht that for $a_1, \ddd, a_m \in \myF$ and $b_1, \ddd, b_n \in \myF$:
+  Let $v \in V$ such that for $a_1, \ddd, a_m \in \myF$ and $b_1, \ddd, b_n \in \myF$:
   \[
     v= (a_1 u_1 + \cdots + a_m  u_m) + (b_1 v_1 + \cdots + b_n v_n).
   \]
@@ -126,7 +126,7 @@
     \myrange T = \myspan{Tv_1, \ddd, Tv_n} $ and that $\myrange T$ is finite dimensional.$
   \]
 
-   To show what $Tv_1, \ddd, Tv_n$ is linearly independent, suppose $c_1, \ddd, c_n \in \myF$ such that
+   To show that $Tv_1, \ddd, Tv_n$ is linearly independent, suppose $c_1, \ddd, c_n \in \myF$ such that
   \[
     c_1 Tv_1 + \cdots + c_n T v_n = 0.
   \]
@@ -180,7 +180,7 @@
 %3.26
 \mce{26}
 \begin{thm} [homogenenous system of linear equations]
-  A homogeneous system of linear equations with more variables then equations has nonzero solutions.
+  A homogeneous system of linear equations with more variables than equations has nonzero solutions.
 \end{thm}
 \begin{prf} \qt{Homogeneous} in this context means that the constant term on the right side of each equation below is $0$. Fix positive integers $m$ and $n$, let $A_{j,k} \in \myF$ for $j = 1, \ddd, m$ and $k = 1, \ddd, n$. Consider,
 \[
@@ -197,16 +197,16 @@ Clearly, $x_1 = \cdots = x_n = 0$ is a solution. Define $T: \myF^n \to \myF^m$ b
   T(x_1, \ddd, x_n) := \left(\sum_{k=1}^n A_{1,k}\,x_k,\sum_{k=1}^n A_{2,k}\,x_k, \ddd, \sum_{k=1}^n A_{m,k}\,x_k \right).
 \end{equation}
 
-Thus, we want to know if $\mynull T$ is strictly bigger than $\{0\}$, which is equivalent to $T$ not beeing injective (by \ref{thm: injectivity iff null space equals zero-set}). By \ref{thm: linear-map-to-a-lower-dimensional-space-is-not-injective}, this is the case if $\dim \myF^n > \dim \myF^m$, so if $n>m$. This is the case if we have more variables than equations.
+Thus, we want to know if $\mynull T$ is strictly bigger than $\{0\}$, which is equivalent to $T$ not being injective (by \ref{thm: injectivity iff null space equals zero-set}). By \ref{thm: linear-map-to-a-lower-dimensional-space-is-not-injective}, this is the case if $\dim \myF^n > \dim \myF^m$, so if $n>m$. This is the case if we have more variables than equations.
 \end{prf}
 
 %\textbf{3.28}
 \mce{28}
-\begin{thm} [system of lienar equations with more equations than variables]
-  An inhomogeneous system of linear equations with more equations then variables has no solutions for some choice of constant terms.
+\begin{thm} [system of linear equations with more equations than variables]
+  An inhomogeneous system of linear equations with more equations than variables has no solutions for some choice of constant terms.
 \end{thm}
 
-\begin{prf} We want to now whether a system of linear equations has no solutions for come choice of constant terms on the right hand side. Fix positive integers $m$ and $n$, let $A_{j,k} \in \myF$ for $j = 1, \ddd, m$ and $k = 1, \ddd, n$. For $c_1, \ddd, c_m \in \myF$, consider:
+\begin{prf} We want to know whether a system of linear equations has no solutions for some choice of constant terms on the right hand side. Fix positive integers $m$ and $n$, let $A_{j,k} \in \myF$ for $j = 1, \ddd, m$ and $k = 1, \ddd, n$. For $c_1, \ddd, c_m \in \myF$, consider:
   \begin{equation}
     \label{eq: system of equations}
     \begin{aligned}

@@ -48,7 +48,7 @@ $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$ $\forall
       \right)}_{\text{a polynomial with degree $m-1$}}
   \end{equation}
 
-  Thus $p$ equals $z-\lambda$ times some polyomial of degree $m-1$, as desired.
+  Thus $p$ equals $z-\lambda$ times some polynomial of degree $m-1$, as desired.
 \end{prf}
 
 In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from $p(z)$, it is hidden in the roots! For example $p\in \polyn_1(\myF): p=a_0+a_1z = \left(z- \left(-\frac{a_0}{a_1}\right)\right)(a_1)$ where $\left(-\frac{a_0}{a_1}\right)$ is the only root!
@@ -132,7 +132,7 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
 
   so the the desired factorization exists and is unique.
 
-  Hence, assume that $m > 1$ and that the desired factorization exists and is unqique for all polynomials of degree $m-1$.
+  Hence, assume that $m > 1$ and that the desired factorization exists and is unique for all polynomials of degree $m-1$.
   By the first version of the fundamental theoreom of algebra \ref{fundamental-theorem-of-algebra-first-version}, $p$ has a zero $\lambda \in \compl$. By \ref{factororing-out-zeros-of-a-polynomial-always-possible}, there is polynomial $q$ of degree $m-1$ \st
   \[
     p(z) = (z-\lambda) q(z) \quad \forall z \in \compl.
@@ -140,13 +140,13 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
 
   Our induction hypothesis implies that $q$ has the desired factorization, which when plugged into the equation above, gives the desired factorization of $p$.
 
-  \prooffont{Uniqueness:} The number $c$ is uniquely determined as the coefficient $a_m$ of $z^m$ in $p$. So we only need to show that except for the order, there is only one way to chosse $\lambda_1, \ddd, \lambda_m$. If we have some $\tau_1, \ddd, \tau_m \in \compl$ \st
+  \prooffont{Uniqueness:} The number $c$ is uniquely determined as the coefficient $a_m$ of $z^m$ in $p$. So we only need to show that except for the order, there is only one way to choose $\lambda_1, \ddd, \lambda_m$. If we have some $\tau_1, \ddd, \tau_m \in \compl$ \st
   \begin{equation}
     \xcancel{\mathlarger{c}} \cdot (z - \lambda_1) \cdots (z-\lambda_m) = \xcancel{\mathlarger{c}} \cdot (z-\tau_1) \cdots (z-\tau_m) \quad \forall z \in \compl,
   \end{equation}
 
 
-  then because the left side of the equation above equals $0$ when $z=\lambda_1$, one of the $\tau$'s on the right hide side equals $\lambda_1$, because every zero of a polynomial corresponds to a degree-one factor by \ref{factororing-out-zeros-of-a-polynomial-always-possible}. Without loss of generality, we can assume by relabeling, that $\tau_1 = \lambda_1$. Now, if $z \neq \lambda_1$, we can use division to get
+  then because the left side of the equation above equals $0$ when $z=\lambda_1$, one of the $\tau$'s on the right hand side equals $\lambda_1$, because every zero of a polynomial corresponds to a degree-one factor by \ref{factororing-out-zeros-of-a-polynomial-always-possible}. Without loss of generality, we can assume by relabeling, that $\tau_1 = \lambda_1$. Now, if $z \neq \lambda_1$, we can use division to get
 %  \begin{equation}
 %    \label{eq: original equation for z-lambda_2 ...}
 %    \begin{aligned}
@@ -161,7 +161,7 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
     0 = \Big((z - \lambda_2) \cdots (z-\lambda_m) \Big) -   \Big((z-\tau_2) \cdots (z-\tau_m)\Big) \quad \qquad \forall z \in \compl \backslash \{ \lambda_1 \} \label{eq: last equation}
   \end{align}
 
-  Not that the last $2$ equations hold for all $z \in \compl$ except possibly $z = \lambda_1$. Remember that our goal is to use induction on the degree of the polynomial. So it would come in handy if the remaining polynomials \eqref{eq: remaining two polynomials} would be equal after cancelation and behave like any other polynomial. But we have derived those equations by the assumtion that $z \neq \lambda_1$ using devision. Here comes the trick. Let us assume that $(z - \lambda_2) \cdots (z-\lambda_m)$ and $(z - \tau_2) \cdots (z-\tau_m)$ are not always equal. Thus, with the standard laws of polynomial arithmetic, we can form a new polynomial $s \in \polyn_{m-1}(\compl)$ with
+  Note that the last $2$ equations hold for all $z \in \compl$ except possibly $z = \lambda_1$. Remember that our goal is to use induction on the degree of the polynomial. So it would come in handy if the remaining polynomials \eqref{eq: remaining two polynomials} would be equal after cancelation and behave like any other polynomial. But we have derived those equations by the assumption that $z \neq \lambda_1$ using division. Here comes the trick. Let us assume that $(z - \lambda_2) \cdots (z-\lambda_m)$ and $(z - \tau_2) \cdots (z-\tau_m)$ are not always equal. Thus, with the standard laws of polynomial arithmetic, we can form a new polynomial $s \in \polyn_{m-1}(\compl)$ with
   \begin{equation}
     s(z) :=   \Big((z - \lambda_2) \cdots (z-\lambda_m)\Big) - \Big((z-\tau_2) \cdots (z-\tau_m)\Big),
   \end{equation}
@@ -171,7 +171,7 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
      (z - \lambda_2) \cdots (z-\lambda_m) = (z - \tau_2) \cdots (z-\tau_m).
    \]
 
-   So, we get two identical polynomials after canceling out $(z-\lambda_1)$. By our induction hypothesis, the equation above implies that except for the order, the $\lambda$'s are the same as the $\tau$'s, comleting the proof of uniqueness.
+   So, we get two identical polynomials after canceling out $(z-\lambda_1)$. By our induction hypothesis, the equation above implies that except for the order, the $\lambda$'s are the same as the $\tau$'s, completing the proof of uniqueness.
 \end{prf}
 
 \section{Factorization of Polynomials over \texorpdfstring{$\real$}{R}}
@@ -258,7 +258,7 @@ In the next result, either $m$ or $M$ may equal to $0$. The numbers $\lambda_1, 
   where $c, \lambda_1, \ddd, \lambda_m, b_1, \ddd, b_M, c_1, \ddd, c_M \in \mathbb{R}$, with $b_k^2 < 4c_k \quad \forall k \in \{1, \ddd, M\}.$
 \end{thm}
 \begin{prf}
-  First we will prove that the desired factorization exist, and after that, we will prove uniqueness.
+  First we will prove that the desired factorization exists, and after that, we will prove uniqueness.
 
   Think of $p$ as an element of $\polyn(\compl)$, not $\polyn(\real)$, but with real coefficients like stated in the theorem. If all (complex) zeros of $p$ are real, then we have the desired factorization by the second version of the fundamental theorem of algebra \ref{fundamental-theorem-of-algebra-second-version}. Thus suppose $p$ has a complex zero $\lambda \in \compl$ with $\lambda \notin \real$. By \ref{thm: polynomials with real coefficients have nonreal zeros in pairs}, $\overline \lambda$ is a zero of $p$ as well. Thus we write $\forall x \in \real$
   \[
@@ -275,7 +275,7 @@ In the next result, either $m$ or $M$ may equal to $0$. The numbers $\lambda_1, 
     q(x) = \tfrac{p(x)}{x^2 - 2(\realpart \lambda) x  + |\lambda|^2} \quad \forall x \in \real.
   \]
 
-  The equation above implies that $q(x) \in \real \quad \forall x \in \real$. Let $n :\equiv \deg p$. Then we can reqrite $q$ as
+  The equation above implies that $q(x) \in \real \quad \forall x \in \real$. Let $n :\equiv \deg p$. Then we can rewrite $q$ as
   \[
     q(x) = a_0 + a_1 x + \cdots + a_{n-2} x^{n-2} \mytext{where} a_0, \ddd, a_{n-2} \in \compl,
   \]

@@ -1,7 +1,7 @@
 \section*{Exercises about Subspaces}
 
 \begin{xrcs}
-  For each of the following subsets of $\myF^3$, determine wether is is a subspace of $\myF^3$.
+  For each of the following subsets of $\myF^3$, determine whether it is a subspace of $\myF^3$.
   \begin{enumerate}
     \item $\left \{ \left(x_1, x_2, x_3 \right ) \in \myF : x_1 + 2x_2 + 3 x_3 = 0 \right \}$
     \item $\left \{ \left(x_1, x_2, x_3 \right ) \in \myF : x_1 + 2x_2 + 3 x_3 = 4 \right  \}$
@@ -22,7 +22,7 @@
 
     Therefore, $U$ is not closed under addition. But it is closed under scalar multiplication and we also have $0 \in U$. Therefore, $U$ is not a subspace of $\myF^3$.
 
-    \item Let $U :\equiv \{(x_1, x_2, x_3) \in \myF \mid x_1 = 5x_3\}$. Then $0 \in U$, so we have checked for additive identity. Let $u,v \in U$. Then $u+v= (5u_3+5v_3, u_2+v_2, u_3+v_3) = (5(u_3+v_3), u_2+v_2, u_3+v_3) \in U$, so its closed under addition. Simmilarly for $\lambda \in \myF$ and $w \in U$ we have $\lambda u = (\lambda 5u_3, \lambda u_2, \lambda u_3) = (5 \lambda u_3, \lambda u_2, \lambda u_3) \in U$, so $U$ is a subspace of $\myF^3$.
+    \item Let $U :\equiv \{(x_1, x_2, x_3) \in \myF \mid x_1 = 5x_3\}$. Then $0 \in U$, so we have checked for additive identity. Let $u,v \in U$. Then $u+v= (5u_3+5v_3, u_2+v_2, u_3+v_3) = (5(u_3+v_3), u_2+v_2, u_3+v_3) \in U$, so its closed under addition. Similarly for $\lambda \in \myF$ and $w \in U$ we have $\lambda u = (\lambda 5u_3, \lambda u_2, \lambda u_3) = (5 \lambda u_3, \lambda u_2, \lambda u_3) \in U$, so $U$ is a subspace of $\myF^3$.
   \end{enumerate}
   \end{xsol}
 
@@ -46,16 +46,16 @@
           \end{aligned}
         \end{equation}
 
-        Only if $b=0$, it can hold that the third coordinate of $v+u$ is $5$ times the fourth coordinate of $v+u$ plus an element of $\myF$ acting as $b$. %, given the constraints of $v$ and $u$ themselfes.
+        Only if $b=0$, it can hold that the third coordinate of $v+u$ is $5$ times the fourth coordinate of $v+u$ plus an element of $\myF$ acting as $b$. %, given the constraints of $v$ and $u$ themselves.
         Also note that if $\lambda \in \myF$ and $w \in U$, then $\lambda w = (\lambda w_1, \lambda w_2, \lambda u_4 + \lambda b, \lambda u_4)$. In this case, we have $\lambda w \in U$ if and only if $b=0$.
       \end{xsol}
     }
 
     \item{
-      The set of continious real-valued functions on the intervall $[0,1]$ is a subspace of $\real^{[0,1]}$ (The set of real valued functions on the invervall $[0,1]$)
+      The set of continuous real-valued functions on the interval $[0,1]$ is a subspace of $\real^{[0,1]}$ (The set of real valued functions on the interval $[0,1]$)
 
       \begin{xsol}
-        The constant function $0$ is continious. Adding two continious functions together yields a continious function. Multiplying a continious function with a scalar also gives us a continious function.
+        The constant function $0$ is continuous. Adding two continuous functions together yields a continuous function. Multiplying a continuous function with a scalar also gives us a continuous function.
       \end{xsol}
     }
 
@@ -66,14 +66,14 @@
         We check for all three properties. \\
         \emph{Additive identity:} $f(x) := 0 \quad \forall x \in \real$ is in the set of differentiable real-valued functions since $f'(x) = 0 \quad \forall x \in \real$ is also contained.
 
-        \emph{Closededness under addition:} Let $h(x) := f(x) + g(x)$ for two differentiable real-valued functions $f$ and $g$. Then $h'(x) = \frac{d}{dx} (f(x)+g(x)) = f'(x) + g'(x)$, so this sum $h$ also belongs to set of differentiable real-valued functions.
+        \emph{Closedness under addition:} Let $h(x) := f(x) + g(x)$ for two differentiable real-valued functions $f$ and $g$. Then $h'(x) = \frac{d}{dx} (f(x)+g(x)) = f'(x) + g'(x)$, so this sum $h$ also belongs to set of differentiable real-valued functions.
 
-        \emph{Closedednes under multiplication:} Let $h(x) := c f(x)$. Then $h'(x) = \frac{d}{dx} (c f(x)) = c f'(x)$. So this product $h$ also belongs to the set of differentiable real-valued functions.
+        \emph{Closedness under multiplication:} Let $h(x) := c f(x)$. Then $h'(x) = \frac{d}{dx} (c f(x)) = c f'(x)$. So this product $h$ also belongs to the set of differentiable real-valued functions.
       \end{xsol}
     }
 
     \item{
-      The set $S$ of differentiable real-valued functions $f$ on the inverfall $(0,3)$ such that $f'(2) = b$ is a subspace of $\real^{(0,3)}$ if and only if $b=0$.
+      The set $S$ of differentiable real-valued functions $f$ on the interval $(0,3)$ such that $f'(2) = b$ is a subspace of $\real^{(0,3)}$ if and only if $b=0$.
 
       \begin{xsol}
       For $h(x) := 0$, we have $h'(x) = 0$. The condition $h'(2) =  0 = b$ only holds $\iff$ $b=0$.
@@ -86,7 +86,7 @@
 
 
 \begin{xrcs}
-  Show that the set $S$ of differentiable real-valued functions $f$ on the invervall $(-4,4)$ such that $f'(-1) = 3f(2)$ is a subspace of $\real^{(-4,4)}$.
+  Show that the set $S$ of differentiable real-valued functions $f$ on the interval $(-4,4)$ such that $f'(-1) = 3f(2)$ is a subspace of $\real^{(-4,4)}$.
 
   \begin{xsol} We check for all three properties. \\
     \emph{Additive identity:} For $f(x) :\equiv 0, f'(x) = 0$ we have $f'(-1) = 0 = 3 \cdot 0 = 3f(2)$, so $f'$ belongs so $S$ as well.
@@ -104,7 +104,7 @@
   Prove or give a counterexample: If $U$ is a nonempty subset of $\real^2$ such that $U$ is closed under addition and under taking additive inverses (meaning $-u \in U$ whenever $u \in U$), then $U$ is subspace of $\real^2$.
 
   \begin{xsol}
-    This statement is wrong. Take $U :\equiv \{(x,y) \in \real^2 \mid (x,y) \in \integer^2 \} \subset \real^2$. Then $U$ is closed under addtion since $\integer$ is closed under addition. Example: $(2,1)+(-2,1)+(1,1) = (1,1) \in U$. But if $\lambda \in \real$ such that $\lambda \notin \integer$ we have for $a,b \in \integer$:
+    This statement is wrong. Take $U :\equiv \{(x,y) \in \real^2 \mid (x,y) \in \integer^2 \} \subset \real^2$. Then $U$ is closed under addition since $\integer$ is closed under addition. Example: $(2,1)+(-2,1)+(1,1) = (1,1) \in U$. But if $\lambda \in \real$ such that $\lambda \notin \integer$ we have for $a,b \in \integer$:
   \[
   \lambda(a,b) = (\lambda a, \lambda b) \notin U.
   \]
@@ -117,7 +117,7 @@
 
 \setcounter{xrcscount}{11}
 \begin{xrcs}
-  Prove that the union $U \cup W$ of of two subspaces $U, W$ of $V$ is a subspace of $V$ $\iff$ one of the subspaces is contained in the other. So $U\subseteq W$ or $W \subseteq U$.
+  Prove that the union $U \cup W$ of two subspaces $U, W$ of $V$ is a subspace of $V$ $\iff$ one of the subspaces is contained in the other. So $U\subseteq W$ or $W \subseteq U$.
 
   \begin{xprf}
     \Leftarrowdirection Let $U$ and $W$ be two subspaces of $V$. If $U \subseteq W$ then $U \cup W = W \subseteq V$ and if $W \subseteq U$ then $U \cup W = U \subseteq V$.

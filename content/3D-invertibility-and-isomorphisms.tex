@@ -59,7 +59,7 @@
     \begin{equation}
       \dim \myrange T = \dim V = \dim W,
     \end{equation}
-    which means $T$ is surjective ($\myrange T = \dim W$). This is because every linearly independent list of vectors of of length $\dim W$ is a basis by
+    which means $T$ is surjective ($\myrange T = \dim W$). This is because every linearly independent list of vectors of length $\dim W$ is a basis by
     \ref{thm: linearly independent list of the right length is a basis}. And thats how dimension is defined. (TODO)
 
     If $T$ is surjective, we have $\dim \myrange T = \dim W$ to begin with and therefore \eqref{rank-nullity-nested-equation} becomes
@@ -68,7 +68,7 @@
     \end{equation}
 
     which makes $T$ also injective.
-    Since injectivity and surjectivy together imply invertibility, this ends the proof.
+    Since injectivity and surjectivity together imply invertibility, this ends the proof.
   \end{prf}
 
 
@@ -76,7 +76,7 @@
   \setcounter{thm}{67}
   \begin{thm} [$ST = I \iff TS=I$ on vector spaces of the same dimension]
     \label{thm: ST = I iff TS=I - on vector spaces of the same dimension}
-    Suppoe $V$ and $W$ are finite-dimensinal vector spaces of the same dimension. Let $S \in \linmap (W,V)$, and $T \in \linmap(V,W)$. Then $ST = I$ $\iff$ $TS = I$.
+    Suppose $V$ and $W$ are finite-dimensional vector spaces of the same dimension. Let $S \in \linmap (W,V)$, and $T \in \linmap(V,W)$. Then $ST = I$ $\iff$ $TS = I$.
   \end{thm}
   \begin{prf}
      \Rightarrowdirection Let $S \in \linmap (W,V)$, and $T \in \linmap(V,W)$ such that $ST = I$. If $v \in V$ and $Tv = 0$, then
@@ -121,7 +121,7 @@
     Suppose $\oneTillN{v}$ is a basis of $V$ and $\oneTillM{w}$ is a basis of $W$. Then $\mathcal{M}$ is an isomorphism between $\lvw$ and $\mathbb{F}^{m,n}$.
   \end{thm}
   \begin{prf}
-    exercise (inectivity and surjectivity)
+    exercise (injectivity and surjectivity)
   \end{prf}
 
   %\textbf{3.72}
@@ -258,7 +258,7 @@
     are invertible, and each is the inverse of the other.
   \end{thm}
   \begin{prf}
-    Carefull application of \ref{thm: matrix of product of linear maps2} yields
+    Careful application of \ref{thm: matrix of product of linear maps2} yields
     \begin{equation}
       \m{I_V} = I_n = \m{I_V I_V} = \m{I_V, (v_1, \ddd, v_m), (u_1, \ddd, u_m)} \cdot \m{I_V, (u_1, \ddd, u_m), (v_1, \ddd, v_m)}.
     \end{equation}
@@ -274,7 +274,7 @@
   % 3.84
   \setcounter{thm}{83}
   \begin{thm}[change-of-basis formula:]
-    Let $T \in \op(V)$. Suppose $u_1, \ddd, u_m$ and $v_1, \ddd, v_m$ are bases of $V$ and . Let
+    Let $T \in \op(V)$. Suppose $u_1, \ddd, u_m$ and $v_1, \ddd, v_m$ are bases of $V$. Let
     \begin{equation}
       \begin{aligned}
         A & := \m {T, (u_1, \ddd, u_m)}, \\

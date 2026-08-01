@@ -7,7 +7,7 @@
   \ip{Tv}{v} \geq 0 \quad \forall v \in V.
   \]
 
-  One can either use the term \qt{positive operator} or \qt{poisitve semidefinite operator}, which means the same.
+  One can either use the term \qt{positive operator} or \qt{positive semidefinite operator}, which means the same.
 \end{mydef}
 
 \mce{36}
@@ -16,19 +16,19 @@
 \end{mydef}
 
 \mce{38}
-\begin{thm}[charecterizations of positive operators]
+\begin{thm}[characterizations of positive operators]
   Let $T \in \linmap(V)$. Then the following are equivalent.
   \begin{enumerate}[label=\textbf{(\alph*)}]
     \item $T$ is a positive operator.
-    \item $T$ is self-adjoint and all eigenvalues of $T$ are nonegative
-    \item With respect to some orthonormal basis of $V$, the matrix $\mmatrix(T)$ of $T$ is a diagonal matrix with only nonnegative numbers one the diagonal.
+    \item $T$ is self-adjoint and all eigenvalues of $T$ are nonnegative
+    \item With respect to some orthonormal basis of $V$, the matrix $\mmatrix(T)$ of $T$ is a diagonal matrix with only nonnegative numbers on the diagonal.
     \item $T$ has a positive square root.
     \item $T$ has a self-adjoint square root.
     \item $T = R^* R$ for some $R \in \linmap(V)$.
   \end{enumerate}
 \end{thm}
 \begin{prf}
-  We will proof $(a) \Rightarrow (b) \Rightarrow (c) \Rightarrow (d) \Rightarrow (e) \Rightarrow (f) \Rightarrow (a)$
+  We will prove $(a) \Rightarrow (b) \Rightarrow (c) \Rightarrow (d) \Rightarrow (e) \Rightarrow (f) \Rightarrow (a)$
 
   \StepOne If (a) holds, that means that $T$ is also self-adjoint. Then we have for an eigenvalue $\lambda \in \myF$
   \[
@@ -36,7 +36,7 @@
   \implies 0 < \lambda
   \]
 
-  \StepTwo Suppose (b) holds. By the spectral theorem, there is an orthonormal basis $e_1, \ddd, e_n$ of $V$ consisting of eigenvectors of $T$. Let $\lambda_1, \ddd, \lambda_n$ be the eigenvalues of $T$ corresponding to $e_1, \ddd, e_n$. By (a), we know that they are all nonegative. So $(b) \implies (c)$.
+  \StepTwo Suppose (b) holds. By the spectral theorem, there is an orthonormal basis $e_1, \ddd, e_n$ of $V$ consisting of eigenvectors of $T$. Let $\lambda_1, \ddd, \lambda_n$ be the eigenvalues of $T$ corresponding to $e_1, \ddd, e_n$. By (a), we know that they are all nonnegative. So $(b) \implies (c)$.
 
   \StepThree Now suppose (c) holds. Then there is a orthonormal basis $e_1, \ddd, e_n$ of $V$ such that
   $\mmatrix(T) = \operatorname{diag}(\lambda_1,  \ddd, \lambda_n), \; \lambda_i > 0$. The linear map lemma \ref{thm: linear map lemma} implies that $\exists R \in \linmap (V)$:

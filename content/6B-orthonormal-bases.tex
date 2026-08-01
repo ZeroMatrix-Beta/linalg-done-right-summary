@@ -3,7 +3,7 @@
 \subsection{Orthonormal Lists and the Gram-Schmidt Procedure}
 \mce{22}
 \begin{mydef}[orthonormal]
-  A list of vectors is called \qt{orthonormal} if each vector in the list has norm $1$ and is orthogonal to all the other vector in the list. Since the square root of $1$ is $1$, we can use the the following definition as well:
+  A list of vectors is called \qt{orthonormal} if each vector in the list has norm $1$ and is orthogonal to all the other vectors in the list. Since the square root of $1$ is $1$, we can use the following definition as well:
 
   A list $e_1, \ddd, e_m$ of vectors in $V$ is \qt{orthonormal} if $\forall j,k \in \{1, \ddd, m\}$
   \begin{equation}
@@ -44,7 +44,7 @@
 \mce{25}
 \begin{thm}[linear independence]
   \label{thm: orthonormal lists are linearly independent}
-  Every orthornomal list of vectors is linearly independent.
+  Every orthonormal list of vectors is linearly independent.
 \end{thm}
 \begin{prf}
   Suppose $e_1, \ddd, e_m$ is an orthonormal list of vectors in $V$ and $a_1, \ddd, a_m \in \myF$ are \st\begin{equation}
@@ -108,10 +108,10 @@
 \begin{thm}[writing a vector as a linear combination of an orthonormal basis]
   \label{thm: writing a vector as a linear combination of an orthonormal basis}
 
-  Supoose $e_1, \ddd, e_n$ is an orthonormal basis of $V$ and $u,v \in V$. Then
+  Suppose $e_1, \ddd, e_n$ is an orthonormal basis of $V$ and $u,v \in V$. Then
   \begin{enumerate}[label=\textbf{(\alph*)}]
     \item $v=\ip{v}{e_1}e_1 + \cdots + \ip{v}{e_n}e_n$ ;
-    \item $\norm{v}^2 = |\ip{v}{e_1}|^2 + \cdots + |\ip{v}{e_m}|^2$ ;
+    \item $\norm{v}^2 = |\ip{v}{e_1}|^2 + \cdots + |\ip{v}{e_n}|^2$ ;
     \item $\ip{u}{v} = \ip{u}{e_1} \overline{\ip{v}{e_1}} + \cdots + \ip{u}{e_n} \overline{\ip{v}{e_n}}$ ;
   \end{enumerate}
 \end{thm}

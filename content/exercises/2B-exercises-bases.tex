@@ -72,7 +72,7 @@
   Show that $v_1, \ldots, v_m$ is a basis of $V$ if and only if $w_1, \ldots, w_m$ is a basis of $V$.
 
   \begin{xprf}
-    Let us first observe the following two patterns
+    Let us first observe the following relationships between the two lists:
     \begin{equation}
       \begin{aligned}
         w_1 &= v_1                    & \qquad v_1 &= w_1       \\
@@ -80,9 +80,15 @@
         w_3 &= v_1 + v_2 + v_3        & \qquad v_3 &= w_3 - w_2 \\
         w_4 &= v_1 + v_2 + v_3 + v_4  & \qquad v_4 &= w_4 - w_3 \\
         &\;\;\vdots               &            &\;\;\vdots \\
-        w_n &= v_1 + \cdots + v_n     & \qquad v_n &= w_n - w_{n-1}
+        w_m &= v_1 + \cdots + v_m     & \qquad v_m &= w_m - w_{m-1}
       \end{aligned}
     \end{equation}
+
+    \textbf{KI Bemerkung: Der Beweis bricht hier nach der Beobachtung der Muster ab. Es fehlt der Argumentationsschritt, dass lineare Unabhängigkeit und Span erhalten bleiben.}
+
+    $\implies$ Assume $v_1, \ldots, v_m$ is a basis of $V$. Then it spans $V$ and is linearly independent. Since each $v_k$ can be written as a linear combination of $w_1, \ldots, w_k$, any vector in $\myspan(v_1, \ldots, v_m)$ is also in $\myspan(w_1, \ldots, w_m)$. Therefore, $w_1, \ldots, w_m$ spans $V$. Furthermore, since $v_1, \ldots, v_m$ is a basis, the dimension of $V$ is $m$. Since $w_1, \ldots, w_m$ spans $V$ and has length $m = \dim V$, it must also be linearly independent, and therefore is a basis of $V$.
+
+    $\impliedby$ Assume $w_1, \ldots, w_m$ is a basis of $V$. Then it spans $V$ and is linearly independent. Since each $w_k$ can be written as a linear combination of $v_1, \ldots, v_k$, any vector in $\myspan(w_1, \ldots, w_m)$ is also in $\myspan(v_1, \ldots, v_m)$. Therefore, $v_1, \ldots, v_m$ spans $V$. Furthermore, since $w_1, \ldots, w_m$ is a basis, the dimension of $V$ is $m$. Since $v_1, \ldots, v_m$ spans $V$ and has length $m = \dim V$, it must also be linearly independent, and therefore is a basis of $V$.
   \end{xprf}
 \end{xrcs}
 

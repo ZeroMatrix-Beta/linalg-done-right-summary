@@ -1,5 +1,5 @@
 \section{Matrices}
-\subsection{Representing a Liner Map by a Matrix}
+\subsection{Representing a Linear Map by a Matrix}
 
 %3.31
 \setcounter{thm}{30}
@@ -53,7 +53,7 @@
   $\myF^{m,n}$ is a vector space with $\dim \myF^{m,n}=mn$.
 \end{thm}
 \begin{prf}
-  It is easy to verify that $\myF^{m,n}$ is a vector space. The list of length $mn$ that consists of distinct $m$-by-$n$ matrices that have $0$ in all entries exept a $1$ in one entry is a basis of $\myF^{m,n}$. Hence,
+  It is easy to verify that $\myF^{m,n}$ is a vector space. The list of length $mn$ that consists of distinct $m$-by-$n$ matrices that have $0$ in all entries except a $1$ in one entry is a basis of $\myF^{m,n}$. Hence,
   $\dim \myF^{m,n}=mn$.
 \end{prf}
 
@@ -267,12 +267,12 @@ For $1 \leq k \leq p$, we have
   \end{equation}
 
 \begin{minipage}{\linewidth}
-  The octave\-/code for column-wise multiplication looks like follows.
+  The octave\-/code for column-wise multiplication is as follows.
 
   \octave{column_wise_matrix_mult.m}
 \end{minipage}
 
-  \bfemph{Row-wise:} If $j\in \{1, \ldots, m\}$, then row $j$ of $CR$ is a linear combination of the rows of $R$, with the coefficients of this linear combination comming from row $j$ of $C$ [$C_{j,\mathsmaller{\bullet}}$]
+  \bfemph{Row-wise:} If $j\in \{1, \ldots, m\}$, then row $j$ of $CR$ is a linear combination of the rows of $R$, with the coefficients of this linear combination coming from row $j$ of $C$ [$C_{j,\mathsmaller{\bullet}}$]
   \begin{equation}
     CR =
     \left(
@@ -288,7 +288,7 @@ For $1 \leq k \leq p$, we have
   \end{equation}
 
   \begin{minipage}{\linewidth}
-    The octave\-/code for row-wise multiplication looks like follows.
+    The octave\-/code for row-wise multiplication is as follows.
 
     \octave{row_wise_matrix_mult.m}
   \end{minipage}

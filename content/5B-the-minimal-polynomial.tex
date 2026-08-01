@@ -143,14 +143,13 @@ and so \(\lambda\) is an eigenvalue of \(T\) with eigenvector \(q(T)v\).
   \end{equation}
 
   Since $\myrange q(T)$ is at most one-dimensional and is invariant under $T$ (by \ref{thm: null space and range of p(T) are invariant under T}), we can restrict $T$ to this subspace. In this restricted setting $\myrange q(T)$, we know how to construct the desired polynomial; denote it by $s$, defined such that
-  %  For a at most one-dimensional space like $\myrange q(T)$, we already know how to construct such a polynomial. Since $\myrange q(T)$ is invariant under $T$ by \ref{thm: null space and range of p(T) are invariant under T}, we can restrict $T$ to this subspace. So for the operator $\left. T \right |_{\myrange q(T)}$, we know how to construct such a polynomial. Let us call it $s$. Let $s$ be defined such that
   \begin{equation}
     \begin{aligned}
         &s \left(\left. T \right |_{\text{range $q(T)$}} \right)=0.
     \end{aligned}
   \end{equation}
 
-  Just for clearity, the equation above means that $s$ is the zero-operator of $\left. T \right |_{\myrange q(T)}$. Therefore,
+  Just for clarity, the equation above means that $s$ is the zero-operator of $\left. T \right |_{\myrange q(T)}$. Therefore,
   \begin{equation}
     \forall u \in V: \left((sq)(T)\right)(u) = s(T)(q(T)u)=0
   \end{equation}
@@ -358,7 +357,7 @@ and so \(\lambda\) is an eigenvalue of \(T\) with eigenvector \(q(T)v\).
 \setcounter{thm}{23}
 
 \begin{mydef} [minimal polynomial]
-  Let $T\in \linmap (v)$. The \qt{minimal polynomial of $T$} is the unique monic polynomial $p\in \mathcal{P}(\myF)$ of smallest degree \st $p(T)=0$.
+  Let $T\in \linmap (V)$. The \qt{minimal polynomial of $T$} is the unique monic polynomial $p\in \mathcal{P}(\myF)$ of smallest degree \st $p(T)=0$.
 \end{mydef}
 \bfemph{Computation of the minimal polynomial:} Find the smallest $m \in \nat$ such that: \\
 $c_0I + c_1 T + \cdots + c_{m-1} T^{m-1} = -T^{m}$ has a solution $c_0, \dots, c_{m-1} \in \myF$. Solve for $m=1,2,\dots,\dim V$
@@ -400,7 +399,7 @@ are the coefficients of the minimal polynomial of $T$.
       0=(T-\lambda I)(q(T)v) \quad \forall v\in V.
     \end{equation}
 
-    Because $q$ is of lesser degree than $p$ (i.e. $\deg q = (\deg p) -1$) and $p$ is the minimal polynomial of $T$, there exists at least one vector $u\in V$ sucht that
+    Because $q$ is of lesser degree than $p$ (i.e. $\deg q = (\deg p) -1$) and $p$ is the minimal polynomial of $T$, there exists at least one vector $u\in V$ such that
     \begin{equation}
       q(T)u \neq 0,
     \end{equation}
@@ -429,7 +428,7 @@ are the coefficients of the minimal polynomial of $T$.
   \label{thm: every zero polynomial is a multiple of the minimal polynomial}
   Let $T\in \linmap(V)$ and $q \in \mathcal{P} (\myF)$. Then $q(T)=0$ $\iff$ $q$ is a multiple of the minimal polynomial of $T$.
 
-  Or equivalently: The minimal polynomial of $T$ devides every polynomial $q$ for which $q(T) = 0$ (sometimes written as $m_T \mid q$).
+  Or equivalently: The minimal polynomial of $T$ divides every polynomial $q$ for which $q(T) = 0$ (sometimes written as $m_T \mid q$).
 \end{thm}
 \begin{prf}
   Let $p$ denote the minimal polynomial of $T$.
@@ -538,13 +537,13 @@ are the coefficients of the minimal polynomial of $T$.
 \end{prf}
   %Since $U+W$ is invariant under $S$ because both $U$ and $W$ are invariant under $S$, the equation above shows that there exists a subspace of $N$ invariant under $S$ of even dimension larger than $\dim U$.
 
-\begin{thm}[operators on odd-dimensional vectors spaces have eigenvalues]
+\begin{thm}[operators on odd-dimensional vector spaces have eigenvalues]
   Every operator on an odd\-/dimensional vector space has an eigenvalue.
 \end{thm}
 \begin{prf}
   Suppose $\myF = \real$ and $V$ is finite-dimensional. Let $n := \dim V$, and suppose $n$ is an odd number. Let $T \in \linmap(V)$. We will use induction on $n$ in steps of size two to show that $T$ has an eigenvalue. Note that the desired result holds if $\dim V = 1$, because then every nonzero vector in $V$ is an eigenvector of $T$.
 
-  Now, suppose $n \geq 3$ and the desired result holds for all operators on all odd-dimensional vector spaces of dimension less $n$, i.e. with dimension $\leq n-2$. Let $p$ denote the minimal polynomial of $T$. If $p$ is a polynomial multiple of $x-\lambda$ for some $\lambda \in \real$, then $\lambda$ is and eigenvalue of $T$ by theorem \ref{thm: eigenvalues are the zeros of the minimal polynomial} and we are done. Thus, we can assume that there exists $b, c \in \real$ such that $b^2 < 4c$ and $p$ is a polynomial multiple of $x^2 + bx + c$ by \ref{thm: factorization of a polynomial over R}. By looking at this thoerem, we can see that there exists a monic polynomial $q \in \polyn(\real)$ such that $p(x) = q(x)(x^2 + bx + c) \quad \forall x \in \real$. Now,
+  Now, suppose $n \geq 3$ and the desired result holds for all operators on all odd-dimensional vector spaces of dimension less than $n$, i.e. with dimension $\leq n-2$. Let $p$ denote the minimal polynomial of $T$. If $p$ is a polynomial multiple of $x-\lambda$ for some $\lambda \in \real$, then $\lambda$ is an eigenvalue of $T$ by theorem \ref{thm: eigenvalues are the zeros of the minimal polynomial} and we are done. Thus, we can assume that there exists $b, c \in \real$ such that $b^2 < 4c$ and $p$ is a polynomial multiple of $x^2 + bx + c$ by \ref{thm: factorization of a polynomial over R}. By looking at this theorem, we can see that there exists a monic polynomial $q \in \polyn(\real)$ such that $p(x) = q(x)(x^2 + bx + c) \quad \forall x \in \real$. Now,
   \begin{equation}
     0 = p(T) = (q(T)) (T^2 + bT + cI),
   \end{equation}

@@ -1,4 +1,4 @@
-$\myF$ denotes $\real$ or $\compl$. $V$ and $W$ are nonzero finite-dimensional inner proudct spaces over $\myF$.
+$\myF$ denotes $\real$ or $\compl$. $V$ and $W$ are nonzero finite-dimensional inner product spaces over $\myF$.
 
 \section{Self-Adjoint and Normal Operators}
 
@@ -25,7 +25,7 @@ $\myF$ denotes $\real$ or $\compl$. $V$ and $W$ are nonzero finite-dimensional i
       \text{\emph{Compute: }} \ip{T(x_1,x_2,x_3)}{(y_1, y_2)}
       & = \ip{(x_2+3x_3,2x_1)}{(y_1,y_2)} \\
       & = x_2 y_1 + 3 x_3 y_1 + 2 x_1 y_2 \\
-      & = \ip{(x_1, x_2, x_3)}{2 y_2,y_1,3y_1} \\
+      & = \ip{(x_1, x_2, x_3)}{(2 y_2,y_1,3y_1)} \\
     \end{aligned}
   \end{equation}
 
@@ -92,7 +92,7 @@ $\myF$ denotes $\real$ or $\compl$. $V$ and $W$ are nonzero finite-dimensional i
     \item $(S+T)^* = S^*+T^* \quad \forall S \in \lvw$;
     \item $(\lambda T)^* = \overline \lambda T^* \quad \forall \lambda \in \myF$;
     \item $(T^*)^* = T$;
-    \item $(ST)^* = T^* S^* \quad \forall S \in \linmap (W,U)$ \quad [here $U$, $\dim U \neq \infty$ is a inner product space over $\myF$.]
+    \item $(ST)^* = T^* S^* \quad \forall S \in \linmap (W,U)$ \quad [here $U$, $\dim U \neq \infty$ is an inner product space over $\myF$.]
     \item $I^*_V = I_V$;
     \item If $T$ is invertible, then $T^*$ is invertible and $(T^*)^{-1} = (T^{-1})^*$.
   \end{enumerate}
@@ -130,7 +130,7 @@ $\myF$ denotes $\real$ or $\compl$. $V$ and $W$ are nonzero finite-dimensional i
     }
 
     \item{
-      Suppose $S \in \linmap(W, U)$ and $u \in U$ [where $U$ is a inner product space]. Then
+      Suppose $S \in \linmap(W, U)$ and $u \in U$ [where $U$ is an inner product space]. Then
       \[\ip{v}{(ST)^*u} = \ip{(ST)v}{u} = \ip{S(Tv)}{u} = \ip{Tv}{S^*u} =
       \ip{v}{T^*(S^*u)} = \ip{v}{(T^*S^*)u}.\]
 
@@ -145,7 +145,7 @@ $\myF$ denotes $\real$ or $\compl$. $V$ and $W$ are nonzero finite-dimensional i
       $\alignLongunderstack{
         &T^{-1}T=I \iff (T^{-1}T)^* = I^* \implwtxt{\textbf{(d)}} T^*(T^{-1})^* =I \\
         &TT^{-1}=I \iff (TT^{-1})^* = I^* \implwtxt{\textbf{(d)}} (T^{-1})^*T^* =I \\
-        &\implies (T^{-1})^*$ is the inverse of $T^{*}$, as desired$.
+        &\implies (T^{-1})^*$ is the inverse of $T^{*}$, as desired.
       }$
 
 
@@ -377,7 +377,7 @@ If $\myF = \real$, then every eigenvalue is real, so the next result is interest
   Note that each term in the numerator of the two big expressions which have the denominator $4$ are of the form $\ip{Tv}{v}$ for appropriate $v \in V$, for example $\ip{T(u-iw)}{u-iw}$, where $u-iw \in V$. Note that this two fractions added together are equal to $\ip{Tu}{w} \quad \forall u,w \in V$ at the end.
 
   Now suppose $\ip{Tv}{v} = 0 \quad \forall v \in V$. Then the (big) equation above implies that $\ip{Tu}{w} = 0 \quad \forall u, w \in V$.
-  We can further conclude that $Tu=0 \quad \forall u \in V$, because only $\vec 0$ is always orthogonal to every vector (take $w=Tu$. Only if $w=Tu=\vec 0$, the expresssion $\ip{Tu}{Tu}$ can always  be $0$). Hence $T=0$, as desired. Here the last $0$ means the zero operator.
+  We can further conclude that $Tu=0 \quad \forall u \in V$, because only $\vec 0$ is always orthogonal to every vector (take $w=Tu$. Only if $w=Tu=\vec 0$, the expression $\ip{Tu}{Tu}$ can always  be $0$). Hence $T=0$, as desired. Here the last $0$ means the zero operator.
 
   \Leftarrowdirection If $T = 0$ then trivially $\ip{Tv}{v}=0 \quad \forall v \in V$.
 \end{prf}
@@ -387,7 +387,7 @@ If $\myF = \real$, then every eigenvalue is real, so the next result is interest
   \label{thm: condition for T s. t. <Tv><v> is always real}
   Suppose $V$ is a complex inner product space and $T \in \linmap(V)$. Then
   \[
-    T $ is self adjoint $ \iff \ip{Tv}{v} \in \real \quad \forall v \in V.
+    T \text{ is self-adjoint } \iff \ip{Tv}{v} \in \real \quad \forall v \in V.
   \]
 \end{thm}
 \begin{prf}
@@ -409,7 +409,7 @@ If $\myF = \real$, then every eigenvalue is real, so the next result is interest
     \end{aligned}
   \end{equation}
 
-  where we used \ref{thm: Tv orthogonality to v} for the second equivalence as applied to $T-T^*$ and the forth equivalence follows from \eqref{eq: <T^*v,v>=...}
+  where we used \ref{thm: Tv orthogonality to v} for the second equivalence as applied to $T-T^*$ and the fourth equivalence follows from \eqref{eq: <T^*v,v>=...}
 \end{prf}
 
 \mce{16}
@@ -421,7 +421,7 @@ If $\myF = \real$, then every eigenvalue is real, so the next result is interest
    \]
 \end{thm}
 \begin{prf}
-  We have already proved this (withoud the hypothesis that $T$ is self-adjoint) when $V$ is a complex inner product space. Thus we can assume that $V$ is a real inner product space. If $w,u \in V$, then
+  We have already proved this (without the hypothesis that $T$ is self-adjoint) when $V$ is a complex inner product space. Thus we can assume that $V$ is a real inner product space. If $w,u \in V$, then
   \[
   \ip{Tw}{u} = \ip{w}{Tu} = \overline{\ip{Tu}{w}} = \ip{Tu}{w}.
   \]
@@ -449,7 +449,7 @@ This theorem means that for a self-adjoint operator $T$, it can not happen that 
 \begin{mydef}[normal]
   %\phantom{.}
   \begin{itemize}
-  \item An operator on a inner product space is called \qt{normal} if it commutes with its adjoint.
+  \item An operator on an inner product space is called \qt{normal} if it commutes with its adjoint.
 
   \item In other words, $T \in \linmap (V)$ is normal if $TT^* = T^* T.$
 
@@ -458,7 +458,7 @@ Every self-adjoint operator is normal, because if $T^* = T$, then $T$ commutes w
 \end{mydef}
 
 \begin{example}[an operator that is normal but not self-adjoint]
-  Let $T$ be the operator on $\myF^2$ whose matrix with respect to the satandard basis is
+  Let $T$ be the operator on $\myF^2$ whose matrix with respect to the standard basis is
   \[
     \begin{blockarray}{(cc)}
       2 & -3 \\
@@ -466,7 +466,7 @@ Every self-adjoint operator is normal, because if $T^* = T$, then $T$ commutes w
     \end{blockarray}
   \]
 
-  Thus $T(x_1, x_2) = (2x_1-3x_2, 3x_1 + 2_x2)$.
+  Thus $T(x_1, x_2) = (2x_1-3x_2, 3x_1 + 2x_2)$.
 
   This operator $T$ is not self-adjoint because $\mmatrix(T)_{2,1} = 3$ which is not equal to the complex conjugate of the entry in $\mmatrix(T)_{1,2} = -3$.
 
@@ -539,7 +539,7 @@ Every self-adjoint operator is normal, because if $T^* = T$, then $T$ commutes w
   \end{aligned}
   \]
 
-  One can also juste calculate $(T^*T - TT^*)^*$ directly using \ref{thm: properties of the adjoint} and verify that $T^*T - TT^*=(T^*T - TT^*)^*$.
+  One can also just calculate $(T^*T - TT^*)^*$ directly using \ref{thm: properties of the adjoint} and verify that $T^*T - TT^*=(T^*T - TT^*)^*$.
 \end{prf}
 
 \begin{thm}[range, null space, and eigenvectors of a normal operator]
@@ -550,7 +550,7 @@ Every self-adjoint operator is normal, because if $T^* = T$, then $T$ commutes w
     \item $\myrange T = \myrange T^*$;
     \item $V = \mynull T  \oplus \myrange T$;
     \item $T - \lambda I$ is normal $\quad \forall \lambda \in \myF$;
-    \item if $v \in V$ and $\lambda \in \myF$, then $Tv = \lambda v$ $\iff$ $T^*v = \overline{\lambda} v$.
+    \item If $v \in V$ and $\lambda \in \myF$, then $Tv = \lambda v$ $\iff$ $T^*v = \overline{\lambda} v$.
   \end{enumerate}
 \end{thm}
 \begin{prf}
@@ -583,7 +583,7 @@ Every self-adjoint operator is normal, because if $T^* = T$, then $T$ commutes w
         \eqwtxt{\ref{thm: null space and range of T^*}}
         \mynull T \oplus \myrange T^*
         \eqwtxt{\textbf{(b)}}
-        \mynull \oplus \myrange T
+        \mynull T \oplus \myrange T
       $
 
     \item

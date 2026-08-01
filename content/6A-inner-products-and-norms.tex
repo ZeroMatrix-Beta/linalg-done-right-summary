@@ -5,7 +5,7 @@ We define the norm of $x=(x_1, \ldots, x_n) \in \real^n$ by
 \begin{equation}
   \norm{x} = \sqrt{x_1^2 + \cdots + x_n^2}
 \end{equation}
-The norm is not lineaer. The dot product is.
+The norm is not linear. The dot product is.
 
 \begin{mydef} [dot product]
   The \qt{dot product} of $x,y \in \real^n$ is defined by
@@ -26,7 +26,7 @@ The dot product on $\real^n$ has the following properties.
 For $z \in \compl$, we define the norm of $z$ by
 \begin{equation}
   \begin{aligned}
-    \norm{z} :\equiv \sqrt{ |z_1|^2 + \cdots + |z_n|^2} = \sqrt{ z_1 \overline {z_1} + \cdots z_n \overline {z_n}} \\
+    \norm{z} :\equiv \sqrt{ |z_1|^2 + \cdots + |z_n|^2} = \sqrt{ z_1 \overline {z_1} + \cdots + z_n \overline {z_n}} \\
     \implies \norm{z}^2 = z_1 \overline{z_1} + \cdots + z_n \overline{z_n}
   \end{aligned}
 \end{equation}
@@ -35,7 +35,7 @@ For $z \in \compl$, we define the norm of $z$ by
   The \qt{inner product} of $V$ is a function defined as follows:
   \begin{itemize}
     \item \bfemph{Positivity: } $
-    {v,v} \geq 0 \quad \forall v \in V$
+    \ip{v}{v} \geq 0 \quad \forall v \in V$
     \item \bfemph{Definiteness: } $\ip{v}{v} = 0 \iff v=0$
     \item \bfemph{Additivity in first slot: } $\ip{u+v}{w}=\ip{u}{w}+\ip{v}{w} \quad \forall u,v,w \in V$
     \item \bfemph{Homogeneity in first slot: } $\ip{\lambda u}{v} = \lambda \ip{u}{v} \quad \forall \lambda \in \myF \myand \forall u,v \in V$.
@@ -137,7 +137,7 @@ For $z \in \compl$, we define the norm of $z$ by
   \begin{equation}
     |\ip{u}{v}| \leq \norm{u} \, \norm{v}.
   \end{equation}
-  Equality holds $\iff$ $u,v$ is a scalar multiple of the other. $u=\lambda v$
+  Equality holds $\iff$ one of $u,v$ is a scalar multiple of the other. $u=\lambda v$
 \end{thm}
 \begin{proof}
   If $v=0$, both sides are $0$. Thus $v\neq0 $.
@@ -180,7 +180,7 @@ For $z \in \compl$, we define the norm of $z$ by
         &=    \ip{u+v}{u+v} & \\
         &=    \ip{u}{u+v}+\ip{v}{u+v} & \\
         &=    \ip{u}{u}+\ip{u}{v}+\ip{v}{u}+\ip{v}{v} & \\
-        &=    \ip{u}{u}+\ip{v}{v}+\ip{u}{v}+\overline{\ip{u}{v}} & \text{conjugate symetrie}\\
+        &=    \ip{u}{u}+\ip{v}{v}+\ip{u}{v}+\overline{\ip{u}{v}} & \text{conjugate symmetry}\\
         &=    \norm{u}^2+\norm{v}^2+2\operatorname{Re} \ip{u}{v} & \text{$z+\overline{z} = 2\operatorname{Re} z$}\\
         &\leq \norm{u}^2+\norm{v}^2+2|\ip{u}{v}| & \text{$z=\realpart z + (\impart z) i$} \\
         &\leq \norm{u}^2+\norm{v}^2+2\norm{u}\norm{v} & \text{Cauchy-Schwarz} \\

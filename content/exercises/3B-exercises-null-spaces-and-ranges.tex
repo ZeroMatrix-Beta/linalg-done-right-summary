@@ -264,7 +264,7 @@
   Suppose there exists a linear map $T \in \linmap(V)$ on $V$ such that its null space $\mynull(T)$ and range $\myrange(T)$ are both finite-dimensional. Prove that $V$ is finite-dimensional.
 
   \begin{xprf}
-    According to the rank-nullity theorem, we have: $ \dim V = \dim \myrange(T) + \dim \mynull(T)$. Since both $\dim \myrange T$ and $\dim \mynull T$ are finte by assumption, their sum is also finite. Hence, $\dim V$ is finite, and V is finite-dimensional.
+    According to the rank-nullity theorem, we have: $ \dim V = \dim \myrange(T) + \dim \mynull(T)$. Since both $\dim \myrange T$ and $\dim \mynull T$ are finite by assumption, their sum is also finite. Hence, $\dim V$ is finite, and V is finite-dimensional.
   \end{xprf}
 \end{xrcs}
 
@@ -473,8 +473,8 @@
       \end{aligned}
     \end{equation}
 
-    The first line of the equation above is just the rank-nullity theorem of the restriction of $T$ on $X$. For the second line in formula \eqref{eq: dim X}, we have $\mynull T_X = \null T$ and
-    $\myrange T_X = (U \cap \myrange T)$. Now $X$ is the set of all vectors in $V$ such that $Tv$ is in $U$. Because $0 \in U$, all the vectors $v \in V$ sucht that $Tv=0$ are contained in $X$. In symbols: $\mynull T \subseteq X$. Hence, $\mynull T|_X = \mynull T$.
+    The first line of the equation above is just the rank-nullity theorem of the restriction of $T$ on $X$. For the second line in formula \eqref{eq: dim X}, we have $\mynull T_X = \mynull T$ and
+    $\myrange T_X = (U \cap \myrange T)$. Now $X$ is the set of all vectors in $V$ such that $Tv$ is in $U$. Because $0 \in U$, all the vectors $v \in V$ such that $Tv=0$ are contained in $X$. In symbols: $\mynull T \subseteq X$. Hence, $\mynull T|_X = \mynull T$.
 
     Now we want to show that $\myrange T|_X \subseteq (U \cap \myrange T)$ and $(U \cap \myrange T) \subseteq \myrange T|_X$, which implies
     \begin{equation}
@@ -699,7 +699,7 @@
 
    Thus we conclude: $ES=T$.
 
-   \Leftarrowdirection Assume $W$ is finite-dimensional and we have $S,T \in \linmap(V,W)$ and $E \in \linmap (W)$ such that $T=ES$. Now assume that $\mynull S$ is not a subset of $\mynull T$. Then there exists a $v \in V$ such that $S(v) = 0$ but $T(v) \neq 0$. Because of \ref{thm: linear maps take 0 to 0} it must be that $E(0) = 0$, and thus $ES(v) = 0$. But we assumed that $T=ES$. Now we have $ES \neq T$ (because $T(v)\neq 0$). The assumption that $\mynull S$ is not a subset of $\mynull T$ has lead to a contradiction. Therefore, $\mynull S \subseteq \mynull T$, as desired.
+   \Leftarrowdirection Assume $W$ is finite-dimensional and we have $S,T \in \linmap(V,W)$ and $E \in \linmap (W)$ such that $T=ES$. Now assume that $\mynull S$ is not a subset of $\mynull T$. Then there exists a $v \in V$ such that $S(v) = 0$ but $T(v) \neq 0$. Because of \ref{thm: linear maps take 0 to 0} it must be that $E(0) = 0$, and thus $ES(v) = 0$. But we assumed that $T=ES$. Now we have $ES \neq T$ (because $T(v)\neq 0$). The assumption that $\mynull S$ is not a subset of $\mynull T$ has led to a contradiction. Therefore, $\mynull S \subseteq \mynull T$, as desired.
   \end{xprf}
 \end{xrcs}
 
