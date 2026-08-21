@@ -106,7 +106,7 @@
 
 \setcounter{xrcscount}{15}
 \begin{xrcs}
-  Explain why no list of four polynomials spans $\polyn_4(\myF)$.
+  Explain why no list of four polynoials spans $\polyn_4(\myF)$.
 
   \begin{xsol}
     $\polyn_4(\myF)$ has $5$ degrees of freedom and looks like this:
@@ -141,49 +141,64 @@
 
     where $q(z) \in \polyn_{m-1} (\myF)$. Therefore, $\mydim \mynull(\varphi) = m$. Since $p_0, p_1, \ddd, p_m \in \mynull(\varphi)$, the given list is not linearly independent by \ref{thm: length of linearly dependent list less or equal to length of spanning list}, because it has length $m+1$.
   \end{xprf}
-
 \end{xrcs}
 
-%\begin{xrcs}
-%  Suppose $p_0, p_1, \ddd, p_m$ are polynomials in $\polyn_m(\myF)$ such that $p_k(2) = 0 \quad \forall k \in \{0, \ddd, m\}$. Prove that $p_0, p_1, \ddd, p_m$ is not linearly independent in $\polyn_m(\myF)$.
-%\end{xrcs}
-%\begin{prf}
-%  Define the polynomials $p_0, p_1, \ddd, p_m$ for all $a's$ as an element of $\myF$ like this:
-%  \[
-%  \begin{aligned}
-  %    p_0(z) &:\equiv a_{0,0}  \\
-  %    p_1(z) &:\equiv a_{1,0} + a_{1,1} z  \\
-  %    p_2(z) &:\equiv a_{2,0} + a_{2,1} z + a_{2,2} z^2  \\
-  %    p_3(z) &:\equiv a_{3,0} + a_{3,1} z + a_{3,2} z^2 + a_{3,3} z^3  \\
-  %    \vdots & \quad \\
-  %    p_m(z) &:\equiv a_{m,0} + a_{m,1} z + a_{m,2} z^2 + a_{m,3} z^3 + \cdots + a_{m,m} z^m  \\
-  %  \end{aligned}
-%  \]
+% ==============================================================================
+% ORIGINAL ATTEMPT (Commented out): Exercise 19
+% ------------------------------------------------------------------------------
+% AI FEEDBACK:
+% 1. Logical Flaw: The attempt defines $p_0(z) \equiv a_{0,0}$ as a constant polynomial,
+%    which is not given by the problem. The polynomials $p_0, \dots, p_m$ can each be of
+%    any degree $\le m$ with $p_k(2) = 0$.
+% 2. Point Evaluation vs. Zero Function: In line 180, substituting $p_0(2) = 0$ into
+%    the linear independence equation $b_0 p_0 + \dots = 0$ confuses evaluating a
+%    polynomial at a single point $z=2$ with $p_0$ being the zero polynomial.
+% 3. Correct Strategy: The active proof above uses the null space of the evaluation
+%    functional $\varphi(p) = p(2)$, which has dimension $m$. Since the list has
+%    length $m+1$ in an $m$-dimensional subspace, it must be linearly dependent.
+% ==============================================================================
+% \begin{xrcs}
+%   Suppose $p_0, p_1, \ddd, p_m$ are polynomials in $\polyn_m(\myF)$ such that
+%   $p_k(2) = 0 \quad \forall k \in \{0, \ddd, m\}$.
+%   Prove that $p_0, p_1, \ddd, p_m$ is not linearly independent in $\polyn_m(\myF)$.
+% \end{xrcs}
+% \begin{prf}
+%   Define the polynomials $p_0, p_1, \ddd, p_m$ for all $a$'s as elements of $\myF$:
+%   \[
+%   \begin{aligned}
+%     p_0(z) &:\equiv a_{0,0}  \\
+%     p_1(z) &:\equiv a_{1,0} + a_{1,1} z  \\
+%     p_2(z) &:\equiv a_{2,0} + a_{2,1} z + a_{2,2} z^2  \\
+%     p_3(z) &:\equiv a_{3,0} + a_{3,1} z + a_{3,2} z^2 + a_{3,3} z^3  \\
+%     \vdots & \quad \\
+%     p_m(z) &:\equiv a_{m,0} + a_{m,1} z + a_{m,2} z^2 + a_{m,3} z^3 + \cdots + a_{m,m} z^m
+%   \end{aligned}
+%   \]
 %
-%  By assumption, \( p_k(2) = 0 \) for \( k = 1, \ddd, m \), which gives the following constraints:
-%  \[
-%  \begin{aligned}
-  %    p_0(2) &= a_{0,0} = 0 \\
-  %    p_1(2) &= a_{1,0} + a_{1,1} 2 = 0 \\
-  %    p_2(2) &= a_{2,0} + a_{2,1} 2 + a_{2,2} 2^2  = 0  \\
-  %    p_3(2) &= a_{3,0} + a_{3,1} 2 + a_{3,2} 2^2 + a_{3,3} 2^3  = 0  \\
-  %    \vdots & \quad \\
-  %    p_m(2) &= a_{m,0} + a_{m,1} 2 + a_{m,2} 2^2 + a_{m,3} 2^3 + \cdots + a_{m,m} 2^m  = 0  \\
-  %  \end{aligned}
-%  \]
+%   By assumption, $p_k(2) = 0$ for $k = 0, \ddd, m$, which gives the following constraints:
+%   \[
+%   \begin{aligned}
+%     p_0(2) &= a_{0,0} = 0 \\
+%     p_1(2) &= a_{1,0} + a_{1,1} 2 = 0 \\
+%     p_2(2) &= a_{2,0} + a_{2,1} 2 + a_{2,2} 2^2  = 0  \\
+%     p_3(2) &= a_{3,0} + a_{3,1} 2 + a_{3,2} 2^2 + a_{3,3} 2^3  = 0  \\
+%     \vdots & \quad \\
+%     p_m(2) &= a_{m,0} + a_{m,1} 2 + a_{m,2} 2^2 + a_{m,3} 2^3 + \cdots + a_{m,m} 2^m  = 0
+%   \end{aligned}
+%   \]
 %
-%  From the definition of linear independence, we examine the equation:
-%  \[
-%    b_0 p_0 + b_1 p_1 + b_2 p_2 + \cdots + b_m p_m = 0 \iff b_0 0 + b_1 p_1 + b_2 p_2 + \cdots + b_m p_m = 0
-%  \]
+%   From the definition of linear independence, we examine the equation:
+%   \[
+%     b_0 p_0 + b_1 p_1 + b_2 p_2 + \cdots + b_m p_m = 0 \iff b_0 0 + b_1 p_1 + b_2 p_2 + \cdots + b_m p_m = 0
+%   \]
 %
-%  Substituting \( p_0(2) = 0 \), this reduces to:
-%  \[
-%  b_0 \cdot 0 + b_1 p_1 + b_2 p_2 + \cdots + b_m p_m = 0.
-%  \]
+%   Substituting $p_0(2) = 0$, this reduces to:
+%   \[
+%     b_0 \cdot 0 + b_1 p_1 + b_2 p_2 + \cdots + b_m p_m = 0.
+%   \]
 %
-%  Any choice of $b_0$ will solve this equation and give us a non-trivial solution. So the list of polynomials $p_0, p_1, \ddd, p_m$ is not linearly independent.
-%\end{prf}
-
+%   Any choice of $b_0$ will solve this equation and give us a non-trivial solution.
+%   So the list of polynomials $p_0, p_1, \ddd, p_m$ is not linearly independent.
+% \end{prf}
 
 \clearpage

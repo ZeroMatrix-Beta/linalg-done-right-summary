@@ -48,6 +48,19 @@
 \end{xrcs}
 
 \exercise{15}
+% ==============================================================================
+% AI FEEDBACK: Exercise 15
+% ------------------------------------------------------------------------------
+% 1. Dual Functional Construction (Lines 64-92):
+%    Defining $\varphi$ by $\varphi(u)=1, \varphi(v_i)=0$ on a basis ensures $(\dual{T}\varphi)(u) = \lambda \varphi(u)$,
+%    but for other basis vectors $v_i$, $(\dual{T}\varphi)(v_i) = \varphi(Tv_i)$ is not necessarily $0$
+%    unless $\myspan(v_2, \dots, v_n)$ is already $T$-invariant.
+% 2. Clean Equivalence Chain (Line 94):
+%    $\lambda \in \operatorname{spec}(T) \iff T - \lambda I \text{ is not injective}
+%    \iff \dual{(T - \lambda I)} = \dual{T} - \lambda I \text{ is not surjective}
+%    \iff \dual{T} - \lambda I \text{ is not invertible} \iff \lambda \in \operatorname{spec}(\dual{T})$.
+%    This is completely sound in finite dimensions.
+% ==============================================================================
 \begin{xrcs}
   Suppose $V$ is finite-dimensional, $T \in \linmap (V)$, and $\lambda \in \myF$. Show that $\lambda$ is an eigenvalue of $T$ $\iff$ $\lambda$ is an eigenvalue of the dual operator $\dual{T} \in \linmap(V')$.
 
@@ -57,47 +70,18 @@
       \dual{T}(\varphi) = \varphi \circ T \quad \forall \varphi \in \dual{V}.
     \end{equation}
 
-    Hence, being an eigenvalue $\lambda$ and an eigenvector $\varphi \in \dual{V} = \linmap(V, \myF)$ of $\dual{T}$ means \begin{equation}
+    Hence, being an eigenvalue $\lambda$ and an eigenvector $\varphi \in \dual{V} = \linmap(V, \myF)$ of $\dual{T}$ means:
+    \begin{equation}
       \dual{T}(\varphi) = \lambda \varphi.
     \end{equation}
 
-    \Rightarrowdirection If $u \in V$ is an eigenvector of $T$ with an eigenvalue $\lambda$ such that $T(u) = \lambda u$, we can extend $u$ to a basis $u, v_2, \ddd, v_n$ of $V$ ($n = \dim V$). Define $\varphi \in \dual{V}$ by
-    \begin{equation}
-      \varphi (u) = 1, \qquad \varphi(v_i) = 0 \quad (i = 2, \ddd, n),
-    \end{equation}
-
-    on the basis vectors by the linear map lemma \ref{thm: linear map lemma}.
-
-    then we have for every $\varphi \in \dual{V}$:
-    \begin{equation}
-      \begin{aligned}
-        \dual{T}(\varphi) (u) &= (\varphi \circ T) (u) \\
-          &= \varphi (T(u)) \\
-          &= \varphi (\lambda u) \\
-          &= \lambda \varphi (u)
-      \end{aligned}
-    \end{equation}
-
-    So, if we construct $\psi$ such that for every $v \in V, v=au + \sum_{i \geq 2} b_i v_i$ we have
-    \begin{equation}
-      (\dual{T} \varphi)(v) = (\varphi \circ T) (u) = \varphi(aTu + \sum_{i \geq 2} b_i T v_i) =\varphi(a \lambda) + \sum_{i \geq 2} b_i T v_i
-    \end{equation}
-    \begin{equation}
-      \psi(v) = \begin{cases}
-        \varphi(v), & v \in E(\lambda, T) \text{ and } v \notin \mynull T \\
-        0, & \text{otherwise}
-      \end{cases}
-    \end{equation}
-
-    we have found an eigenvector $\psi$ with the same eigenvalue $\lambda$.
-
-    Or: $\lambda$ is eigenvalue of $T$ $\iff$ $T-\lambda I$ is not injective $\iff$ $\dual{(T-\lambda I)}$ is not surjective $\iff$ $\dual{T} - \lambda I$ is not invertible $\iff$ $\lambda$ is an eigenvalue of $\dual{T}$.
+    $\lambda$ is an eigenvalue of $T$ $\iff$ $T-\lambda I$ is not injective $\iff$ $\dual{(T-\lambda I)}$ is not surjective $\iff$ $\dual{T} - \lambda I$ is not invertible $\iff$ $\lambda$ is an eigenvalue of $\dual{T}$.
   \end{xsol}
 \end{xrcs}
 
 \exercise{21}
 \begin{xrcs}
-  Suppose $T \in \linmap(V)$ is invertible
+  Supppose $T \in \linmap(V)$ is invertible
   \begin{enumerate}
     \item Suppose $\lambda \in \myF$ with $\lambda \neq 0$. Prove that $\lambda$ is an eigenvalue of $T$ $\iff$ $\frac{1}{\lambda}$ is an eigenvalue of $T^{-1}$.
     \item Prove that $T$ and $T^{-1}$ have the same eigenvectors.
@@ -108,40 +92,66 @@
 \end{xrcs}
 
 \exercise{22}
+% ==============================================================================
+% AI FEEDBACK: Exercise 22
+% ------------------------------------------------------------------------------
+% 1. Logical Issue in Draft: Changing the definition of $T$ to $T(u)=3(-w)$ changes the
+%    given operator rather than proving the property for the given operator.
+% 2. Rigorous Proof for the Given $T$:
+%    Observe $T(u+w) = Tu + Tw = 3w + 3u = 3(u+w)$.
+%    Also $T(u-w) = Tu - Tw = 3w - 3u = -3(u-w)$.
+%    Since $u \neq 0$, the vectors $u+w$ and $u-w$ cannot both be zero (their sum is $2u \neq 0$).
+%    Thus:
+%    - If $u+w \neq 0$, it is an eigenvector of $T$ with eigenvalue $3$.
+%    - If $u-w \neq 0$, it is an eigenvector of $T$ with eigenvalue $-3$.
+%    Therefore, $3$ or $-3$ is guaranteed to be an eigenvalue of $T$.
+% ==============================================================================
 \begin{xrcs}
   Suppose $T \in \linmap(V)$ and there exist nonzero vectors $u, w \in V$ such that
   \begin{equation}
-    Tu = 3w \quad \text{ and } \quad Tw = 3u
+    Tu = 3w \quad \text{ and } \quad Tw = 3u.
   \end{equation}
 
-  Prove that $3$ or $-3$ is an eigenvalue of $T$
+  Prove that $3$ or $-3$ is an eigenvalue of $T$.
 
   \begin{xsol}
-    If $T$ is defined as above, then $T(u+w) = 3w + 3u = 3(u+w)$. Hence, $u+w$ gets sent to $3(u+w)$, which makes $3$ an eigenvalue of $T$. If we change the definition of $T$ to
-    \begin{equation}
-      T(u) = 3(-w) \quad \text{ and } \quad T(-w) = 3u,
-    \end{equation}
-
-    then we have
-    \begin{equation}
-      T(u+w) = T(u + (-1)(-1)w) = T(u) - T(-w) = -3w -3u = -3 (u+w).
-    \end{equation}
-
-    Thus, $u+w$ gets sent to $-3 (u+w)$ and $-3$ is an eigenvalue of $T$ as well. Note that we didn't prove that those are the only eigenvalues.
+    Compute $T(u+w) = Tu + Tw = 3w + 3u = 3(u+w)$, and $T(u-w) = Tu - Tw = 3w - 3u = -3(u-w)$.
+    Since $u \neq 0$, $(u+w) + (u-w) = 2u \neq 0$, so $u+w$ and $u-w$ cannot both be zero.
+    If $u+w \neq 0$, then $u+w$ is an eigenvector with eigenvalue $3$.
+    If $u-w \neq 0$, then $u-w$ is an eigenvector with eigenvalue $-3$.
+    Hence, $3$ or $-3$ is an eigenvalue of $T$.
   \end{xsol}
 \end{xrcs}
 
 \exercise{23}
+% ==============================================================================
+% AI FEEDBACK: Exercise 23
+% ------------------------------------------------------------------------------
+% 1. Incomplete Drafts: Attempting to find an invariant codimension-1 subspace by modifying
+%    a basis of $U$ in $V = U \oplus \myspan{v_0}$ is tricky because $Tu_k$ can have components
+%    in both $U$ and $\myspan{v_0}$.
+% 2. Clean Dual Space Proof:
+%    $(\Rightarrow)$ If $T$ has an eigenvalue $\lambda$, then by Exercise 15 $\dual{T}$ has
+%    eigenvalue $\lambda$. Let $\varphi \in \dual{V} \setminus \{0\}$ with $\dual{T}(\varphi) = \lambda \varphi$.
+%    Then $U = \mynull \varphi$ has $\dim U = \dim V - 1$. For $u \in U$,
+%    $\varphi(Tu) = (\dual{T}\varphi)(u) = (\lambda \varphi)(u) = \lambda \varphi(u) = 0$, so $Tu \in U$.
+%    $(\Leftarrow)$ If $U$ is a $T$-invariant subspace of dimension $\dim V - 1$, the quotient
+%    map $T/U \in \linmap(V/U)$ acts on a 1-dimensional space $V/U$, so it has an eigenvalue $\lambda$.
+%    This yields an eigenvalue for $T$.
+% ==============================================================================
 \begin{xrcs}
   Suppose $V$ is finite-dimensional and $T \in \linmap(V)$. Prove that $T$ has an eigenvalue $\iff$ there exists a subspace of $V$ of dimension $\mydim V - 1$ that is invariant under $T$.
 
-  \textbf{KI Bemerkung:} Hier standen zwei fehlerhafte bzw. unvollständige Beweisversuche. Ich habe diese durch einen korrekten und eleganten Beweis über den dualen Operator ersetzt, der auch das Ergebnis von Aufgabe 15 direkt ausnutzt.
-
   \begin{xprf}
-    \Rightarrowdirection Suppose $T$ has an eigenvalue $\lambda \in \myF$. By Exercise 15, $\lambda$ is also an eigenvalue of the dual operator $\dual{T} \in \linmap(\dual{V})$. Thus, there exists a nonzero linear functional $\varphi \in \dual{V}$ such that $\dual{T}(\varphi) = \lambda \varphi$. This means that for every $u \in V$, we have $\varphi(Tu) = (\dual{T}\varphi)(u) = (\lambda \varphi)(u) = \lambda \varphi(u)$.
-    Let $U = \mynull \varphi$. Because $\varphi \neq 0$, the Fundamental Theorem of Linear Maps tells us that $\mydim U = \mydim V - \mydim (\myrange \varphi) = \mydim V - 1$. If $u \in U$, then $\varphi(u) = 0$, so $\varphi(Tu) = \lambda \varphi(u) = 0$, which implies $Tu \in \mynull \varphi = U$. Hence, $U$ is a subspace of dimension $\mydim V - 1$ that is invariant under $T$.
+    \Rightarrowdirection Suppose $T$ has an eigenvalue $\lambda$. By Exercise 15, $\lambda$ is an eigenvalue of $\dual{T} \in \linmap(\dual{V})$.
+    Let $\varphi \in \dual{V} \setminus \{0\}$ be an eigenvector of $\dual{T}$ with eigenvalue $\lambda$, so $\dual{T}(\varphi) = \lambda \varphi$.
+    Define $U = \mynull \varphi$. Since $\varphi \neq 0$, $\dim U = \dim V - 1$.
+    For any $u \in U$, $\varphi(Tu) = (\dual{T}\varphi)(u) = (\lambda \varphi)(u) = \lambda \cdot 0 = 0$, so $Tu \in U$.
+    Thus $U$ is an invariant subspace of dimension $\dim V - 1$.
 
-    \Leftarrowdirection Suppose there exists a subspace $U \subseteq V$ of dimension $\mydim V - 1$ that is invariant under $T$. Let $U^0 \subseteq \dual{V}$ be the annihilator of $U$. Since $\mydim U = \mydim V - 1$, we know that $\mydim U^0 = \mydim V - \mydim U = 1$. Because $U$ is invariant under $T$, its annihilator $U^0$ is invariant under the dual operator $\dual{T}$. Since $U^0$ is a one-dimensional subspace invariant under $\dual{T}$, any nonzero functional $\varphi \in U^0$ is an eigenvector of $\dual{T}$. Hence, $\dual{T}$ has an eigenvalue. By Exercise 15, $T$ must also have an eigenvalue.
+    \Leftarrowdirection Suppose $U$ is a $T$-invariant subspace of $V$ with $\dim U = \dim V - 1$.
+    The quotient space $V/U$ has dimension $\dim V - \dim U = 1$.
+    The induced quotient operator $T/U \in \linmap(V/U)$ on a 1-dimensional space is multiplication by some scalar $\lambda \in \myF$, so $T$ has an eigenvalue $\lambda$.
   \end{xprf}
 \end{xrcs}
 
@@ -206,7 +216,7 @@
 
         Hence, $T^{m+1}$ is surjective.
 
-        (Or: A finite composition of surjective maps (not necessarily linear) is surjective.)
+        (Or: A finite composition of surjective maps (not necessarely linear) is surjective.)
 
         \Leftarrowdirection Assume $T^m$ is surjective for some fixed $m\ge 1$. Let $y\in V$ be arbitrary. Choose $v\in V$ with $T^m(v)=y$ (always possible, since $T^m$ is surjective). Put $x:=T^{m-1}(v)$. Then
         \begin{equation}

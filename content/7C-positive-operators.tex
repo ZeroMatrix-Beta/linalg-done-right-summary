@@ -2,7 +2,7 @@
 
 \mce{34}
 \begin{mydef}[positive (semidefinite) operators]
-  An operator $T \in \linmap (V)$ is called \qt{positive (semidefinite)}, if $T$ is self-adjoint and
+  An operator $T \in \linmap (V)$ is called \qt{positive (semidefinite)} if $T$ is self-adjoint and
   \[
   \ip{Tv}{v} \geq 0 \quad \forall v \in V.
   \]
@@ -12,53 +12,52 @@
 
 \mce{36}
 \begin{mydef}[square root]
-  An operator $R$ is called \qt{square root} of an operator $T$ if $R^2=T$.
+  An operator $R$ is called a \qt{square root} of an operator $T$ if $R^2=T$.
 \end{mydef}
 
 \mce{38}
 \begin{thm}[characterizations of positive operators]
-  Let $T \in \linmap(V)$. Then the following are equivalent.
+  Let $T \in \linmap(V)$. Then the following are equivalent:
   \begin{enumerate}[label=\textbf{(\alph*)}]
-    \item $T$ is a positive operator.
-    \item $T$ is self-adjoint and all eigenvalues of $T$ are nonnegative
-    \item With respect to some orthonormal basis of $V$, the matrix $\mmatrix(T)$ of $T$ is a diagonal matrix with only nonnegative numbers on the diagonal.
-    \item $T$ has a positive square root.
-    \item $T$ has a self-adjoint square root.
+    \item $T$ is a positive operator;
+    \item $T$ is self-adjoint and all eigenvalues of $T$ are nonnegative;
+    \item With respect to some orthonormal basis of $V$, the matrix $\mmatrix(T)$ of $T$ is a diagonal matrix with only nonnegative numbers on the diagonal;
+    \item $T$ has a positive square root;
+    \item $T$ has a self-adjoint square root;
     \item $T = R^* R$ for some $R \in \linmap(V)$.
   \end{enumerate}
 \end{thm}
 \begin{prf}
-  We will prove $(a) \Rightarrow (b) \Rightarrow (c) \Rightarrow (d) \Rightarrow (e) \Rightarrow (f) \Rightarrow (a)$
+  We will prove $(a) \implies (b) \implies (c) \implies (d) \implies (e) \implies (f) \implies (a)$.
 
-  \StepOne If (a) holds, that means that $T$ is also self-adjoint. Then we have for an eigenvalue $\lambda \in \myF$
+  \StepOne If (a) holds, that means that $T$ is also self-adjoint. Then we have for an eigenvalue $\lambda \in \myF$:
   \[
-  0 \leq \ip{Tv}{v} = \ip{\lambda v}{v} = \lambda \ip{v}{v}.
-  \implies 0 < \lambda
+  0 \leq \ip{Tv}{v} = \ip{\lambda v}{v} = \lambda \ip{v}{v} \implies 0 \leq \lambda.
   \]
 
-  \StepTwo Suppose (b) holds. By the spectral theorem, there is an orthonormal basis $e_1, \ddd, e_n$ of $V$ consisting of eigenvectors of $T$. Let $\lambda_1, \ddd, \lambda_n$ be the eigenvalues of $T$ corresponding to $e_1, \ddd, e_n$. By (a), we know that they are all nonnegative. So $(b) \implies (c)$.
+  \StepTwo Suppose (b) holds. By the spectral theorem, there is an orthonormal basis $e_1, \ddd, e_n$ of $V$ consisting of eigenvectors of $T$. Let $\lambda_1, \ddd, \lambda_n$ be the eigenvalues of $T$ corresponding to $e_1, \ddd, e_n$. By (a), we know that they are all nonnegative. So, $(b) \implies (c)$.
 
-  \StepThree Now suppose (c) holds. Then there is a orthonormal basis $e_1, \ddd, e_n$ of $V$ such that
-  $\mmatrix(T) = \operatorname{diag}(\lambda_1,  \ddd, \lambda_n), \; \lambda_i > 0$. The linear map lemma \ref{thm: linear map lemma} implies that $\exists R \in \linmap (V)$:
+  \StepThree Now, suppose (c) holds. Then there is an orthonormal basis $e_1, \ddd, e_n$ of $V$ such that
+  $\mmatrix(T) = \operatorname{diag}(\lambda_1,  \ddd, \lambda_n), \; \lambda_i \geq 0$. The linear map lemma \ref{thm: linear map lemma} implies that $\exists R \in \linmap (V)$:
   \[
   R e_k = \sqrt{\lambda_k}e_k \in V \quad \forall k \in \{1, \ddd,n\}.
   \]
   \[
-  R^2 e_k = R R e_k = R \sqrt{\lambda_k}e_k = \sqrt{\lambda_k} R e_k = \sqrt{\lambda_k} \sqrt{\lambda_k} e_k =  \lambda_k e_k = T e_k \quad \forall k \in \{1, \ddd,n\}.
+  R^2 e_k = R R e_k = R \sqrt{\lambda_k}e_k = \sqrt{\lambda_k} R e_k = \sqrt{\lambda_k} \sqrt{\lambda_k} e_k =  \lambda_k e_k = T e_k \quad \forall k \in \{1, \ddd,n\},
   \]
 
-  which implies that $R^2 = T$. Thus $R$ is a positive (semidefinite) square root of $T$. Hence (d) holds, which shows $(c) \implies (d)$.
+  which implies that $R^2 = T$. Thus, $R$ is a positive (semidefinite) square root of $T$. Hence, (d) holds, which shows $(c) \implies (d)$.
 
-  \StepFour Every positive (semidefinite) operator is self-adjoint by the definition of a positive (semidefinite) operator. Thus $(d) \implies (e)$.
+  \StepFour Every positive (semidefinite) operator is self-adjoint by the definition of a positive (semidefinite) operator. Thus, $(d) \implies (e)$.
 
-  \StepFive Now suppose (e) holds, meaning that there exists a self-adjoint operator $R=R^* \in \linmap(V)$ on $V$ \st $T=R^2$. Then $T=R^*R$. Hence $(e) \implies (f)$.
+  \StepFive Now, suppose (e) holds, meaning that there exists a self-adjoint operator $R=R^* \in \linmap(V)$ on $V$ \st $T=R^2$. Then $T=R^*R$. Hence, $(e) \implies (f)$.
 
-  \StepSix Finally, suppose (f) holds. Let $R \in \linmap (V)$ be such that $T=R^*R$. Then $T^* =  (R^* R)^* = R^* ( R^*)^* = R^*R = T$. Hence $T$ is self-adjoint. Note that $\forall v \in V$:
+  \StepSix Finally, suppose (f) holds. Let $R \in \linmap (V)$ be such that $T=R^*R$. Then $T^* =  (R^* R)^* = R^* ( R^*)^* = R^*R = T$. Hence, $T$ is self-adjoint. Note that $\forall v \in V$:
   \[
   \ip{Tv}{v} = \ip{R^* Rv}{v} = \ip{Rv}{(R^*)^*v} = \ip{Rv}{Rv} \geq 0.
   \]
 
-  Thus $T$ is positive (semidefinite), showing that $(f) \implies (a)$.
+  Thus, $T$ is positive (semidefinite), showing that $(f) \implies (a)$.
 \end{prf}
 
 \begin{thm}[uniqueness of square root]
@@ -72,11 +71,11 @@
 
 \begin{thm}
   \label{thm: T positive and <Tv,v> = 0 => Tv = 0}
-  Suppose $T$ is a positive operator on $V$ and $v \in V$ \st $\ip{Tv}{v} = 0$.
+  Suppose $T$ is a positive operator on $V$ and $v \in V$ \st $\ip{Tv}{v} = 0$. Then:
   \[
-  \implies Tv = 0.
+  Tv = 0.
   \]
 \end{thm}
 \begin{prf}
-  We have $0 = \ip{Tv}{v}= \ip{\sqrt{T}\sqrt{T}v}{v} = \ip{\sqrt{T}v}{\sqrt{T}v} = \norm{\sqrt{T}v}^2.$ $\implies$ $\sqrt{T}v = 0$. Thus $Tv = \sqrt{T}\left(\sqrt{T}v\right)=0$, as desired.
+  We have $0 = \ip{Tv}{v}= \ip{\sqrt{T}\sqrt{T}v}{v} = \ip{\sqrt{T}v}{\sqrt{T}v} = \norm{\sqrt{T}v}^2 \implies \sqrt{T}v = 0$. Thus, $Tv = \sqrt{T}\left(\sqrt{T}v\right)=0$, as desired.
 \end{prf}

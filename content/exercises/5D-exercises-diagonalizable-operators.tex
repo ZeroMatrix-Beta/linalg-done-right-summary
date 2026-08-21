@@ -1,51 +1,98 @@
 \section*{Exercises about Diagonalizable Operators}
 
+% ==============================================================================
+% ORIGINAL ATTEMPT 1 (Commented out): Initial Draft
+% ------------------------------------------------------------------------------
+% AI FEEDBACK:
+% 1. Mathematical Gap: The attempt assumes without proof that a subcollection of the
+%    diagonalizing basis vectors forms a basis of $E(\lambda, T)$.
+%    To make the argument rigorous, one must prove that any vector $w \in E(\lambda, T)$
+%    has zero coefficients on basis vectors corresponding to eigenvalues $\neq \lambda$.
+% ==============================================================================
+% \begin{xrcs}
+%   Suppose $T \in \op(V)$ has a diagonal matrix $A=\m{T}$ with respect to some basis of $V$.
+%   Prove that if $\lambda \in F$, then $\lambda$ appears on the diagonal of $A$ precisely $\dim E (\lambda , T)$ times.
+%   \begin{xprf}
+%     If $\lambda$ is not an eigenvalue, then $\dim E(\lambda, T) = \dim \set{ v : Tv = \lambda v } = \dim \set{0} = 0$, and it does not appear on the diagonal of $A$.
+%     Now, assume $\lambda$ is an eigenvalue of $T$. Since $T$ has a diagonal matrix with respect to some basis of $V$, say $v_1, \ddd, v_\ell$ with $\ell = \dim V$,
+%     all those vectors are eigenvectors of $T$. A subcollection that satisfies $Tv = \lambda v$ forms a basis of $E(\lambda, T)$.
+%     Let $v_{n_1}, \ddd, v_{n_m}$ be a basis of $E(\lambda, T)$ with $\dim E(\lambda, T) = m$ and $n_j \in \set{1, \ddd, \ell}$ for $j = 1, \ddd, m$.
+%     This implies that $T v_{n_j} = \lambda v_{n_j}$ for $j \in \set{1, \ddd, m }$, which can only happen if $\lambda$ appears on $A$ exactly $m = \dim E(\lambda, T)$ times.
+%   \end{xprf}
+% \end{xrcs}
+
+% ==============================================================================
+% ORIGINAL ATTEMPT 2 (Commented out): Intermediate Full Proof
+% ------------------------------------------------------------------------------
+% AI FEEDBACK:
+% 1. Mathematical Validity: Sound and complete.
+% 2. Structure: Carefully defines $S = \{v_j \mid Tv_j = \lambda v_j\}$, proves two-way
+%    inclusion $\myspan S = E(\lambda, T)$ using coordinate uniqueness, and computes
+%    $|S| = \dim E(\lambda, T)$.
+% ==============================================================================
+% \begin{xrcs}
+%   Suppose $T \in \op(V)$ has a diagonal matrix $A=\m{T}$ with respect to some basis of $V$.
+%   Prove that if $\lambda \in F$, then $\lambda$ appears on the diagonal of $A$ precisely $\dim E (\lambda , T)$ times.
+%   \begin{xprf}
+%     If $\lambda$ is not an eigenvalue, then $\dim E(\lambda, T) = \dim\{v:Tv=\lambda v\} = \dim\{0\}=0$,
+%     and hence $\lambda$ does not appear on the diagonal of $A$.
+%
+%     Now assume $\lambda$ is an eigenvalue. Let $\mathcal B=\{v_1,\dots,v_\ell\}$ be a basis of $V$ with respect to which $A$ is diagonal,
+%     so $A=\operatorname{diag}(a_1,\dots,a_\ell)$ and $T v_j = a_j v_j$ for each $j$.
+%
+%     Define $S=\{v_j : T v_j=\lambda v_j\}$. Clearly $\myspan S \subseteq E(\lambda,T)$.
+%     Conversely, if $w\in E(\lambda,T)$ then writing $w=\sum_{j=1}^\ell c_j v_j$ and applying $T$ yields
+%     $\lambda\sum_{j=1}^\ell c_j v_j = T w = \sum_{j=1}^\ell c_j a_j v_j$.
+%     By uniqueness of coordinates relative to $\mathcal B$, $c_j=0$ whenever $a_j\neq\lambda$.
+%     Hence $w\in\myspan S$, so $\myspan S=E(\lambda,T)$.
+%     Since $S \subseteq \mathcal B$ is linearly independent, $|S|=\dim E(\lambda,T)$.
+%   \end{xprf}
+% \end{xrcs}
+
 \exercise{2}
 \begin{xrcs}
-  Suppose $T \in \linmap(V)$ has a diagonal matrix $A=\mmatrix(T)$ with respect to some basis of $V$. Prove that if $\lambda \in \myF$, then $\lambda$ appears on the diagonal of $A$ precisely $\dim E (\lambda , T)$ times.
-
-  \textbf{KI Bemerkung:} Es gab hier drei verschiedene, teilweise fehlerhafte oder unvollständige Beweise für dieselbe Aufgabenstellung (die zudem als Exercise 2 und 3 dupliziert war). Ich habe diese zusammengefasst und den besten, ausführlichsten Beweis behalten sowie die Makros (wie \texttt{\textbackslash linmap} statt \texttt{\textbackslash op}) vereinheitlicht.
+  Suppose $T \in \linmap(V)$ has a diagonal matrix $A=\mmatrix{T}$ with respect to some basis of $V$. Prove that if $\lambda \in \myF$, then $\lambda$ appears on the diagonal of $A$ precisely $\dim E (\lambda , T)$ times.
 
   \begin{xprf}
-    If $\lambda^*$ is not an eigenvalue of $T$, then
-    \[
-    \dim E(\lambda^*,T)=\dim\{v\in V:Tv=\lambda^* v\}=\dim\{0\}=0,
-    \]
-    and therefore $\lambda^*$ does not appear among the diagonal entries of $A$.
+    If $\lambda$ is not an eigenvalue of $T$, then
+    \begin{equation}
+      \dim E(\lambda, T) = \dim \{v \in V \mid Tv = \lambda v\} = \dim \{0\} = 0,
+    \end{equation}
+    and therefore $\lambda$ does not appear among the diagonal entries of $A$.
 
-    Now assume $\lambda^*$ is an eigenvalue. Let $\mathcal B=\{v_1,\dots,v_\ell\}$ be a basis of $V$ with respect to which $A=\mmatrix(T)$ is diagonal; write
-    \[
-    A=\operatorname{diag}(\mu_1,\dots,\mu_\ell),
-    \]
-    so that for each $j$ we have $T v_j=\mu_j v_j$. In particular every $v_j$ is an eigenvector of $T$ (possibly for different eigenvalues).
+    Now assume $\lambda$ is an eigenvalue. Let $\mathcal{B} = \{v_1, \dots, v_\ell\}$ be a basis of $V$ with respect to which $A = \mmatrix{T}$ is diagonal; write
+    \begin{equation}
+      A = \operatorname{diag}(\mu_1, \dots, \mu_\ell),
+    \end{equation}
+    so that for each $j$ we have $Tv_j = \mu_j v_j$. In particular, every $v_j$ is an eigenvector of $T$.
 
-    Define the subset of basis vectors corresponding to the eigenvalue $\lambda^*$ by
-    \[
-    S=\{\, v_j \in \mathcal B \mid \mu_j=\lambda^* \,\}.
-    \]
-    We first observe that $\myspan S \subseteq E(\lambda^*,T)$, since each vector in $S$ is by definition a $\lambda^*$-eigenvector and linear combinations of $\lambda^*$-eigenvectors remain in the $\lambda^*$-eigenspace.
+    Define the subset of basis vectors corresponding to the eigenvalue $\lambda$ by
+    \begin{equation}
+      S = \{\, v_j \in \mathcal{B} \mid \mu_j = \lambda \,\}.
+    \end{equation}
+    We first observe that $\myspan S \subseteq E(\lambda, T)$, since each vector in $S$ is by definition a $\lambda$-eigenvector and linear combinations of $\lambda$-eigenvectors remain in the $\lambda$-eigenspace.
 
-    For the reverse inclusion, let $w\in E(\lambda^*,T)$. Express $w$ in the basis $\mathcal B$:
-    \[
-    w=\sum_{j=1}^\ell c_j v_j \qquad (c_j\in \myF).
-    \]
-    Applying $T$ to both sides and using $T v_j=\mu_j v_j$ gives
-    \[
-    \lambda^* \sum_{j=1}^\ell c_j v_j = T w = \sum_{j=1}^\ell c_j \mu_j v_j.
-    \]
-    By uniqueness of coordinates with respect to the basis $\mathcal B$, the coefficient of $v_j$ on the left must equal the coefficient of $v_j$ on the right for each $j$, hence
-    \[
-    (\lambda^*-\mu_j)c_j = 0 \quad\text{for every } j=1,\dots,\ell.
-    \]
-    Consequently $c_j=0$ whenever $\mu_j\neq\lambda^*$, so every nonzero coefficient $c_j$ corresponds to some $v_j\in S$. Thus $w$ is a linear combination of vectors from $S$, meaning $w\in\myspan S$. This proves the reverse inclusion and therefore
-    \[
-    \myspan S = E(\lambda^*,T).
-    \]
+    For the reverse inclusion, let $w \in E(\lambda, T)$. Express $w$ in the basis $\mathcal{B}$:
+    \begin{equation}
+      w = \sum_{j=1}^\ell c_j v_j \qquad (c_j \in \myF).
+    \end{equation}
+    Applying $T$ to both sides and using $Tv_j = \mu_j v_j$ gives
+    \begin{equation}
+      \lambda \sum_{j=1}^\ell c_j v_j = Tw = \sum_{j=1}^\ell c_j \mu_j v_j.
+    \end{equation}
+    By uniqueness of coordinates with respect to the basis $\mathcal{B}$, the coefficient of $v_j$ on the left must equal the coefficient of $v_j$ on the right for each $j$, hence
+    \begin{equation}
+      (\lambda - \mu_j) c_j = 0 \quad \text{for every } j = 1, \dots, \ell.
+    \end{equation}
+    Consequently, $c_j = 0$ whenever $\mu_j \neq \lambda$, so every nonzero coefficient $c_j$ corresponds to some $v_j \in S$. Thus $w$ is a linear combination of vectors from $S$, meaning $w \in \myspan S$. This proves the reverse inclusion and therefore
+    \begin{equation}
+      \myspan S = E(\lambda, T).
+    \end{equation}
 
-    Since $S$ is a subset of the basis $\mathcal B$, its vectors are linearly independent; hence the number of elements of $S$ equals the dimension of its span. Therefore
-    \[
-    |S| = \dim(\myspan S) = \dim E(\lambda^*,T).
-    \]
-    Finally, by definition $|S|$ is exactly the number of diagonal entries of $A$ equal to $\lambda^*$. We conclude that the scalar $\lambda^*$ appears on the diagonal of $A$ precisely $\dim E(\lambda^*,T)$ times.
+    Since $S$ is a subset of the basis $\mathcal{B}$, its vectors are linearly independent; hence the number of elements of $S$ equals the dimension of its span:
+    \begin{equation}
+      |S| = \dim \myspan S = \dim E(\lambda, T).
+    \end{equation}
+    Finally, by definition $|S|$ is exactly the number of diagonal entries of $A$ equal to $\lambda$. We conclude that the scalar $\lambda$ appears on the diagonal of $A$ precisely $\dim E(\lambda, T)$ times.
   \end{xprf}
 \end{xrcs}

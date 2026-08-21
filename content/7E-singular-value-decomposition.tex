@@ -5,12 +5,12 @@
 \mce{64}
 \begin{thm}[properties of $T^*T$]
   \label{thm: properties of T^*T}
-  Suppose $T \in \linmap(V,W)$. Then
+  Suppose $T \in \linmap(V,W)$. Then:
   \begin{enumerate}[label=\textbf{(\alph*)}]
     \item $T^*T$ is a positive operator on $V$;
     \item $\mynull T^*T = \mynull T$;
     \item $\myrange T^*T = \myrange T^*$;
-    \item $\dim \myrange T = \dim \myrange T^* = \dim  \myrange T^*T$;
+    \item $\dim \myrange T = \dim \myrange T^* = \dim  \myrange T^*T$.
   \end{enumerate}
 \end{thm}
 
@@ -20,11 +20,11 @@
 
 \mce{68}
 \begin{thm}[role of positive singular values]
-  Suppose that $T\in \linmap (V,W)$. Then
+  Suppose that $T\in \linmap (V,W)$. Then:
   \begin{enumerate} [label=\textbf{(\alph*)}]
-    \item $T$ is injective $\iff$ $0$ is not a singular value of $T$;
+    \item $T$ is injective $\iff 0$ is not a singular value of $T$;
     \item the number of positive singular values of $T$ equals $\dim \myrange T$;
-    \item $T$ is surjective $\iff$ number of positive singular values of $T$ equals $\dim W$.
+    \item $T$ is surjective $\iff$ the number of positive singular values of $T$ equals $\dim W$.
   \end{enumerate}
 \end{thm}
 
@@ -53,7 +53,7 @@ The table below compares eigenvalues with singular values.
   \label{thm: isometries characterized by having all singular values equal 1}
   Suppose $S \in \linmap (V,W)$. Then
   \[
-    S$ is an isometry $ \iff $ all singular values of $S$ equal $1.
+    S \text{ is an isometry} \iff \text{all singular values of } S \text{ equal } 1.
   \]
 \end{thm}
 
@@ -61,7 +61,7 @@ The table below compares eigenvalues with singular values.
 
 \mce{70}
 \begin{thm}[singular value decomposition]
-  Let $T\in \linmap (V,W)$ and the positive singular values of $T$ are $s_1, \ddd, s_m$. Then there exist two orthonormal lists $e_1, \ddd, e_m$ in $V$ and $f_1, \ddd, f_m$ in $W$ \st
+  Let $T\in \linmap (V,W)$, and let the positive singular values of $T$ be $s_1, \ddd, s_m$. Then there exist two orthonormal lists $e_1, \ddd, e_m$ in $V$ and $f_1, \ddd, f_m$ in $W$ \st
   \[
     Tv = s_1 \ip{v}{e_1} f_1 + \cdots + s_m \ip{v}{e_m}f_m \quad \forall v \in V.
   \]
@@ -72,7 +72,7 @@ The table below compares eigenvalues with singular values.
   An $M$-by-$N$ matrix $A$ is called a \qt{diagonal matrix} if all entries of the matrix are $0$ except possibly $A_{k,k}$ for $k \in \big\{1, \ddd, \operatorname{min} \{M,N\} \big \}$.
 \end{mydef}
 
-The table below compares the spectral theorem with the singular value decomposition
+The table below compares the spectral theorem with the singular value decomposition:
 
 \begin{tabular}{|p{.45 \textwidth}|p{.45 \textwidth}|}
   \hline
@@ -94,15 +94,15 @@ The table below compares the spectral theorem with the singular value decomposit
     Tv = s_1 \ip{v}{e_1} f_1 + \cdots + s_m \ip{v}{e_m}f_m \quad \forall v \in V.
   \]
 
-  Then we have $\forall w \in W$:
+  Then we have for all $w \in W$:
   \begin{itemize}
-    \item $T^*w = s_1 \ip{w}{f_1}e_1 + \cdots + s_m \ip{w}{f_m}e_m$
-    \item $T^\dagger w = \tfrac{\ip{w}{f_1}}{s_1} e_1 + \cdots + \tfrac{\ip{w}{f_m}}{s_m} e_m$
+    \item $T^*w = s_1 \ip{w}{f_1}e_1 + \cdots + s_m \ip{w}{f_m}e_m$;
+    \item $T^\dagger w = \tfrac{\ip{w}{f_1}}{s_1} e_1 + \cdots + \tfrac{\ip{w}{f_m}}{s_m} e_m$.
   \end{itemize}
 \end{thm}
 
 \begin{thm}[matrix version of SVD]
-  Suppose $A$ is a $p$-by-$n$ matrix of rank $m \geq 1$. Then there exists a $p$-by-$n$ matrix $B$ with orthonormal columns, and $m$-by-$m$ diagonal matrix $D$ with positive numbers on the diagonal and an $n$-by-$m$ matrix $C$ with orthonormal columns \st
+  Suppose $A$ is a $p$-by-$n$ matrix of rank $m \geq 1$. Then there exist a $p$-by-$n$ matrix $B$ with orthonormal columns, an $m$-by-$m$ diagonal matrix $D$ with positive numbers on the diagonal, and an $n$-by-$m$ matrix $C$ with orthonormal columns \st
   \[
     A = BDC^*.
   \]

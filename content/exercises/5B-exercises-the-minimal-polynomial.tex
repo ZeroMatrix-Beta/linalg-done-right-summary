@@ -12,7 +12,7 @@
       0=(T^2 - 9I) v = (T-3I) (T+3I) v.
     \end{equation}
 
-    Set $w := (T+3I)v$. Then $(T-3I)w = 0$, so $Tw = 3w$ (because $w \in \mynull (T-3I)$). There are two cases:
+    Set $w := (T+3I)v$. Then $(T-3I)w = 0$, so $Tw = 3w$ (because  $w \in \mynull (T-3I)$)^. There are two cases:
     \begin{itemize}
       \item If $w=0$, then $(T + 3I) v = 0$. Hence, $Tv = -3v$ and $-3$ is an eigenvalue of $T$.
       \item If $w \neq 0$, then $w$ is an eigenvector of $T$ with eigenvalue $3$.
@@ -20,14 +20,26 @@
 
     Thus, $T$ has eigenvalue $3$ or $-3$, as required.
 
-%    \Rightarrowdirection Let $v \in V$ be an eigenvector of $T^2$ corresponding to $\lambda = 9$. Thus, $T^2 v = \lambda v$ or equivalently, $T(Tv) = \lambda v$. Since eigenvectors are scalar mutiples of each other, we assume that $v$ is also an eigenvector of $T$. Hence, let $\alpha \in \myF$ be such that $Tv = \alpha v$. Therefore,
+% ==============================================================================
+% ORIGINAL ATTEMPT (Commented out): Exercise 1 ($\Rightarrow$ Direction Draft)
+% ------------------------------------------------------------------------------
+% AI FEEDBACK:
+% 1. False Assumption: The draft assumes that an eigenvector $v$ of $T^2$ is also an
+%    eigenvector of $T$. In general, an eigenvector of $T^2$ might not be an eigenvector
+%    of $T$ (e.g. $v = v_3 + v_{-3}$ where $Tv_3 = 3v_3$ and $Tv_{-3} = -3v_{-3}$ gives
+%    $T^2v = 9v$, but $Tv = 3v_3 - 3v_{-3} \neq \alpha v$).
+% 2. Correct Strategy: The active proof above factors $(T^2 - 9I)v = (T-3I)(T+3I)v = 0$
+%    and sets $w = (T+3I)v$. If $w \neq 0$, then $Tw = 3w$; if $w = 0$, then $Tv = -3v$.
+% ==============================================================================
+%    \Rightarrowdirection Let $v \in V$ be an eigenvector of $T^2$ corresponding to $\lambda = 9$.
+%    Thus, $T^2 v = \lambda v$ or equivalently, $T(Tv) = \lambda v$.
+%    Assume $v$ is also an eigenvector of $T$, so $Tv = \alpha v$. Therefore:
 %    \begin{align}
 %      T(Tv) &= \lambda v \\
 %      T(\alpha v) &= \lambda v \\
 %      \alpha T v &= \lambda v \\
 %      \alpha^2 v &= \lambda v = 9v
 %    \end{align}
-%
 %    For this to happen, $\alpha$ must be $3$ or $-3$.
   \end{xprf}
 \end{xrcs}
@@ -94,7 +106,7 @@
       \end{aligned}
     \end{equation}
 
-    If $\lambda = n$, then $x_1 = x_2 = \cdots = x_n$. Meaning all eigenvectors corresponding to the eigenvalue $n$ are scalar multiples of $(1, 1, \ddd ,1 ) \in \myF^n$.
+    If $\lambda = n$, then $x_1 = x_2 = \cdots = x_n$. Meaning all eigenvectors corresponding to the eigenvalue $n$ are s multiples of $(1, 1, \ddd ,1 ) \in \myF$.
 
     If $\lambda \neq n$, then $S ( \lambda - n) = 0$ implies that $S=0$ and thus, $\lambda = 0$. This means that $x$ belongs to the eigenspace of $0$, if $x_1 + x_2 + x_3 + \cdots + x_n = 0$.
 

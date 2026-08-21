@@ -57,7 +57,7 @@
       \varphi (v) = b_1 + \cdots + b_m.
     \end{equation}
 
-    It is easy to see that $\varphi (u) = 0$ for every $u \in U$ (since $U \cap W = \{0\}$, by \ref{thm: sum and intersection of two subspaces}) and that $\varphi$ is linear.
+    It is easy to see that $\varphi (u) = 0$ vor every $u \in U$ (since $U \cap W = \{0\}$, by \ref{thm: sum and intersection of two subspaces}) and that $\varphi$ is linear.
   \end{xsol}
 \end{xrcs}
 
@@ -117,7 +117,7 @@
       \begin{aligned}
       \psi_0(v_0) &= 1\psi_0(x^0) = 1 \;. \implies \psi_0(x^0) = 1.\\
       \psi_0(v_1) &= -5\psi_0(x^0)+\psi_0(x^1) = 0. \implies \psi_0(x^1) = 5 \;.\\
-      \psi_0(v_2) &= 25\psi_0(x^0)-10\psi_0(x^1)+\psi_0(x^2)= 0. \implies \psi_0(x^2) = 25 \;.\\
+      \psi_0(v_2) &= 25psi_0(x^0)-10\psi_0(x^1)+\psi_0(x^2)= 0. \implies \phi(x^2) = 25 \;.\\
       \psi_0(v_3) &= -125\psi_0(x^0)+75\psi_0(x^1)-15\psi_0(x^2)+\psi_0(x^3) = 0. \implies \psi_0(x^3) = 125.\\
       \psi_0(v_4) &= 625\psi_0(x^0)-500\psi_0(x^1)+150\psi_0(x^2)-20\psi_0(x^3)+\psi_0(x^4) = 0 . \implies \psi_0(x^4) = 625 .\\
       \end{aligned}
@@ -128,7 +128,7 @@
       \begin{aligned}
       \psi_1(v_0) &= 1\psi_1(x^0) = 0 \;. \implies \psi_0(x^0) = 0.\\
       \psi_1(v_1) &= -5\psi_1(x^0)+\psi_1(x^1) = 1. \implies \psi_1(x^1) = 1 \;.\\
-      \psi_1(v_2) &= 25\psi_0(x^0)-10\psi_1(x^1)+\psi_1(x^2)= 0. \implies \psi_1(x^2) = 10 \;.\\
+      \psi_1(v_2) &= 25psi_0(x^0)-10\psi_1(x^1)+\psi_1(x^2)= 0. \implies \psi_1(x^2) = 10 \;.\\
       \psi_1(v_3) &= -125\psi_1(x^0)+75\psi_1(x^1)-15\psi_1(x^2)+\psi_1(x^3) = 0. \implies \psi_1(x^3) = 75.\\
       \psi_1(v_4) &= 625\psi_1(x^0)-500\psi_1(x^1)+150\psi_1(x^2)-20\psi_1(x^3)+\psi_1(x^4) = 0 . \implies \psi_1(x^4) = 500 .\\
       \end{aligned}
@@ -214,7 +214,7 @@
       \Gamma := \psi(v_1) \varphi_1 + \cdots +  \psi(v_n) \varphi_n
     \end{equation}
 
-    just like in \eqref{eq: equation for psi}. We want to show that $\Gamma = \psi$. Observe that $\Gamma$ is a linear functional, since it is the linear combination of some linear functionals $\varphi_1, \ddd, \varphi_n$ (which are the dual basis of $V$). In this case, $\psi(v_1), \ddd, \psi(v_n)$ are the scalars of this sum, which do not change for a given $\psi$ and a given basis of $V$. If we now apply $\Gamma$ to each $v_k$ (for $k = 1, \ddd, n$), we get
+    juste like in \eqref{eq: equation for psi}. We want to show that $\Gamma = \psi$. Observe that $\Gamma$ is a linear functional, since it is the linear combination of some linear  functionals $\varphi_1, \ddd, \varphi_n$ (which are the dual basis of $V$). In this case, $\psi(v_1), \ddd, \psi(v_n)$ are the scalars of this sum, which do not change for a given $\psi$ and a given basis of $V$. If we now apply $\Gamma$ to each $v_k$ (for $k = 1, \ddd, n$), we get
     \begin{equation}
       \begin{aligned}
         \Gamma(v_k) &= (\psi(v_1) \varphi_1 + \cdots +  \psi(v_n) \varphi_n) (v_k) \\
@@ -276,7 +276,7 @@
     \end{equation}
 
 
-    \prooffont{Variation of Question 14:} The question becomes more interesting if we use another basis for $\real^2$ and $\real^3$, say $v_1 = (1,1), v_2=(2,1)$ for $\real^2$ and $w_1 = (2,2,0), w_2 = (4,2,0), w_3 = (0,0,1)$ for $\real^3$. In this case, let $\phi_1, \phi_2$ denote the dual basis of $v_1, v_2$ and $\psi_1, \psi_2, \psi_3$ denote the dual basis of $w_1, w_2, w_3$. Now, we have to calculate $\phi$ and $\psi$ first. Per definition, we have
+    \prooffont{Variation of Qustion 14:} The question becomes more interesting if we use another basis for $\real^2$ and $\real^3$, say $v_1 = (1,1), v_2=(2,1)$ for $\real^2$ and $w_1 = (2,2,0), w_2 = (4,2,0), w_3 = (0,0,1)$ for $\real^3$. In this case, let $\phi_1, \phi_2$ denote the dual basis of $v_1, v_2$ and $\psi_1, \psi_2, \psi_3$ denote the dual basis of $w_1, w_2, w_3$. Now, we have to calculate $\phi$ and $\psi$ first. Per definition, we have
     \begin{equation}
       \phi(v) = \phi (a_1 v_1 + a_2 v_2) = a_1 \phi_1 (v_1) + a_2 \phi_2 (v_2).
     \end{equation}
@@ -395,6 +395,6 @@
       0 \neq \varphi(v) = \psi(Tv) = (\psi \circ T) (v).
     \end{equation}
 
-    This implies that $Tv \neq 0$, and thus, $\mynull T = \{ 0\}$ (since $v$ was arbitrary and nonzero). This forces $T$ to be injective. Because $\dual{T}$ is invertible, we have $\mydim \dual{W} = \mydim \dual{V}$, and hence, $\mydim W = \mydim V$ (see \ref{thm: dim V' = dim V}). An injective linear map between finite-dimensional vector spaces of the same dimension is surjective, so $T$ is bijective, and therefore, invertible.
+    This implies that $Tv \neq 0$, and thus, $\mynull T = \{ 0\}$ (since $v$ was arbitrary and nonzero). This forces $T$ to be injective. Because $\dual{T}$ is invertible, we have $\mydim \dual{W} = \mydim \dual{V}$, and hence, $\mydim W = \mydim V$ (see \ref{thm: dim V' = dim V}). An injective linear map between finite-dimensional vector spaces of the same dimension is surjective, so $T$ is bijectiive, and therefore, invertible.
   \end{xprf}
 \end{xrcs}

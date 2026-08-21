@@ -5,11 +5,11 @@
 \setcounter{thm}{30}
 \begin{mydef}[matrix of a linear map, $\mmatrix(T)$]
   \label{def: matrix of a linear map}
-  Let $T \in \linmap (V,W)$ and let $v_1, \dots, v_n$ be a basis of $V$ and let $w_1, \dots, w_m$ be a basis of $W$. The \qt{matrix of $T$} with respect to these bases is the $m$-by-$n$ matrix $\mmatrix(T)$ whose entries $A_{j,k}$ are defined by
+  Let $T \in \linmap (V,W)$, let $v_1, \dots, v_n$ be a basis of $V$, and let $w_1, \dots, w_m$ be a basis of $W$. The \qt{matrix of $T$} with respect to these bases is the $m$-by-$n$ matrix $\mmatrix(T)$ whose entries $A_{j,k}$ are defined by
   \begin{equation}
     T v_k = A_{1,k} w_1 + \cdots + A_{m,k} w_m = \sum_{j=1}^{m} A_{j,k} w_j.
   \end{equation}
-  If the bases are not clear from the context, one writes $\mmatrix(T, (v_1, \dots, v_n),(w_1, \dots, w_m))$. One remembers how to construct $\mmatrix(T)$, if one writes the bases on left hand side and on top of the matrix. It looks as follows:
+  If the bases are not clear from the context, one writes $\mmatrix(T, (v_1, \dots, v_n),(w_1, \dots, w_m))$. One remembers how to construct $\mmatrix(T)$ if one writes the bases on the left-hand side and on top of the matrix. It looks as follows:
   \begin{equation}
     \mathcal{M} (T) :\equiv
       \begin{blockarray}{cccccc}
@@ -24,9 +24,9 @@
 \end{mydef}
 
 \begin{mydef-non} [matrix notation for operators (see later)]
-  For $T \in \linmap(V)$ we use the notation
+  For $T \in \linmap(V)$, we use the notation
   \begin{equation}
-    \mathcal{M}(T, (\onetilln{v})) := \mathcal{M}(T, (\onetilln{v}),(\onetilln{v}))
+    \mathcal{M}(T, (\onetilln{v})) := \mathcal{M}(T, (\onetilln{v}),(\onetilln{v})).
   \end{equation}
 \end{mydef-non}
 
@@ -35,17 +35,17 @@
 % 3.35
 \setcounter{thm}{34}
 \begin{thm}[matrix of the sum of linear maps]
-  $\mmatrix(S+T) = \mmatrix(S) + \mmatrix(T)$ for $S, T \in \linmap (V,W)$
+  $\mmatrix(S+T) = \mmatrix(S) + \mmatrix(T)$ for $S, T \in \linmap (V,W)$.
 \end{thm}
 
 % 3.38
 \setcounter{thm}{37}
 \begin{thm}[matrix of a scalar times a linear map]
-  $\mmatrix(\lambda T) = \lambda \mmatrix(T)$ for $\lambda \in \myF$ and $T \in \linmap (V,W)$
+  $\mmatrix(\lambda T) = \lambda \mmatrix(T)$ for $\lambda \in \myF$ and $T \in \linmap (V,W)$.
 \end{thm}
 
 \begin{mydef} [notation $\myF^{m,n}$]
-  $\myF^{m,n}$ denotes the set of all $m$-by-$n$ matrices with entries in $\myF$, where $m,n \in \nat$
+  $\myF^{m,n}$ denotes the set of all $m$-by-$n$ matrices with entries in $\myF$, where $m,n \in \nat$.
 \end{mydef}
 
 \begin{thm} [dimension of $\myF^{m,n}$]
@@ -60,7 +60,7 @@
 
 \subsection{Matrix Multiplication}
 
-Let $v_1, \ldots, v_n$ be a basis of $V$, $w_1, \ldots, w_m$ be a basis of $W$ and $u_1, \ldots, u_p$ be a basis of $U$.
+Let $v_1, \ldots, v_n$ be a basis of $V$, $w_1, \ldots, w_m$ be a basis of $W$, and $u_1, \ldots, u_p$ be a basis of $U$.
 Consider the linear maps $T: U \to V$ and $S: V \to W$. The composition $ST$ is a linear map from $U$ to $W$. Is it the case that
 \begin{equation}
   \mmatrix(ST) = \mmatrix(S)  \mmatrix(T) \; {\mathlarger ?}
@@ -69,7 +69,7 @@ Consider the linear maps $T: U \to V$ and $S: V \to W$. The composition $ST$ is 
 %One can choose a definition of matrix multiplication that forces this question to have a positive answer.
 
 Later on, matrix multiplication will be defined accordingly such that this question has a positive answer.
-For now, let $A := \mmatrix(S)\in \myF^{m,n}$ and $B := \mmatrix(T)\in \myF^{m,p}$. The matrices of $S$ and $T$ look as follows,
+For now, let $A := \mmatrix(S)\in \myF^{m,n}$ and $B := \mmatrix(T)\in \myF^{n,p}$. The matrices of $S$ and $T$ look as follows:
 \begin{equation}
   A := \mathcal{M} (S) =
   \begin{blockarray}{cccccc}
@@ -96,7 +96,7 @@ For now, let $A := \mmatrix(S)\in \myF^{m,n}$ and $B := \mmatrix(T)\in \myF^{m,p
   \end{blockarray}
 \end{equation}
 
-For $1 \leq k \leq p$, we have
+For $1 \leq k \leq p$, we have:
 \begin{equation}
   \begin{aligned}
     (ST) u_k
@@ -109,8 +109,8 @@ For $1 \leq k \leq p$, we have
 \end{equation}
 
 \begin{minipage}{\linewidth-40pt}
-  Thus, $\mmatrix(ST)$ is  the $m$-by-$p$ matrix whose entry in row $j$, column $k$ equals
-  $\sum_{r=1}^{n} A_{j,r}  B_{r,k}.$
+  Thus, $\mmatrix(ST)$ is the $m$-by-$p$ matrix whose entry in row $j$, column $k$ equals
+  $\sum_{r=1}^{n} A_{j,r}  B_{r,k}$:
 \begin{equation}
   \mathcal{M} (ST) =
   \begin{blockarray}{cccccc}
@@ -134,13 +134,13 @@ For $1 \leq k \leq p$, we have
 \setcounter{thm}{40}
 \begin{mydef} [matrix multiplication]
   \label{def: matrix multiplication}
-  Let $A \in \myF^{m,n}$ and $B \in \myF^{n,p}$. Then $AB \in \myF^{m,p}$ whose entry in row $j$, column $k$, is given by the equation
+  Let $A \in \myF^{m,n}$ and $B \in \myF^{n,p}$. Then $AB \in \myF^{m,p}$ is the matrix whose entry in row $j$, column $k$, is given by the equation
   \begin{equation}
     (AB)_{j,k} :\equiv \sum_{r=1}^{n} A_{j,r} B_{r,k}.
   \end{equation} %for $A\in \myF^{m,n}$, $B\in \myF^{n,p}$, $AB \in \myF^{m,p}$
 
 
-    The octave code for calculating the entry $j,k$ of the result of $A, B$ with the \qt{sum-scheme} like above looks as follows
+    The octave code for calculating the entry $j,k$ of the result of $A, B$ with the \qt{sum-scheme} like above looks as follows:
 
     \octave{standard_matrix_mult.m}
 
@@ -159,23 +159,23 @@ For $1 \leq k \leq p$, we have
   See at the beginning of the sub-subsection.
 \end{prf}
 
-\begin{mydef} [notation: $A_{j, \mathsmaller{\bullet}}, A_{\mathsmaller{\bullet}, k}$ ] Let $A\in \myF^{m,n}$. Then
+\begin{mydef} [notation: $A_{j, \mathsmaller{\bullet}}, A_{\mathsmaller{\bullet}, k}$ ] Let $A\in \myF^{m,n}$. Then:
   \begin{itemize}
     \item If $1 \leq j \leq m$, then $A_{j, \mathsmaller{\bullet}}$ denotes the $1$-by-$n$ matrix consisting of row $j$ of $A$.
-    \item If $1 \leq k \leq n$, then  $A_{\mathsmaller{\bullet}, k}$ denotes the $m$-by-$1$ matrix consisting of the column $k$ of $A$.
+    \item If $1 \leq k \leq n$, then $A_{\mathsmaller{\bullet}, k}$ denotes the $m$-by-$1$ matrix consisting of column $k$ of $A$.
   \end{itemize}
 \end{mydef}
 
 % 3.46
 \setcounter{thm}{45}
 \begin{thm} [entry of matrix product equals row times column]
-  If $A \in \myF^{m,n}$ and $B \in \myF^{n,p}$, then we have for $1 \leq j \leq m$ and $1 \leq k \leq p$
+  If $A \in \myF^{m,n}$ and $B \in \myF^{n,p}$, then we have for $1 \leq j \leq m$ and $1 \leq k \leq p$:
   \begin{equation}
-    (AB)_{j,k} = A_{j, \mathsmaller{\bullet}} B_{\mathsmaller{\bullet}, k}
+    (AB)_{j,k} = A_{j, \mathsmaller{\bullet}} B_{\mathsmaller{\bullet}, k}.
   \end{equation}
 
 
-    The octave code for multiplying rows and columns directly at entry $j,k$ looks as follows
+    The octave code for multiplying rows and columns directly at entry $j,k$ looks as follows:
 
     \octave{row_times_column_matrix_mult.m}
 
@@ -184,12 +184,12 @@ For $1 \leq k \leq p$, we have
 % 3.48
 \setcounter{thm}{47}
 \begin{thm}[column of matrix product equals matrix times column]
-  If $A \in \myF^{m,n}$ and $B \in \myF^{n,p}$, then we have for $1 \leq k \leq p$
+  If $A \in \myF^{m,n}$ and $B \in \myF^{n,p}$, then we have for $1 \leq k \leq p$:
   \begin{equation}
-    (AB)_{\mathsmaller{\bullet}, k} = AB_{\mathsmaller{\bullet}, k}
+    (AB)_{\mathsmaller{\bullet}, k} = AB_{\mathsmaller{\bullet}, k}.
   \end{equation}
 
-  In other words, column $k$ of $AB$ equals $A$ times column $k$ of $B$. The octave code looks as follows
+  In other words, column $k$ of $AB$ equals $A$ times column $k$ of $B$. The octave code looks as follows:
 
   \octave{matrix_times_columns_matrix_mult.m}
 
@@ -199,7 +199,7 @@ For $1 \leq k \leq p$, we have
 \begin{thm} [linear combination of columns]
   \label{thm: linear combination of columns}
 %  $b=\left(\begin{matrix}b_1\\ \vdots \\ b_n \end{matrix}\right)
-  Suppose $A \in \myF^{m,n}$ and  $b = (b_1, \ldots, b_n)^{t}\in \myF^{n,1}$. Then
+  Suppose $A \in \myF^{m,n}$ and $b = (b_1, \ldots, b_n)^{t}\in \myF^{n,1}$. Then
   \begin{equation}
     Ab = b_1 A_{\mathsmaller{\bullet}, 1} + \dots + b_n A_{\mathsmaller{\bullet},n}.
   \end{equation}
@@ -272,7 +272,7 @@ For $1 \leq k \leq p$, we have
   \octave{column_wise_matrix_mult.m}
 \end{minipage}
 
-  \bfemph{Row-wise:} If $j\in \{1, \ldots, m\}$, then row $j$ of $CR$ is a linear combination of the rows of $R$, with the coefficients of this linear combination coming from row $j$ of $C$ [$C_{j,\mathsmaller{\bullet}}$]
+  \bfemph{Row-wise:} If $j\in \{1, \ldots, m\}$, then row $j$ of $CR$ is a linear combination of the rows of $R$, with the coefficients of this linear combination coming from row $j$ of $C$ [$C_{j,\mathsmaller{\bullet}}$]:
   \begin{equation}
     CR =
     \left(
@@ -316,7 +316,7 @@ For $1 \leq k \leq p$, we have
 % 3.56
 \setcounter{thm}{55}
 \begin{thm}[column-row factorization]
-  Suppose $A \in \myF^{m,n}$ with column rank $c \geq 1.$ Then there exists $C\in \myF^{m,c}$ and $R\in \myF^{c,n}$ such that
+  Suppose $A \in \myF^{m,n}$ with column rank $c \geq 1$. Then there exist $C\in \myF^{m,c}$ and $R\in \myF^{c,n}$ such that
   \begin{equation}
     A = CR.
   \end{equation}

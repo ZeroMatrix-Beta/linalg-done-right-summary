@@ -14,7 +14,7 @@
   \norm{v} = \norm{Sv} = \norm{0} = 0,
   \]
 
-  which implies that $v=0$. Thus every isometry is injective.
+  which implies that $v=0$. Thus, every isometry is injective.
 \end{mydef}
 
 (The Greek word \emph{isos} means \qt{equal}; the Greek word \emph{metron} means \qt{measure}. Thus \emph{isometry} literally means \qt{equal measure}.)
@@ -22,36 +22,37 @@
 \mce{49}
 \begin{thm}[characterizations of isometries]
   \label{thm: characterizations of isometries}
-  Suppose $S \in \linmap (V,W)$. Suppose $e_1, \ddd, e_n$ is an orthonormal basis of $V$ and $f_1, \ddd, f_m$ is an orthonormal basis of $W$. Then the following are equivalent.
+  Suppose $S \in \linmap (V,W)$. Suppose $e_1, \ddd, e_n$ is an orthonormal basis of $V$ and $f_1, \ddd, f_m$ is an orthonormal basis of $W$. Then the following are equivalent:
   \begin{enumerate}[label=\textbf{(\alph*)}]
-    \item $S$ is an isometry.
-    \item $S^*S = I$.
-    \item $\ip{Su}{Sv} = \ip{u}{v} \quad \forall u,v \in V$.
-    \item $Se_1, \ddd, Se_n$ is an orthonormal list in $W$.
+    \item $S$ is an isometry;
+    \item $S^*S = I$;
+    \item $\ip{Su}{Sv} = \ip{u}{v} \quad \forall u,v \in V$;
+    \item $Se_1, \ddd, Se_n$ is an orthonormal list in $W$;
     \item The columns of $\mmatrix(S, (e_1, \ddd, e_n), (f_1, \ddd, f_m))$ form an orthonormal list in $\myF^m$ with respect to the Euclidean inner product.
   \end{enumerate}
 \end{thm}
 \begin{prf}
-  We will prove $(a) \Rightarrow (b) \Rightarrow (c) \Rightarrow (d) \Rightarrow (e)  \Rightarrow (a)$
+  We will prove $(a) \implies (b) \implies (c) \implies (d) \implies (e) \implies (a)$.
 
-  \qt{First step:} First suppose (a) holds, so $S$ is an isometry. If $v\in V$, then
+  \qt{First step:} First, suppose (a) holds, so $S$ is an isometry. If $v\in V$, then:
   \[
   \ip{(I-S^*S)v}{v} = \ip{v}{v} - \ip{S^*Sv}{v} = \norm{v}^2-\ip{Sv}{Sv} = \norm{v}^2 - \norm{Sv}^2 = 0.
   \]
 
-  Since $I-S^*S$ is a self adjoint operator because $(I-S^*S)^* = I-S^*S$, we can use \ref{thm: T self-adjoint and <Tv,v>=0 for all v <=> T=0} to conclude that $I-S^*S$ equals the zero operator. Thus $S^*S = I$, proving $(a) \implies (b)$.
+  Since $I-S^*S$ is a self-adjoint operator because $(I-S^*S)^* = I-S^*S$, we can use \ref{thm: T self-adjoint and <Tv,v>=0 for all v <=> T=0} to conclude that $I-S^*S$ equals the zero operator. Thus, $S^*S = I$, proving $(a) \implies (b)$.
 
-  \qt{Second step:} Now suppose (b) holds, so $S^*S=I$. If $u,v \in V$ then
+  \qt{Second step:} Now, suppose (b) holds, so $S^*S=I$. If $u,v \in V$, then:
   \[
-  \ip{Su}{Sv} = \ip{S^*Su}{v} = \ip{Iu}{v} = \ip{u}{v}, \; $ proving $ (b) \implies (c)
+  \ip{Su}{Sv} = \ip{S^*Su}{v} = \ip{Iu}{v} = \ip{u}{v},
   \]
+  proving $(b) \implies (c)$.
 
-  \qt{Third step:} Now suppose that (c) holds, so $\ip{Su}{Sv} = \ip{u}{v} \quad \forall u,v \in V$. Thus if $j,k \in \{1, \ddd, n\}$, then
+  \qt{Third step:} Now, suppose that (c) holds, so $\ip{Su}{Sv} = \ip{u}{v} \quad \forall u,v \in V$. Thus, if $j,k \in \{1, \ddd, n\}$, then:
   \[
   \ip{Se_j}{Se_k} = \ip{e_j}{e_k}.
   \]
 
-  Hence $Se_1, \ddd, Se_n$ is an orthonormal list in $W$, proving that $(c) \implies (d)$.
+  Hence, $Se_1, \ddd, Se_n$ is an orthonormal list in $W$, proving that $(c) \implies (d)$.
 \end{prf}
 
 \subsection{Unitary Operators}
@@ -73,7 +74,7 @@ Note: Every isometry is injective. Every injective operator on a finite-dimensio
     = \mmatrix(S).
   \]
 
-  The two columns of this matrix form an orthonormal list in $\myF^2$. Therefore, $S$ is an isometry by the equivalence of (a) and (e) in \ref{thm: characterizations of isometeries}. Thus $S$ is a unitary operator.
+  The two columns of this matrix form an orthonormal list in $\myF^2$. Therefore, $S$ is an isometry by the equivalence of (a) and (e) in \ref{thm: characterizations of isometries}. Thus, $S$ is a unitary operator.
 
   If $\myF=\real$, then $S$ is the counterclockwise rotation by $\theta$ radians around the origin of $\real^2$. So it preserves norms.
 \end{example}
@@ -81,13 +82,13 @@ Note: Every isometry is injective. Every injective operator on a finite-dimensio
 \mce{53}
 \begin{thm}[characterizations of unitary operators]
   \label{thm: characterizations of unitary operators}
-  Suppose $S \in \linmap(V)$. Suppose $e_1, \ddd, e_n$ is an orthonormal basis of $V$. Then
+  Suppose $S \in \linmap(V)$. Suppose $e_1, \ddd, e_n$ is an orthonormal basis of $V$. Then:
   \begin{enumerate}[label=\textbf{(\alph*)}]
-    \item $S$ is a unitary operator.
-    \item $S^*S = SS^* = I$.
-    \item $S$ is invertible and $S^{-1} = S^*$.
-    \item $Se_1, \ddd, Se_n$ is an orthonormal basis of $V$.
-    \item The rows of $\mmatrix(S,(e_1, \ddd, e_n))$ form an orthonormal basis of $\myF^n$ with respect to the Euclidean inner product.
+    \item $S$ is a unitary operator;
+    \item $S^*S = SS^* = I$;
+    \item $S$ is invertible and $S^{-1} = S^*$;
+    \item $Se_1, \ddd, Se_n$ is an orthonormal basis of $V$;
+    \item The rows of $\mmatrix(S,(e_1, \ddd, e_n))$ form an orthonormal basis of $\myF^n$ with respect to the Euclidean inner product;
     \item $S^*$ is a unitary operator.
   \end{enumerate}
 \end{thm}
@@ -101,25 +102,25 @@ Note: Every isometry is injective. Every injective operator on a finite-dimensio
 \mce{55}
 \begin{thm}[description of unitary operators on complex inner product spaces]
   \label{thm: description of unitary operators on complex inner product spaces}
-  Suppose $\myF = \compl$ and $S \in \linmap(V)$. Then the following are equivalent.
+  Suppose $\myF = \compl$ and $S \in \linmap(V)$. Then the following are equivalent:
   \begin{enumerate}[label=\textbf{(\alph*)}]
-    \item $S$  is a unitary operator.
+    \item $S$ is a unitary operator;
     \item There is an orthonormal basis of $V$ consisting of eigenvectors of $S$ whose corresponding eigenvalues all have absolute value $1$.
   \end{enumerate}
 \end{thm}
 
 \mce{56}
-\section{QR Factorization}
+\subsection{QR Factorization}
 \begin{mydef}[unitary matrix]
   An $n$-by-$n$ matrix is called \qt{unitary} if its columns form an orthonormal list in $\myF^n$.
 \end{mydef}
 
 \begin{thm}[characterizations of unitary matrices]
-  Let $Q \in \myF^{n,n}$. Then the following are equivalent.
+  Let $Q \in \myF^{n,n}$. Then the following are equivalent:
   \begin{enumerate}[label=\textbf{(\alph*)}]
-    \item $Q$ is a unitary matrix.
-    \item The rows of $Q$ form an orthonormal list in $\myF^{n}$.
-    \item $\norm{Qv} = \norm{v} \quad v \in \myF^n$.
+    \item $Q$ is a unitary matrix;
+    \item The rows of $Q$ form an orthonormal list in $\myF^{n}$;
+    \item $\norm{Qv} = \norm{v} \quad \forall v \in \myF^n$;
     \item $Q^*Q=QQ^*=I$, the $n$-by-$n$ matrix with $1$'s on the diagonal and $0$'s elsewhere.
   \end{enumerate}
 \end{thm}
@@ -137,7 +138,7 @@ Note: Every isometry is injective. Every injective operator on a finite-dimensio
 \mce{61}
 \begin{thm}[positive invertible operator]
   \label{thm: positive invertible operator}
-  A self-adjoint operator $T\in \linmap(V)$ is a positive invertible operator $\iff$ $\ip{Tv}{v} >0 \quad \forall v \in V$, $v \neq 0$.
+  A self-adjoint operator $T\in \linmap(V)$ is a positive invertible operator $\iff \ip{Tv}{v} > 0 \quad \forall v \in V, v \neq 0$.
 \end{thm}
 
 \begin{mydef}[positive definite]

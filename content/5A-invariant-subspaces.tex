@@ -11,13 +11,13 @@
 
 % 5.2
 \begin{mydef} [invariant subspace]
-  Let $T\in \linmap(V).$ A subspace $U$ of $V$ is called \qt{invariant under $T$} if $\forall u \in U: Tu \in U.$ \\
-  Thus $U$ is invariant under $T$ if $\left.T\right|_{U}$ is an operator on $U.$
+  Let $T\in \linmap(V)$. A subspace $U$ of $V$ is called \qt{invariant under $T$} if $Tu \in U$ for all $u \in U$. \\
+  Thus, $U$ is invariant under $T$ if $\left.T\right|_{U}$ is an operator on $U$.
 \end{mydef}
 
 \begin{example}
-  Let $T\in \linmap(\mathcal{P}(\mathbb{R}))$ such that $Tp=p'.$ Let $U=\mathcal{P}_4(\mathbb{R}) \subseteq \mathcal{P}(\mathbb{R}).$ Then $U$ is invariant under $T$
-  because if $p \in U$, $\deg p = 4$ and $\deg (p')=3$.
+  Let $T\in \linmap(\mathcal{P}(\mathbb{R}))$ such that $Tp=p'$. Let $U=\mathcal{P}_4(\mathbb{R}) \subseteq \mathcal{P}(\mathbb{R})$. Then $U$ is invariant under $T$
+  because if $p \in U$, $\deg p \leq 4$ and $\deg (p') \leq 3$.
 \end{example}
 
 \begin{example}
@@ -27,14 +27,14 @@
 
 \bfemph{Invariant subspaces of dimension one: }
 
-Take any $v\in V, v\neq 0$ and let
+Take any $v\in V, v\neq 0$, and let
 \begin{equation}
   U :\equiv \{  \lambda v \mid \lambda \in \myF \} = \myspan{v},
 \end{equation}
 then $U$ is a one\-/dimensional subspace of $V$.
 
-If $U$ is invariant under an operator $T \in \linmap (V)$, then $Tv  \in U$. $\implies \exists \lambda \in \myF: Tv = \lambda v$. \\
-Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-dimensional subspace of $V$ invariant under $T$.
+If $U$ is invariant under an operator $T \in \linmap (V)$, then $Tv \in U \implies \exists \lambda \in \myF: Tv = \lambda v$. \\
+Conversely, if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-dimensional subspace of $V$ invariant under $T$.
 
 % 5.5
 \begin{mydef} [eigenvalue]
@@ -48,7 +48,7 @@ Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-d
 \setcounter{thm}{6}
 \begin{thm} [equivalent conditions to be an eigenvalue]
   \label{thm: equivalent conditions to be an eigenvalue}
-  The following are equivalent for $T \in \linmap(V)$ and $\lambda \in \myF$.
+  The following are equivalent for $T \in \linmap(V)$ and $\lambda \in \myF$:
   \begin{enumerate}[label=\textbf{(\alph*)}]
     \item $\lambda$ is an eigenvalue of $T$. \label{first}
     \item $T-\lambda I$ is not injective. \label{second}
@@ -58,15 +58,15 @@ Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-d
 \end{thm}
 \begin{prf}
   Conditions \ref{first} and \ref{second} are equivalent because the eigenvector $v$ is a solution to $Tv=\lambda v$, which is equivalent to $(T-\lambda I)v=0$. Hence, $\dim \mynull (T-\lambda I) > 0$, which implies that $T-\lambda I$ is not injective.
-  \ref{second}, \ref{third} and \ref{forth} are therefore equivalent by
+  \ref{second}, \ref{third}, and \ref{forth} are therefore equivalent by
   \ref{thm: injectivity is equivalent to surjectivity}.
 \end{prf}
 
 \setcounter{thm}{7}
 \begin{mydef} [eigenvector]
-  Let $T\in \linmap(V).$ A vector $v \in V$ is called an \qt{eigenvector} of $T$ corresponding to $\lambda$ if $v\neq 0$ and $Tv = \lambda v$.
+  Let $T\in \linmap(V)$. A vector $v \in V$ is called an \qt{eigenvector} of $T$ corresponding to $\lambda$ if $v\neq 0$ and $Tv = \lambda v$.
   In other words:
-  A vector $v\in V, v \neq 0$ is an eigenvector corresponding to $\lambda \iff v \in \operatorname{null}(T-\lambda I_V)$
+  A vector $v\in V, v \neq 0$ is an eigenvector corresponding to $\lambda \iff v \in \operatorname{null}(T-\lambda I_V)$.
 \end{mydef}
 
 % 5.12
@@ -76,29 +76,29 @@ Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-d
   Every list of eigenvectors of $T$ corresponding to distinct eigenvalues of $T$ is linearly independent.
 \end{thm}
 \begin{prf}
-  Suppose the desired result is false. Then there exists a smallest list of length $m$ of linearly depen\-dent eigenvectors $v_1, \dots, v_m$ with distinct eigenvalues $\lambda_1,$ $\dots$ $,\lambda_m$. Since an eigenvector is unequal to the zero vector, $m$ must be $\geq 2$.
+  Suppose the desired result is false. Then there exists a smallest list of length $m$ of linearly dependent eigenvectors $v_1, \dots, v_m$ with distinct eigenvalues $\lambda_1, \dots, \lambda_m$. Since an eigenvector is unequal to the zero vector, $m$ must be $\geq 2$.
 
   Because of the minimality of $m$ and because our list is linearly dependent:
   \begin{equation}
     \exists a_1, \dots, a_m\text{, where not all $a$'s are equal to }0\text{, such that } a_1 v_1 + \cdots + a_m v_m = 0.
   \end{equation}
 
-  Now we apply $(T-\lambda_m I)$ on both sides of the equation and get
+  Now, we apply $(T-\lambda_m I)$ on both sides of the equation and get
   \begin{equation}
     \begin{gathered}
       (a_1 \lambda_1 v_1 - a_1 \lambda_m v_1)
       + \cdots + \\
       (a_{m-1} \lambda_{m-1} v_{m-1} - a_{m-1} \lambda_{m} v_{m-1}) +
-      (\underbrace{a_m \lambda_m v_m -a_m \lambda_m v_m}_{=0}) =0
+      (\underbrace{a_m \lambda_m v_m -a_m \lambda_m v_m}_{=0}) =0,
     \end{gathered}
   \end{equation}
 
-  Which is the same as:
+  which is the same as:
   \begin{equation}
-    a_1 \underbrace{(\lambda_1 - \lambda_m)}_{\neq 0} v_1 + \cdots + a_{m-1} \underbrace{(\lambda_{m-1}-\lambda_{m})}_{\neq 0} v_{m-1}=0
+    a_1 \underbrace{(\lambda_1 - \lambda_m)}_{\neq 0} v_1 + \cdots + a_{m-1} \underbrace{(\lambda_{m-1}-\lambda_{m})}_{\neq 0} v_{m-1}=0,
   \end{equation}
 
-  Which contradicts the minimality of $m$. Therefore, no such linearly dependent list of eigenvectors can exist.
+  which contradicts the minimality of $m$. Therefore, no such linearly dependent list of eigenvectors can exist.
 \end{prf}
 
 \begin{thm}[number of eigenvectors]
@@ -106,7 +106,7 @@ Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-d
   Each operator $T \in \linmap(V)$ on $V$ has at most $\dim V$ distinct eigenvalues.
 \end{thm}
 \begin{prf}
-  Let $T \in \linmap(V).$ Suppose $\lambda_1, \ddd, \lambda_m$ are distinct eigenvalues of with corresponding eigenvectors $v_1, \ddd, v_m \in V$. Hence, \ref{thm: linearly independent eigenvectors} implies that the list $v_1, \ddd, v_m$ is linearly independent. Thus, \ref{thm: length of linearly dependent list less or equal to length of spanning list}
+  Let $T \in \linmap(V)$. Suppose $\lambda_1, \ddd, \lambda_m$ are distinct eigenvalues of $T$ with corresponding eigenvectors $v_1, \ddd, v_m \in V$. Hence, \ref{thm: linearly independent eigenvectors} implies that the list $v_1, \ddd, v_m$ is linearly independent. Thus, \ref{thm: length of linearly dependent list less or equal to length of spanning list}
   implies that $m \leq \dim V$.
 \end{prf}
 
@@ -116,11 +116,11 @@ Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-d
 % 5.13
 \setcounter{thm}{12}
 \begin{mydef} [notation $T^m$]
-  Let $T \in \linmap(V)$ and $m\in \nat^{+}$
+  Let $T \in \linmap(V)$ and $m\in \nat^{+}$:
   \begin{itemize}
-    \item $T^{m} :\equiv \underbrace{T \cdots T}_{\text{$m$ times}}$ or $T^{m} :\equiv T^{m-1} \cdot T$ such that $T^{m} \in \linmap(V)$
-    \item $T^0 :\equiv I_V$
-    \item If $T$ is invertible with inverse $T^{-1}$ then $T^{-m}\in \linmap(V)$ is defined by $T^{-m} :\equiv (T^{-1})^m$
+    \item $T^{m} :\equiv \underbrace{T \cdots T}_{\text{$m$ times}}$ or $T^{m} :\equiv T^{m-1} \cdot T$ such that $T^{m} \in \linmap(V)$;
+    \item $T^0 :\equiv I_V$;
+    \item If $T$ is invertible with inverse $T^{-1}$, then $T^{-m}\in \linmap(V)$ is defined by $T^{-m} :\equiv (T^{-1})^m$.
   \end{itemize}
 \end{mydef}
 $T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ for $m,n \in \mathbb{Z}$ if $T$ is invertible. And for $m,n \in \mathbb{N}$ if $T$ is not invertible.
@@ -128,12 +128,12 @@ $T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ for $m,n \in \mathbb{Z}$ if $T$ is inve
 \begin{mydef} [notation $p(T)$]
   For $\mathcal{P} (\myF) \ni p(z) = a_0+a_1z+a_2z^2+\cdots+a_mz^m$
  and
-  $T \in \linmap (V)$ we define:
+  $T \in \linmap (V)$, we define:
   \begin{equation}
     p(T) :\equiv a_0 I + a_1 T + a_2 T^2 + \cdots a_m T^m.
   \end{equation}
 
-  Note that $p(T) \in \linmap(V)$
+  Note that $p(T) \in \linmap(V)$.
 \end{mydef}
 
 %TODO: example 5.15??
@@ -141,24 +141,25 @@ $T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ for $m,n \in \mathbb{Z}$ if $T$ is inve
 %TODO: example 5.16??
 
 \setcounter{thm}{16}
-\begin{thm} [multipliative properties]
+\begin{thm} [multiplicative properties]
   \label{multiplicative-properties}
-  Suppose $p,q \in \mathcal{P} (\myF)$ and $T\in \linmap (V)$. Then \begin{equation}
+  Suppose $p,q \in \mathcal{P} (\myF)$ and $T\in \linmap (V)$. Then
+  \begin{equation}
     (p q)(T) = p(T) q(T) = q(T)p(T).
   \end{equation}
 \end{thm}
-\begin{prf} When a product of polynomials is expanded using the distributive property, it does not matter if the symbol is $z$ or $T$. Suppose $p(z) = \sum_{j=0}^{m} a_j z^j$ and $q(z)=\sum_{k=0}^{n} b_k z^k$ for all $z \in \myF$. Then  % wether?
+\begin{prf} When a product of polynomials is expanded using the distributive property, it does not matter if the symbol is $z$ or $T$. Suppose $p(z) = \sum_{j=0}^{m} a_j z^j$ and $q(z)=\sum_{k=0}^{n} b_k z^k$ for all $z \in \myF$. Then % wether?
   \begin{equation}
     (pq)(z) = \sum_{j=0}^{m} \sum_{k=0}^{n} a_j b_k z^{j+k} \myand
     (pq)(T) = \sum_{j=0}^{m} \sum_{k=0}^{n} a_j b_k T^{j+k}
-    = \sum_{j=0}^{m} a_j T^j \sum_{k=0}^{n}  b_k T^k
+    = \sum_{j=0}^{m} a_j T^j \sum_{k=0}^{n}  b_k T^k,
   \end{equation}
-  which is the same as $(pq)(T) = p(T)q(T)$ as well as $(pq)(T) = q(T)p(T)$
+  which is the same as $(pq)(T) = p(T)q(T)$ as well as $(pq)(T) = q(T)p(T)$.
 \end{prf}
 
 \begin{thm}[null space and range of $p(T)$ are invariant under $T$]
   \label{thm: null space and range of p(T) are invariant under T}
-  For every $T \in \linmap(V)$, and every $p \in \mathcal{P} (\myF)$,
+  For every $T \in \linmap(V)$ and every $p \in \mathcal{P} (\myF)$,
   \begin{equation}
     \mynull p(T) \text{ and } \myrange p(T) \text{ are invariant under } T.
   \end{equation}
@@ -187,5 +188,5 @@ $T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ for $m,n \in \mathbb{Z}$ if $T$ is inve
       Tu = T(p(T)v) = p(T)(Tv),
     \end{aligned}
   \end{equation}
-  so, $Tu \in \myrange p(T)$.
+  so $Tu \in \myrange p(T)$.
 \end{prf}

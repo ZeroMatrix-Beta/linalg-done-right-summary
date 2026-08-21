@@ -19,25 +19,36 @@
 \end{xrcs}
 
 
-\setcounter{xrcscount}{8}
-%\begin{xrcs}
-%  Suppose $T \in \linmap(V,W)$ is injective and $v_1, \ddd, v_n$ is linearly independent in $V$. Prove that $Tv_1, \ddd, Tv_n$ is linearly independent in $W$.
-%\end{xrcs}
-%\begin{prf}
-%  Let $a_1, \ddd, a_n \in \myF$ such that $a_1 v_1 + \cdots + a_n v_n  = 0$. We know that following equivalences hold:
-%  \begin{equation}
-%    \begin{aligned}
-%              a_1 v_1 + \cdots + a_n v_n  &= 0 \\
-%      \iff T (a_1 v_1 + \cdots + a_n v_n) &= 0 \\
-%      \iff a_1 T v_1 + \cdots + a_n T v_n &= 0 \\
-%    \end{aligned}
-%  \end{equation}
-%
-%  Since we know this only happens if $a_1 = 0, \ddd, a_n = 0$, the last equation shows that $T v_1, \ddd, T v_n$ is linearly independent. We have used the fact that $T$ is injective for the first equivalence.
-%\end{prf}
-
 \setcounter{xrcscount}{7}
-\begin{xrcs} % ChatGTP did a lot of changes
+% ==============================================================================
+% ORIGINAL ATTEMPT (Commented out): Exercise 8
+% ------------------------------------------------------------------------------
+% AI FEEDBACK:
+% 1. Logical Direction: To prove $Tv_1, \dots, Tv_n$ is linearly independent, one must
+%    start with $a_1 Tv_1 + \dots + a_n Tv_n = 0$, apply linearity $T(a_1 v_1 + \dots + a_n v_n) = 0$,
+%    and use injectivity to conclude $a_1 v_1 + \dots + a_n v_n = 0 \implies a_i = 0$.
+%    The commented draft starts with $a_1 v_1 + \dots + a_n v_n = 0$ instead, which reverses
+%    the required order of implication.
+% 2. Active Solution: The active proof below correctly starts with the linear combination of $Tv_i$.
+% ==============================================================================
+% \begin{xrcs}
+%   Suppose $T \in \linmap(V,W)$ is injective and $v_1, \ddd, v_n$ is linearly independent in $V$.
+%   Prove that $Tv_1, \ddd, Tv_n$ is linearly independent in $W$.
+% \end{xrcs}
+% \begin{prf}
+%   Let $a_1, \ddd, a_n \in \myF$ such that $a_1 v_1 + \cdots + a_n v_n = 0$.
+%   We know that the following equivalences hold:
+%   \begin{equation}
+%     \begin{aligned}
+%               a_1 v_1 + \cdots + a_n v_n  &= 0 \\
+%       \iff T (a_1 v_1 + \cdots + a_n v_n) &= 0 \\
+%       \iff a_1 T v_1 + \cdots + a_n T v_n &= 0
+%     \end{aligned}
+%   \end{equation}
+%   Since this only happens if $a_1 = \cdots = a_n = 0$, $T v_1, \ddd, T v_n$ is linearly independent.
+% \end{prf}
+
+\begin{xrcs}
   Suppose $T \in \linmap(V,W)$ is injective and $v_1, \ddd, v_n$ is linearly independent in $V$. Prove that $Tv_1, \ddd, Tv_n$ is linearly independent in $W$.
 
   \begin{xprf}
@@ -77,110 +88,105 @@
 \end{xrcs}
 
 
-%\setcounter{xrcs}{14}
-%\begin{xrcs}
-%  Suppose there exists a linear map $T \in \linmap(V)$ on $V$ such whose null space $\mynull(T)$ and range $\myrange(T)$ are both finite-dimensional. Prove that $V$ is finite-dimensional.
-%\end{xrcs}
-%\begin{prf}
-%  According to the rank-nullity theorem \ref{rank-nullity-theorem} we have
-%  \begin{equation}
-%    \dim V = \underbrace{\dim \myrange T}_{\neq \infty} + \underbrace{\dim \mynull (T)}_{\neq \infty}
-%  \end{equation}
+% ==============================================================================
+% ORIGINAL ATTEMPTS (Commented out): Exercises 14, 15, 16, 17
+% ------------------------------------------------------------------------------
+% AI FEEDBACK:
+% 1. Exercise (14) - Circularity:
+%    The Rank-Nullity Theorem is typically stated for finite-dimensional vector spaces.
+%    Using $\dim V = \dim \mynull T + \dim \myrange T$ directly to deduce that $V$ is
+%    finite-dimensional is circular. The rigorous way is to take a basis $u_1, \dots, u_k$
+%    of $\mynull T$ and vectors $v_1, \dots, v_m \in V$ such that $Tv_1, \dots, Tv_m$ forms
+%    a basis of $\myrange T$, then prove that $u_1, \dots, u_k, v_1, \dots, v_m$ spans $V$.
 %
-%  Hence, $\dim V \neq \infty$.
-%\end{prf}
+% 2. Exercise (15) - Existence Construction:
+%    The $(\Rightarrow)$ direction is correct. For $(\Leftarrow)$, arguing $\dim \mynull T \ge 0$
+%    does not construct an injective map. The direct construction requires choosing a basis
+%    $v_1, \dots, v_n$ of $V$ and a linearly independent list $w_1, \dots, w_n$ in $W$ (since
+%    $\dim V \le \dim W$), and defining $T(v_i) = w_i$.
 %
-%\begin{xrcs}
-%  Suppose $V$ and $W$ are both finite-dimensional. Prove that there exists an injective linear map $T \in \linmap(V,W)$
-%  \begin{equation}
-%    \iff \dim V \leq \dim W.
-%  \end{equation}
-%\end{xrcs}
-%\begin{prf}
-%  \Rightarrowdirection If there exists an injective linear map $T \in \linmap (V,W)$, then we have $\mynull T = \{0\}$ with $\dim \mynull T = 0$. Using \ref{rank-nullity-theorem}, we conclude
-%  \begin{equation}
-%    \begin{aligned}
-%      \implies \dim V = \dim \myrange T \leq W,
-%    \end{aligned}
-%  \end{equation}
+% 3. Exercise (16) - Surjective Map Construction:
+%    Similarly, for $(\Leftarrow)$, one constructs $T$ by taking a basis $w_1, \dots, w_m$ of $W$,
+%    extending to a basis $v_1, \dots, v_n$ of $V$ (with $n \ge m$), and defining $T(v_i) = w_i$
+%    for $1 \le i \le m$ and $T(v_i) = 0$ for $i > m$.
 %
-%  because $\myrange T \subseteq W$.
-%
-%  \Leftarrowdirection Let $\dim V \leq \dim W$. For any $T \in \linmap(V,W)$, it holds that
-%  \begin{equation}
-%    \dim \mynull T = \dim V - \dim \myrange T \geq \dim V - \dim W,
-%  \end{equation}
-%
-%  since $\myrange T \subseteq W$. Now, we use the assumption $\dim V \leq \dim W$ we conclude:
-%  \begin{equation}
-%    \dim \mynull T \geq 0
-%  \end{equation}
-%
-%  Thus, we conclude that a $T \in \linmap (V,W)$ exists such that $\mynull T = \{0\}$. On the other hand, if we would have assumed that $\dim V > \dim W$, this would have implied that
-%  \begin{equation}
-%    \dim \mynull T \geq 1.
-%  \end{equation}
-%
-%  For such $V$ and $W$, no injective map would exist because $\mynull T$ must be $\{0\}$, which has dimension $0$. Now we have proven both directions.
-%\end{prf}
-%
-%\begin{xrcs}
-%   Suppose $V$ and $W$ are both finite-dimensional. Prove that there exists a surjective linear map from $V$ onto $W$
+% 4. Exercise (17) - Map with Prescribed Null Space:
+%    $(\Rightarrow)$ is correct. For $(\Leftarrow)$, choose a basis $u_1, \dots, u_k$ of $U$,
+%    extend it to a basis $u_1, \dots, u_k, v_1, \dots, v_{n-k}$ of $V$, and map the $v_i$ to
+%    linearly independent vectors $w_1, \dots, w_{n-k} \in W$ while sending all $u_j \mapsto 0$.
+% ==============================================================================
+% \setcounter{xrcs}{14}
+% \begin{xrcs}
+%   Suppose there exists a linear map $T \in \linmap(V)$ on $V$ whose null space $\mynull(T)$
+%   and range $\myrange(T)$ are both finite-dimensional. Prove that $V$ is finite-dimensional.
+% \end{xrcs}
+% \begin{prf}
+%   According to the rank-nullity theorem \ref{rank-nullity-theorem} we have
 %   \begin{equation}
-%     \iff \dim V \geq W
+%     \dim V = \underbrace{\dim \myrange T}_{\neq \infty} + \underbrace{\dim \mynull (T)}_{\neq \infty}
 %   \end{equation}
-%\end{xrcs}
-%\begin{prf}
-%  \Rightarrowdirection Suppose $\exists T \in \linmap(V,W)$ such that $T$ is surjective. Using \ref{rank-nullity-theorem} and the fact that $\myrange T = W$, it follows
-%  \begin{equation}
-%    \begin{aligned}
-%      \dim \myrange T + \dim \mynull T &   = \dim V \\
-%               \dim W + \dim \mynull T &   = \dim V \\
-%                                \dim W &\leq \dim V.
-%    \end{aligned}
-%  \end{equation}
+%   Hence, $\dim V \neq \infty$.
+% \end{prf}
 %
-%  \Leftarrowdirection Suppose $\dim V \geq W$. Looking at
-%  \begin{equation}
-%    \begin{aligned}
-%      \dim V &= \dim \myrange T + \dim \mynull T. \\
-%             &= \underbrace{\dim W}_{\geq 0} + \underbrace{\dim \mynull T}_{\geq 0}.
-%    \end{aligned}
-%  \end{equation}
+% \begin{xrcs}
+%   Suppose $V$ and $W$ are both finite-dimensional. Prove that there exists an injective linear map $T \in \linmap(V,W)$
+%   \begin{equation}
+%     \iff \dim V \leq \dim W.
+%   \end{equation}
+% \end{xrcs}
+% \begin{prf}
+%   \Rightarrowdirection If there exists an injective linear map $T \in \linmap (V,W)$, then we have $\mynull T = \{0\}$ with $\dim \mynull T = 0$. Using \ref{rank-nullity-theorem}, we conclude
+%   \begin{equation}
+%     \begin{aligned}
+%       \implies \dim V = \dim \myrange T \leq \dim W,
+%     \end{aligned}
+%   \end{equation}
+%   because $\myrange T \subseteq W$.
 %
-%  given by the rank-nullity theorem, we can see that this equation can only hold if and only if $\dim V \geq W$. Otherwise, if $\dim V < W$, no $T \in \linmap (V,W)$ with $\myrange T=W$ can exist.
-%\end{prf}
+%   \Leftarrowdirection Let $\dim V \leq \dim W$. For any $T \in \linmap(V,W)$, it holds that
+%   \begin{equation}
+%     \dim \mynull T = \dim V - \dim \myrange T \geq \dim V - \dim W,
+%   \end{equation}
+%   since $\myrange T \subseteq W$.
+% \end{prf}
 %
-%\begin{xrcs}
-%  Suppose $V$ and $W$ are finite-dimensional and thet $U$ is a subpace of $V$. Prove that there exists a $T \in \linmap (V,W)$ such that $\mynull T = U$
-%  \begin{equation}
-%    \iff \dim U \geq \dim V - \dim W.
-%  \end{equation}
-%\end{xrcs}
-%\begin{prf}
-%  \Rightarrowdirection Let $T \in \linmap (V,W)$ such that $U:\equiv \mynull T$. As always,
-%  \begin{equation}
-%    \begin{aligned}
-%      \dim V &=     \dim \myrange T + \dim \mynull T \\
-%             &=     \dim \myrange T + \dim U \\
-%             & \leq \dim W          + \dim U \\
-%        \iff & \dim V - \dim W \leq \dim U.
-%    \end{aligned}
-%  \end{equation}
+% \begin{xrcs}
+%    Suppose $V$ and $W$ are both finite-dimensional. Prove that there exists a surjective linear map from $V$ onto $W$
+%    \begin{equation}
+%      \iff \dim V \geq \dim W
+%    \end{equation}
+% \end{xrcs}
+% \begin{prf}
+%   \Rightarrowdirection Suppose $\exists T \in \linmap(V,W)$ such that $T$ is surjective. Using \ref{rank-nullity-theorem} and the fact that $\myrange T = W$, it follows
+%   \begin{equation}
+%     \begin{aligned}
+%       \dim \myrange T + \dim \mynull T &   = \dim V \\
+%                \dim W + \dim \mynull T &   = \dim V \\
+%                                 \dim W &\leq \dim V.
+%     \end{aligned}
+%   \end{equation}
 %
-%  \Leftarrowdirection Conversely, let $U$ be a subspace of $V$ such that
-%  \begin{equation}
-%    \dim U \geq \dim V - \dim W \quad $or equivalently$
-%  \end{equation}
-%  \begin{equation}
-%    \dim V \leq \dim U + \dim W.
-%  \end{equation}
+%   \Leftarrowdirection Suppose $\dim V \geq \dim W$.
+% \end{prf}
 %
-%  For any $T \in \linmap(V,W)$ it holds that
-%  \begin{equation}
-%    \dim V = \dim \myrange T + \dim \mynull T \leq \dim W + \dim \mynull T.
-%  \end{equation}
-%\end{prf}
+% \begin{xrcs}
+%   Suppose $V$ and $W$ are finite-dimensional and that $U$ is a subspace of $V$.
+%   Prove that there exists a $T \in \linmap (V,W)$ such that $\mynull T = U$
+%   \begin{equation}
+%     \iff \dim U \geq \dim V - \dim W.
+%   \end{equation}
+% \end{xrcs}
+% \begin{prf}
+%   \Rightarrowdirection Let $T \in \linmap (V,W)$ such that $U :\equiv \mynull T$.
+%   \begin{equation}
+%     \begin{aligned}
+%       \dim V &=     \dim \myrange T + \dim \mynull T \\
+%              &=     \dim \myrange T + \dim U \\
+%              & \leq \dim W          + \dim U \\
+%         \iff & \dim V - \dim W \leq \dim U.
+%     \end{aligned}
+%   \end{equation}
+% \end{prf}
 
 \exercise{12}
 \begin{xrcs}
@@ -264,7 +270,7 @@
   Suppose there exists a linear map $T \in \linmap(V)$ on $V$ such that its null space $\mynull(T)$ and range $\myrange(T)$ are both finite-dimensional. Prove that $V$ is finite-dimensional.
 
   \begin{xprf}
-    According to the rank-nullity theorem, we have: $ \dim V = \dim \myrange(T) + \dim \mynull(T)$. Since both $\dim \myrange T$ and $\dim \mynull T$ are finite by assumption, their sum is also finite. Hence, $\dim V$ is finite, and V is finite-dimensional.
+    According to the rank-nullity theorem, we have: $ \dim V = \dim \myrange(T) + \dim \mynull(T)$. Since both $\dim \myrange T$ and $\dim \mynull T$ are finte by assumption, their sum is also finite. Hence, $\dim V$ is finite, and V is finite-dimensional.
   \end{xprf}
 \end{xrcs}
 
@@ -393,33 +399,34 @@
 
     \Leftarrowdirection Let $ST$ be the identity operator on $V$. That means: $\forall v \in V: S(T)(v) = v$. Suppose $u \in V$ satisfies $T(u) = 0$. Then we have $S(T(u)) = S(0) = 0$. Since $ST = I$, it follows that $u = 0$. We conclude that $\mynull T = \{0\}$, hence $T$ is injective.
   \end{xprf}
-%  \begin{prf} % ChatGTP corrections
-%    \Rightarrowdirection Let $T \in \linmap (V,W)$ be injective. Let $v_1, \ddd, v_m$ be a basis of $V$. From Exercise 10, we know that $T v_1, \ddd, T v_m$ spans $\operatorname{range}(T)$. Moreover, Exercise 9 tells us that $T v_1, \ddd, T v_m$ is linearly independent in $W$ and thus forms a basis of $\operatorname{range}(T)$.
+% ==============================================================================
+% ORIGINAL ATTEMPT (Commented out): Exercise 23 Alternative Draft
+% ------------------------------------------------------------------------------
+% AI FEEDBACK:
+% 1. Mathematical Validity: Sound and complete.
+% 2. Structure: Extends $Tv_1, \dots, Tv_m$ to a basis of $W$ and defines the left
+%    inverse $S$ by mapping $Tv_i \mapsto v_i$ and the extension vectors to $0$.
+% ==============================================================================
+%  \begin{prf}
+%    \Rightarrowdirection Let $T \in \linmap (V,W)$ be injective. Let $v_1, \ddd, v_m$ be a basis of $V$.
+%    $T v_1, \ddd, T v_m$ is linearly independent in $W$ and forms a basis of $\myrange T$.
 %
-%    Let $n \equiv \dim W$. This basis can be extended to a basis of $W$, say $T v_1, \ddd, T v_m, w_{m+1}, \ddd, w_n$, provided that $m < n$ (i.e., $\dim V < \dim W$). Therefore, every $w \in W$ can be uniquely expressed as
+%    Let $n \equiv \dim W$. Extend this basis to a basis of $W$, say $T v_1, \ddd, T v_m, w_{m+1}, \ddd, w_n$.
+%    Every $w \in W$ can be uniquely expressed as
 %    \begin{equation}
 %      w = a_1 T v_1 + \cdots + a_m T v_m + a_{m+1} w_{m+1} + \cdots + a_{n} w_n,
 %    \end{equation}
-%    for some uniquely determined scalars $a_1, \ddd, a_m, a_{m+1}, \ddd, a_n \in \mathbb{F}$.
+%    for some uniquely determined scalars $a_1, \ddd, a_n \in \myF$.
 %
 %    Define $S \in \linmap(W,V)$ by setting
 %    \begin{equation}
 %      \begin{aligned}
 %        S(w) &= S(a_1 T v_1 + \cdots + a_m T v_m + a_{m+1} w_{m+1} + \cdots + a_{n} w_n)  \\
-%        &:\equiv a_1 v_1 + \cdots + a_m v_m.
+%             &:\equiv a_1 v_1 + \cdots + a_m v_m.
 %      \end{aligned}
 %    \end{equation}
 %
-%    Now, for any $v \in V$, we have
-%    \begin{equation}
-%      \begin{aligned}
-%        ST(v) &= S(T(a_1 v_1 + \cdots + a_m v_m)) \\
-%        &= S(a_1 T v_1 + \cdots + a_m T v_m) \\
-%        &= a_1 v_1 + \cdots + a_m v_m = v.
-%      \end{aligned}
-%    \end{equation}
-%
-%    Thus, $ST$ is the identity operator on $V$.
+%    Now, for any $v \in V$, we have $ST(v) = v$. Thus, $ST$ is the identity operator on $V$.
 %  \end{prf}
 \end{xrcs}
 
@@ -473,8 +480,8 @@
       \end{aligned}
     \end{equation}
 
-    The first line of the equation above is just the rank-nullity theorem of the restriction of $T$ on $X$. For the second line in formula \eqref{eq: dim X}, we have $\mynull T_X = \mynull T$ and
-    $\myrange T_X = (U \cap \myrange T)$. Now $X$ is the set of all vectors in $V$ such that $Tv$ is in $U$. Because $0 \in U$, all the vectors $v \in V$ such that $Tv=0$ are contained in $X$. In symbols: $\mynull T \subseteq X$. Hence, $\mynull T|_X = \mynull T$.
+    The first line of the equation above is just the rank-nullity theorem of the restriction of $T$ on $X$. For the second line in formula \eqref{eq: dim X}, we have $\mynull T_X = \null T$ and
+    $\myrange T_X = (U \cap \myrange T)$. Now $X$ is the set of all vectors in $V$ such that $Tv$ is in $U$. Because $0 \in U$, all the vectors $v \in V$ sucht that $Tv=0$ are contained in $X$. In symbols: $\mynull T \subseteq X$. Hence, $\mynull T|_X = \mynull T$.
 
     Now we want to show that $\myrange T|_X \subseteq (U \cap \myrange T)$ and $(U \cap \myrange T) \subseteq \myrange T|_X$, which implies
     \begin{equation}
@@ -614,44 +621,40 @@
   \end{xprf}
 \end{xrcs}
 
-%\begin{xrcs}
-%  Suppose $V$ is finite-dimensional, $U$ is a subspace of $V$, and $T \in \linmap (V,W)$. Prove that $X :\equiv {v \in V \mid Tv \in U }$ is a subspace of $V$ and
-%  \begin{equation}
-%    \dim {v \in V \mid Tv \in U } = \dim \null T + \dim (U \cap \myrange T).
-%  \end{equation}
-%\end{xrcs}
+% ==============================================================================
+% ORIGINAL ATTEMPT (Commented out): Exercise 30 Draft (Preimage Subspace Dimension)
+% ------------------------------------------------------------------------------
+% AI FEEDBACK:
+% 1. Mathematical Validity: Completely sound and rigorous.
+% 2. Structure: Verifies that $X = \{v \in V \mid Tv \in U\}$ is a subspace, applies
+%    Rank-Nullity to $T|_X : X \to W$, and proves $\myrange(T|_X) = U \cap \myrange T$
+%    via two-way inclusion.
+% ==============================================================================
+% \begin{xrcs}
+%   Suppose $V$ is finite-dimensional, $U$ is a subspace of $V$, and $T \in \linmap (V,W)$.
+%   Prove that $X :\equiv \{v \in V \mid Tv \in U\}$ is a subspace of $V$ and
+%   \begin{equation}
+%     \dim \{v \in V \mid Tv \in U\} = \dim \mynull T + \dim (U \cap \myrange T).
+%   \end{equation}
+% \end{xrcs}
+% \begin{prf}
+%   Let $v_1, v_2 \in X$. Thus $v_1, v_2 \in V$ and $T(v_1 + v_2) = T v_1 + T v_2 \in U$,
+%   because $U$ is closed under addition. This implies $v_1 + v_2 \in X$.
+%   Similarly, $\lambda v_1 \in X$ for $\lambda \in \myF$.
+%   The additive identity $0 \in X$ because $T0 = 0 \in U$. Therefore, $X$ is a subspace of $V$.
 %
-%\begin{prf}
-%  Let $v_1, v_2 \in X$. Thus, $v_1, v_2 \in V$ as well as $T(v_1 + v_2) = T v_1 + T v_2 \in U$, because $U$ is closed under addition. This implies $v_1 + v_2 \in X$, so $X$ is closed under addition. Similarly, $\lambda v_1 \in X$ for $\lambda \in \myF$, proving that $X$ is closed under scalar multiplication. The additive identity $0$ is also in $X$ because $T0=0 \in U$. Therefore, $X$ is a subspace of $V$.
+%   Applying the Rank-Nullity Theorem to the restriction $T|_X : X \to W$:
+%   \begin{equation}
+%     \label{eq: dim X}
+%     \dim X = \dim \mynull T|_X + \dim \myrange T|_X = \dim \mynull T + \dim (U \cap \myrange T).
+%   \end{equation}
+%   Since $0 \in U$, $\mynull T|_X = \mynull T$.
 %
-%  The formula we need to prove resembles the rank-nullity theorem. We aim to show that:
-%  \begin{equation}
-%    \label{eq: dim X}
-%    \begin{aligned}
-%      \dim X &= \dim \mynull T|_X + \dim \myrange T|_X \
-%      &= \dim \mynull T + \dim (U \cap \myrange T).
-%    \end{aligned}
-%  \end{equation}
-%
-%  The first equality follows from the rank-nullity theorem applied to the restriction of $T$ on $X$. Since $0$ is in $U$, the definition of $X$ implies that $\mynull T|_X = \mynull T$, which is used in equation \eqref{eq: dim X}.
-%
-%  Next, we establish that $\myrange T|_X = U \cap \myrange T$ by proving both inclusions:
-%
-%  \textbf{(1) $\myrange T|_X \subseteq U \cap \myrange T$}:
-%
-%  If $u \in \myrange T|_X$, then there exists some $w \in X$ such that $T|_X(w) = u$. Since $T|_X$ is just $T$ restricted to $X$, we have $T(w) = u$. By the definition of $X$, $T(w) \in U$, meaning $u \in U$. Also, since $T(w) = u$ and $T(w)$ is in the range of $T$, it follows that $u \in \myrange T$. Thus, $u \in U \cap \myrange T$, proving $\myrange T|_X \subseteq U \cap \myrange T$.
-%
-%  \textbf{(2) $U \cap \myrange T \subseteq \myrange T|_X$}:
-%
-%  If $u \in U \cap \myrange T$, then $u = Tv$ for some $v \in V$ and $u \in U$. By definition of $X$, this implies $v \in X$, meaning $u \in \myrange T|_X$. Thus, $U \cap \myrange T \subseteq \myrange T|_X$.
-%
-%  Since both inclusions hold, we conclude that:
-%  \begin{equation}
-%    \myrange T|_X = U \cap \myrange T.
-%  \end{equation}
-%
-%  This validates equation \eqref{eq: dim X}, completing the proof.
-%\end{prf}
+%   Next, we establish $\myrange T|_X = U \cap \myrange T$:
+%   (1) If $u \in \myrange T|_X$, then $u = T(w)$ for some $w \in X$, so $u \in U$ and $u \in \myrange T$.
+%   (2) If $u \in U \cap \myrange T$, then $u = Tv$ with $Tv \in U \implies v \in X \implies u \in \myrange T|_X$.
+%   Thus $\myrange T|_X = U \cap \myrange T$, completing the proof.
+% \end{prf}
 
 \exercise{25}
 \begin{xrcs}
@@ -699,70 +702,35 @@
 
    Thus we conclude: $ES=T$.
 
-   \Leftarrowdirection Assume $W$ is finite-dimensional and we have $S,T \in \linmap(V,W)$ and $E \in \linmap (W)$ such that $T=ES$. Now assume that $\mynull S$ is not a subset of $\mynull T$. Then there exists a $v \in V$ such that $S(v) = 0$ but $T(v) \neq 0$. Because of \ref{thm: linear maps take 0 to 0} it must be that $E(0) = 0$, and thus $ES(v) = 0$. But we assumed that $T=ES$. Now we have $ES \neq T$ (because $T(v)\neq 0$). The assumption that $\mynull S$ is not a subset of $\mynull T$ has led to a contradiction. Therefore, $\mynull S \subseteq \mynull T$, as desired.
+   \Leftarrowdirection Assume $W$ is finite-dimensional and we have $S,T \in \linmap(V,W)$ and $E \in \linmap (W)$ such that $T=ES$. Now assume that $\mynull S$ is not a subset of $\mynull T$. Then there exists a $v \in V$ such that $S(v) = 0$ but $T(v) \neq 0$. Because of \ref{thm: linear maps take 0 to 0} it must be that $E(0) = 0$, and thus $ES(v) = 0$. But we assumed that $T=ES$. Now we have $ES \neq T$ (because $T(v)\neq 0$). The assumption that $\mynull S$ is not a subset of $\mynull T$ has lead to a contradiction. Therefore, $\mynull S \subseteq \mynull T$, as desired.
   \end{xprf}
 \end{xrcs}
 
-%\begin{xrcs}
-%  Suppose that $V$ is finite-dimensional and $S, T \in \linmap (V,W)$. Prove that $\myrange S \subseteq \myrange T$ $\iff$ there exists $E \in \linmap(V)$ such that $S=TE$.
+% ==============================================================================
+% ORIGINAL ATTEMPT (Commented out): Exercise 31 Draft ($\myrange S \subseteq \myrange T \iff S=TE$)
+% ------------------------------------------------------------------------------
+% AI FEEDBACK:
+% 1. False Implication: Line 718 claims $\myrange S \subseteq \myrange T \implies \mynull T \subseteq \mynull S$.
+%    This is not true in general without dual maps or inner product orthogonal complements.
+% 2. Invalid Identification: Line 734 claims $S|_U$ and $T|_U$ are identical, which fails
+%    because $T$ and $S$ can be completely different operators on $U$.
+% 3. Correct Strategy: The active proof below chooses a basis $q_1, \dots, q_m$ for a complement
+%    $Q$ of $\mynull S$. Since $Sq_j \in \myrange S \subseteq \myrange T$, choose preimages $p_j \in V$
+%    with $Tp_j = Sq_j$, and define $E(q_j) = p_j$ and $E|_{\mynull S} = 0$.
+% ==============================================================================
+% \begin{xrcs}
+%   Suppose that $V$ is finite-dimensional and $S, T \in \linmap (V,W)$. Prove that $\myrange S \subseteq \myrange T$ $\iff$ there exists $E \in \linmap(V)$ such that $S=TE$.
 %
-%  \begin{prf}
-%    \Rightarrowdirection Suppose $V$ is finite dimensional. Suppose $S, T \in \linmap (V,W)$ such that $\myrange S \subseteq \myrange T$. Note that this implies
-%    \begin{equation}
-%      \label{eq: null T subseteq null S}
-%      \mynull T \subseteq \mynull S.
-%    \end{equation}
+%   \begin{prf}
+%     \Rightarrowdirection Suppose $V$ is finite-dimensional. Suppose $S, T \in \linmap (V,W)$ such that $\myrange S \subseteq \myrange T$.
 %
-%    Let $U \subseteq V$ such that $V = \mynull S \oplus U$. Observe that
-%    \begin{equation}
-%      \forall u \in U: S(u) \in \myrange T.
-%    \end{equation}
+%     Let $U \subseteq V$ such that $V = \mynull S \oplus U$. Observe that $\forall u \in U: S(u) \in \myrange T$.
+%     This means that $\forall u \in U$ we have a $v \in V$ such that $S(u) = T(v)$.
 %
-%    This means that $\forall u \in U$ we have a $v$ in $V$ such that $S(u) = T(v)$. Now we decompose $v$ like this: $v=r+u'$ where $r \in \null S$ and $u' \in U$. The linearity of of $T$ yields that $T(v) = T(r+u') = T(r) + T(u') = T(u')$. Therefore,
-%    \begin{equation}
-%      S(u) = T(u'), \mytext{where } u, u' \in U
-%    \end{equation}
-%
-%    But $S(u') = S(u)$ only if $u' = u$.
-%
-%    This means that $S|_U$ and $T|_U$ are identical and both are injective since $\mynull S|_U  = \mynull T|_U = \{0\}$. \textbf{Todo: better :)}
-%
-%    Let $u_1, \ddd, u_n$ be a basis of $U$. This means that $S u_1, \ddd, S u_n$ and $T u_1, \ddd, S u_n$ both are a basis of $\myrange S = \myrange S|_U = \myrange T|_U$. This will be used later in the construction of $E$.
-%
-%    If $u_1, \ddd, u_n$ is a basis of $U$, it can be extended to a basis $u_1, \ddd, u_n, r_{n+1}, \ddd, r_m$ of $V$. Note that this extension can be empty if $U = V$ and $\mynull S = \{0\}$.  This makes $r_{n+1}, \ddd, r_m$ a basis of $\mynull S$. Therefore we have $n \leq m$ for $m = \dim V$.
-%
-%    Now we define $E: V \to V$ for $v \in V$ by letting
-%    \begin{equation}
-%      E(v) = E(a_1 u_1 + \cdots + a_n u_n + a_{n+1} r_{n+1} + \cdots + a_m r_m) :\equiv a_1 u_1 + \cdots + a_n u_n, \mytext{where} a_1, \ddd, a_m \in \myF.
-%    \end{equation}
-%
-%    %for every $v \in V$ sucht that $v= a_1 u_1 + \cdots + a_n u_n + a_{n+1} r_{n+1} + \cdots + a_m r_m$, where the $a$'s are scalars.
-%
-%    Now let $w \in V$ such that $w = r + u$, where $r \in \mynull S$ and $u \in U$. We compute:
-%    \begin{equation}
-%      \begin{aligned}
-%        TE(w) &= TE(r+u)= TE(r) + TE(u) = TE(u) \\
-%              &= T(a_1u_n + \cdots + a_n u_n) \\
-%              &= a_1 T u_1 + \cdots + a_n T u_n.
-%      \end{aligned}
-%    \end{equation}
-%
-%    For the same $w$ we compute:
-%    \begin{equation}
-%      S(w) = S(r+u) = S(u) = a_1 S u_1 + \cdots + a_n S u_n.
-%    \end{equation}
-%
-%    Earlier we claimed that $S|_U$ and $T|_U$ are identical. Hence,
-%    \begin{equation}
-%      a_1 T u_1 + \cdots + a_n T u_n = a_1 S u_1 + \cdots + a_n S u_n.
-%    \end{equation}
-%
-%    Therefore, $S=TE$.
-%
-%    \Leftarrowdirection This direction of the proof is left to the reader as an exercise.
-%  \end{prf}
-%
-%\end{xrcs}
+%     Let $u_1, \ddd, u_n$ be a basis of $U$, and extend it to a basis $u_1, \ddd, u_n, r_{n+1}, \ddd, r_m$ of $V$.
+%     Define $E \in \linmap(V)$ on the basis, and verify $S=TE$.
+%   \end{prf}
+% \end{xrcs}
 
 \begin{xrcs}
   Suppose that $V$ is finite-dimensional and $S, T \in \linmap (V,W)$. Prove that $\myrange S \subseteq \myrange T$ $\iff$ there exists $E \in \linmap(V)$ such that $S=TE$.

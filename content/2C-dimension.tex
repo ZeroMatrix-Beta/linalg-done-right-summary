@@ -2,10 +2,10 @@
 
 % 2.34
 \setcounter{thm}{33}
-\begin{thm} [basis length] Any two bases of a \fdvs have the same length. So the the basis length does not depend on basis.
+\begin{thm} [basis length] Any two bases of a \fdvs have the same length. So, the basis length does not depend on the basis.
 \end{thm}
 \begin{prf}
-  Let $B_1$ and $B_2$ be $2$ basis of $V$. Since both are linearly independent and both span $V$, we have $|B_1| \leq |B_2|$ and $|B_2| \leq |B_1|$ by using \ref{thm: length of linearly dependent list less or equal to length of spanning list}. Therefore $|B_1|=|B_2|.$
+  Let $B_1$ and $B_2$ be $2$ bases of $V$. Since both are linearly independent and both span $V$, we have $|B_1| \leq |B_2|$ and $|B_2| \leq |B_1|$ by using \ref{thm: length of linearly dependent list less or equal to length of spanning list}. Therefore, $|B_1|=|B_2|$.
 \end{prf}
 
 \begin{mydef} [dimension]
@@ -18,12 +18,12 @@
   \label{thm: dimension of a subspace}
   If $V$ is \fd and $U$ is a subspace of $V$, then
   \begin{equation}
-    \dim U \leq \dim V
+    \dim U \leq \dim V.
   \end{equation}
 \end{thm}
 \begin{prf}
-  Since the length of everly linearly independent list is smaller or equal to every spanning list in $V$ according to
-  \ref{thm: length of linearly dependent list less or equal to length of spanning list}, we have the situation that the length of the basis of $U$ is less or equal to the length of the basis of $V$.
+  Since the length of every linearly independent list is smaller or equal to every spanning list in $V$ according to
+  \ref{thm: length of linearly dependent list less or equal to length of spanning list}, we have the situation that the length of the basis of $U$ is less than or equal to the length of the basis of $V$.
 \end{prf}
 
 
@@ -42,7 +42,7 @@
   If $U$ is a subspace of $V$ and $\dim U = \dim V \neq \infty$, then $U=V$.
 \end{thm}
 \begin{prf}
-  Let $u_1, \ldots, u_n$ be a basis of $U$. Thus $n = \dim U$, and by the hypothesis we also have $n = \dim V$. Thus $u_1, \ldots, u_n$ is a linearly independent list of vectors in $V$ of length $\dim V$. So, by our previous theorem \ref{thm: linearly independent list of the right length is a basis}, we see that $u_1, \ldots, u_n$ is a basis of $V$. In particular, every vector in $V$ is a linear combination of $u_1, \ldots, u_n$. Thus, $U=V$.
+  Let $u_1, \ldots, u_n$ be a basis of $U$. Thus, $n = \dim U$, and by the hypothesis, we also have $n = \dim V$. Thus, $u_1, \ldots, u_n$ is a linearly independent list of vectors in $V$ of length $\dim V$. So, by our previous theorem \ref{thm: linearly independent list of the right length is a basis}, we see that $u_1, \ldots, u_n$ is a basis of $V$. In particular, every vector in $V$ is a linear combination of $u_1, \ldots, u_n$. Thus, $U=V$.
 \end{prf}
 
 % 2.42
@@ -145,7 +145,7 @@ Then we have $\dim (V_1) = n+j$ and $\dim(V_2) = n+k$. Note that the extensions 
 
 We will show that
 \begin{equation}
-  \label{eq: basis with r's, u's and w's}
+  \label{eq: basis with r u and w}
   r_1, \ddd, r_n, u_1, \ddd, u_j, w_1, \ddd, w_k
 \end{equation}
 
@@ -158,9 +158,9 @@ is a basis of $V_1 + V_2$. This will complete the proof because then we will hav
   \end{aligned}
 \end{equation}
 
-The list \eqref{eq: basis with r's, u's and w's} is contained in $V_1 + V_2$. The span of this list contains $V_1$ and $V_2$; therefore, it equals $V_1 + V_2$. Thus, to show that \eqref{eq: basis with r's, u's and w's} is a basis of $V_1 + V_2$, we only need to show that it is linearly independent. Therefore, let $a_1, \ddd, a_n, b_1, \ddd, b_j, c_1, \ddd, c_k \in \myF$, such that
+The list \eqref{eq: basis with r u and w} is contained in $V_1 + V_2$. The span of this list contains $V_1$ and $V_2$; therefore, it equals $V_1 + V_2$. Thus, to show that \eqref{eq: basis with r u and w} is a basis of $V_1 + V_2$, we only need to show that it is linearly independent. Therefore, let $a_1, \ddd, a_n, b_1, \ddd, b_j, c_1, \ddd, c_k \in \myF$, such that
 \begin{equation}
-  \label{eq: linear independence formula for r's, u's and w's}
+  \label{eq: linear independence formula for r u and w}
   \begin{aligned}
     0 = \underbrace{a_1 r_1 + \cdots + a_n r_n}_{\substack{\in \; V_1 \cap V_2 \\ (\text{common intersection})}}
     + \underbrace{b_1 u_1 + \cdots + b_j u_j}_{\substack{\in \; V_1 \\ (\text{extension for } V_1 )}}
@@ -175,15 +175,15 @@ We need to prove that all the $a$'s, $b$'s, and $c$'s equal $0$. The equation ab
 
 which shows that $c_1 w_1 + \cdots + c_k w_k \in V_1$ because $r_1, \ddd, r_n, u_1, \ddd, u_j$ is a basis of $V_1$. But all the $w$'s are in $V_2$ as well, so this implies that $c_1 w_1 + \cdots + c_k w_k \in V_1 \cap V_2$. Because $r_1, \ddd, r_n$ is a basis of $V_1 \cap V_2$, we have
 \begin{equation}
-  c_1 w_1 + \cdots + c_k w_k = d_1 r_1 + \cdots + d_n r_n, \text{ for some } d_1, \ddd, d_n \in \myF. \text{ (which are newly introduced here)}
+  c_1 w_1 + \cdots + c_k w_k = d_1 r_1 + \cdots + d_n r_n, \text{ for some } d_1, \ddd, d_n \in \myF \text{ (which are newly introduced here)}.
 \end{equation}
 
-But $r_1, \ddd, r_n, w_1, \ddd, w_k$ is linearly independent, because it is a basis of $V_2$, and the equation above can be rewritten to $0 = c_1 w_1 + \cdots + c_k w_k - d_1 r_1 - \cdots - d_n r_n$, so all the $c$'s and $d$'s must equal $0$. Thus \eqref{eq: linear independence formula for r's, u's and w's} becomes the equation
+But $r_1, \ddd, r_n, w_1, \ddd, w_k$ is linearly independent, because it is a basis of $V_2$, and the equation above can be rewritten as $0 = c_1 w_1 + \cdots + c_k w_k - d_1 r_1 - \cdots - d_n r_n$, so all the $c$'s and $d$'s must equal $0$. Thus, \eqref{eq: linear independence formula for r u and w} becomes the equation
 \begin{equation}
   a_1 r_1 + \cdots + a_n r_n + b_1 u_1 + \cdots + b_j u_j = 0.
 \end{equation}
 
-Because $r_1, \ddd, r_n, u_1, \ddd, u_j$ is linearly independent, the equation above implies that all the $a$'s and $b$'s are $0$. So we have shown that in equation \eqref{eq: linear independence formula for r's, u's and w's} all coefficients ($a$, $b$, $c$) are $0$. In symbols: $a_1 = 0, \ddd, a_n = 0, b_1 = 0, \ddd, b_j = 0, c_1 = 0, \ddd, c_k = 0$,
+Because $r_1, \ddd, r_n, u_1, \ddd, u_j$ is linearly independent, the equation above implies that all the $a$'s and $b$'s are $0$. So we have shown that in equation \eqref{eq: linear independence formula for r u and w} all coefficients ($a$, $b$, $c$) are $0$. In symbols: $a_1 = 0, \ddd, a_n = 0, b_1 = 0, \ddd, b_j = 0, c_1 = 0, \ddd, c_k = 0$,
 completing the proof.
 \end{prf}
 

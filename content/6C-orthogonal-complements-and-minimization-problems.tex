@@ -27,28 +27,28 @@
 \begin{prf}
   \phantom{.}
   \begin{enumerate}[label=\textbf{(\alph*)}]
-    \item { We have to check for additive identity, closedness under addition and closedness under scalar multiplication.
+    \item { We have to check for additive identity, closedness under addition, and closedness under scalar multiplication:
     \begin{itemize}
       \item $\ip{u}{0}=0 \quad \forall u\in U \implies 0 \in U^{\bot}.$
-      \item Let $v,w \in U^{\bot}, u \in U. \ip{u}{v+w}=\ip{u}{v}+\ip{v}{w}=0. \implies v+w \in U^{\bot}.$
-      \item Let $\lambda \in \myF, w \in U^{\bot}, u \in U: \ip{u}{\lambda v} = \overline \lambda \ip{u}{v} = \overline \lambda 0 = 0.$ $\implies$ $\lambda w \in U^{\bot}$.
+      \item Let $v,w \in U^{\bot}, u \in U$. $\ip{u}{v+w}=\ip{u}{v}+\ip{v}{w}=0 \implies v+w \in U^{\bot}.$
+      \item Let $\lambda \in \myF, w \in U^{\bot}, u \in U: \ip{u}{\lambda w} = \overline \lambda \ip{u}{w} = \overline \lambda 0 = 0 \implies \lambda w \in U^{\bot}$.
     \end{itemize}
-    Therefore $U^{\bot}$ is a subspace of $V$.
+    Therefore, $U^{\bot}$ is a subspace of $V$.
     }
-    \item Let $v \in V$. $\implies \ip{0}{v} = 0$. $\implies$ $v \in \{0\}^{\bot}$. Since $v$ was arbitrary, $\implies$ $\{0\}^{\bot}=V$.
-    \item Let $v \in V^{\bot}$ $\implies$ $\ip{v}{v}=0$. $\implies$ $v=0$. $\implies$ $V^{\bot} =\{0\}$.
-    \item Suppose $U \subseteq V$ and $u \in U \cap U^{\bot}$. $\implies$ $\ip{u}{u}=0$ $\implies$ $u = 0.$ $\implies U \cap U^{\bot} \subseteq \{0\}$.
-    \item Suppose $G\subseteq V$ and $G \subseteq V$ and $G \subseteq H$. [As usual, we misuse $\subseteq$ to denote subspaces.]
+    \item Let $v \in V \implies \ip{0}{v} = 0 \implies v \in \{0\}^{\bot}$. Since $v$ was arbitrary, $\implies \{0\}^{\bot}=V$.
+    \item Let $v \in V^{\bot} \implies \ip{v}{v}=0 \implies v=0 \implies V^{\bot} =\{0\}$.
+    \item Suppose $U \subseteq V$ and $u \in U \cap U^{\bot} \implies \ip{u}{u}=0 \implies u = 0 \implies U \cap U^{\bot} \subseteq \{0\}$.
+    \item Suppose $G\subseteq V$ and $H \subseteq V$ with $G \subseteq H$. [As usual, we misuse $\subseteq$ to denote subspaces.]
     \[
       \begin{aligned}
         \text{Let $v\in H^{\bot}$.}
         &\implies \ip{u}{v} = 0 \quad \forall u \in H. \\
-        & \implies  \ip{u}{v} = 0 \quad \forall u \in G \\
+        & \implies  \ip{u}{v} = 0 \quad \forall u \in G. \\
       \end{aligned}
     \]
-    $
-      \implies v \in G^{\bot}. \mytext{Thus} H^{\bot} \subseteq G^{\bot}.
-    $
+    \[
+      \implies v \in G^{\bot}. \mytext{Thus,} H^{\bot} \subseteq G^{\bot}.
+    \]
   \end{enumerate}
   \vspace{-1em}
 \end{prf}
@@ -58,21 +58,21 @@
   \label{thm: direct sum of a subspace and its orthogonal complement}
   Suppose $U$ is a finite dimensional subspace of $V$. Then
   \[
-    V = U \oplus U^{\bot}. \quad (v \in V $ can be uniquely written as $ v=u+w, $ where $ u\in U, w\in U^{\bot}).
+    V = U \oplus U^{\bot} \quad (v \in V \text{ can be uniquely written as } v=u+w, \text{ where } u\in U, w\in U^{\bot}).
   \]
 \end{thm}
 \begin{prf}
   Let $v \in V$ and $e_1, \ddd, e_m$ be an orthonormal basis of $U$. Like in \ref{thm: Bessel's inequality}, we have that
   \[
-    v= \underbrace{\ip{v}{e_1}e_1 + \cdots + \ip{v}{e_m} e_m}_u + \underbrace{v - \ip{v}{e_1}e_1 + \cdots + \ip{v}{e_m} e_m}_w.
+    v= \underbrace{\ip{v}{e_1}e_1 + \cdots + \ip{v}{e_m} e_m}_u + \underbrace{v - \ip{v}{e_1}e_1 + \cdots + \ip{v}{e_m} e_m}_w,
   \]
 
   and we let $u$ and $w$ be defined as above.
   \[
-    \forall k \in \{1, \ddd, m\}: e_k \in U. \implies u \in U, \quad $because it is a linear combination of $e_1, \ddd, e_m.
+    \forall k \in \{1, \ddd, m\}: e_k \in U \implies u \in U, \quad \text{because it is a linear combination of } e_1, \ddd, e_m.
   \]
 
-  Again like in \ref{thm: Bessel's inequality}, $\forall k \in \{1, \ddd, m\}$:
+  Again, like in \ref{thm: Bessel's inequality}, $\forall k \in \{1, \ddd, m\}$:
   \begin{equation}
     \begin{aligned}
       \ip{w}{e_k}
@@ -88,14 +88,14 @@
     \implies w \in U^{\bot}.
   \]
 
-  $\implies v = u + w, \where u \in U \myand w \in W^{\bot}$.
+  $\implies v = u + w, \where u \in U \myand w \in U^{\bot}$.
 \end{prf}
 
 \mce{51}
 \begin{thm}[dimension of orthogonal complement]
   Suppose $V$ is finite-dimensional and $U$ is a subspace of $V$. Then
   \[
-    \dim U^{\bot} = \dim V - \dim U
+    \dim U^{\bot} = \dim V - \dim U.
   \]
 \end{thm}
 \begin{prf}
@@ -106,33 +106,33 @@
   \label{thm: orthogonal complement of the orthogonal complement}
   Suppose $U$ is a finite-dimensional subspace of $V$. Then
   \[
-    U = (U^{\bot})^{\bot}
+    U = (U^{\bot})^{\bot}.
   \]
 \end{thm}
 \begin{prf}
-  We proof this theorem by showing that $U \subseteq (U^{\bot})^{\bot}$ and $ (U^{\bot})^{\bot} \subseteq U$.
+  We prove this theorem by showing that $U \subseteq (U^{\bot})^{\bot}$ and $ (U^{\bot})^{\bot} \subseteq U$.
 
-  \prooffont{Step 1:} Let $u \in U$. $\implies$ $\ip{u}{w}=0 \; \forall w \in U^{\bot}$.
-  Therefore for the same $w$'s using conjugate symmetry
+  \prooffont{Step 1:} Let $u \in U \implies \ip{u}{w}=0 \; \forall w \in U^{\bot}$.
+  Therefore, for the same $w$'s using conjugate symmetry:
   \[
     \ip{u}{w}=\overline{\ip{w}{u}} =0 \implies
     \overline{\overline{\ip{w}{u}}} =\overline{0} \implies
     \ip{w}{u} = 0.
   \]
   Because $u$ is orthogonal to every vector
-  $w$ in $U^{\bot}$, we have $u \in (U^{\bot})^{\bot}$. Hence $U \subseteq (U^{\bot})^{\bot}$.
+  $w$ in $U^{\bot}$, we have $u \in (U^{\bot})^{\bot}$. Hence, $U \subseteq (U^{\bot})^{\bot}$.
 
-  \prooffont{Step 2:} Let $v \in (U^{\bot})^{\bot} \subseteq V.$ By \ref{thm: direct sum of a subspace and its orthogonal complement} we can write $v$ as a sum like this:
+  \prooffont{Step 2:} Let $v \in (U^{\bot})^{\bot} \subseteq V.$ By \ref{thm: direct sum of a subspace and its orthogonal complement}, we can write $v$ as a sum like this:
   \[
     v = u + w, \where u \in U \myand w \in U^{\bot}.
   \]
 
-  Hence $v-u=w \in U^\bot$. Because
+  Hence, $v-u=w \in U^\bot$. Because
   $v \in (U^\bot)^\bot$ and $u \in U \subseteq (U^\bot)^\bot$ from step 1, we have
   \[
     v-u=w \in U^\bot \cap (U^\bot)^\bot \subseteq \{0\}.
   \]
-  $\implies v=u.$ $\implies v \in U.$ $\implies (U^\bot)^\bot \subseteq U$, because $v$ was arbitrary.
+  $\implies v=u \implies v \in U \implies (U^\bot)^\bot \subseteq U$, because $v$ was arbitrary.
 \end{prf}
 
 \mce{54}
@@ -143,36 +143,36 @@
   \end{equation}
 \end{thm}
 \begin{prf}
-  \qt{$\Rightarrow$-direction:} $U^\bot=\{0\}.$ Then by first using \ref{thm: orthogonal complement of the orthogonal complement} and then using \ref{thm: properties of the orthogonal complement} (c), $U = (U^\bot)^\bot = \{0\}^\bot = V$.
+  \qt{$\Rightarrow$-direction:} $U^\bot=\{0\}.$ Then by first using \ref{thm: orthogonal complement of the orthogonal complement} and then using \ref{thm: properties of the orthogonal complement}(c), $U = (U^\bot)^\bot = \{0\}^\bot = V$.
 
-  \qt{$\Leftarrow$-direction:} Only using \ref{thm: properties of the orthogonal complement} (c): If $U=V$, then $U^\bot = V^\bot = \{0\}$.
+  \qt{$\Leftarrow$-direction:} Only using \ref{thm: properties of the orthogonal complement}(c): if $U=V$, then $U^\bot = V^\bot = \{0\}$.
 \end{prf}
 
 \begin{mydef}[orthogonal projection, $P_u$]
   Suppose $U \subseteq V$, $\dim U \neq \infty$. The \qt{orthogonal projection} of $V$ onto $U$ is the operator $P_U \in \linmap(V)$ defined as follows: \\
-  $\forall v \in V$, we can write  $v = u + w, \where u \in U \myand w \in U^\bot$ (Because $V=U \oplus U^\bot$) Then let
+  $\forall v \in V$, we can write $v = u + w, \where u \in U \myand w \in U^\bot$ (Because $V=U \oplus U^\bot$). Then let:
   \begin{equation}
     P_U v :\equiv u.
   \end{equation}
 \end{mydef}
 
 \begin{example}[orthogonal projection onto one-dimensional subspace]
-  Suppose $u \in V, u\neq 0$ and $U :\equiv \myspan{u}$ is a one-dimensional subspace of $V$. If $v\in V$, then
+  Suppose $u \in V, u\neq 0$, and $U :\equiv \myspan{u}$ is a one-dimensional subspace of $V$. If $v\in V$, then
   \[
   v
-  = \underbrace{\frac{\ip{v}{u}}{\norm{u}^2} u}_{\in \, \myspan{u}\,=\,U} + \underbrace{\left( v- \frac{\ip{v}{u}}{\norm{u}^2} u \right  )}_{\in \, U^\bot} \]
+  = \underbrace{\frac{\ip{v}{u}}{\norm{u}^2} u}_{\in \, \myspan{u}\,=\,U} + \underbrace{\left( v- \frac{\ip{v}{u}}{\norm{u}^2} u \right  )}_{\in \, U^\bot}. \]
 
-  Therefore
+  Therefore,
   \[
     P_U v = \frac{\ip{v}{u}}{\norm{u}^2} u \quad \forall v \in V.
   \]
 
-  Notice that $P_U u = u$ and $P_U v = 0 \iff v \in \{u\}^\bot$. Recall $\ip{u}{u} = \norm{u}^2$.
+  Notice that $P_U u = u$ and $P_U v = 0 \iff v \in \{u\}^\bot$. Recall that $\ip{u}{u} = \norm{u}^2$.
 \end{example}
 
 \begin{thm}[properties orthogonal projection $P_U$]
   \label{thm: properties orthogonal projection}
-  Suppose $U \subseteq V$, $\dim U \neq \infty$. Then
+  Suppose $U \subseteq V$, $\dim U \neq \infty$. Then:
   \begin{enumerate}[label=\textbf{(\alph*)}]
     \item $P_U \in \linmap(V)$;
     \item $P_U u = u \quad \forall u \in U$;
@@ -198,12 +198,12 @@ Given a subspace $U\subseteq V$ and $v\in V$, find a $u \in U$ \st $\norm{v-u}$ 
     \norm{v-P_U v} \leq \norm{v-u}.
   \]
 
-  Furthermore, the inequality above is an equality $\iff$ $u=P_U v$.
+  Furthermore, the inequality above is an equality $\iff u=P_U v$.
 \end{thm}
 \begin{prf}
-  For this proof, visualize that $v-P_Uv$ is pointing from $P_Uv$ to $v$ and $P_U v -u$ is pointing from $u$ to the projection of $v$, namely $P_U v$ which lies on the vector space $U$.
+  For this proof, visualize that $v-P_Uv$ is pointing from $P_Uv$ to $v$ and $P_U v -u$ is pointing from $u$ to the projection of $v$, namely $P_U v$, which lies on the vector space $U$.
 
-  We also have the properties that $v-P_Uv \in U^\bot$ and $P_U v - u \in U$. Therefore, we can use the Pythagorean theorem \ref{thm: pythagorean theorem} after adding a always-positive term to the left hand side of the inequality.
+  We also have the properties that $v-P_Uv \in U^\bot$ and $P_U v - u \in U$. Therefore, we can use the Pythagorean theorem \ref{thm: pythagorean theorem} after adding an always-positive term to the left-hand side of the inequality:
   \[
   \begin{aligned}
     \norm{v-P_Uv}^2
@@ -213,7 +213,7 @@ Given a subspace $U\subseteq V$ and $v\in V$, find a $u \in U$ \st $\norm{v-u}$ 
   \end{aligned}
   \]
 
-  The inequality proved above is an equality $\iff$ $\norm{P_U v -u}^2=0$ $\iff$ $u= P_U v$. Note that in this version of the Pythagorean theorem \ref{thm: pythagorean theorem}, one or both vectors are allowed to be $0$.
+  The inequality proved above is an equality $\iff \norm{P_U v -u}^2=0 \iff u= P_U v$. Note that in this version of the Pythagorean theorem \ref{thm: pythagorean theorem}, one or both vectors are allowed to be $0$.
 \end{prf}
 
 \subsection{Pseudoinverse}
@@ -226,12 +226,12 @@ If $T\in \linmap(V,W)$ is not invertible, instead of solving the equation $Tv = 
 \end{thm}
 \begin{prf}
   We will first prove injectivity and then surjectivity.
-  Suppose $v \in (\mynull T)^\bot$ \st $\left. T \right | _{(\mynull T)^\bot}=0$. Hence $Tv=0$ and $v \in (\mynull T) \cap (\mynull T)^\bot$, which implies that $v=0$ by \ref{thm: properties of the orthogonal complement}, because $(\mynull T) \cap (\mynull T)^\bot \subseteq \{0\}$.
+  Suppose $v \in (\mynull T)^\bot$ \st $\left. T \right | _{(\mynull T)^\bot}v=0$. Hence, $Tv=0$ and $v \in (\mynull T) \cap (\mynull T)^\bot$, which implies that $v=0$ by \ref{thm: properties of the orthogonal complement}, because $(\mynull T) \cap (\mynull T)^\bot \subseteq \{0\}$.
   \[
   \implies \mynull \left. T \right|_{(\mynull T)^\bot}=\{0\},
   \]
 
-  which \ref{thm: injectivity iff null space equals zero-set} implies that $\left. T \right|_{(\mynull T)^\bot}$ is injective.
+  which by \ref{thm: injectivity iff null space equals zero-set} implies that $\left. T \right|_{(\mynull T)^\bot}$ is injective.
 
   To prove that $\myrange \left.T \right | _{(\mynull T)^\bot}$ is onto $\myrange T$, we will show that $\myrange \left. T \right | _{(\mynull T)^\bot} \subseteq \myrange T$ and then $\myrange T \subseteq \myrange \left. T \right | _{(\mynull T)^\bot}$. Because this will imply that $\myrange T = \myrange \left. T \right |_{(\mynull T)^\bot}$ and therefore surjectivity.
 
@@ -239,11 +239,11 @@ If $T\in \linmap(V,W)$ is not invertible, instead of solving the equation $Tv = 
   The fact that $\myrange \left. T \right | _{(\mynull T)^\bot} \subseteq \myrange T$ is actually obvious, because $\myrange \left. T \right | _{(\mynull T)^\bot}$ is just $T$ on a restricted domain $(\mynull T)^\bot$.
 
   \prooffont{Proof of $\myrange T \subseteq \myrange \left. T \right | _{(\mynull T)^\bot}:$}
-  Now suppose $w \in \myrange T$. $\implies \exists v \in V$ \st $w=Tv$.
+  Now, suppose $w \in \myrange T \implies \exists v \in V$ \st $w=Tv$.
 
-  By \ref{thm: direct sum of a subspace and its orthogonal complement}, there exists $u \in \mynull T$ and $x \in (\mynull T)^\bot$ \st
+  By \ref{thm: direct sum of a subspace and its orthogonal complement}, there exist $u \in \mynull T$ and $x \in (\mynull T)^\bot$ \st
   \[
-    v=u+x $ or $ x = v-u. $ Now$
+    v=u+x \text{ or } x = v-u. \text{ Now,}
   \]
   \[
     \implies \left.T \right | _{(\mynull T)^\bot} x = T(x) = T(v-u) = T(v) - T(u) = T(v) - 0 = w,
@@ -261,19 +261,19 @@ If $T\in \linmap(V,W)$ is not invertible, instead of solving the equation $Tv = 
     T^\dagger w :\equiv  \left( \left. T \right|_{(\mynull T)^\bot} \right)^{-1} P_{\myrange T} w \quad \forall w \in W.
   \]
 
-  Theorem \ref{thm: restriction of a linear map to obtain a one-to-one and onto map} makes sure that $\left( \left. T \right|_{(\mynull T)^\bot} \right)^{-1} \in \linmap \left(W, (\mynull T)^\bot \right)$ is well defined.
+  Theorem \ref{thm: restriction of a linear map to obtain a one-to-one and onto map} ensures that $\left( \left. T \right|_{(\mynull T)^\bot} \right)^{-1} \in \linmap \left(W, (\mynull T)^\bot \right)$ is well defined.
 \end{mydef}
 
-Recall that
+Recall that:
 \begin{itemize}
-  \item By \ref{thm: properties orthogonal projection} (b): $P_{\myrange T} w = w$ if $w \in \myrange T$.
-  \item By \ref{thm: properties orthogonal projection} (c): $P_{\myrange T} w =0$ if $w \in (\myrange T)^\bot$.
+  \item By \ref{thm: properties orthogonal projection}(b): $P_{\myrange T} w = w$ if $w \in \myrange T$;
+  \item By \ref{thm: properties orthogonal projection}(c): $P_{\myrange T} w =0$ if $w \in (\myrange T)^\bot$.
 \end{itemize}
 
-Since inverse maps are always injective and onto, we have that
+Since inverse maps are always injective and onto, we have that:
 \begin{itemize}
-  \item $w \in \myrange T$ $\implies$ $T^\dagger w$ is the unique element of $(\mynull T)^\bot$ \st $T(T^\dagger w ) = w$.
-  \item $w \in (\myrange T)^\bot \implies T^\dagger w = 0 $.
+  \item $w \in \myrange T \implies T^\dagger w$ is the unique element of $(\mynull T)^\bot$ \st $T(T^\dagger w ) = w$;
+  \item $w \in (\myrange T)^\bot \implies T^\dagger w = 0$.
 \end{itemize}
 
 \begin{thm} [algebraic properties of the pseudoinverse]
@@ -286,95 +286,95 @@ Since inverse maps are always injective and onto, we have that
   \end{enumerate}
 \end{thm}
 \begin{prf}
-  Suppose $T \in \linmap(V,W), \; \dim V \neq \infty$ is invertible. This means $\mynull T = \{0\}$. Hence by \ref{thm: properties of the orthogonal complement} (b) we have that
+  Suppose $T \in \linmap(V,W), \; \dim V \neq \infty$, is invertible. This means $\mynull T = \{0\}$. Hence, by \ref{thm: properties of the orthogonal complement}(b), we have that
   \begin{equation}
       \label{eq: restriction equals original}
-      (\mynull T)^\bot = \{0\}^\bot = V. \implies \left. T \right |_{(\mynull T)^\bot} = \left. T \right|_V= T.
+      (\mynull T)^\bot = \{0\}^\bot = V \implies \left. T \right |_{(\mynull T)^\bot} = \left. T \right|_V= T.
   \end{equation}
 
-  Invertibility also implies that $\myrange T = W$. Hence
+  Invertibility also implies that $\myrange T = W$. Hence,
   \begin{equation}
     \label{eq: projection equals identity}
-    P_{\myrange T} = I_w
+    P_{\myrange T} = I_W.
   \end{equation}
 
 
-  Equation \eqref{eq: restriction equals original} and \eqref{eq: projection equals identity} imply that $\forall w \in W:$
+  Equations \eqref{eq: restriction equals original} and \eqref{eq: projection equals identity} imply that $\forall w \in W$:
   \[
     T^\dagger w = \left( \left. T \right|_{(\mynull T)^\bot} \right)^{-1} P_{\myrange T} w = T^{-1} I_W w = T^{-1} w.
   \]
 
-  Therefore we have shown that $T^\dagger = T^{-1}$, which proves (a).
+  Therefore, we have shown that $T^\dagger = T^{-1}$, which proves (a).
 
   \prooffont{Proof of (b):} By \ref{thm: direct sum of a subspace and its orthogonal complement}, we have that $W= \myrange T \oplus (\myrange T)^\bot$.
 
-  So suppose $w \in \myrange T$. Then $P_{\myrange T} w=w$. Hence
+  So, suppose $w \in \myrange T$. Then $P_{\myrange T} w=w$. Hence,
   \[
     T T^\dagger w = T \left( \left. T \right|_{(\mynull T)^\bot} \right)^{-1} w = P_{\myrange T} w.
   \]
 
-  Now suppose $w \in (\myrange T)^\bot$. We know from before that $T^\dagger w = 0$. Now
+  Now, suppose $w \in (\myrange T)^\bot$. We know from before that $T^\dagger w = 0$. Now,
   \[
     T T^\dagger w = 0 = P_{\myrange T} w.
   \]
 
-  Thus $TT^\dagger$ and $P_{\myrange T}$ both agree on $\myrange T$ and on $(\myrange T)^\bot$.  Hence these two linear maps are equal. So we have proven (b).
+  Thus, $TT^\dagger$ and $P_{\myrange T}$ both agree on $\myrange T$ and on $(\myrange T)^\bot$. Hence, these two linear maps are equal. So, we have proven (b).
 
   \prooffont{Proof of (c):} By \ref{thm: direct sum of a subspace and its orthogonal complement}, it is true that $V=\mynull T \oplus (\mynull T)^\bot$.
 
-  So let $v \in (\mynull T)^\bot$. Because $Tv \in \myrange T$, it is the case that $P_{\myrange T} (T v) = Tv$ and therefore
+  So, let $v \in (\mynull T)^\bot$. Because $Tv \in \myrange T$, it is the case that $P_{\myrange T} (T v) = Tv$ and therefore
   \begin{equation}
     T^\dagger (T v)
     = \left( \left. T \right|_{(\mynull T)^\bot} \right)^{-1} P_{\myrange T} (Tv)
-    = \left( \left. T \right|_{(\mynull T)^\bot} \right)^{-1} (Tv) = v = P_{(\mynull T)^\bot} v
+    = \left( \left. T \right|_{(\mynull T)^\bot} \right)^{-1} (Tv) = v = P_{(\mynull T)^\bot} v.
   \end{equation}
 
-  Now let $v \in \mynull T$. Then
+  Now, let $v \in \mynull T$. Then
   \[
     T^\dagger T v = 0 = P_{(\mynull T)^\bot} v,
   \]
 
-  because of \ref{thm: properties orthogonal projection} (c). Thus $T^\dagger T$ and $P_{(\mynull T)^\bot}$ agree on $(\mynull T)^\bot$ and $\mynull T$. Hence these two linear maps are equal. So we have proven (c).
+  because of \ref{thm: properties orthogonal projection}(c). Thus, $T^\dagger T$ and $P_{(\mynull T)^\bot}$ agree on $(\mynull T)^\bot$ and $\mynull T$. Hence, these two linear maps are equal. So, we have proven (c).
 \end{prf}
 
 \begin{thm}[pseudoinverse provides best approximate solution or best solution]
-  Suppose $\dim V \neq \infty$, $T \in \linmap(V,W)$ and $w\in W$.
+  Suppose $\dim V \neq \infty$, $T \in \linmap(V,W)$, and $w\in W$.
   \begin{enumerate}[label=\textbf{(\alph*)}]
     \item If $v \in V$, then
     \[
       \norm{T(T^\dagger w)-w} \leq \norm{Tv -w},
     \]
 
-    with equality $\iff$ $v \in T^\dagger + \mynull T.$
+    with equality $\iff v \in T^\dagger w + \mynull T.$
 
-    \item If $v \in T^\dagger + \mynull T$, then
+    \item If $v \in T^\dagger w + \mynull T$, then
     \[
       \norm{T^\dagger w} \leq \norm{v},
     \]
 
-    with equality $\iff$ $v=T^\dagger w$.
+    with equality $\iff v=T^\dagger w$.
   \end{enumerate}
 \end{thm}
 \begin{prf}
-  Suppose $v\in V$. Then with some algebra
+  Suppose $v\in V$. Then, with some algebra,
   \begin{equation}
     \label{eq: Tv-w}
-    Tv -w = \underbrace{(Tv-TT^\dagger w)}_{\in \; \myrange T} + \underbrace{(TT^\dagger w -w)}_{\in \; (\myrange T)^\bot}
+    Tv -w = \underbrace{(Tv-TT^\dagger w)}_{\in \; \myrange T} + \underbrace{(TT^\dagger w -w)}_{\in \; (\myrange T)^\bot}.
   \end{equation}
 
-  This is because from \ref{thm: algebraic properties of the pseudoinverse} (b) we know that
+  This is because from \ref{thm: algebraic properties of the pseudoinverse}(b), we know that
   \[
     TT^\dagger = P_{\myrange T}.
   \]
 
-  Thus $Tv-TT^\dagger w\in \myrange T$. From \ref{thm: properties orthogonal projection} (f) we know that
+  Thus, $Tv-TT^\dagger w\in \myrange T$. From \ref{thm: properties orthogonal projection}(f), we know that
   \[
     w-TT^\dagger w = w-P_{\myrange T} w \in (\myrange T)^\bot \quad \forall w \in W.
   \]
 
-  Of course, because of closedness, the same goes for its negative $TT^\dagger w-w \in (\myrange T)^\bot \quad \forall w \in W$.
+  Of course, because of closedness, the same goes for its negative: $TT^\dagger w-w \in (\myrange T)^\bot \quad \forall w \in W$.
 
-  This means, we can use the Pythagorean theorem \ref{thm: pythagorean theorem} and \eqref{eq: Tv-w} becomes
+  This means we can use the Pythagorean theorem \ref{thm: pythagorean theorem} and \eqref{eq: Tv-w} becomes
   \[
     \begin{aligned}
       \norm{Tv-w}^2 &= \norm{(Tv-TT^\dagger w) + (TT^\dagger w -w)}^2 \\
@@ -382,12 +382,12 @@ Since inverse maps are always injective and onto, we have that
       &\geq \norm{(TT^\dagger w -w)}^2,
     \end{aligned}
   \]
-  with equality only if $Tv - TT^\dagger w=0$ $\iff$ $v-T^\dagger w \in \mynull T$, which is equivalent to $v\in T^\dagger w + \mynull T$, completing the proof of (a).
+  with equality only if $Tv - TT^\dagger w=0 \iff v-T^\dagger w \in \mynull T$, which is equivalent to $v\in T^\dagger w + \mynull T$, completing the proof of (a).
 
-  \prooffont{Proof of (b):} Suppose $v \in T^\dagger w + \mynull T$. This is equivalent to $v-T^\dagger w \in \mynull T$. Now
+  \prooffont{Proof of (b):} Suppose $v \in T^\dagger w + \mynull T$. This is equivalent to $v-T^\dagger w \in \mynull T$. Now,
   \[
     v = (v-T^\dagger w) + T^\dagger w.
   \]
 
-  The definition of $T^\dagger$ implies that $T^\dagger w \in (\mynull T)^\bot$. This is because $\left( \left. T \right|_{(\mynull T)^\bot} \right)^{-1}$ is a map from $W$ to $(\mynull T)^\bot \subseteq V$. Thus the Pythagorean theorem implies that $\norm{ T^\dagger w} \leq \norm{v}$, with equality $\iff$ $v=T^\dagger w$.
+  The definition of $T^\dagger$ implies that $T^\dagger w \in (\mynull T)^\bot$. This is because $\left( \left. T \right|_{(\mynull T)^\bot} \right)^{-1}$ is a map from $W$ to $(\mynull T)^\bot \subseteq V$. Thus, the Pythagorean theorem implies that $\norm{ T^\dagger w} \leq \norm{v}$, with equality $\iff v=T^\dagger w$.
 \end{prf}

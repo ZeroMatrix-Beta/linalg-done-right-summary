@@ -148,7 +148,24 @@
   \end{equation}
 
   Dividing both sides by $3$ gives the formula in question.
+\end{xrcs}
 
+% ==============================================================================
+% ORIGINAL ATTEMPT (Commented out): Alternative Proof for 3-Subspace Dimension Formula
+% ------------------------------------------------------------------------------
+% AI FEEDBACK:
+% 1. Constructive Strengths:
+%    The construction attempts to decompose $V_1, V_2, V_3$ using a multi-level
+%    basis extension starting from the 3-way intersection $V_1 \cap V_2 \cap V_3$,
+%    extending to pairwise intersections, and then to individual subspaces.
+% 2. Critical Mathematical Gap:
+%    Lines 214-219 implicitly assume that $(V_1+V_2) \cap V_3$ has a basis formed
+%    by combining the basis of $V_1 \cap V_3$ and $V_2 \cap V_3$, which is equivalent
+%    to the modular identity $(V_1+V_2) \cap V_3 = (V_1 \cap V_3) + (V_2 \cap V_3)$.
+%    As shown in Exercise 19, this distributive/modular property fails in general
+%    unless one subspace is contained in another. Hence, this constructive basis
+%    approach cannot establish the general formula for arbitrary subspaces.
+% ==============================================================================
 %  Let $r_1, \ddd, r_{n_{123}} \in V$ be a basis of $V_1 \cap V_2 \cap V_3$, where $n_{123} \in \nat_{\geq 0}$, meaning that the basis can also be the empty list and $V_1 \cap V_2 \cap V_3$ might be equal to $\{\vec 0\}$. Note that the empty list is defined to be linearly independent and that its span is defined to be $\{\vec 0\}$. By this definition, we have
 %  \begin{equation}
 %    \label{eq: dim for V_1 cap V_2 cap V_3}
@@ -177,17 +194,16 @@
 %  Let us do a simple check. Suppose $V_1 \cap V_2 =  V_1 \cap V_2 \cap V_3$. This would mean that
 %  $(V_1 \cap V_2) \backslash (V_1 \cap V_2 \cap V_3) = \{ \vec 0 \}$, so $m_{12} = 0$. The empty list is a basis of $\{ \vec 0 \}$, so everything is fine. Note that there is a small difference compared to set notation here. If we write $U \backslash W$ for two vector spaces $U$ and $W$, we mean the subspace of $U$ that is linearly independent of $W$. So if we have $W \backslash W$, the only subspace of $W$ that is linearly independent of all vectors in $W$ is $\{ \vec 0 \}$. In set notation we would have $W \backslash W = \varnothing$.
 %
-%
 %  Later on we will use the fact that
 %  \begin{equation}
 %    \label{eq: fact for dim}
 %    \dim (V_1 \cap V_2) + \dim (V_1 \cap V_3) + \dim (V_2 \cap V_3) = 3\cdot n_{123} + 2\cdot (m_{12} + m_{13} + m_{23}).
 %  \end{equation}
 %
-%  Basis of $V_1 + V_2$ looks like this (might need a simmilar or even identical proof like the one in the book from yeasterday):
-%  \[ r_1, \ddd, r_{n_{123}}, v_1, \ddd, v_{m_{12}}, \widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}, u_1, \ddd, u_j, \overline{v}_1, \ddd, \overline{v}_{m_{23}}, w_1, \ddd, w_{m_{23}}
+%  Basis of $V_1 + V_2$ looks like this:
+%  \[
+%    r_1, \ddd, r_{n_{123}}, v_1, \ddd, v_{m_{12}}, \widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}, u_1, \ddd, u_j, \overline{v}_1, \ddd, \overline{v}_{m_{23}}, w_1, \ddd, w_{m_{23}}
 %  \]
-%
 %
 %  So let us further extend
 %  \begin{itemize}
@@ -203,7 +219,7 @@
 %    \item $\dim (V_3) = n_{123} + m_{13} + m_{23} + l$.
 %  \end{itemize}
 %
-%  Adding this equations together we will  get
+%  Adding these equations together we will get
 %  \begin{equation}
 %    \label{eq: dim V_1 + dim V_2 + dim V_3}
 %      \dim (V_1)+ \dim (V_2) + \dim (V_3) = \Big(3 \cdot n_{123} + 2 \cdot (m_{12}+m_{13}+m_{23})+j+k+l \Big)
@@ -216,59 +232,39 @@
 %    \item $r_1, \ddd, r_{n_{123}}, v_1, \ddd, v_{m_{12}}, \widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}$ is a basis of $(V_2+V_3) \cap V_1$, hence $\dim ((V_2+V_3) \cap V_1) = n_{123} + m_{12}+m_{13}$.
 %  \end{itemize}
 %
-%  So we need to show that $r_1,  \ddd r_{n_{123}} ,  \widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}, \overline{v}_1, \ddd, \overline{v}_{m_{23}}$ is a basis of $(V_1+V_2) \cap V_3$. We will not proof the other two cases for $(V_1+V_3) \cap V_2$ and $(V_2 + V_3) \cap V_1$ because they are completely analoguous. Looking at the basis of $V_1$ and $V_2$, it is easy to see that every vector of the list
-%  \begin{equation}
-%    r_1, \ddd, r_{n_{123}}, v_1, \ddd, v_{m_{12}}, \widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}, u_1, \ddd, u_j, \overline{v}_1, \ddd, \overline{v}_{m_{23}}, w_1, \ddd, w_{m_{23}}
-%  \end{equation}
-%
-%  is in $V_1 + V_2$. It is also easy to see that this list spans $V_1 + V_2$. But we are not going to prove that this list above is linearly independent and therefore a basis of $V_1+V_2$. Looking at the basis of $V_3$, it is easy to see that for $u \in (V_1 + V_2) \cap V_3$ we can write $u$ as
+%  So we need to show that $r_1,  \ddd r_{n_{123}} ,  \widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}, \overline{v}_1, \ddd, \overline{v}_{m_{23}}$ is a basis of $(V_1+V_2) \cap V_3$.
+%  Looking at the basis of $V_3$, for $u \in (V_1 + V_2) \cap V_3$ we can write $u$ as
 %  \begin{equation}
 %    u = (\alpha'_1 r_1+ \cdots+ \alpha'_{n_{123}} r_{n_{123}})
 %    + (\beta'_1 \widetilde{v}_1+ \cdots+ \beta'_{m_{13}} \widetilde{v}_{m_{13}})
-%    + (\gamma'_1 \overline{v}_1+ \cdots+ \gamma'_{m_{21}} \overline{v}_{m_{23}})
+%    + (\gamma'_1 \overline{v}_1+ \cdots+ \gamma'_{m_{23}} \overline{v}_{m_{23}})
 %    + (\delta'_1 z_1+\cdots+ \delta'_l z_l)
 %  \end{equation}
 %
-%  Back to our main proof: If we can show that
+%  If we can show that
 %  \begin{equation}
 %    \label{eq: basis of V_1 + V_2 + V_3}
 %    r_1, \ddd, r_{n_{123}}, v_1, \ddd, v_{m_{12}}, \widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}, \overline{v}_1, \ddd, \overline{v}_{m_{23}}, u_1, \ddd, u_j, w_1, \ddd, w_k, z_1, \ddd, z_l
 %  \end{equation}
-%
-%  is a basis of $V_1 + V_2 + V_3$, then we are done. Because this shows that
+%  is a basis of $V_1 + V_2 + V_3$, then
 %  \begin{equation}
 %    \dim (V_1 + V_2 + V_3) = n_{123} + m_{12} + m_{13} + m_{23} + j + k + l
 %  \end{equation}
 %
-%  Using \eqref{eq: dim V_1 + dim V_2 + dim V_3}, \eqref{eq: fact for dim}, \eqref{eq: dim for V_1 cap V_2, V_1 cap V_3, V_2 cap V_3}, and the results for $\dim ((V_1+V_2) \cap V_3)$, $\dim ((V_1+V_3) \cap V_2)$ and $\dim ((V_2+V_3) \cap V_1)$, we will get
-%  %\[
-%  %\begin{aligned}
-%  %  \dim (V_1 + V_2 + V_3) & = n_{123} + m_{12} + m_{13} + m_{23} + j + k + l \\
-%  %  & = \Big(3n_{123} + 2(m_{12}+m_{13}+m_{23})+j+k+l \Big) \\
-%  %  & \quad - \Big(3n_{123}+(m_{12}+m_{13}+m_{23}) \Big) \\
-%  %  & \quad + \Big(n_{123}\Big) \\
-%  %  & = \dim (V_1) + \dim (V_2) + \dim (V_3) \\
-%  %  & \quad - \dim(V_1 \cap V_2) - \dim (V_1 \cap V_3) - \dim (V_2 \cap V_3) \\
-%  %  & \quad + \dim (V_1 \cap V_2 \cap V_3).
-%  %\end{aligned}
-%  %\]
+%  Using \eqref{eq: dim V_1 + dim V_2 + dim V_3}, \eqref{eq: fact for dim}, and \eqref{eq: dim for V_1 cap V_2, V_1 cap V_3, V_2 cap V_3}:
 %  \[
 %  \begin{aligned}
 %    \dim (V_1 + V_2 + V_3) & = n_{123} + m_{12} + m_{13} + m_{23} + j + k + l \\
-%    & = \left(3 \cdot n_{123} + 2 \cdot (m_{12}+m_{13}+m_{23})+j+k+l \right) \\
-%    & \qquad - \left(n_{123} + \sfrac{1}{3} \cdot m_{12} + \sfrac{1}{3} \cdot m_{23} + \sfrac{1}{3} \cdot m_{13} \right) \\
-%    & \qquad - \left(n_{123}+\sfrac{2}{3} \cdot m_{12} + \sfrac{2}{3} \cdot m_{23} + \sfrac{2}{3} \cdot m_{13} \right) \\
 %    & = \Big(3 \cdot n_{123} + 2 \cdot (m_{12}+m_{13}+m_{23})+j+k+l \Big) \\
 %    & \qquad - \frac{3 \cdot n_{123}+(m_{12}+m_{13}+m_{23}) }{3} \\
 %    & \qquad - \frac{(n_{123} + m_{13} + m_{23})+(n_{123} + m_{12} + m_{23})+(n_{123} + m_{12} + m_{13})}{3} \\
 %    & = \dim (V_1) + \dim (V_2) + \dim (V_3) \\
 %    & \qquad - \frac{\dim (V_1 \cap V_2) + \dim (V_1 \cap V_3) + \dim (V_2 \cap V_3)}{3} \\
-%    & \qquad - \frac{ \dim \left(  (V_1 + V_2) \cap V_3 \right) + \dim \left( (V_1 + V_3) \cap V_2 \right)+ \dim \left( (V_2 + V_3) \cap V_1 \right) }{3} \\
+%    & \qquad - \frac{ \dim \left(  (V_1 + V_2) \cap V_3 \right) + \dim \left( (V_1 + V_3) \cap V_2 \right)+ \dim \left( (V_2 + V_3) \cap V_1 \right) }{3}.
 %  \end{aligned}
 %  \]
 %
-%  Now we want to show that \eqref{eq: basis of V_1 + V_2 + V_3} is a basis of $V_1 + V_2 + V_3$. Looking at all the  vectors in the bases for $V_1$, $V_2$, and $V_3$, it is clear that every vector in the list \eqref{eq: basis of V_1 + V_2 + V_3} is contained in $V_1 + V_2 + V_3$. It is also obvious that the span of \eqref{eq: basis of V_1 + V_2 + V_3} is equal to $V_1 + V_2 + V_3$.
-%  So all that is left to prove is that \eqref{eq: basis of V_1 + V_2 + V_3} is linearly independent. Now let all $a$'s, $b$'s, $c$'s, $d$'s, $e$'s, $f$'s and $g$'s be an element of $\myF$ such that
+%  Now let all $a$'s, $b$'s, $c$'s, $d$'s, $e$'s, $f$'s and $g$'s be elements of $\myF$ such that
 %  \begin{equation}
 %    \label{eq: linear independence formula}
 %    \begin{aligned}
@@ -279,27 +275,17 @@
 %        \substack{\in \; (V_1 \cap V_3) \backslash (V_1 \cap V_2 \cap V_3) \\ (\text{extension for } V_1 \cap V_3)}}
 %    + \underbrace{d_1\overline{v}_1 + \cdots + d_{m_{23}}\overline{v}_{m_{23}}}_{
 %        \substack{\in \; (V_2 \cap V_3) \backslash (V_1 \cap V_2 \cap V_3) \\ (\text{extension for } V_2 \cap V_3)}} \\
-%    % newline
 %    \quad
 %    + \underbrace{e_1 u_1 + \cdots + e_j u_j}_{
-%      \substack{\in \\ \; V_1 \backslash (V_1 \cap V_2 ) \backslash (V_1 \cap V_3) \backslash (V_1 \cap V_2 \cap V_3)  \\ (\text{extension for } V_1)}}
+%      \substack{\in \; V_1 \\ (\text{extension for } V_1)}}
 %    + \underbrace{f_1 w_1 + \cdots + f_k w_k \phantom{_j}\!\!\!}_{
-%      \substack{\in \\  \; V_2 \backslash (V_1 \cap V_2 ) \backslash (V_2 \cap V_3) \backslash (V_1 \cap V_2 \cap V_3) \\ (\text{extension for } V_2)}}
+%      \substack{\in \; V_2 \\ (\text{extension for } V_2)}}
 %    + \underbrace{g_1 z_1 + \cdots + g_l z_l \phantom{_j}\!\!\!}_{
-%      \substack{\in \\ \; V_3 \backslash (V_1 \cap V_3 ) \backslash (V_2 \cap V_3) \backslash (V_1 \cap V_2 \cap V_3) \\ (\text{extension for } V_3)}}
+%      \substack{\in \; V_3 \\ (\text{extension for } V_3)}}
 %    \end{aligned}
 %  \end{equation}
 %
-%
-%  %  The equation can be rewritten as
-%  %  \[
-%  %  \begin{aligned}
-%    %    &f_1 w_1 + \cdots + f_k w_k + b_1v_1 +  \cdots + b_{m_{12}} v_{m_{12}} + d_{1}\overline{v}_1 - \cdots + d_{m_{23}}\overline{v}_{m_{23}} \\
-%    %    & \quad = - a_1r_1 -  \cdots - a_{n_{123}} r_{n_{123}}  -  c_1\widetilde{v}_1 - \cdots - c_{m_{13}}\widetilde{v}_{m_{13}} - e_{1} u_1 - \cdots - e_j u_j - g_1 z_1 - \cdots - g_l z_l,
-%    %  \end{aligned}
-%  %  \]
-%  %
-%  This equation can be rewritten so we can isolate the $u$ terms:
+%  Isolating the $u$ terms:
 %  \[
 %  \begin{aligned}
 %    e_{1} u_1 + \cdots + e_j u_j = &- a_1r_1 -  \cdots - a_{n_{123}} r_{n_{123}} - b_1v_1 -  \cdots - b_{m_{12}} v_{m_{12}} \\
@@ -307,67 +293,32 @@
 %    &  - f_1 w_1 - \cdots - f_k w_k - g_1 z_1 - \cdots - g_l z_l
 %  \end{aligned}
 %  \]
-%
-%  which shows that $e_{1} u_1 + \cdots + e_j u_j \in (V_2 + V_3)$. But since all $u$'s are in $V_1$ as well, this implies
-%  \[ e_{1} u_1 + \cdots + e_j u_j \in V_1 \cap (V_2 + V_3).\]
-%
-%
-%  Because $r_{1}, \ddd, r_{n_{123}}, v_{1}, \ddd, v_{m_{12}}, \widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}$ is a basis of $V_1 \cap (V_2+V_3)$, we have
-%  \begin{equation}
-%    \label{eq: equation for u}
-%    \begin{aligned}
-%    e_{1} u_1 + \cdots + e_j u_j &= h_{r_{1}} r_{1} + \cdots + h_{r_{n_{123}}} r_{n_{123}} \\
-%    &  + h_{v_{1}} v_{1} + \cdots + h_{v_{m_{12}}} v_{m_{12}} \\
-%    &  + h_{\widetilde{v}_1} \widetilde{v}_1 + \cdots + h_{\widetilde{v}_{m_{13}}} \widetilde{v}_{m_{13}}
-%    \end{aligned}
-%    \quad \iff \quad
-%    \begin{aligned}
-%    0 = e_{1} u_1 + \cdots + e_j u_j &- h_{r_{1}} r_{1} + \cdots + h_{r_{n_{123}}} r_{n_{123}} \\
-%    &  - h_{v_{1}} v_{1} + \cdots + h_{v_{m_{12}}} v_{m_{12}} \\
-%    &  - h_{\widetilde{v}_1} \widetilde{v}_1 + \cdots + h_{\widetilde{v}_{m_{13}}} \widetilde{v}_{m_{13}}
-%    \end{aligned}
-%  \end{equation}
-%
-%  for some $h_{r_{1}}, \ddd, r_{n_{123}}, h_{v_{1}}, \ddd, h_{v_{m_{12}}}, h_{\widetilde{v}_1}, \ddd,  h_{\widetilde{v}_{m_{13}}}  \in \myF$. Since all terms can be taken on one side of the equation, all the $e$'s and $h$'s are $0$, because $r_1, \ddd, r_{n_{123}}, v_1, \ddd, v_{m_{12}}, \widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}, u_1, \ddd, u_j$ is a basis of $V_1$ and is therefore linearly independent. By the exact same logic, all $f$'s and $g$'s are $0$ as well. Therefore we can rewrite \eqref{eq: linear independence formula} as
+%  which shows that $e_{1} u_1 + \cdots + e_j u_j \in V_1 \cap (V_2 + V_3)$.
+%  Because $r_{1}, \ddd, r_{n_{123}}, v_{1}, \ddd, v_{m_{12}}, \widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}$ is a basis of $V_1 \cap (V_2+V_3)$,
+%  linear independence of the basis of $V_1$ forces all $e$'s to be $0$.
+%  Analogously, all $f$'s and $g$'s are $0$.
+%  Then \eqref{eq: linear independence formula} simplifies to:
 %  \begin{equation}
 %    \label{eq: second linear independence formula}
 %    a_1r_1 +  \cdots + a_{n_{123}} r_{n_{123}} + b_1v_1 +  \cdots + b_{m_{12}} v_{m_{12}} +  c_1\widetilde{v}_1 + \cdots + c_{m_{13}}\widetilde{v}_{m_{13}} + d_{1}\overline{v}_1 + \cdots + d_{m_{23}}\overline{v}_{m_{23}} = 0.
 %  \end{equation}
-%
-%
-%  Now if we take $b_1v_1 +  \cdots + b_{m_{12}} v_{m_{12}}$ to one side of the equation, it modifies to
-%  \[
-%  b_1v_1 +  \cdots + b_{m_{12}} v_{m_{12}} = -a_1r_1 -  \cdots - a_{n_{123}} r_{n_{123}} -   c_1\widetilde{v}_1 - \cdots + c_{m_{13}}\widetilde{v}_{m_{13}} - d_{1}\overline{v}_1 - \cdots - d_{m_{23}}\overline{v}_{m_{23}}
-%  \]
-%
-%  So now it is clear that $b_1v_1 +  \cdots + b_{m_{12}} v_{m_{12}} \in V_3 \cap (V_1+V_2)$, since $r_1,  \ddd r_{n_{123}} ,  \widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}, \overline{v}_1, \ddd, \overline{v}_{m_{23}}$ is a basis of $V_3 \cap (V_1+V_2)$. But we also have that $v_1, \ddd, v_{m_{12}} \in V_1 \cap V_2$, so therefore
-%  \[
-%    b_1v_1 +  \cdots + b_{m_{12}} v_{m_{12}} \in (V_1 \cap V_2) \cap (V_3 \cap (V_1+V_2))
-%  \]
-%
-%  which is equivalent to
-%  $
-%      b_1v_1 +  \cdots + b_{m_{12}} v_{m_{12}} \in (V_1 \cap V_2 \cap V_3) \cap (V_1+V_2).
-%  $
-%  So this also means that $b_1v_1 +  \cdots + b_{m_{12}} v_{m_{12}} \in (V_1 \cap V_2 \cap V_3)$ and hence there must exist $s_1, \ddd, s_{n_{123}} \in \myF$ such that
-%  \begin{equation}
-%    \begin{aligned}
-%      b_1v_1 +  \cdots + b_{m_{12}} v_{m_{12}} = s_1 r_1 + \cdots + s_{n_{123}} r_{n_{123}} \iff
-%      b_1v_1 +  \cdots + b_{m_{12}} v_{m_{12}} - s_1 r_1 - \cdots - s_{n_{123}} r_{n_{123}} = 0
-%    \end{aligned}
-%  \end{equation}
-%
-%  Now since $r_1, \ddd, r_{n_{123}}, v_1, \ddd, v_{m_{12}}$ is a basis of $V_1 \cap V_2$, this means all $b$'s and $r$'s are $0$. Now this further changes our formula \eqref{eq: second linear independence formula} which originated from \eqref{eq: linear independence formula} to
-%  \begin{equation}
-%    a_1r_1 +  \cdots + a_{n_{123}} r_{n_{123}} + c_1\widetilde{v}_1 + \cdots + c_{m_{13}}\widetilde{v}_{m_{13}} + d_{1}\overline{v}_1 + \cdots + d_{m_{23}}\overline{v}_{m_{23}} = 0.
-%  \end{equation}
-%
-%  Now finally, since we know that $r_1,  \ddd r_{n_{123}} ,  \widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}, \overline{v}_1, \ddd, \overline{v}_{m_{23}}$ is a basis of $V_3 \cap (V_1 + V_2)$, that all $a$'s, $c$'s and $d$'s must be $0$.
-%
-%  So we have shown that in equation \eqref{eq: linear independence formula} that all $a$'s, $b$'s, $c$'s, $d$'s, $e$'s, $f$'s and $g$'s must be $0$. Therefore, we have shown that the list \eqref{eq: basis of V_1 + V_2 + V_3} is indeed a basis of $V_1 + V_2 + V_3$.
-\end{xrcs}
+%  Isolating $b_1 v_1 + \dots + b_{m_{12}} v_{m_{12}}$ and using the basis properties shows that all $b$'s, $a$'s, $c$'s, and $d$'s are $0$.
+%  Thus, the list is linearly independent and forms a basis of $V_1 + V_2 + V_3$.
+%\end{xrcs}
 
-% KI Bemerkung: Dieser alternative (auskommentierte) Beweis enthält einen logischen Fehler. Die Aussage "If either v_1 \notin V_3 or v_2 \notin V_3, their sum cannot be in V_3" ist falsch, da die Summe zweier Vektoren, die nicht in V_3 liegen, sehr wohl in V_3 liegen kann. Der aktive Beweis oben ist hingegen vollkommen korrekt.
+% ==============================================================================
+% ORIGINAL ATTEMPT (Commented out): General Modularity Proof Attempt
+% ------------------------------------------------------------------------------
+% AI FEEDBACK:
+% 1. False Claim: The attempted proof claims $(V_1+V_2) \cap V_3 = (V_1 \cap V_3) + (V_2 \cap V_3)$
+%    holds for all subspaces without any containment assumption.
+% 2. Critical Logical Error: Line 401 asserts "If either $v_1 \notin V_3$ or $v_2 \notin V_3$,
+%    their sum cannot be in $V_3$, leading to a contradiction."
+%    This is false: in a vector space, the sum of two vectors outside a subspace can
+%    easily belong to the subspace (e.g. In $\real^2$, let $V_3$ be the $x$-axis;
+%    $v_1 = (1,1) \notin V_3$ and $v_2 = (0,-1) \notin V_3$, but $v_1 + v_2 = (1,0) \in V_3$).
+% 3. Resolution: Modularity holds if and only if $V_1 \subseteq V_3$ (or $V_2 \subseteq V_3$).
+% ==============================================================================
 %\section*{Statement}
 %We are asked to prove the following equality between subspaces of a vector space:
 %\[
@@ -437,4 +388,4 @@
 %\[
 %(V_1 + V_2) \cap V_3 = (V_1 \cap V_3) + (V_2 \cap V_3),
 %\]
-%which completes the proof.
+%which completes the proof.

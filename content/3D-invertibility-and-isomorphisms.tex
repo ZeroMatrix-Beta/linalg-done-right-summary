@@ -9,7 +9,7 @@
 
   % 3.60
   \begin{thm} [inverse is unique]
-    An invertible  linear map has a unique inverse.
+    An invertible linear map has a unique inverse.
   \end{thm}
   \begin{prf}
     Suppose $T\in \lvw$ is invertible and $S_1$ and $S_2$ are inverses of $T$. Hence,
@@ -22,9 +22,9 @@
 
   % 3.61
   \begin{mydef} [notation $T^{-1}$]
-    Since the inverse is unique, the inverse is denoted by $T^{-1}\in \linmap(W,V)$ for $T\in \linmap(V,W).$ We have
+    Since the inverse is unique, the inverse is denoted by $T^{-1}\in \linmap(W,V)$ for $T\in \linmap(V,W)$. We have
     \begin{equation}
-      T^{-1}T=I_V$ and $T T^{-1} = I_W.
+      T^{-1}T=I_V \text{ and } T T^{-1} = I_W.
     \end{equation}
   \end{mydef}
 
@@ -40,31 +40,31 @@
     \label{thm: injectivity is equivalent to surjectivity}
     For $T\in \linmap(V,W)$, if $V$ and $W$ are finite-dimensional, injectivity is equivalent to surjectivity:
     \begin{equation}
-      T$ is invertible $\iff$ $T$ is injective $\iff$ $T$ is surjective.$
+      T \text{ is invertible} \iff T \text{ is injective} \iff T \text{ is surjective.}
     \end{equation}
 
     Equivalently:
     \begin{equation}
-      T$ is not invertible $\iff$ $T$ is not injective $\iff$ $T$ is not surjective.$
+      T \text{ is not invertible} \iff T \text{ is not injective} \iff T \text{ is not surjective.}
     \end{equation}
   \end{thm}
   \begin{prf}
     The rank-nullity theorem (\ref{rank-nullity-theorem}) or fundamental theorem of linear maps states that
     \begin{equation}
       \label{rank-nullity-nested-equation}
-      \dim V = \dim \mynull T + \dim \myrange T
+      \dim V = \dim \mynull T + \dim \myrange T.
     \end{equation}
 
-    If $T$ is injective, $\dim \mynull T = 0$ and therefore
+    If $T$ is injective, $\dim \mynull T = 0$, and therefore
     \begin{equation}
       \dim \myrange T = \dim V = \dim W,
     \end{equation}
     which means $T$ is surjective ($\myrange T = \dim W$). This is because every linearly independent list of vectors of length $\dim W$ is a basis by
-    \ref{thm: linearly independent list of the right length is a basis}. And thats how dimension is defined. (TODO)
+    \ref{thm: linearly independent list of the right length is a basis}. And that's how dimension is defined. (TODO)
 
-    If $T$ is surjective, we have $\dim \myrange T = \dim W$ to begin with and therefore \eqref{rank-nullity-nested-equation} becomes
+    If $T$ is surjective, we have $\dim \myrange T = \dim W$ to begin with, and therefore \eqref{rank-nullity-nested-equation} becomes
     \begin{equation}
-      \dim \mynull T = \dim V - \dim \myrange T = \dim V - \dim W = 0.
+      \dim \mynull T = \dim V - \dim \myrange T = \dim V - \dim W = 0,
     \end{equation}
 
     which makes $T$ also injective.
@@ -76,15 +76,15 @@
   \setcounter{thm}{67}
   \begin{thm} [$ST = I \iff TS=I$ on vector spaces of the same dimension]
     \label{thm: ST = I iff TS=I - on vector spaces of the same dimension}
-    Suppose $V$ and $W$ are finite-dimensional vector spaces of the same dimension. Let $S \in \linmap (W,V)$, and $T \in \linmap(V,W)$. Then $ST = I$ $\iff$ $TS = I$.
+    Suppose $V$ and $W$ are finite-dimensional vector spaces of the same dimension. Let $S \in \linmap (W,V)$ and $T \in \linmap(V,W)$. Then $ST = I \iff TS = I$.
   \end{thm}
   \begin{prf}
-     \Rightarrowdirection Let $S \in \linmap (W,V)$, and $T \in \linmap(V,W)$ such that $ST = I$. If $v \in V$ and $Tv = 0$, then
+     \Rightarrowdirection Let $S \in \linmap (W,V)$ and $T \in \linmap(V,W)$ such that $ST = I$. If $v \in V$ and $Tv = 0$, then
      \begin{equation}
        v = Iv = (ST)v = S(Tv) = S(0) = 0.
      \end{equation}
 
-     Thus, $\mynull T = \{0\}$ and therefore, $T$ is injective by \ref{thm: injectivity iff null space equals zero-set}. Because $V$ and $W$ have the same dimension, $T$ is invertible by \ref{thm: injectivity is equivalent to surjectivity}. Now, multiply both sides of the equation $ST = I$ by $T^{-1}$ to conclude:
+     Thus, $\mynull T = \{0\}$, and therefore, $T$ is injective by \ref{thm: injectivity iff null space equals zero-set}. Because $V$ and $W$ have the same dimension, $T$ is invertible by \ref{thm: injectivity is equivalent to surjectivity}. Now, multiply both sides of the equation $ST = I$ by $T^{-1}$ to conclude:
      \begin{equation}
        S = T^{-1}.
      \end{equation}
@@ -98,7 +98,7 @@
 
   %\textbf{3.69}
   \begin{mydef}
-    An isomorphism is an invertible linear map. Two vector spaces are called isomorphic if there is a isomorphism from one vector space to the other. $T:V\to W$
+    An isomorphism is an invertible linear map. Two vector spaces are called isomorphic if there is an isomorphism from one vector space to the other, $T:V\to W$.
   \end{mydef}
 
   %\textbf{3.70}
@@ -127,7 +127,7 @@
   %\textbf{3.72}
   \begin{thm} [$\dim \lvw = (\dim V)\cdot(\dim W)$]
     \label{thm: dimension of L(V,W) = dim L (V) * dim W (W)}
-    Suppose $V,W$ are \fd. Then $\lvw$ is finite-dimensional and
+    Suppose $V,W$ are \fd. Then $\lvw$ is finite-dimensional, and
     \begin{equation}
       \dim \lvw = (\dim V)\cdot(\dim W).
     \end{equation}
@@ -136,7 +136,7 @@
     %The desired result follows from \ref{thm: the space of linear maps and the space of all matrices are isomorphic}, \ref{thm: dimension shows whether vector spaces are isomorphic}, and \ref{thm: the dimension of the vector space of all m by n matrices is mn}.
 
     Suppose $v_1, \ddd, v_n$ is a basis of $V$ and $w_1, \ddd, w_m$ is a basis of $W$.
-    By \ref{thm: the space of linear maps and the space of all matrices are isomorphic}, there is an an isomorphism between $\lin{V}{W}$ and $\myF^{m,n}$, and thus, they have the same dimension. Now, \ref{thm: the dimension of the vector space of all m by n matrices is mn} tells us that $\dim \myF^{m,n} = m  n$, therefore
+    By \ref{thm: the space of linear maps and the space of all matrices are isomorphic}, there is an isomorphism between $\lin{V}{W}$ and $\myF^{m,n}$, and thus, they have the same dimension. Now, \ref{thm: the dimension of the vector space of all m by n matrices is mn} tells us that $\dim \myF^{m,n} = mn$; therefore,
     \begin{equation}
       \dim \lin{V}{W} = \dim \myF^{m,n} = m\cdot n = (\dim V)\cdot(\dim W),
     \end{equation}
@@ -147,9 +147,9 @@
   \subsection{Linear Maps Thought of as Matrix Multiplication}
 
   \begin{mydef} [matrix of a vector, $\mmatrix(u)$]
-    Let $u \in V$ and $\onetillm{v}$ be a basis of $V$ such that
+    Let $u \in V$ and let $\onetillm{v}$ be a basis of $V$ such that
   \begin{equation}
-    u=b_1v_1+\dots+b_mv_m. $ We define $
+    u=b_1v_1+\dots+b_mv_m. \text{ We define }
         \mathcal{M}(u) :=
       \left (
       \begin{matrix}
@@ -177,7 +177,7 @@
   \setcounter{thm}{74}
   %\textbf{3.75}
   \begin{thm} [$\mmatrix(T)_{\mathsmaller{\bullet}, k} = \mmatrix(T v_k)$]
-    Suppose $T \in \linmap(V,W)$ and $v_1, \ldots, v_n$ is a basis of $V$ and $w_1, \ldots, w_m$ is a basis of $W$. Let $1\leq k \leq n$. Then the $k^{\text{th}}$ column of $\mmatrix(T)$, which is denoted by $\mmatrix(T)_{\mathsmaller{\bullet}, k}$, equals $\mmatrix(Tv_k)$.
+    Suppose $T \in \linmap(V,W)$, $v_1, \ldots, v_n$ is a basis of $V$, and $w_1, \ldots, w_m$ is a basis of $W$. Let $1\leq k \leq n$. Then the $k^{\text{th}}$ column of $\mmatrix(T)$, which is denoted by $\mmatrix(T)_{\mathsmaller{\bullet}, k}$, equals $\mmatrix(Tv_k)$:
     \begin{equation}
       \mmatrix(T)_{\mathsmaller{\bullet}, k}=\mmatrix(Tv_k) \quad \forall k \in \{1, \ddd, n\}.
     \end{equation}
@@ -188,12 +188,12 @@
   \begin{thm} [linear maps act like matrix multiplication]
     Suppose $T\in \lvw$ and $v\in V$. Suppose $\onetilln{v}$ is a basis of $V$ and $\onetillm{w}$ is a basis of $W$. Then
     \begin{equation}
-      \mathcal{M} (Tv)=\mathcal{M}(T) \cdot \mathcal{M}(v)
+      \mathcal{M} (Tv)=\mathcal{M}(T) \cdot \mathcal{M}(v).
     \end{equation}
 
     Or using different notation:
     \begin{equation}
-      \mathcal{M} (Tv, (\onetilln{v}), (\onetillm{w}))=\mathcal{M}(T, (\onetilln{v}), (\onetillm{w})) \cdot \mathcal{M}(v)
+      \mathcal{M} (Tv, (\onetilln{v}), (\onetillm{w}))=\mathcal{M}(T, (\onetilln{v}), (\onetillm{w})) \cdot \mathcal{M}(v).
     \end{equation}
 
   \end{thm}
@@ -201,9 +201,9 @@
   % 3.78
   \setcounter{thm}{77}
   \begin{thm} [dimension of $\myrange T$ and column rank of $\mmatrix(T)$]
-    Suppose $\dim V < \infty$ and $\dim W < \infty$. Then for $T \in \linmap(V,W):$
+    Suppose $\dim V < \infty$ and $\dim W < \infty$. Then, for $T \in \linmap(V,W)$:
     \begin{equation}
-      \dim \myrange T = $ column rank of $ \mmatrix (T)
+      \dim \myrange T = \text{column rank of } \mmatrix (T).
     \end{equation}
   \end{thm}
 
@@ -213,12 +213,12 @@
   % 3.80
   \setcounter{thm}{79}
   \begin{mydef}[invertible, inverse, $A^{-1}$]
-    A square matrix $A$ is called invertible, if there is some square matrix B of the same size such that
+    A square matrix $A$ is called invertible if there is some square matrix $B$ of the same size such that
     \begin{equation}
     	AB=BA=I.
     \end{equation}
 
-    We call $B$ the inverse of $A$ denoted by $A^{-1} :\equiv B$. Rules:
+    We call $B$ the inverse of $A$, denoted by $A^{-1} :\equiv B$. Rules:
     \begin{itemize}
       \item $(A^{-1})^{-1}=A$
       \item $(AC)^{-1} = C^{-1}A^{-1}$ (Because $(AC)(C^{-1}A^{-1})=I$ and $(C^{-1}A^{-1})(AC)=I$)
@@ -228,19 +228,19 @@
   \mce{81}
   \begin{thm} [matrix of product of linear maps]
     \label{thm: matrix of product of linear maps2}
-    Suppose $T\in \mathcal{L}(U,V)$ and $S\in \lvw$. If $\onetillm{u}$ is a basis of $U$, $\onetilln{v}$ is a basis of $V$ and $\onetill{w}{p}$ is a basis of $W$. Note that $\dim U = m$, $\dim V = n$, $\dim W = p$. Then we have:
+    Suppose $T\in \mathcal{L}(U,V)$ and $S\in \lvw$. If $\onetillm{u}$ is a basis of $U$, $\onetilln{v}$ is a basis of $V$, and $\onetill{w}{p}$ is a basis of $W$. Note that $\dim U = m$, $\dim V = n$, $\dim W = p$. Then we have:
     \begin{equation}
     \begin{aligned}
       &\mmatrix(ST, (\onetillm{u}), (\onetill{w}{p})) = \\
       &\qquad \mmatrix(S, (\onetilln{v}), (\onetill{w}{p} ))
       \cdot
-      \mmatrix(T, (\onetillm{u}), (\onetilln{v}   ))
+      \mmatrix(T, (\onetillm{u}), (\onetilln{v}   )).
     \end{aligned}
     \end{equation}
 
     Or using different notation:
     \begin{equation}
-      \mathcal{M}(ST) = \mathcal{M}(S) \cdot \mathcal{M}(T)
+      \mathcal{M}(ST) = \mathcal{M}(S) \cdot \mathcal{M}(T).
     \end{equation}
   \end{thm}
   \begin{prf}
@@ -268,12 +268,12 @@
       \m{I_V} = I_n = \m{I_V I_V} = \m{I_V, (u_1, \ddd, u_m), (v_1, \ddd, v_m)} \cdot \m{I_V, (v_1, \ddd, v_m), (u_1, \ddd, u_m)}.
     \end{equation}
 
-    So, the product of both matrices equal to $I_n$, which is the identity in $\myF^{n,n}$.
+    So, the product of both matrices equals $I_n$, which is the identity in $\myF^{n,n}$.
   \end{prf}
 
   % 3.84
   \setcounter{thm}{83}
-  \begin{thm}[change-of-basis formula:]
+  \begin{thm}[change-of-basis formula]
     Let $T \in \op(V)$. Suppose $u_1, \ddd, u_m$ and $v_1, \ddd, v_m$ are bases of $V$. Let
     \begin{equation}
       \begin{aligned}
@@ -292,12 +292,12 @@
   % 3.86
   \setcounter{thm}{85}
   \begin{thm}
-    If $v_1, \ddd, v_m$ is a basis $V$ and $T \in \op{V}$ is invertible, then
+    If $v_1, \ddd, v_m$ is a basis of $V$ and $T \in \op{V}$ is invertible, then
     \begin{equation}
       \mmatrix(T^{-1}) = (\mmatrix(T))^{-1},
     \end{equation}
 
-    where both matrices are with respect to the basis $v_1, \ddd, v_m$, that is
+    where both matrices are with respect to the basis $v_1, \ddd, v_m$, that is,
     \begin{equation}
       \mmatrix(T^{-1}, (\onetillm{v})) =\mmatrix(T, (\onetillm{v}))^{-1}.
     \end{equation}
