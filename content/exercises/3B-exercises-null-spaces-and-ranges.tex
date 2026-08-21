@@ -49,7 +49,7 @@
 % \end{prf}
 
 \begin{xrcs}
-  Suppose $T \in \linmap(V,W)$ is injective and $v_1, \ddd, v_n$ is linearly independent in $V$. Prove that $Tv_1, \ddd, Tv_n$ is linearly independent in $W$.
+  Let $T \in \linmap(V,W)$ be injective and suppose $v_1, \ddd, v_n$ is linearly independent in $V$. Prove that $Tv_1, \ddd, Tv_n$ is linearly independent in $W$.
 
   \begin{xprf}
     Let $a_1, \ddd, a_n \in \myF$ such that
@@ -471,7 +471,7 @@
   \begin{xprf}
     Let $v_1, v_2 \in X$. Thus $v_1, v_2 \in V$ as well as $T(v_1 + v_2) = T v_1 + T v_2 \in U$, because $U$ is closed under addition. $\implies v_1 + v_2 \in X$. So $X$ is closed under addition as well. Similarly, $\lambda v_1 \in X$ for $\lambda \in \myF$. So $X$ is closed under scalar multiplication. We also have the additive identity $0 \in X$ because $T0=0\in U$. Therefore, $X$ is a subspace of $V$.
 
-    The formula we need to prove reminds us of the ranke nulllity theorem. We want to show that:
+    The formula we need to prove reminds us of the rank-nullity theorem. We want to show that:
     \begin{equation}
       \label{eq: dim X}
       \begin{aligned}
@@ -480,8 +480,8 @@
       \end{aligned}
     \end{equation}
 
-    The first line of the equation above is just the rank-nullity theorem of the restriction of $T$ on $X$. For the second line in formula \eqref{eq: dim X}, we have $\mynull T_X = \null T$ and
-    $\myrange T_X = (U \cap \myrange T)$. Now $X$ is the set of all vectors in $V$ such that $Tv$ is in $U$. Because $0 \in U$, all the vectors $v \in V$ sucht that $Tv=0$ are contained in $X$. In symbols: $\mynull T \subseteq X$. Hence, $\mynull T|_X = \mynull T$.
+    The first line of the equation above is just the rank-nullity theorem of the restriction of $T$ on $X$. For the second line in formula \eqref{eq: dim X}, we have $\mynull T_X = \mynull T$ and
+    $\myrange T_X = (U \cap \myrange T)$. Now $X$ is the set of all vectors in $V$ such that $Tv$ is in $U$. Because $0 \in U$, all the vectors $v \in V$ such that $Tv=0$ are contained in $X$. In symbols: $\mynull T \subseteq X$. Hence, $\mynull T|_X = \mynull T$.
 
     Now we want to show that $\myrange T|_X \subseteq (U \cap \myrange T)$ and $(U \cap \myrange T) \subseteq \myrange T|_X$, which implies
     \begin{equation}
@@ -493,12 +493,12 @@
       (U \cap \myrange T) \subseteq \myrange T|_X.
     \end{equation}
 
-    Conversely, let $u \in \myrange T|_X$. According to the definition of $X$, there exists a $w \in V$ such that $Tw \in U$. For this $w$ we have $u = T|_X (w)$. Since $T|_X$ ist just $T$ on a restricted domain $X \subseteq V$, we have $u \in U$ and $u \in \myrange T$, hence $u \in (U \cap \myrange T)$. We conclude:
+    Conversely, let $u \in \myrange T|_X$. According to the definition of $X$, there exists a $w \in V$ such that $Tw \in U$. For this $w$ we have $u = T|_X (w)$. Since $T|_X$ is just $T$ on a restricted domain $X \subseteq V$, we have $u \in U$ and $u \in \myrange T$, hence $u \in (U \cap \myrange T)$. We conclude:
     \begin{equation}
       \myrange T|_X \subseteq (U \cap \myrange T).
     \end{equation}
 
-    Therefore, $\myrange T|_X = (U \cap \myrange T)$, which validates equation \eqref{eq: dim X}
+    Therefore, $\myrange T|_X = (U \cap \myrange T)$, which validates equation \eqref{eq: dim X}.
   \end{xprf}
 \end{xrcs}
 
@@ -666,7 +666,7 @@
       S|_U : U \to \myrange S
     \end{equation}
 
-   is injective, because $\mynull S|_U = \{0\}$. Using the rank nullity-theorem and the fact that $\dim \mynull S|_U =0$, we can conclude that:
+   is injective, because $\mynull S|_U = \{0\}$. Using the rank-nullity theorem and $\dim \mynull S|_U = 0$, we conclude that:
    \begin{equation}
      \dim U = \dim \myrange S|_U = \dim \myrange S.
    \end{equation}

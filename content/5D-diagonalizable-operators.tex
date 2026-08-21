@@ -44,7 +44,7 @@
   Let $\lambda_1, \ddd, \lambda_m$ be distinct eigenvalues. Suppose $v_1 + \cdots + v_m = 0$, where each $v_k \in E(\lambda_k, T)$ for $k = 1, \ddd, m$. This means $\forall k \in \{ 1, \ddd, m\}: v_k = 0$, because eigenvectors corresponding to distinct eigenvalues are linearly independent by \ref{thm: linearly independent eigenvectors}. Thus, $E(\lambda_1, T) + \cdots + E(\lambda_m, T)$ is a direct sum by \ref{thm: condition for a direct sum}.
   By \ref{thm: a sum is a direct sum if and only if the dimensions add up}, the dimensions of a direct sum add up, and by \ref{thm: dimension of a subspace}, the dimension of a subspace is always $\leq$ to the space itself (if it is \fd). Therefore,
   \begin{equation}
-    \dim \left( \underbrace{E(\lambda_1, T)  \oplus \cdots \oplus E(\lambda_m, T)}_{\text{subpace of $V$}} \right)
+    \dim \left( \underbrace{E(\lambda_1, T)  \oplus \cdots \oplus E(\lambda_m, T)}_{\text{subspace of $V$}} \right)
     =  \dim E(\lambda_1, T) + \cdots + \dim E(\lambda_m, T) \leq \dim V.
   \end{equation}
   \vspace{-1em}
@@ -148,15 +148,15 @@
 \end{thm}
 \begin{prf} For this proof, let $T\in \linmap (V)$ be finite-dimensional ($\dim V \neq \infty$).
 
-  \Rightarrowdirection Suppose $T$ is diagonalizable. Thus, there exists a basis $v_1, \ddd, v_n$ of $V$ consisting of eigenvectors of $T$. Let $\lambda_1, \ddd, \lambda_m$ be said distinct eigenvalues of $T$. Therefore, for every $v_j$, we have $(T-\lambda_k I)v_j = 0.$
+  \Rightarrowdirection Suppose $T$ is diagonalizable. Thus, there exists a basis $v_1, \ddd, v_n$ of $V$ consisting of eigenvectors of $T$. Let $\lambda_1, \ddd, \lambda_m$ be the distinct eigenvalues of $T$. Therefore, each $v_j$ is an eigenvector corresponding to some $\lambda_k$, so $(T-\lambda_k I)v_j = 0.$
   Thus,
   \begin{equation}
-    (T-\lambda_1) \cdots (T-\lambda_m I)v_j =0,
+    (T-\lambda_1 I) \cdots (T-\lambda_m I)v_j =0,
   \end{equation}
 
   which implies the minimal polynomial equals $(z-\lambda_1)\cdots(z-\lambda_m).$ (Why?)
 
-  \Leftarrowdirection Suppose the minimal polynomial of $T$ equals $(z-\lambda_1) \cdots (z-\lambda_m)$ for some $\lambda_1, \ddd, \lambda_m \in \myF$ with $\lambda_i \neq \lambda_j$.
+  \Leftarrowdirection Suppose the minimal polynomial of $T$ is $(z-\lambda_1) \cdots (z-\lambda_m)$ for distinct scalars $\lambda_1, \ddd, \lambda_m \in \myF$.
   Write
   \begin{equation}
     \label{eq: (t-l1 I)***(t-l_{m}I)=0}
@@ -201,7 +201,7 @@
     \end{aligned}
   \end{equation}
 
-  Because $\forall i\neq j: \lambda_j \neq \lambda_k$, this can only happen if $x=0$. Therefore,
+  Because $\lambda_i \neq \lambda_j$ for all $i \neq j$ (in particular, $\lambda_m - \lambda_k \neq 0$ for all $k < m$), this can only happen if $x=0$. Therefore,
   \begin{equation}
     U \cap \mynull (T-\lambda_m I) = \{0\}.
   \end{equation}

@@ -64,7 +64,7 @@
 \begin{prf}
   Let $v \in V$ and $e_1, \ddd, e_m$ be an orthonormal basis of $U$. Like in \ref{thm: Bessel's inequality}, we have that
   \[
-    v= \underbrace{\ip{v}{e_1}e_1 + \cdots + \ip{v}{e_m} e_m}_u + \underbrace{v - \ip{v}{e_1}e_1 + \cdots + \ip{v}{e_m} e_m}_w,
+    v= \underbrace{\ip{v}{e_1}e_1 + \cdots + \ip{v}{e_m} e_m}_u + \underbrace{\left(v - (\ip{v}{e_1}e_1 + \cdots + \ip{v}{e_m} e_m)\right)}_w,
   \]
 
   and we let $u$ and $w$ be defined as above.
@@ -76,7 +76,7 @@
   \begin{equation}
     \begin{aligned}
       \ip{w}{e_k}
-      &=\ip{v - \underbrace{\ip{v}{e_1}}_{\in \; \myF}e_1 + \cdots + \underbrace{\ip{v}{e_m}}_{\in \; \myF} e_m}{ \,e_k \,} \\
+      &=\ip{v - \left(\underbrace{\ip{v}{e_1}}_{\in \; \myF}e_1 + \cdots + \underbrace{\ip{v}{e_m}}_{\in \; \myF} e_m\right)}{ \,e_k \,} \\
       &=\ip{v}{e_k} - \ip{v}{e_1}\ip{e_1}{e_k} - \ip{v}{e_2}\ip{e_2}{e_k} - \, \cdots \, - \ip{v}{e_m}\ip{e_m}{e_k} \\
       &=\ip{v}{e_k} - \ip{v}{e_k}\ip{e_k}{e_k} \\
       &=0.
@@ -226,7 +226,8 @@ If $T\in \linmap(V,W)$ is not invertible, instead of solving the equation $Tv = 
 \end{thm}
 \begin{prf}
   We will first prove injectivity and then surjectivity.
-  Suppose $v \in (\mynull T)^\bot$ \st $\left. T \right | _{(\mynull T)^\bot}v=0$. Hence, $Tv=0$ and $v \in (\mynull T) \cap (\mynull T)^\bot$, which implies that $v=0$ by \ref{thm: properties of the orthogonal complement}, because $(\mynull T) \cap (\mynull T)^\bot \subseteq \{0\}$.
+
+  Suppose $v \in (\mynull T)^\bot$ \st $\left. T \right | _{(\mynull T)^\bot}v=0$. Hence, $Tv=0$ and $v \in (\mynull T) \cap (\mynull T)^\bot$. By \ref{thm: properties of the orthogonal complement}, this implies $v=0$, because $(\mynull T) \cap (\mynull T)^\bot \subseteq \{0\}$.
   \[
   \implies \mynull \left. T \right|_{(\mynull T)^\bot}=\{0\},
   \]
@@ -256,12 +257,12 @@ If $T\in \linmap(V,W)$ is not invertible, instead of solving the equation $Tv = 
 
 \mce{68}
 \begin{mydef}
-  Suppose $\dim V \neq \infty$ and $T \in \linmap(V,W)$. The \qt{pseudoinverse} $T^\dagger \in \linmap(V, W)$ of $T$ is defined by
+  Suppose $\dim V \neq \infty$ and $T \in \linmap(V,W)$. The \qt{pseudoinverse} $T^\dagger \in \linmap(W, V)$ of $T$ is defined by
   \[
     T^\dagger w :\equiv  \left( \left. T \right|_{(\mynull T)^\bot} \right)^{-1} P_{\myrange T} w \quad \forall w \in W.
   \]
 
-  Theorem \ref{thm: restriction of a linear map to obtain a one-to-one and onto map} ensures that $\left( \left. T \right|_{(\mynull T)^\bot} \right)^{-1} \in \linmap \left(W, (\mynull T)^\bot \right)$ is well defined.
+  Theorem \ref{thm: restriction of a linear map to obtain a one-to-one and onto map} ensures that $\left( \left. T \right|_{(\mynull T)^\bot} \right)^{-1} \in \linmap \left(\myrange T, (\mynull T)^\bot \right)$ is well defined.
 \end{mydef}
 
 Recall that:

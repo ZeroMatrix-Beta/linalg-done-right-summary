@@ -66,14 +66,14 @@
 \begin{prf}
   Suppose $v \in V$. Then
   \begin{equation}
-    v= \underbrace{\ip{v}{e_1}e_1 + \cdots + \ip{v}{e_m} e_m}_u + \underbrace{v - \ip{v}{e_1}e_1 + \cdots + \ip{v}{e_m} e_m}_w.
+    v= \underbrace{\ip{v}{e_1}e_1 + \cdots + \ip{v}{e_m} e_m}_u + \underbrace{\left(v - (\ip{v}{e_1}e_1 + \cdots + \ip{v}{e_m} e_m)\right)}_w.
   \end{equation}
 
   Let $u$ and $w$ be defined as in the equation above. If $k \in \{1, \ddd, m\}$, then
   \begin{equation}
     \begin{aligned}
       \ip{w}{e_k}
-      &=\ip{v - \underbrace{\ip{v}{e_1}}_{\in \; \myF}e_1 + \cdots + \underbrace{\ip{v}{e_m}}_{\in \; \myF} e_m}{ \,e_k \,} \\
+      &=\ip{v - \left(\underbrace{\ip{v}{e_1}}_{\in \; \myF}e_1 + \cdots + \underbrace{\ip{v}{e_m}}_{\in \; \myF} e_m\right)}{ \,e_k \,} \\
       &=\ip{v}{e_k} - \ip{v}{e_1}\ip{e_1}{e_k} - \ip{v}{e_2}\ip{e_2}{e_k} - \, \cdots \, - \ip{v}{e_m}\ip{e_m}{e_k} \\
       &=\ip{v}{e_k} - \ip{v}{e_k}\ip{e_k}{e_k} \\
       &=0. \mytext{Hence,} \\
@@ -101,9 +101,12 @@
   An \qt{orthonormal} basis of $V$ is an orthonormal list of vectors in $V$ that is also a basis in $V$.
 \end{mydef}
 
-\begin{mydef}[orthonormal lists of the right length are orthonormal bases]
-  Suppose $\dim V \neq \infty$.
-\end{mydef}
+\begin{thm}[orthonormal lists of the right length are orthonormal bases]
+  Suppose $V$ is finite-dimensional. Then every orthonormal list of vectors in $V$ of length $\dim V$ is an orthonormal basis of $V$.
+\end{thm}
+\begin{prf}
+  Every orthonormal list is linearly independent by \ref{thm: orthonormal lists are linearly independent}. By \ref{thm: linearly independent list of the right length is a basis}, every linearly independent list in $V$ of length $\dim V$ is a basis of $V$. Hence, any such orthonormal list is an orthonormal basis of $V$.
+\end{prf}
 
 \mce{30}
 \begin{thm}[writing a vector as a linear combination of an orthonormal basis]

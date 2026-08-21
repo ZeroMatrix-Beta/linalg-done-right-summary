@@ -127,7 +127,7 @@ and so \(\lambda\) is an eigenvalue of \(T\) with eigenvector \(q(T)v\).
     q(T)v=(c_0 I+T)(v)=c_0v+Tv=0.
   \end{equation}
 
-  In the case where $T$ is the zero operator, one may instead choose $q(z) = z$. So we have $\dim \mynull q(T) = 1$ and therefore $\dim \myrange q(T) = \dim V - \dim \myrange q(T) = 1-1= 0$. Thus, every vector in this one-dimensional space is a scalar multiple of $v$ and maps to zero by $q(T)$. Thus, $q(z)$ serves as a minimal polynomial for $T$.
+  In the case where $T$ is the zero operator, one may instead choose $q(z) = z$. Thus $\dim \mynull q(T) = 1$, and therefore $\dim \myrange q(T) = \dim V - \dim \mynull q(T) = 0$. Hence, every vector in this one-dimensional space is a scalar multiple of $v$ and maps to zero by $q(T)$. Thus, $q(z)$ serves as a minimal polynomial for $T$.
 
   \prooffont{Yet another base case:} Suppose $\dim V=2$. For any nonzero $v \in V$, the list $v, Tv, T^2v$ is linearly dependent (since it has length $3$). According to the linear dependence lemma \ref{thm: linear dependence lemma}, we either have:
   \begin{equation}
@@ -174,7 +174,7 @@ and so \(\lambda\) is an eigenvalue of \(T\) with eigenvector \(q(T)v\).
   Let $v\in V$ be nonzero. Then the list
   \begin{equation}
     \label{eq: v Tv T^dimV}
-    v, Tv, \dots, T^{\dim V}
+    v, Tv, \dots, T^{\dim V}v
   \end{equation}
 
   (which has length $1+\dim V$) is linearly dependent.
@@ -254,8 +254,8 @@ and so \(\lambda\) is an eigenvalue of \(T\) with eigenvector \(q(T)v\).
   Moreover, $\deg (p-r) < \deg p = \deg r$. If $p-r \neq 0$, we could divide $p-r$ by the coefficient of the highest-order term in $p-r$ to obtain a monic polynomial that, when applied to $T$, yields the zero-operator. This polynomial would have a smaller degree than $p$ or $r$, which would be a contradiction. Therefore, $p-r=0 \iff p = r$.
 \end{prf}
 
-\begin{thm}[Existence, uniqueness, and degree of minimal polynomial]
-  \label{thm: unique monic polynomial of smallest degree}
+\begin{thm}[Existence, uniqueness, and degree of minimal polynomial (alternate version)]
+  \label{thm: unique monic polynomial of smallest degree alternate}
   Suppose $T \in \linmap(V)$. Then there exists a unique monic polynomial $p \in \mathcal{P}(\myF)$, of minimal degree, such that
   \[
   p(T) = 0.

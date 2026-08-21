@@ -136,10 +136,9 @@
 {}                            % Body font
 {0em}                         % Indent amount
 {}                            % Theorem head font {\ttfamily\fontseries{b}\selectfont}
-{\textbf{:\,}\\}       % Punctuation after theorem head
+{\textbf{:\,}\\}              % Punctuation after theorem head
 {.2em}                        % Space after theorem head
-{\underline{\textbf{\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont \thmnote{ ({\itshape#3})}}}}
-
+{\underline{\textbf{\scshape{\thmname{#1}\thmnumber{ #2}}}}{\normalfont \thmnote{ ({\itshape#3})}}}
 % If we ever want to use the same font as in theorem head:
 \newcommand{\theoremfont}[1]{\textbf{\scshape{#1}}}
 
@@ -409,17 +408,17 @@ drop lifted shadow,
 %\renewcommand{\thesubsubsection}{\thesubsection\Alph{subsubsection}} % e.g. 2B1, 2B2
 
 \titleformat{\chapter}[block]
-{\bfseries\scshape}{\underline{\relscale{1.5}#1 {\footnotesize (Chapter \thechapter)}}}{0em}{\large}
+{\bfseries\scshape}{\relscale{1.5}#1 {\normalfont\footnotesize (Chapter \thechapter)}}{0em}{\large}
 
-\titleformat{\section}{\relscale{1.4}\bfseries\scshape}{}{0em}{\underline{#1 {\footnotesize(Section  \thesection)}}}[]
+\titleformat{\section}{\relscale{1.3}\bfseries\scshape}{}{0em}{#1 {\normalfont\footnotesize(Section \thesection)}}[]
 
 \titleformat{name=\section,numberless}
 [runin] % shape
-{\relscale{1.3}\bfseries\scshape} % format
+{\relscale{1.2}\bfseries\scshape} % format
 {} % label
 {0em} % sep
 {} % before-code
-[\underline{#1 \thesection}] % after-code
+[#1 \thesection] % after-code
 
-\titleformat{\subsection}{\relscale{1.3}\bfseries\scshape}{}{0em}{\underline{#1 {\footnotesize (Sub-Section \thesubsection)}}} %large
+\titleformat{\subsection}{\relscale{1.15}\bfseries\scshape}{}{0em}{#1 {\normalfont\footnotesize (Sub-Section \thesubsection)}} %large
 % END custom chapter format ********************************

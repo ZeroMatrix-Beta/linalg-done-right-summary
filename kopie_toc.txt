@@ -1,0 +1,543 @@
+Vector Spaces (Chapter 1)
+Rn and Cn (Section 1A)
+Lists (Sub-Section 1A1)
+Def 1.8 (list, length):
+A list of length n is the same as an n-tuple. We write a list of vectors of length m, (v1 , . . . , vm ), as
+v1 , . . . , vm throughout this document without closing parentheses. Since lists are the same as tuples,
+two lists are only equal if they have the same length and the same elements in the same order.
+Def 1.11 (F n , coordinate):
+
+
+
+F n := x1 , . . . , xn : xk ∈ F , k ∈ {1, . . . , n}
+
+Definition of a Vector Space (Section 1B)
+Def 1.20 (vector space):
+A “vector space” is a set V along with an addition on V and a scalar multiplication on V such that the
+following properties hold.
+• Commutativity: u + v = v + u,
+
+∀u, v ∈ V
+
+• Associativity: (u + v) + w = u + (v + w) and (ab)v = a(bv),
+• Additive identity: ∃0 ∈ V : v + 0 = v,
+
+∀u, v, w ∈ V and ∀a, b ∈ F
+
+∀v ∈ V .
+
+∃! is not a requirement, but a property of vector spaces. See Theorem 1.26.
+• Additive inverse: ∀v ∈ V ,
+
+∃w ∈ V : v + w = 0
+
+• Multiplicative identity: 1v = v,
+
+∀v ∈ V
+
+• Distributive properties: a(u + v) = au + av,
+(a + b)v = av + bv,
+
+∀u, v ∈ V and
+∀a, b ∈ F and v ∈ V .
+
+Def 1.24 (notation F S ):
+If S is a set, then F S denotes the set of functions from S to F . Let f , g ∈ F S and λ ∈ F :
+• The “sum” f + g ∈ F S is defined as follows: (f + g)(x) := f (x) + g(x),
+• The “product” λf ∈ F S is defined as follows: (λf )(x) := λf (x),
+
+∀x ∈ S
+
+∀x ∈ S.
+
+The vector space F n :≡ F {1,2,...,n} is a special case, because each (x1 , . . . , xn ) ∈ F n can be thought of
+as a function x from the set {1, 2, . . . , n} to F by writing x(k) instead of xk for the k th coordinate of
+(x1 , . . . , xn ).
+Thm 1.26 (unique additive identity):
+A vector space has a unique additive identity.
+Proof: Suppose 0 and 0′ are both additive identities. Then 0′ = 0′ + 0 = 0 + 0′ = 0. So, 0′ = 0.
+Thm 1.27 (unique additive inverse):
+Every element in a vector space has a unique additive inverse.
+Proof: Let v ∈ V . Suppose u, w ∈ V are additive inverses of v. Using associativity and the definition
+of the additive inverse, we get
+u = u + 0 = u + (v + w) = (u + v) + w = 0 + w = w.
+Thus, u = w, as desired.
+1
+
+Definition of a Vector Space (Section 1B)
+
+Def 1.28:
+For v, w ∈ V , −v denotes the additive inverse of v and we define subtraction as w − v := w + (−v).
+Def 1.29:
+For the rest of this summary, V denotes a vector space over F most of the time.
+Thm 1.30 (the number 0 times a vector):
+0v = 0
+
+∀v ∈ V .
+
+Proof: Let v ∈ V . We have 0v = (0 + 0)v = 0v + 0v by the distributive property. Adding the additive
+inverse of 0v to both sides yields 0 = 0v, as desired.
+Thm 1.31 (a number times the vector 0):
+a0 = 0
+
+∀a ∈ F .
+
+Proof: For every a ∈ F , we have a0 = a(0 + 0) = a0 + a0. Adding the additive inverse of a0 to both
+sides yields 0 = a0, as desired.
+Thm 1.32 (the number −1 times a vector):
+(−1)v = −v
+
+∀v ∈ V .
+
+Proof: Let v ∈ V . Hence, v + (−1)v = 1v + (−1)v = (1 + (−1))v = 0v = 0, using the definition of the
+multiplicative identity, the distributive property, and Theorem 1.30. This shows that (−1)v is
+an additive inverse of v, and therefore, (−1)v = −v by the uniqueness of the additive inverse.
+
+Exercises about Definition of a Vector Space 1B
+1
+
+Prove that −(−v) = v
+
+∀v ∈ V .
+
+Proof: Let v ∈ V . By definition, v + (−v) = 0. This means that v is an additive inverse of −v.
+Since additive inverses are unique by ??, and the unique additive inverse of −v is denoted by
+−(−v), it follows that −(−v) = v.
+2
+
+Suppose that a ∈ F and v ∈ V satisfy av = 0. Prove that a = 0 or v = 0.
+Proof: There are two cases for a. If a = 0, we are done. If a ̸= 0, then multiplying by
+gives:
+
+1
+∈F
+a
+
+!
+1
+1
+1
+av = 0 =⇒ (av) = 0 =⇒
+a v = 0 =⇒ 1v = 0 =⇒ v = 0.
+a
+a
+a
+So, either a = 0 or v = 0.
+3
+
+Suppose v, w ∈ V . Explain why there exists a unique x ∈ V such that v + 3x = w.
+Solution: To solve this equation for x, we add the unique additive inverse −v to both sides
+1
+1
+and multiply by ∈ F , yielding x = (w − v). Since addition, additive inverses, and scalar
+3
+3
+multiplication produce unique results, this solution x ∈ V is unique.
+
+4
+
+Show that the empty set is not a vector space.
+Solution: A vector space must contain at least one element, namely the additive identity 0.
+The empty set contains no elements, and therefore, it cannot be a vector space.
+
+5
+
+Show that in the definition of a vector space, the additive inverse condition can be replaced
+with the condition that
+0v = 0
+
+∀v ∈ V .
+
+2
+
+Definition of a Vector Space (Section 1B)
+
+Proof: Let v ∈ V . Assuming 0v = 0, the distributive property and multiplicative identity give:
+0 = 0v = (1 + (−1))v
+= 1v + (−1)v
+= v + (−1)v.
+Thus, for every v ∈ V , the element (−1)v is an additive inverse of v.
+
+3
+
+Subspaces (Section 1C)
+
+Subspaces (Section 1C)
+Def 1.33 (subspace):
+A subset U of V (U ⊆ V ) is called a “subspace” of V if U is also a vector space with the same additive
+identity, addition, and scalar multiplication as on V .
+Thm 1.34 (conditions for a subspace):
+A subset U of V is a subspace of V if and only if U satisfies the following three conditions:
+• Additive identity: 0 ∈ U
+• Closed under addition: u, w ∈ U =⇒ u + w ∈ U
+• Closed under scalar multiplication: a ∈ F and u ∈ U =⇒ au ∈ U
+The additive identity condition above could be replaced by the condition that U is nonempty (because taking u ∈ U and multiplying it by 0 implies that 0 ∈ U ).
+Proof: We need to show the proposition in two directions.
+⇒ direction:
+
+If U is a subspace of V , then U satisfies the three conditions above by the
+
+definition of a vector space.
+⇐ direction:
+
+The first condition ensures that the additive identity 0 of V is in U . The
+
+other two conditions ensure that addition and scalar multiplication are well-defined operations on U . By Theorem 1.32 and closure under scalar multiplication, every u ∈ U
+has an additive inverse −u = (−1)u ∈ U . The other axioms of a vector space (associativity,
+commutativity, and the distributive properties) are automatically inherited by U from V .
+Thus, U is a vector space, and hence, a subspace of V .
+
+Sum of Subspaces (Sub-Section 1C1)
+Def 1.36 (sum of subspaces):
+If V1 , . . . , Vm are subspaces of V , the “sum” of V1 , . . . , Vm , denoted by V1 + · · · + Vm , is the set of all
+possible sums of elements of V1 , . . . , Vm . More precisely,
+V1 + · · · + Vm := {v1 + · · · + vm | v1 ∈ V1 , . . . , vm ∈ Vm }.
+Thm 1.40 (sum of subspaces is the smallest containing subspace):
+If V1 , . . . , Vm are subspaces of V , then V1 + · · · + Vm is the smallest subspace of V containing V1 , . . . , Vm .
+P
+Proof: We first prove that W := m
+k=1 Vk is a subspace of V , and then show that it is the smallest such
+subspace containing each Vk . Since 0 ∈ Vk for every k ∈ {1, . . . , m}, we have 0 = 0 + · · · + 0 ∈ W . If
+P
+Pm ′
+′
+u= m
+k=1 vk ∈ W and w = k=1 vk ∈ W with vk , vk ∈ Vk , then
+Pm
+u + w = k=1 (vk + vk′ ) ∈ W , since each Vk is closed under addition.
+For any λ ∈ F ,
+P
+Pm
+λu = λ m
+k=1 vk = k=1 λvk ∈ W ,
+|{z}
+
+as each Vk is closed under scalar multiplication.
+
+∈ Vk
+
+Thus, W contains 0, is closed under addition and scalar multiplication, and hence, is a subspace
+of V by Theorem 1.34. Now, we show that W is contained in every subspace of V containing
+V1 , . . . , Vm . The subspaces V1 , . . . , Vm are all contained in W , i.e., Vk ⊆ W for every k ∈ {1, . . . , m},
+because every v ∈ Vk can be written as v = 0 + · · · + v + · · · + 0.
+Conversely, every subspace of V containing V1 , . . . , Vm must contain all sums of their elements
+because subspaces are closed under addition. Therefore, every such subspace contains W ,
+4
+
+Subspaces (Section 1C)
+
+showing that W is the smallest subspace of V containing V1 , . . . , Vm .
+
+Direct Sums (Sub-Section 1C2)
+Def 1.41 (direct sum, ⊕):
+V1 + · · · + Vm is called a “direct sum” if each element of V1 + · · · + Vm can be written in only one way as
+a sum v1 + · · · + vm , where each vk ∈ Vk . In this case, we write
+V1 + · · · + V m = V 1 ⊕ · · · ⊕ V m
+to denote that V1 + · · · + Vm is a direct sum.
+Example
+ 1.42:
+ n
+
+o
+3
+3
+F = x, y, 0 ∈ F | x, y ∈ F ⊕ (0, 0, z) ∈ F 3 | z ∈ F .
+Thm 1.45 (condition for a direct sum):
+
+
+Lm
+Pm
+Pm
+V if and only if the only way to express 0 as v1 +· · ·+vm
+k=1 Vk is a direct sum i.e.,
+k=1 Vk =
+k=1 k
+with vk ∈ Vk is v1 = · · · = vm = 0.
+Proof: ⇒ direction: First, suppose
+
+Pm
+
+k=1 Vk is a direct sum. By the uniqueness of decompositions,
+
+the only way to write 0 = v1 + · · · + vm with vk ∈ Vk is v1 = · · · = vm = 0.
+⇐ direction: Second, suppose that the only way to write 0 as a sum w1 + · · · + wm with wk ∈ Vk
+P
+is by taking each wk = 0. Let v ∈ m
+k=1 Vk , with
+v = v 1 + · · · + vm = u1 + · · · + um ,
+
+vk , uk ∈ Vk (for k = 1, . . . , m).
+
+Subtracting gives
+0 = (v1 − u1 ) + · · · + (vm − um ) .
+| {z }
+| {z }
+∈ V1
+
+∈ Vm
+
+By hypothesis, each summand must be zero, so v1 = u1 , . . . , vm = um . Hence, every element has
+P
+a unique decomposition, so m
+k=1 Vk is direct.
+Thm 1.46 (sum and intersection of two subspaces):
+U + W is a direct sum (i.e., U + W = U ⊕ W ) if and only if U ∩ W = {0}.
+Proof: Let U and W be subspaces of V .
+⇒ direction: First, suppose U + W is a direct sum. If v ∈ U ∩ W , then v ∈ U and −v ∈ W . We
+also have
+0 = v + (−v), where v ∈ U and (−v) ∈ W .
+Because U + W is a direct sum and 0 = 0 + 0 with 0 ∈ U and 0 ∈ W , the uniqueness of
+representation implies that v = 0. Therefore, U ∩ W = {0}.
+⇐ direction: Suppose U ∩ W = {0}. Let u ∈ U and w ∈ W be such that
+0 = u + w.
+
+(1.1)
+
+By Theorem 1.45, it suffices to show that u = w = 0. The equation (1.1) implies that
+u = −w ∈ W (since W is a subspace) and w = −u ∈ U (since U is a subspace). Thus,
+u, w ∈ U ∩ W . Since U ∩ W = {0}, it follows that u = w = 0. Therefore, U + W is a direct
+sum.
+
+Exercises about Subspaces 1C
+1
+
+For each of the following subsets of F 3 , determine whether it is a subspace of F 3 .
+
+
+
+3
+(a) x1 , x2 , x3 ∈ F : x1 + 2x2 + 3x3 = 0
+5
+
+Subspaces (Section 1C)
+
+
+
+
+3
+(b) x1 , x2 , x3 ∈ F : x1 + 2x2 + 3x3 = 4
+
+
+
+(c) x1 , x2 , x3 ∈ F 3 : x1 x2 x3 = 0
+
+
+
+(d) x1 , x2 , x3 ∈ F 3 : x1 = 5x3
+Solution:
+(a) Let E := {(x1 , x2 , x3 ) ∈ F 3 | x1 + 2x2 + 3x3 = 0}. We check the subspace criteria: The additive
+identity (0, 0, 0) ∈ E since 0 + 2 · 0 + 3 · 0 = 0. For u, v ∈ E, we have u1 + 2u2 + 3u3 = 0 and
+v1 + 2v2 + 3v3 = 0, so (u1 + v1 ) + 2(u2 + v2 ) + 3(u3 + v3 ) = 0, hence u + v ∈ E. For λ ∈ F and
+u ∈ E, λu1 + 2λu2 + 3λu3 = λ(u1 + 2u2 + 3u3 ) = 0, hence λu ∈ E. Therefore, E is a subspace
+of F 3 by Theorem 1.34.
+(b) It is not a subspace because it does not contain the additive identity (0, 0, 0).
+(c) Let U := {(x1 , x2 , x3 ) ∈ F 3 | x1 x2 x3 = 0}. Then U is not closed under addition:
+(1, 1, 0) ∈ U and (0, 0, 1) ∈ U ,
+
+but
+
+(1, 1, 0) + (0, 0, 1) = (1, 1, 1) ∈/ U .
+
+Therefore, U is not a subspace of F 3 .
+(d) Let U := {(x1 , x2 , x3 ) ∈ F 3 | x1 = 5x3 }. Then (0, 0, 0) ∈ U . If u, v ∈ U , then (u1 + v1 ) =
+5u3 + 5v3 = 5(u3 + v3 ), so u + v ∈ U . If λ ∈ F , then λu1 = λ(5u3 ) = 5(λu3 ), so λu ∈ U . Hence,
+U is a subspace of F 3 .
+2
+
+Verify all assertions about subspaces in example 1.35.
+(a) If b ∈ F , then U := {(x1 , x2 , x3 , x4 ) ∈ F 4 | x3 = 5x4 + b} is a subspace of F 4 if and only if b = 0.
+Solution: If U is a subspace of F 4 , then (0, 0, 0, 0) ∈ U , which requires 0 = 5(0) +b =⇒ b =
+0. Conversely, if b = 0, then (0, 0, 0, 0) ∈ U . For u, v ∈ U , (u3 + v3 ) = 5u4 + 5v4 = 5(u4 + v4 ), so
+u + v ∈ U . For λ ∈ F , λu3 = λ(5u4 ) = 5(λu4 ), so λu ∈ U . Thus, U is a subspace of F 4 if and
+only if b = 0.
+(b) The set of continuous real-valued functions on the interval [0, 1] is a subspace of R[0,1] .
+Solution: The constant function 0 is continuous. The sum of two continuous functions
+is continuous, and any scalar multiple of a continuous function is continuous. Therefore,
+the set of continuous real-valued functions on [0, 1] is a subspace of R[0,1] .
+(c) The set of differentiable real-valued functions on R is a subspace of RR .
+Solution: We check the three subspace properties:
+Additive identity: The zero function f (x) = 0 for all x ∈ R is differentiable with derivative
+f ′ (x) = 0.
+Closedness under addition: If f and g are differentiable, then (f + g)′ (x) = f ′ (x) + g ′ (x)
+for all x ∈ R, so f + g is differentiable.
+Closedness under scalar multiplication: If f is differentiable and c ∈ R, then (cf )′ (x) =
+cf ′ (x) for all x ∈ R, so cf is differentiable.
+(d) The set S of differentiable real-valued functions f on the interval (0, 3) such that f ′ (2) = b
+is a subspace of R(0,3) if and only if b = 0.
+Solution: For the zero function h(x) = 0, we have h′ (x) = 0. The condition h′ (2) = 0 = b
+holds if and only if b = 0. If b = 0, then 0 ∈ S. For f , g ∈ S, (f +g)′ (2) = f ′ (2)+g ′ (2) = 0+0 = 0,
+so f + g ∈ S. For c ∈ R, (cf )′ (2) = cf ′ (2) = c · 0 = 0, so cf ∈ S. Thus, S is a subspace if and
+only if b = 0.
+
+3
+
+Show that the set S of differentiable real-valued functions f on the interval (−4, 4) such that
+f ′ (−1) = 3f (2) is a subspace of R(−4,4) .
+6
+
+Subspaces (Section 1C)
+
+Solution: We check all three subspace properties:
+Additive identity: For the zero function f (x) = 0, we have f ′ (x) = 0, so f ′ (−1) = 0 = 3(0) =
+3f (2), which implies 0 ∈ S.
+Closed under addition: If f , g ∈ S and h := f + g, then h′ (−1) = f ′ (−1) + g ′ (−1) = 3f (2) + 3g(2) =
+3(f (2) + g(2)) = 3h(2). Therefore, h ∈ S.
+Closed under scalar multiplication: If f ∈ S, c ∈ R, and h := cf , then h′ (−1) = cf ′ (−1) =
+c(3f (2)) = 3(cf (2)) = 3h(2). Therefore, h ∈ S.
+Hence, S is a subspace of R(−4,4) .
+8
+
+Prove or give a counterexample: If U is a nonempty subset of R2 such that U is closed under
+addition and under taking additive inverses (meaning −u ∈ U whenever u ∈ U ), then U is a
+subspace of R2 .
+Solution: The statement is false. Consider U := Z2 = {(x, y) ∈ R2 | x, y ∈ Z} ⊂ R2 . Then U is
+nonempty, closed under addition, and closed under additive inverses. However, if λ ∈ R \ Z,
+then for any non-zero (a, b) ∈ U ,
+λ(a, b) = (λa, λb) ∈/ U .
+For example, (1, 1) ∈ U and 21 ∈ R, but 21 (1, 1) = ( 12 , 12 ) ∈/ U . Therefore, U is not a subspace of R2 .
+
+12 Prove that the union U ∪ W of two subspaces U , W of V is a subspace of V if and only if one of
+the subspaces is contained in the other (i.e., U ⊆ W or W ⊆ U ).
+Proof: ⇐ direction: Let U and W be two subspaces of V . If U ⊆ W , then U ∪ W = W , which
+is a subspace of V . Similarly, if W ⊆ U , then U ∪ W = U , which is a subspace of V .
+⇒ direction: Assume that U ∪ W is a subspace of V , where U and W are subspaces of V .
+Proof by contradiction: Suppose U ̸⊆ W and W ̸⊆ U . Therefore,
+∃u ∈ U with u ∈/ W ,
+
+and
+
+∃w ∈ W with w ∈/ U .
+
+Since u, w ∈ U ∪W and U ∪W is a subspace, we have u+w ∈ U ∪W . Thus, u+w ∈ U or u+w ∈ W .
+• Case u + w ∈ U : Then w = (u + w) − u ∈ U , contradicting w ∈/ U .
+• Case u + w ∈ W : Then u = (u + w) − w ∈ W , contradicting u ∈/ W .
+In both cases, we obtain a contradiction. Therefore, U ⊆ W or W ⊆ U .
+Alternative direct proof: If U ⊆ W , the disjunction is immediately true. So suppose U ̸⊆ W .
+Then there exists u ∈ U such that u ∈/ W . Let w ∈ W be arbitrary. Since u, w ∈ U ∪ W and U ∪ W
+is a subspace, u +w ∈ U ∪W . Hence, u +w ∈ U or u +w ∈ W . If u +w ∈ U , then w = (u +w)−u ∈ U ,
+which implies w ∈ U . If u+w ∈ W , then u = (u+w)−w ∈ W , which contradicts u ∈/ W . Therefore,
+it must be that u + w ∈ U , which forces w ∈ U . Since w ∈ W was arbitrary, W ⊆ U . Thus, U ⊆ W
+or W ⊆ U .
+23 Prove or give a counterexample: If V1 , V2 , U are subspaces of V such that V = V1 ⊕ U and
+V = V2 ⊕ U , then V1 = V2 .
+Solution: The statement is false. As a counterexample, consider V := R2 and
+U := {(x, 0) ∈ R2 | x ∈ R},
+which is the x-axis. Let V1 and V2 be defined as follows:
+V1 := {(0, y) ∈ R2 | y ∈ R}
+
+and
+
+V2 := {(x, x) ∈ R2 | x ∈ R}.
+
+Then V1 ∩ U = {(0, 0)} and V2 ∩ U = {(0, 0)}. Furthermore, every (x, y) ∈ R2 can be uniquely
+decomposed as:
+(x, y) = (x, 0) + (0, y) ∈ U ⊕ V1
+
+and
+
+(x, y) = (x − y, 0) + (y, y) ∈ U ⊕ V2 .
+7
+
+Subspaces (Section 1C)
+
+Thus, V = V1 ⊕ U = V2 ⊕ U , but V1 ̸= V2 .
+
+8
+
+Finite Dimensional Vector Spaces (Chapter 2)
+Span and Linear Independence (Section 2A)
+Linear Combinations and Span (Sub-Section 2A1)
+Def 2.2 (linear combination):
+A “linear combination” of a list of vectors v1 , . . . , vm in V is a vector of the form a1 v1 + · · · + am vm , where
+a1 , . . . , am ∈ F .
+Def 2.4 (span of a list of vectors):
+The “span” of a list of vectors v1 , . . . , vm in V is defined as follows:
+span(v1 , . . . , vm ) := {a1 v1 + · · · + am vm | a1 , . . . , am ∈ F },
+span( ) := {0} (the span of the empty list () is defined to be {0}) .
+The definition also implies that span(0) = {0}.
+Thm 2.6 (the span of a list of vectors is a subspace):
+The span of a list of vectors in V is the smallest subspace of V containing all vectors in the list.
+Proof: Let v1 , . . . , vm ∈ V . We have
+0 = 0v1 + · · · + 0vm ∈ span(v1 , . . . , vm ),
+and hence, the additive identity is in span(v1 , . . . , vm ).
+span(v1 , . . . , vm ) is closed under addition, because for all a1 , . . . , am , c1 , . . . , cm ∈ F , we have
+(a1 v1 + · · · + am vm ) + (c1 v1 + · · · + cm vm ) = (a1 + c1 )v1 + · · · + (am + cm )vm ∈ span(v1 , . . . , vm ).
+Furthermore, span(v1 , . . . , vm ) is closed under scalar multiplication because for any λ ∈ F ,
+λ(a1 v1 + · · · + am vm ) = (λa1 )v1 + · · · + (λam )vm ∈ span(v1 , . . . , vm ).
+Thus, span(v1 , . . . , vm ) is a subspace of V by Theorem 1.34. Every subspace of V that contains
+each vk is closed under scalar multiplication and addition, and therefore, contains span(v1 , . . . , vm ).
+Hence, span(v1 , . . . , vm ) is the smallest subspace of V containing each v1 , . . . , vm .
+Def 2.7 (spanning a vector space):
+If V = span(v1 , . . . , vm ), we say v1 , . . . , vm “spans” V .
+Def 2.9 (finite-dimensional vector space):
+A vector space V is called “finite-dimensional” if some list of vectors in V spans V .
+Def 2.10 (polynomial, P (F )):
+A function p : F → F is called a “polynomial” with coefficients in F if there exist a0 , . . . , am ∈ F such
+that
+p(z) = a0 + a1 z + a2 z2 + · · · + am zm
+
+∀z ∈ F .
+
+The set of all polynomials with coefficients in F is denoted by P (F ). It is a subspace of F F .
+Def 2.11 (degree of a polynomial, deg p):
+A polynomial p ∈ P (F ) is said to have “degree” m, written deg p = m, if there exist a0 , . . . , am ∈ F with
+am ̸= 0 such that
+p(z) = a0 + a1 z + · · · + am zm
+
+∀z ∈ F .
+
+If p is the zero polynomial, then we define deg 0 := −∞.
+9
+
+Span and Linear Independence (Section 2A)
+
+Def 2.12 (the set of polynomials of degree at most m):
+For m ≥ 0, Pm (F ) := span(1, z, . . . , zm ) denotes the subspace of P (F ) consisting of all polynomials with
+degree at most m.
+Def 2.13 (infinite-dimensional):
+A vector space is called “infinite-dimensional” if it is not finite-dimensional.
+
+Linear Independence (Sub-Section 2A2)
+Def 2.15 (linear independence):
+A list of vectors v1 , . . . , vm in V is called “linearly independent” if the only choice of scalars a1 , . . . , am ∈ F
+that satisfies
+a1 v1 + · · · + am vm = 0
+is a1 = · · · = am = 0.
+The empty list () is also declared to be linearly independent.
+Def 2.16 (linear dependence):
+A list of vectors v1 , . . . , vm in V is called “linearly dependent” if it is not linearly independent. That is,
+there exist scalars a1 , . . . , am ∈ F , not all zero, such that
+a1 v1 + · · · + am vm = 0.
+Thm 2.19 (linear dependence lemma):
+Suppose the list v1 , . . . , vm ∈ V is linearly dependent. Then there is an index k ∈ {1, . . . , m} such that:
+(a) vk ∈ span(v1 , . . . , vk−1 ).
+(b) If the k th term is removed from v1 , . . . , vm , then the span of the remaining list equals span(v1 , . . . , vm ):
+span(v1 , . . . , vk−1 , vk+1 , . . . , vm ) = span(v1 , . . . , vm ).
+Proof: Because the list v1 , . . . , vm is linearly dependent, there exist a1 , . . . , am ∈ F , not all zero, such
+that
+a1 v1 + · · · + am vm = 0.
+Let k be the largest element of {1, . . . , m} such that ak ̸= 0. Then
+a
+a
+vk = − 1 v1 − · · · − k−1 vk−1 ,
+ak
+ak
+which proves that vk ∈ span(v1 , . . . , vk−1 ).
+To prove the second assertion, suppose u ∈ span(v1 , . . . , vm ). Then there exist c1 , . . . , cm ∈ F such
+that
+u = c1 v1 + · · · + cm vm .
+
+(2.1)
+
+Since vk ∈ span(v1 , . . . , vk−1 ), we can write vk = b1 v1 + · · · + bk−1 vk−1 for some b1 , . . . , bk−1 ∈ F .
+Substituting this into (2.1) yields:
+u = c1 v1 + · · · + ck (b1 v1 + · · · + bk−1 vk−1 ) + · · · + cm vm
+= (c1 + ck b1 )v1 + · · · + (ck−1 + ck bk−1 )vk−1 + ck+1 vk+1 + · · · + cm vm ,
+which shows that u ∈ span(v1 , . . . , vk−1 , vk+1 , . . . , vm ). Therefore,
+span(v1 , . . . , vk−1 , vk+1 , . . . , vm ) = span(v1 , . . . , vm ),
+as desired.
+Thm 2.22 (length of linearly independent list ≤ length of spanning list):
+In a finite-dimensional vector space, the length of every linearly independent list of vectors is less
+10
+
+

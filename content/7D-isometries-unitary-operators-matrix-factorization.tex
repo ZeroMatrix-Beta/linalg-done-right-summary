@@ -49,10 +49,22 @@
 
   \qt{Third step:} Now, suppose that (c) holds, so $\ip{Su}{Sv} = \ip{u}{v} \quad \forall u,v \in V$. Thus, if $j,k \in \{1, \ddd, n\}$, then:
   \[
-  \ip{Se_j}{Se_k} = \ip{e_j}{e_k}.
+  \ip{Se_j}{Se_k} = \ip{e_j}{e_k} = \begin{cases} 1, & \text{if } j = k, \\ 0, & \text{if } j \neq k. \end{cases}
   \]
 
   Hence, $Se_1, \ddd, Se_n$ is an orthonormal list in $W$, proving that $(c) \implies (d)$.
+
+  \qt{Fourth step:} Suppose (d) holds. The $k$-th column of $\mmatrix(S) \equiv \mmatrix(S, (e_1, \ddd, e_n), (f_1, \ddd, f_m))$ consists of the scalars $(\ip{Se_k}{f_1}, \ddd, \ip{Se_k}{f_m})^t$. By \ref{thm: writing a vector as a linear combination of an orthonormal basis}(c), the Euclidean inner product in $\myF^m$ of the $j$-th and $k$-th columns of $\mmatrix(S)$ equals
+  \[
+    \sum_{\ell=1}^m \ip{Se_j}{f_\ell} \overline{\ip{Se_k}{f_\ell}} = \ip{Se_j}{Se_k} = \begin{cases} 1, & \text{if } j = k, \\ 0, & \text{if } j \neq k. \end{cases}
+  \]
+  Thus, the columns of $\mmatrix(S)$ form an orthonormal list in $\myF^m$, proving $(d) \implies (e)$.
+
+  \qt{Fifth step:} Suppose (e) holds. Then the vectors $Se_1, \ddd, Se_n$ form an orthonormal list in $W$. For any $v \in V$, write $v = a_1 e_1 + \cdots + a_n e_n$ for some $a_1, \ddd, a_n \in \myF$. Then $Sv = a_1 Se_1 + \cdots + a_n Se_n$. By \ref{thm: norm of an orthonormal linear combination}:
+  \[
+    \norm{Sv}^2 = |a_1|^2 + \cdots + |a_n|^2 = \norm{v}^2.
+  \]
+  Taking square roots gives $\norm{Sv} = \norm{v}$ for all $v \in V$, so $S$ is an isometry, proving $(e) \implies (a)$.
 \end{prf}
 
 \subsection{Unitary Operators}

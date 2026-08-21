@@ -126,7 +126,7 @@ $\myF$ denotes $\real$ or $\compl$. $V$ and $W$ are nonzero finite-dimensional i
     }
 
     \item {
-      $\ip{w}{(T^*)^*} =\ip{T^*w}{v}=\overline{\ip{w}{T^*w}}=\overline{\ip{Tv}{w}}=\ip{w}{Tw}$. Thus, $(T^*)^* = T$.
+      For all $v \in V$ and $w \in W$, $\ip{w}{(T^*)^* v} = \ip{T^*w}{v} = \overline{\ip{v}{T^*w}} = \overline{\ip{Tv}{w}} = \ip{w}{Tv}$. Thus, $(T^*)^* = T$.
     }
 
     \item{
@@ -520,7 +520,7 @@ Every self-adjoint operator is normal, because if $T^* = T$, then $T$ commutes w
     & \iff \ip{(T^*T - TT^*)v}{v} = 0 \quad \forall v \in V \\
     & \iff \ip{T^*Tv}{v}= \ip{TT^*v}{v} \\
     & \iff \ip{Tv}{Tv} = \ip{T^*v}{T^*v} \quad \forall v \in V \\
-    & \iff \norm{Tv}^2 = \norm{Tv}^2 \quad \forall v \in V \\
+    & \iff \norm{Tv}^2 = \norm{T^*v}^2 \quad \forall v \in V \\
     & \iff \norm{Tv} = \norm{T^*v} \quad \forall v \in V,
   }$
 
@@ -530,8 +530,8 @@ Every self-adjoint operator is normal, because if $T^* = T$, then $T$ commutes w
   \begin{aligned}
     \ip{(T^*T - TT^*)v}{v}
     &= \ip{T^*Tv}{v} - \ip{TT^*v}{v} \\
-    &= \ip{v}{(T^*T)^*v} - \ip{v}{(T^*T)^*v} \\
-    &= \ip{v}{T^*(T^*)^*} - \ip{v}{(T^*)^*T^*v} \\
+    &= \ip{v}{(T^*T)^*v} - \ip{v}{(TT^*)^*v} \\
+    &= \ip{v}{T^*(T^*)^*v} - \ip{v}{(T^*)^*T^*v} \\
     &= \ip{v}{T^*Tv} - \ip{v}{TT^*v} \\
     &= \ip{v}{(T^*T - TT^*)v}.
   \end{aligned}
@@ -587,7 +587,7 @@ Every self-adjoint operator is normal, because if $T^* = T$, then $T$ commutes w
     \item
     %Suppose $\lambda \in \myF$. Then
       $\alignLongunderstack{
-          (T-\lambda)(T-\lambda I) \;\,
+          (T-\lambda I)(T-\lambda I)^* \;\,
           & = (T-\lambda I)(T^* - \overline{\lambda} I) \\
           & = TT^* - \overline{\lambda}T -\lambda T^* + |\lambda|^2I \\
           & = T^*T - \overline{\lambda}T -\lambda T^* + |\lambda|^2I \\

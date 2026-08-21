@@ -109,51 +109,49 @@ The previous result along with \ref{thm: eigenvalues are the zeros of the minima
     \right).
   \end{equation}
 
-  We see that:
+  We see that $T e_1 = a_{1,1} e_1$, which implies:
   \[
-  \norm{T e_1}^2 = \sqrt{\ip{Te_1}{Te_1}}^2
-  = \ip{a_{1,1}\cdot e_1}{a_{1,1}\cdot e_1}
-  = a_{1,1} \overline{a_{1,1}} \cdot  \ip{e_1}{e_1}
-  = |a_{1,1}|^2 \, \norm{e_1}^2 = |a_{1,1}|^2,
+  \norm{T e_1}^2 = \ip{Te_1}{Te_1}
+  = \ip{a_{1,1} e_1}{a_{1,1} e_1}
+  = a_{1,1} \overline{a_{1,1}} \ip{e_1}{e_1}
+  = |a_{1,1}|^2 \, \norm{e_1}^2 = |a_{1,1}|^2.
   \]
 
-  as well as
+  Since the matrix $\mmatrix(T^*)$ is the conjugate transpose $(\mmatrix(T))^*$, the first column of $\mmatrix(T^*)$ consists of the complex conjugates of the first row of $\mmatrix(T)$, so $T^* e_1 = \overline{a_{1,1}} e_1 + \overline{a_{1,2}} e_2 + \cdots + \overline{a_{1,n}} e_n$. We can compute $\norm{T^* e_1}^2$ explicitly:
   \[
   \begin{aligned}
-     \norm{T^*} &= \sqrt{\ip{T^*e_1}{T^*e_1}}^2
-    = \ip{(a_{1,1}\cdot e_1 + \cdots a_{1,n} e_n)}{(a_{1,1}\cdot e_1 + \cdots a_{1,n} e_n)} \\
-    & = \ip{(a_{1,1}\cdot e_1)}{(a_{1,1}\cdot e_1 + \cdots + a_{1,n} e_n)} + \cdots + \ip{(a_{1,n}\cdot e_n)}{(a_{1,1}\cdot e_1 + \cdots +a_{1,n} e_n)} \\
-    & = \Big( \ip{a_{1,1} \cdot e_1}{a_{1,1}\cdot e_1} + \underbrace{\ip{a_{1,1} \cdot e_1}{a_{1,2}\cdot e_2}}_{= \; 0} + \cdots + \underbrace{\ip{a_{1,1} \cdot e_1}{a_{1,n}\cdot e_n}}_{= \; 0} \Big) \\
-    & \phantom { = } \; +
-    \Big( \underbrace{\ip{a_{1,2} \cdot e_2}{a_{1,1}\cdot e_1}}_{= \; 0} + \ip{a_{1,2} \cdot e_2}{a_{1,2}\cdot e_2} + \cdots + \underbrace{\ip{a_{1,2} \cdot e_2}{a_{1,n}\cdot e_n}}_{= \; 0} \Big) \\
-    & \phantom { = } \; + \mathlarger{\ddd} +
-    \Big( \underbrace{\ip{a_{1,n} \cdot e_n}{a_{1,1}\cdot e_1}}_{= \; 0} + \underbrace{\ip{a_{1,n} \cdot e_n}{a_{1,2}\cdot e_2}}_{= \; 0} + \cdots + \ip{a_{1,n} \cdot e_n}{a_{1,n}\cdot e_n} \Big) \\
-    & = a_{1,1} \overline{a_{1,1}} \cdot  \ip{e_1}{e_1} + a_{1,2} \overline{a_{1,2}} \cdot  \ip{e_2}{e_2} + \cdots + a_{1,n} \overline{a_{1,n}} \cdot  \ip{e_n}{e_n} \\
-    & = |a_{1,1}|^2 + \cdots + |a_{1,n}|^2.
+    \norm{T^* e_1}^2
+    &= \ip{T^* e_1}{T^* e_1} \\
+    &= \ip{(\overline{a_{1,1}} e_1 + \cdots + \overline{a_{1,n}} e_n)}{(\overline{a_{1,1}} e_1 + \cdots + \overline{a_{1,n}} e_n)} \\
+    &= \ip{\overline{a_{1,1}} e_1}{\sum_{k=1}^n \overline{a_{1,k}} e_k} + \cdots + \ip{\overline{a_{1,n}} e_n}{\sum_{k=1}^n \overline{a_{1,k}} e_k} \\
+    &= \Big( \ip{\overline{a_{1,1}} e_1}{\overline{a_{1,1}} e_1} + \underbrace{\ip{\overline{a_{1,1}} e_1}{\overline{a_{1,2}} e_2}}_{= \; 0} + \cdots + \underbrace{\ip{\overline{a_{1,1}} e_1}{\overline{a_{1,n}} e_n}}_{= \; 0} \Big) \\
+    &\phantom{=} \; + \Big( \underbrace{\ip{\overline{a_{1,2}} e_2}{\overline{a_{1,1}} e_1}}_{= \; 0} + \ip{\overline{a_{1,2}} e_2}{\overline{a_{1,2}} e_2} + \cdots + \underbrace{\ip{\overline{a_{1,2}} e_2}{\overline{a_{1,n}} e_n}}_{= \; 0} \Big) \\
+    &\phantom{=} \; + \mathlarger{\ddd} + \Big( \underbrace{\ip{\overline{a_{1,n}} e_n}{\overline{a_{1,1}} e_1}}_{= \; 0} + \underbrace{\ip{\overline{a_{1,n}} e_n}{\overline{a_{1,2}} e_2}}_{= \; 0} + \cdots + \ip{\overline{a_{1,n}} e_n}{\overline{a_{1,n}} e_n} \Big) \\
+    &= \overline{a_{1,1}} \, \overline{\overline{a_{1,1}}} \ip{e_1}{e_1} + \overline{a_{1,2}} \, \overline{\overline{a_{1,2}}} \ip{e_2}{e_2} + \cdots + \overline{a_{1,n}} \, \overline{\overline{a_{1,n}}} \ip{e_n}{e_n} \\
+    &= |\overline{a_{1,1}}|^2 + |\overline{a_{1,2}}|^2 + \cdots + |\overline{a_{1,n}}|^2 \\
+    &= |a_{1,1}|^2 + |a_{1,2}|^2 + \cdots + |a_{1,n}|^2.
   \end{aligned}
   \]
 
-  \StepOne Now, suppose (a) holds. Because $T$ is normal, $\norm{T e_1}^2 = \norm{T^* e_1}^2$; see \ref{thm: condition for T to be normal}. Thus,
+  \StepOne Now, suppose (a) holds. Because $T$ is normal, $\norm{T e_1}^2 = \norm{T^* e_1}^2$ by \ref{thm: condition for T to be normal}. Thus,
   \[
-  |a_{1,1}|^2 = |a_{1,1}|^2 + \cdots + |a_{1,n}|^2
+  |a_{1,1}|^2 = |a_{1,1}|^2 + |a_{1,2}|^2 + \cdots + |a_{1,n}|^2,
   \]
 
-  implies that all entries in the first row of the matrix $\mmatrix(T)$, except possibly the first entry $a_{1,1}$, equal $0$.
+  which implies that $a_{1,2} = \cdots = a_{1,n} = 0$. That is, all entries in the first row of the matrix $\mmatrix(T)$, except possibly the diagonal entry $a_{1,1}$, equal $0$.
 
-  Now, \eqref{eq: mmatrix T, e1...en} implies that
-  \[
-  \norm{Te_2}^2 = |a_{2,1}|^2 + |a_{2,2}|^2 = |a_{2,2}|^2 \quad \text{and}
-  \]
+  Because $a_{1,2} = 0$, we have $T e_2 = a_{2,2} e_2$, so $\norm{T e_2}^2 = |a_{2,2}|^2$.
+  On the other hand, the second column of $\mmatrix(T^*)$ comes from the second row of $\mmatrix(T)$, so $T^* e_2 = \overline{a_{1,2}} e_1 + \overline{a_{2,2}} e_2 + \cdots + \overline{a_{2,n}} e_n = \overline{a_{2,2}} e_2 + \cdots + \overline{a_{2,n}} e_n$. Thus,
   \[
   \norm{T^* e_2}^2 = |a_{2,2}|^2 + |a_{2,3}|^2 + \cdots + |a_{2,n}|^2.
   \]
 
   Because $T$ is normal, $\norm{T e_2} = \norm{T^* e_2}$, and therefore
   \begin{equation}
-    |a_{2,2}|^2=|a_{2,2}|^2 + |a_{2,3}|^2 + \cdots + |a_{2,n}|^2.
+    |a_{2,2}|^2 = |a_{2,2}|^2 + |a_{2,3}|^2 + \cdots + |a_{2,n}|^2.
   \end{equation}
 
-  Thus, the equations above imply that all entries in the second row of the matrix in \eqref{eq: mmatrix T, e1...en}, except possibly for the diagonal entry $a_{2,2}$, equal $0$. Continuing in this fashion, we see that all nondiagonal entries in the matrix \eqref{eq: mmatrix T, e1...en} equal $0$. Thus, (b) holds, completing the proof that $(a) \implies (b)$.
+  This implies that $a_{2,3} = \cdots = a_{2,n} = 0$. Continuing in this fashion row by row, we conclude that all nondiagonal entries of $\mmatrix(T)$ equal $0$. Thus, $\mmatrix(T)$ is a diagonal matrix, completing the proof that $(a) \implies (b)$.
 
   \StepTwo Now, suppose (b) holds, so $T$ has a diagonal matrix $\mmatrix(T)$ with respect to some orthonormal basis of $V$. The matrix $T^*$ (with respect to some basis) is obtained by taking the conjugate transpose of the matrix of $T$; hence, $T^*$ also has a diagonal matrix. Any two diagonal matrices commute; thus, $T$ commutes with $T^*$, which means that $T$ is normal. In other words, (a) holds, completing the proof that $(b) \implies (a)$.
 
