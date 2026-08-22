@@ -23,7 +23,7 @@
     \begin{equation}
       \myrange T^*T = (\mynull (T^*T)^*)^\bot = (\mynull T^*T)^\bot = (\mynull T)^\bot = \myrange T^*.
     \end{equation}
-    \item By the Rank-Nullity Theorem, $\dim \myrange T^* = \dim V - \dim \mynull T^* = \dim V - (\dim W - \dim \myrange T) = \dim \myrange T$.
+    \item Because $T^* \in \linmap(W,V)$, the Rank-Nullity Theorem gives $\dim \myrange T^* = \dim W - \dim \mynull T^* = \dim W - (\dim W - \dim \myrange T) = \dim \myrange T$.
     Combined with (c), $\dim \myrange T = \dim \myrange T^* = \dim \myrange T^*T$.
   \end{enumerate}
   \vspace{-\baselineskip}
@@ -106,7 +106,7 @@ The table below compares eigenvalues with singular values.
 
 \mce{74}
 \begin{mydef}[diagonal matrix]
-  An $M$-by-$N$ matrix $A$ is called a \qt{diagonal matrix} if all entries of the matrix are $0$ except possibly $A_{k,k}$ for $k \in \big\{1, \ddd, \operatorname{min} \{M,N\} \big \}$.
+  An $M$-by-$N$ matrix $A$ is called a \qt{diagonal matrix} if all entries of the matrix are $0$ except possibly $A_{k,k}$ for $k \in \big\{1, \ddd, \min \{M,N\} \big \}$.
 \end{mydef}
 
 The table below compares the spectral theorem with the singular value decomposition:

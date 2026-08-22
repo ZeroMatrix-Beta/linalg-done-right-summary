@@ -17,7 +17,7 @@ Let $x, b, c \in \real$ and $b^2 < 4c$. Then
   is an invertible operator.
 \end{thm}
 \begin{prf}
-  Let $v \in V, v \neq 0, T \in \linmap(V)$, and let $b,c \in \real$ \st $b^2 < 4c$. Then:
+  Let $v \in V, v \neq 0$, let $T \in \linmap(V)$ be self-adjoint, and let $b,c \in \real$ \st $b^2 < 4c$. Then:
   \[
   \begin{aligned}
     \ip{(T^2+bT+cI)v}{v}
@@ -30,7 +30,7 @@ Let $x, b, c \in \real$ and $b^2 < 4c$. Then
   \end{aligned}
   \]
 
-  The last inequality implies that $(T^2+bT+cI)v \neq 0$. Since $v \neq 0$, it follows that $T^2+bT+cI$ is injective by \ref{thm: injectivity iff null space equals zero-set}, because only $(T^2+bT+cI)0 = 0$. This also implies that it is invertible by \ref{thm: injectivity is equivalent to surjectivity}.
+  The last inequality implies that $(T^2+bT+cI)v \neq 0$ for every $v \neq 0$, so $\mynull (T^2+bT+cI) = \{0\}$. Hence, $T^2+bT+cI$ is injective by \ref{thm: injectivity iff null space equals zero-set}, and therefore invertible by \ref{thm: injectivity is equivalent to surjectivity}.
 \end{prf}
 
 \mce{27} % page 244
@@ -81,7 +81,7 @@ The previous result along with \ref{thm: eigenvalues are the zeros of the minima
 
   \StepTwo Second, suppose (b) holds, so $T$ has a diagonal matrix $\mmatrix(T)$ with respect to some orthonormal basis of $V$. That diagonal matrix $\mmatrix(T)$ equals its transpose (i.e., $\mmatrix(T)= \mmatrix(T)^t$). Thus, with respect to that basis, $T^*=T$, proving that (b) implies (a).
 
-  \StepThree The equivalence of (b) and (c) follows from the definitions. Suppose (b) has a diagonal matrix whose entries are $\lambda_1, \ddd, \lambda_n$ with an orthonormal basis $e_1, \ddd, e_n$. Hence, $Te_k = \lambda_k e_k$ (for $k = 1, \ddd, n$). Therefore, $e_1, \ddd, e_n$ are the eigenvectors of $T$.
+  \StepThree The equivalence of (b) and (c) follows from the definitions. Suppose $T$ has a diagonal matrix whose entries are $\lambda_1, \ddd, \lambda_n$ with respect to an orthonormal basis $e_1, \ddd, e_n$. Hence, $Te_k = \lambda_k e_k$ (for $k = 1, \ddd, n$). Therefore, $e_1, \ddd, e_n$ is an orthonormal basis of $V$ consisting of eigenvectors of $T$.
 \end{prf}
 
 \subsection{Complex Spectral Theorem}
@@ -97,7 +97,7 @@ The previous result along with \ref{thm: eigenvalues are the zeros of the minima
   \end{enumerate}
 \end{thm}
 \begin{prf}
-  Since $\myF=\compl$, by Schur's theorem, there is an orthonormal basis $e_1, \ddd, e_n$ of $V$ with respect to which $T$ has an upper-triangular matrix. Thus, we can write:
+  Since $\myF=\compl$, by Schur's theorem \ref{thm: schur's theorem}, there is an orthonormal basis $e_1, \ddd, e_n$ of $V$ with respect to which $T$ has an upper-triangular matrix. Thus, we can write:
   \begin{equation}
     \label{eq: mmatrix T, e1...en}
     \mmatrix(T) = \mmatrix (T, (e_1, \ddd, e_n)) =

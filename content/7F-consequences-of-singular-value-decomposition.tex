@@ -60,7 +60,7 @@
   Let $s_1$ be the largest singular value of $T$ with corresponding eigenvector $e_1$ of $T^*T$ ($\norm{e_1} = 1$).
   Then $\norm{Te_1}^2 = \ip{T^*Te_1}{e_1} = s_1^2 \implies \norm{Te_1} = s_1$.
   By \ref{thm: upper bound for ||Tv||}, $\norm{Tv} \leq s_1$ for all $\norm{v} \leq 1$.
-  Thus $\norm{T} = s_1$, which proves (a), (b), and (c).
+  Thus $\norm{T} = s_1$, which proves (a); the maximum is attained at the unit vector $e_1$, which proves (b). For (c), $\norm{Tv} \leq s_1 \norm{v}$ holds for all $v \in V$ by \ref{thm: upper bound for ||Tv||}, and any $c$ with $\norm{Tv} \leq c \norm{v}$ for all $v$ satisfies $c \geq \norm{Te_1} = s_1$; hence $s_1$ is the smallest such $c$.
 \end{prf}
 
 \begin{thm}[norm of the adjoint]
@@ -95,7 +95,7 @@
 \begin{prf}
   For $T_k$, $(T-T_k)v = \sum_{j=k+1}^m s_j \ip{v}{e_j} f_j$, which is an SVD with largest singular value $s_{k+1}$. By \ref{thm: alternative formulas for ||T||}(a), $\norm{T-T_k} = s_{k+1}$.
   Now let $S \in \linmap(V,W)$ with $\dim \myrange S \leq k$. By Rank-Nullity, $\dim \mynull S \geq \dim V - k$.
-  Since $\dim \myspan{e_1, \dots, e_{k+1}} = k+1$, the subspace $\mynull S \cap \myspan{e_1, \dots, e_{k+1}}$ contains a unit vector $v = \sum_{j=1}^{k+1} a_j e_j$ ($\sum |a_j|^2 = 1$).
+  Since $\dim \myspan{e_1, \dots, e_{k+1}} = k+1$ and $\dim \mynull S \geq \dim V - k$, these two subspaces intersect in dimension at least $(\dim V - k) + (k+1) - \dim V = 1$, so $\mynull S \cap \myspan{e_1, \dots, e_{k+1}}$ contains a unit vector $v = \sum_{j=1}^{k+1} a_j e_j$ ($\sum |a_j|^2 = 1$).
   Then $Sv = 0$, so $\norm{(T-S)v}^2 = \norm{Tv}^2 = \sum_{j=1}^{k+1} s_j^2 |a_j|^2 \geq s_{k+1}^2 \sum_{j=1}^{k+1} |a_j|^2 = s_{k+1}^2$.
   Thus $\norm{T-S} \geq s_{k+1}$, which proves the minimum equals $s_{k+1}$.
 \end{prf}

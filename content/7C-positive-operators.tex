@@ -31,12 +31,12 @@
 \begin{prf}
   We will prove $(a) \implies (b) \implies (c) \implies (d) \implies (e) \implies (f) \implies (a)$.
 
-  \StepOne If (a) holds, that means that $T$ is also self-adjoint. Then we have for an eigenvalue $\lambda \in \myF$:
+  \StepOne If (a) holds, that means that $T$ is also self-adjoint. Then we have, for an eigenvalue $\lambda \in \myF$ with corresponding eigenvector $v \neq 0$:
   \[
   0 \leq \ip{Tv}{v} = \ip{\lambda v}{v} = \lambda \ip{v}{v} \implies 0 \leq \lambda.
   \]
 
-  \StepTwo Suppose (b) holds. By the spectral theorem, there is an orthonormal basis $e_1, \ddd, e_n$ of $V$ consisting of eigenvectors of $T$. Let $\lambda_1, \ddd, \lambda_n$ be the eigenvalues of $T$ corresponding to $e_1, \ddd, e_n$. By (a), we know that they are all nonnegative. So, $(b) \implies (c)$.
+  \StepTwo Suppose (b) holds. By the spectral theorem (\ref{thm: real spectral theorem} or \ref{thm: complex spectral theorem}), there is an orthonormal basis $e_1, \ddd, e_n$ of $V$ consisting of eigenvectors of $T$. Let $\lambda_1, \ddd, \lambda_n$ be the eigenvalues of $T$ corresponding to $e_1, \ddd, e_n$. By (b), we know that they are all nonnegative. So, $(b) \implies (c)$.
 
   \StepThree Now, suppose (c) holds. Then there is an orthonormal basis $e_1, \ddd, e_n$ of $V$ such that
   $\mmatrix(T) = \operatorname{diag}(\lambda_1,  \ddd, \lambda_n), \; \lambda_i \geq 0$. The linear map lemma \ref{thm: linear map lemma} implies that $\exists R \in \linmap (V)$:
@@ -68,7 +68,7 @@
 \begin{prf}
   Suppose $T \in \linmap(V)$ is positive, and $R \in \linmap(V)$ is a positive square root of $T$, so $R^2 = T$.
   Let $\lambda_1, \ddd, \lambda_m$ be the distinct eigenvalues of $R$. Because $R$ is positive, $\lambda_j \ge 0$ for each $j \in \{1, \dots, m\}$.
-  By the Spectral Theorem,
+  By the spectral theorem (\ref{thm: real spectral theorem} or \ref{thm: complex spectral theorem}) together with \ref{thm: conditions equivalent to diagonalizability},
   \begin{equation}
     V = E(\lambda_1, R) \oplus \cdots \oplus E(\lambda_m, R).
   \end{equation}

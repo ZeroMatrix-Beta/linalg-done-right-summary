@@ -52,7 +52,7 @@
     a_1e_1 + \cdots + a_m e_m = 0.
   \end{equation}
 
-  This implies that $|a_1|^2 + \cdots + |a_m|^2 = 0$ by \ref{thm: norm of an orthonormal linear combination}, which means that all the $a_k$'s are $0$. This is all that is needed to show.
+  This implies that $|a_1|^2 + \cdots + |a_m|^2 = 0$ by \ref{thm: norm of an orthonormal linear combination}, which means that all the $a_k$'s are $0$, which is what we needed to show.
 \end{prf}
 
 \mce{26}
@@ -94,11 +94,11 @@
       &= |\ip{v}{e_1}|^2 + \cdots + |\ip{v}{e_m}|^2,
     \end{aligned}
   \end{equation}
-  where the last line comes from \ref{thm: norm of an orthonormal linear combination}. If you look at the definition of $u=\ip{v}{e_1}e_1 + \cdots + \ip{v}{e_m} e_m$, the inner products are the coefficients in regards to the orthonormal basis $e_1, \ddd, e_m$.
+  where the last line comes from \ref{thm: norm of an orthonormal linear combination}. If you look at the definition of $u=\ip{v}{e_1}e_1 + \cdots + \ip{v}{e_m} e_m$, the inner products are the coefficients with respect to the orthonormal list $e_1, \ddd, e_m$.
 \end{prf}
 
 \begin{mydef}[orthonormal basis]
-  An \qt{orthonormal} basis of $V$ is an orthonormal list of vectors in $V$ that is also a basis in $V$.
+  An \qt{orthonormal} basis of $V$ is an orthonormal list of vectors in $V$ that is also a basis of $V$.
 \end{mydef}
 
 \begin{thm}[orthonormal lists of the right length are orthonormal bases]
@@ -181,7 +181,7 @@
   Every finite-dimensional inner product space has an orthonormal basis.
 \end{thm}
 \begin{prf}
-  Let $V$ be a finite-dimensional inner product space. By \ref{thm: every finite-dimensional vector space has a basis}, $V$ has a basis $v_1, \ddd, v_n$. Applying the Gram-Schmidt Procedure (\ref{thm: gram-schmidt procedure}) to $v_1, \ddd, v_n$ produces an orthonormal list $e_1, \ddd, e_n$ in $V$ of length $n = \dim V$. By \ref{thm: orthonormal lists are linearly independent}, $e_1, \ddd, e_n$ is an orthonormal basis of $V$.
+  Let $V$ be a finite-dimensional inner product space. By \ref{thm: every finite-dimensional vector space has a basis}, $V$ has a basis $v_1, \ddd, v_n$. Applying the Gram-Schmidt Procedure (\ref{thm: gram-schmidt procedure}) to $v_1, \ddd, v_n$ produces an orthonormal list $e_1, \ddd, e_n$ in $V$ of length $n = \dim V$. By \ref{thm: orthonormal lists are linearly independent} it is linearly independent, so by \ref{thm: linearly independent list of the right length is a basis}, $e_1, \ddd, e_n$ is an orthonormal basis of $V$.
 \end{prf}
 
 \mce{38}

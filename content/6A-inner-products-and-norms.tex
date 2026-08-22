@@ -22,7 +22,7 @@ The dot product on $\real^n$ has the following properties:
   \item $x \cdot y = y \cdot x$.
 \end{itemize}
 
-For $z \in \compl$, we define the norm of $z$ by
+For $z = (z_1, \ldots, z_n) \in \compl^n$, we define the norm of $z$ by
 \begin{equation}
   \begin{aligned}
     \norm{z} :\equiv \sqrt{ |z_1|^2 + \cdots + |z_n|^2} = \sqrt{ z_1 \overline {z_1} + \cdots + z_n \overline {z_n}} \\
@@ -31,7 +31,7 @@ For $z \in \compl$, we define the norm of $z$ by
 \end{equation}
 
 \begin{mydef} [inner product]
-  The \qt{inner product} of $V$ is a function defined as follows:
+  An \qt{inner product} on $V$ is a function that takes each ordered pair $(u,v)$ of elements of $V$ to a number $\ip{u}{v} \in \myF$ and satisfies the following properties:
   \begin{itemize}
     \item \bfemph{Positivity: } $\ip{v}{v} \geq 0 \quad \forall v \in V$;
     \item \bfemph{Definiteness: } $\ip{v}{v} = 0 \iff v=0$;
@@ -42,7 +42,7 @@ For $z \in \compl$, we define the norm of $z$ by
 \end{mydef}
 
 \begin{example}
-  (b) $\ip{w}{z} :\equiv c_1 w_1 \overline{z_1} + \cdots + c_n w_n \overline{z_n}$
+  On $\myF^n$, for fixed positive numbers $c_1, \ldots, c_n$: $\ip{w}{z} :\equiv c_1 w_1 \overline{z_1} + \cdots + c_n w_n \overline{z_n}$
 \end{example}
 
 \begin{mydef}[inner product space]
@@ -71,7 +71,7 @@ For $z \in \compl$, we define the norm of $z$ by
 \end{mydef}
 
 \begin{example}
-  For $f \in C[-1,1]$ and with inner product given as in 6.3(c), we have $\norm{f} = \sqrt { \int_{-1}^{1} f^2}$.
+  For $f \in C[-1,1]$, with the inner product $\ip{f}{g} = \int_{-1}^{1} f g \dx$, we have $\norm{f} = \sqrt { \int_{-1}^{1} f^2 \dx}$.
 
 \end{example}
 
@@ -138,10 +138,10 @@ For $z \in \compl$, we define the norm of $z$ by
   \end{equation}
   Equality holds $\iff$ one of $u,v$ is a scalar multiple of the other ($u=\lambda v$).
 \end{thm}
-\begin{proof}
-  If $v=0$, both sides are $0$. Thus, $v\neq 0$.
+\begin{prf}
+  If $v=0$, both sides are $0$. So assume $v\neq 0$.
 
-  Let $u :\equiv cv+w = \frac{\ip{u}{v}}{\norm{v}^2} v + w$ such that $v\perp w$ (i.e., $\ip{w}{v} = 0$), like above (\ref{thm: an orthogonal decomposition}).
+  Write $u = cv+w = \frac{\ip{u}{v}}{\norm{v}^2} v + w$, where $v\perp w$ (i.e., $\ip{w}{v} = 0$), like above (\ref{thm: an orthogonal decomposition}).
 
   By Pythagoras, we have
 
@@ -168,7 +168,7 @@ For $z \in \compl$, we define the norm of $z$ by
     |\ip{u}{v}| \leq \norm{u} \, \norm{v}.
   \end{equation}
   Equality holds $\iff \norm{w}^2 = 0 \iff w = 0 \iff u = \frac{\ip{u}{v}}{\norm{v}^2} v$, which is the case $\iff u$ is a scalar multiple of $v$.
-\end{proof}
+\end{prf}
 
 \setcounter{thm}{16}
 \begin{thm}[triangle inequality]
@@ -187,8 +187,8 @@ For $z \in \compl$, we define the norm of $z$ by
         &=    \ip{u}{u+v}+\ip{v}{u+v} & \\
         &=    \ip{u}{u}+\ip{u}{v}+\ip{v}{u}+\ip{v}{v} & \\
         &=    \ip{u}{u}+\ip{v}{v}+\ip{u}{v}+\overline{\ip{u}{v}} & \text{conjugate symmetry}\\
-        &=    \norm{u}^2+\norm{v}^2+2\operatorname{Re} \ip{u}{v} & \text{$z+\overline{z} = 2\operatorname{Re} z$}\\
-        &\leq \norm{u}^2+\norm{v}^2+2|\ip{u}{v}| & \text{$z=\realpart z + (\impart z) i$} \\
+        &=    \norm{u}^2+\norm{v}^2+2\realpart \ip{u}{v} & \text{$z+\overline{z} = 2\realpart z$}\\
+        &\leq \norm{u}^2+\norm{v}^2+2|\ip{u}{v}| & \text{$\realpart z \leq |z|$} \\
         &\leq \norm{u}^2+\norm{v}^2+2\norm{u}\norm{v} & \text{Cauchy-Schwarz} \\
         &=    (\norm{u} + \norm{v})^2. &
       \end{aligned}

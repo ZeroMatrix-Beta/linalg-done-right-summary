@@ -56,7 +56,7 @@
 \mce{49}
 \begin{thm}[direct sum of a subspace and its orthogonal complement]
   \label{thm: direct sum of a subspace and its orthogonal complement}
-  Suppose $U$ is a finite dimensional subspace of $V$. Then
+  Suppose $U$ is a finite-dimensional subspace of $V$. Then
   \[
     V = U \oplus U^{\bot} \quad (v \in V \text{ can be uniquely written as } v=u+w, \text{ where } u\in U, w\in U^{\bot}).
   \]
@@ -83,7 +83,7 @@
     \end{aligned}
   \end{equation}
 
-  $\implies w \, \bot \, x$, whenever $x \in \myspan{e_1, \ddd, e_m}$. This is very easy to verify using linearity of the inner product in the second slot. Since we had $\forall k \in \{1, \ddd, m \}: e_k \in U,$
+  $\implies w \, \bot \, x$, whenever $x \in \myspan{e_1, \ddd, e_m}$. This is easy to verify using additivity and conjugate homogeneity of the inner product in the second slot. Since we had $\forall k \in \{1, \ddd, m \}: e_k \in U,$
   \[
     \implies w \in U^{\bot}.
   \]
@@ -99,7 +99,7 @@
   \]
 \end{thm}
 \begin{prf}
-  Because $V$ is a subspace of itself, this follows immediately from \ref{thm: direct sum of a subspace and its orthogonal complement} and \ref{thm: a sum is a direct sum if and only if the dimensions add up}.
+  This follows immediately from \ref{thm: direct sum of a subspace and its orthogonal complement}, which gives $V = U \oplus U^\bot$, together with \ref{thm: a sum is a direct sum if and only if the dimensions add up}.
 \end{prf}
 
 \begin{thm}[orthogonal complement of the orthogonal complement]
@@ -143,9 +143,9 @@
   \end{equation}
 \end{thm}
 \begin{prf}
-  \qt{$\Rightarrow$-direction:} $U^\bot=\{0\}.$ Then by first using \ref{thm: orthogonal complement of the orthogonal complement} and then using \ref{thm: properties of the orthogonal complement}(c), $U = (U^\bot)^\bot = \{0\}^\bot = V$.
+  \Rightarrowdirection Suppose $U^\bot=\{0\}.$ Then by first using \ref{thm: orthogonal complement of the orthogonal complement} and then using \ref{thm: properties of the orthogonal complement}(b), $U = (U^\bot)^\bot = \{0\}^\bot = V$.
 
-  \qt{$\Leftarrow$-direction:} Only using \ref{thm: properties of the orthogonal complement}(c): if $U=V$, then $U^\bot = V^\bot = \{0\}$.
+  \Leftarrowdirection Only using \ref{thm: properties of the orthogonal complement}(c): if $U=V$, then $U^\bot = V^\bot = \{0\}$.
 \end{prf}
 
 \begin{mydef}[orthogonal projection, $P_U$]
@@ -198,7 +198,7 @@
     \item By definition of $P_U$, $v = P_U v + w$ for some $w \in U^\bot$, so $v - P_U v = w \in U^\bot$.
     \item For any $v \in V$, $P_U v \in U$. By (b), $P_U(P_U v) = P_U v$, so $P_U^2 = P_U$.
     \item Since $v = P_U v + (v - P_U v)$ with $P_U v \perp (v - P_U v)$, by Pythagoras $\norm{v}^2 = \norm{P_U v}^2 + \norm{v - P_U v}^2 \geq \norm{P_U v}^2$.
-    \item Let $u = \sum_{j=1}^m \ip{v}{e_j} e_j$. In \ref{thm: Bessel's inequality}, we showed that $u \in U$ and $v - u \in U^\bot$. By definition of $P_U$, $P_U v = u$.
+    \item Let $u = \sum_{j=1}^m \ip{v}{e_j} e_j$. In the proof of \ref{thm: direct sum of a subspace and its orthogonal complement}, we showed that $u \in U$ and $v - u \in U^\bot$. By definition of $P_U$, $P_U v = u$.
   \end{enumerate}
   \vspace{-\baselineskip}
 \end{prf}
@@ -217,7 +217,7 @@ Given a subspace $U\subseteq V$ and $v\in V$, find a $u \in U$ \st $\norm{v-u}$ 
 \begin{prf}
   For this proof, visualize that $v-P_Uv$ is pointing from $P_Uv$ to $v$ and $P_U v -u$ is pointing from $u$ to the projection of $v$, namely $P_U v$, which lies on the vector space $U$.
 
-  We also have the properties that $v-P_Uv \in U^\bot$ and $P_U v - u \in U$. Therefore, we can use the Pythagorean theorem \ref{thm: pythagorean theorem} after adding an always-positive term to the left-hand side of the inequality:
+  We also have the properties that $v-P_Uv \in U^\bot$ and $P_U v - u \in U$. Therefore, we can use the Pythagorean theorem \ref{thm: pythagorean theorem} after adding a nonnegative term to the left-hand side of the inequality:
   \[
   \begin{aligned}
     \norm{v-P_Uv}^2
@@ -236,7 +236,7 @@ If $T\in \linmap(V,W)$ is not invertible, instead of solving the equation $Tv = 
 
 \begin{thm}[restriction of a linear map to obtain a one-to-one and onto map]
   \label{thm: restriction of a linear map to obtain a one-to-one and onto map}
-  Suppose $\dim V \neq 0$ and $T\in \linmap (V,W)$. Then $\left . T \right | _{(\mynull T)^\bot}$ is an injective map of $(\mynull T)^\bot$ onto $\myrange T$.
+  Suppose $\dim V \neq \infty$ and $T\in \linmap (V,W)$. Then $\left . T \right | _{(\mynull T)^\bot}$ is an injective map of $(\mynull T)^\bot$ onto $\myrange T$.
 \end{thm}
 \begin{prf}
   We will first prove injectivity and then surjectivity.
@@ -248,7 +248,7 @@ If $T\in \linmap(V,W)$ is not invertible, instead of solving the equation $Tv = 
 
   which by \ref{thm: injectivity iff null space equals zero-set} implies that $\left. T \right|_{(\mynull T)^\bot}$ is injective.
 
-  To prove that $\myrange \left.T \right | _{(\mynull T)^\bot}$ is onto $\myrange T$, we will show that $\myrange \left. T \right | _{(\mynull T)^\bot} \subseteq \myrange T$ and then $\myrange T \subseteq \myrange \left. T \right | _{(\mynull T)^\bot}$. Because this will imply that $\myrange T = \myrange \left. T \right |_{(\mynull T)^\bot}$ and therefore surjectivity.
+  To prove that $\left.T \right | _{(\mynull T)^\bot}$ maps onto $\myrange T$, we will show that $\myrange \left. T \right | _{(\mynull T)^\bot} \subseteq \myrange T$ and then $\myrange T \subseteq \myrange \left. T \right | _{(\mynull T)^\bot}$, because together these give $\myrange T = \myrange \left. T \right |_{(\mynull T)^\bot}$ and therefore surjectivity.
 
   \prooffont{Proof of $\myrange \left. T \right | _{(\mynull T)^\bot} \subseteq \myrange T$:}
   The fact that $\myrange \left. T \right | _{(\mynull T)^\bot} \subseteq \myrange T$ is actually obvious, because $\myrange \left. T \right | _{(\mynull T)^\bot}$ is just $T$ on a restricted domain $(\mynull T)^\bot$.
