@@ -1,7 +1,7 @@
 
 $\mathbb{F}$ denotes $\mathbb{R}$ or $\mathbb{C}$.
 
-\section{Zeros of polynomials}
+\section{Zeros of Polynomials}
 $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_m z^m$ $\forall z \in \myF$.
 
 \setcounter{thm}{4}
@@ -12,9 +12,9 @@ $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_m z^m$ $\forall
 \setcounter{thm}{5}
 \begin{thm}[each zero of a polynomial corresponds to a degree\-/one factor]
   \label{factororing-out-zeros-of-a-polynomial-always-possible}
-  $\forall p \in \mathcal{P}_m(\mathbb{F}): \; \exists \lambda \in \mathbb{F}$ \st
+  $\forall p \in \mathcal{P}_m(\mathbb{F})$ and $\forall \lambda \in \mathbb{F}$:
   \begin{equation}
-  	p(\lambda) = 0 \iff \exists q \in \mathcal{P}_{m-1}: p(z) = (z-\lambda)q(z), \quad \forall z \in \myF.
+  	p(\lambda) = 0 \iff \exists q \in \mathcal{P}_{m-1}(\myF): p(z) = (z-\lambda)q(z), \quad \forall z \in \myF.
   \end{equation}
 \end{thm}
 \begin{prf} Let $p\in \polyn_m(\myF)$ for $m\in \nat$.
@@ -35,7 +35,7 @@ $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_m z^m$ $\forall
     p(z) = p(z)- p(\lambda) = a_1 (z-\lambda) + a_2 (z^2 - \lambda^2) + \cdots+ a_m (z^m- \lambda^m) \quad \forall z \in \myF.
   \end{equation}
 
-  Using the binomic formula
+  Using the factorization
   $z^k - \lambda^k = (z-\lambda) \sum_{j=1}^{k} \lambda^{j-1}z^{k-j} \quad \forall k\in \setonetillm$, we get
   \begin{equation}
     p(z) = (z-\lambda)
@@ -75,10 +75,10 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
 \section{Division Algorithm for Polynomials}
 
 \setcounter{thm}{8}
-\begin{thm}
+\begin{thm}[division algorithm for polynomials]
   \label{division-algorithm-for-polynomials}
   Suppose $p,s \in \mathcal{P} (\mathbb{F}), \, s\neq 0$.
-  Then $\exists q,r \in \mathcal{P} (\mathbb{F})$ \st
+  Then there exist unique $q,r \in \mathcal{P} (\mathbb{F})$ \st
   \begin{equation}
     p=sq+r \myand \deg r < \deg s.
   \end{equation}
@@ -102,7 +102,7 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
           p&=a_0 + a_1z + a_2z^2 + \cdots + a_{m-1} z^{m-1}
           + b_0 s + b_1 zs + b_2 z^2 s + \cdots + b_{n-m}z^{n-m}s \\
            &=\underbrace{\left(a_0 + a_1z + a_2z^2 + \cdots + a_{m-1} z^{m-1} \right)}_{r} + \underbrace{\Big(s\Big)}_{s} \underbrace{\left( b_0 + b_1 z + b_2 z^2 + \cdots + b_{n-m} z^{n-m} \right)}_{q} \\
-           &=r+sq=sq+r, \mytext{with} \deg r = m-1 \leq \deg s = m,
+           &=r+sq=sq+r, \mytext{with} \deg r \leq m-1 < m = \deg s,
     \end{aligned}
   \end{equation}
   as desired.
@@ -116,7 +116,7 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
   Every non\-/constant polynomial with complex coefficients has a zero in $\mathbb{C}$.
 \end{thm}
 
-\begin{thm} [{\slshape \scshape Fundamental Theorem of Algebra}, second version:]
+\begin{thm} [{\slshape \scshape Fundamental Theorem of Algebra}, second version]
   \label{fundamental-theorem-of-algebra-second-version}
   If $p \in \polyn(\mathbb{C})$ is a nonconstant polynomial (i.e., $\deg p \geq 1$), then $p$ has a unique factorization
   \begin{equation}
@@ -127,7 +127,7 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
 \begin{prf}
   Let $p \in \polyn(\compl)$ and put $m := \deg p$. If $m = 1$, then
   \[
-    p = a_0 + a_1 z = a_1 \cdot \left(z-\tfrac{a_0}{a_1} \right),
+    p = a_0 + a_1 z = a_1 \cdot \left(z-\left(-\tfrac{a_0}{a_1}\right) \right),
   \]
 
   so the desired factorization exists and is unique.
@@ -219,7 +219,7 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
     \end{aligned}
   \end{equation}
 
-  Therefore, if $b^2<4c$, the first and the second term are always positive and by \ref{factororing-out-zeros-of-a-polynomial-always-possible}, no factoriza\-tion is possible, because $p$ has no zeros.
+  Therefore, if $b^2<4c$, the first term is nonnegative and the second term is strictly positive, so their sum is always positive; hence by \ref{factororing-out-zeros-of-a-polynomial-always-possible}, no factoriza\-tion is possible, because $p$ has no zeros.
   If $b^2 \geq 4c$, set $d^2 := \left({b^2} / {4}-c\right)$ and rewrite $p$ as
   \begin{equation}
 	  \begin{aligned}
@@ -232,7 +232,7 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
   \end{equation}
 
   for $\lambda_1 := -d-{b}/{2}$ and $\lambda_2 := d-{b}/{2}$,
-  which is the same as the well-known midnight formula:
+  which is the same as the well-known quadratic formula:
   \begin{equation}
     \lambda_{1,2} = \frac{-b \pm \sqrt{b^2-4c}}{2}.
   \end{equation}
@@ -285,7 +285,7 @@ In the next result, either $m$ or $M$ may equal $0$. The numbers $\lambda_1, \dd
     0 = \impart q(x) = (\impart a_0) + (\impart a_1)x + \cdots + (\impart a_{n-2})x^{n-2}.
   \]
 
-  Since according to \ref{thm: a polynomial of degree m has at most m zeros} a complex polynomial with degree $n-2$ can have at most $n-2$ zeros, this equation cannot hold for all $x \in \real$. This implies that $\impart a_0, \ddd, \impart a_{n-2}$ all equal $0$, because only the zero polynomial is allowed to have infinitely many zeros. Thus, all the coefficients of $q$ are real, as desired. Hence, the wanted factorization exists by induction.
+  The right-hand side above is a polynomial of degree at most $n-2$ that vanishes at every $x \in \real$, so it has infinitely many zeros. By \ref{thm: a polynomial of degree m has at most m zeros}, a polynomial of degree at most $n-2$ that is not the zero polynomial has at most $n-2$ zeros. Hence, it must be the zero polynomial, which means that $\impart a_0, \ddd, \impart a_{n-2}$ all equal $0$. Thus, all the coefficients of $q$ are real, as desired. Hence, the wanted factorization exists by induction.
 
   \prooffont{Uniqueness:} A factor of $p$ of the form $x^2 + b_kx + c_k$ with $b_k^2 < 4c_k$ can be uniquely written as $(x-\lambda_k)(x-\overline{\lambda_k})$ with $\lambda_k \in \compl$. Two different factorizations of $p$ as an element of $\polyn(\real)$ would lead to two different factorizations of $p$ as an element of $\polyn(\compl)$, contradicting the second version of the fundamental theorem of algebra \ref{fundamental-theorem-of-algebra-second-version}.
 \end{prf}

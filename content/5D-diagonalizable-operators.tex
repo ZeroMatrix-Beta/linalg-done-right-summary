@@ -54,7 +54,7 @@
 \setcounter{thm}{54}
 \begin{thm} [conditions equivalent to diagonalizability]
   \label{thm: conditions equivalent to diagonalizability}
-  Let $\lambda_1, \dots,\lambda_m$ denote the distinct (i.e., $\lambda_j \neq \lambda_k$) eigenvalues of $T\in \linmap (V)$. Then the following are equivalent:
+  Suppose $V$ is finite-dimensional and let $\lambda_1, \dots,\lambda_m$ denote the distinct (i.e., $\lambda_j \neq \lambda_k$ for $j \neq k$) eigenvalues of $T\in \linmap (V)$. Then the following are equivalent:
   \begin{enumerate}[label=\textbf{(\alph*)}]
     \item $T$ is diagonalizable.
     \item $V$ has a basis consisting of eigenvectors of $T$.
@@ -68,13 +68,13 @@
   \begin{equation}
     \mmatrix(T) =
     \left( {\begin{array}{ccc}
-        \lambda_1 &         & 0 \\
+        \alpha_1 &         & 0 \\
         &  \ddots &    \\
-        0      &         & \lambda_m
+        0      &         & \alpha_n
     \end{array} } \right)
   \end{equation}
 
-  with respect to a basis $v_1, \ddd, v_m$. This is the case $\iff Tv_k = \lambda_k v_k$ for $k = 1, \ddd, m$. Thus, (a) and (b) are equivalent, i.e., (a) $\iff$ (b).
+  with respect to a basis $v_1, \ddd, v_n$ of $V$, where $n = \dim V$ and the diagonal entries $\alpha_1, \ddd, \alpha_n$ are eigenvalues of $T$, listed with repetitions. This is the case $\iff Tv_k = \alpha_k v_k$ for $k = 1, \ddd, n$, that is, $\iff$ each $v_k$ is an eigenvector of $T$. Thus, (a) and (b) are equivalent, i.e., (a) $\iff$ (b).
 
   \StepTwo Now, suppose (b) holds; thus, $V$ has a basis consisting of eigenvectors of $T$. Hence, every vector in $V$ is a linear combination of such basis, which implies
   \begin{equation}
@@ -83,14 +83,14 @@
 
   By \ref{thm: sum of eigenspaces is a direct sum}, the distinctness of all $\lambda_j$'s implies that this is a direct sum $\left(\text{i.e., } V=\bigoplus_{j=1}^{m}  E(\lambda_j, T) \right)$. This proves that (b) $\implies$ (c).
 
-  \StepThree (c) $\implies$ (d) follows immediately from \ref{thm: a sum is a direct sum if and only if the dimensions add up}, which states that the dimensions of a direct sum add up $\left(\text{i.e., } \dim \left(\bigoplus_{j=1}^m E(\lambda_j, T)\right) = \sum_{j=1}^{m} \dim V_j \right)$.
+  \StepThree (c) $\implies$ (d) follows immediately from \ref{thm: a sum is a direct sum if and only if the dimensions add up}, which states that the dimensions of a direct sum add up $\left(\text{i.e., } \dim \left(\bigoplus_{j=1}^m E(\lambda_j, T)\right) = \sum_{j=1}^{m} \dim E(\lambda_j, T) \right)$.
 
   \StepFour Finally, suppose (d) holds; thus,
   \begin{equation}
     \dim V = \dim E(\lambda_1, T) + \cdots + \dim E(\lambda_m, T).
   \end{equation}
 
-  Choose a basis of each $E(\lambda_m, T)$; put all these together to form a list
+  Choose a basis of each $E(\lambda_k, T)$; put all these together to form a list
   \begin{equation}
     \label{eq: list of vectors v}
     v_1, \ddd, v_n
@@ -106,7 +106,7 @@
     u_k := \hspace{-1.5em} \sum_{\substack{v_j \in E(\lambda_k, T), \text{ such that} \\ \text{$v_j$ is a basis vector of $E(\lambda_k, T)$}}} \hspace{-1.5em} (a_j v_j)
   \end{equation}
 
-  denote the $k$-th sum of the terms $a_jv_j$, where the $v_j$'s belong to the basis of $E(\lambda_k, T)$. This means that $u_k \in E(\lambda_k, T)$ is an eigenvector with eigenvalue $\lambda_k$.
+  denote the $k$-th sum of the terms $a_jv_j$, where the $v_j$'s belong to the basis of $E(\lambda_k, T)$. This means that $u_k \in E(\lambda_k, T)$.
   Therefore, for every $k = 1, \ddd, m$, we have
   \begin{equation}
     u_k \in E(\lambda_k, T)
@@ -132,7 +132,7 @@
   If $T\in \linmap(V)$ has $\dim V$ distinct eigenvalues, then $T$ is diagonalizable.
 \end{thm}
 \begin{prf}
-  Let $\lambda_1, \ldots, \lambda_{\dim V}$ be the eigenvalues of the eigenvectors $v_1, \ldots, v_{\dim V}$, which are linearly independent by \autoref{thm: linearly independent eigenvectors}. So, we have a basis consisting of $\dim V$ eigenvectors. Hence, $T$ is diagonalizable by \ref{thm: conditions equivalent to diagonalizability}.
+  Let $v_1, \ldots, v_{\dim V}$ be eigenvectors corresponding to the $\dim V$ distinct eigenvalues $\lambda_1, \ldots, \lambda_{\dim V}$; they are linearly independent by \ref{thm: linearly independent eigenvectors}. So, we have a basis consisting of $\dim V$ eigenvectors. Hence, $T$ is diagonalizable by \ref{thm: conditions equivalent to diagonalizability}.
 \end{prf}
 
 \setcounter{thm}{61}
@@ -144,9 +144,9 @@
     (z-\lambda_1) \cdots (z-\lambda_m),
   \end{equation}
 
-  where $\lambda_1, \dots, \lambda_m \in \myF \myand \lambda_i \neq  \lambda_j $ for $ i,j \in \{1, \ddd, m \}$.
+  where $\lambda_1, \dots, \lambda_m \in \myF \myand \lambda_i \neq  \lambda_j $ for $ i \neq j$.
 \end{thm}
-\begin{prf} For this proof, let $T\in \linmap (V)$ be finite-dimensional ($\dim V \neq \infty$).
+\begin{prf} For this proof, let $T\in \linmap (V)$, where $V$ is finite-dimensional ($\dim V \neq \infty$).
 
   \Rightarrowdirection Suppose $T$ is diagonalizable. Thus, there exists a basis $v_1, \ddd, v_n$ of $V$ consisting of eigenvectors of $T$. Let $\lambda_1, \ddd, \lambda_m$ be the distinct eigenvalues of $T$. Therefore, each $v_j$ is an eigenvector corresponding to some $\lambda_k$, so $(T-\lambda_k I)v_j = 0.$
   Thus,
@@ -154,7 +154,7 @@
     (T-\lambda_1 I) \cdots (T-\lambda_m I)v_j =0,
   \end{equation}
 
-  which implies the minimal polynomial equals $(z-\lambda_1)\cdots(z-\lambda_m).$ (Why?)
+  which shows that $(T-\lambda_1 I) \cdots (T-\lambda_m I)$ is $0$ on a basis of $V$, and hence is the zero operator. So $(z-\lambda_1)\cdots(z-\lambda_m)$ is a polynomial multiple of the minimal polynomial of $T$ by \ref{thm: every zero polynomial is a multiple of the minimal polynomial}. Conversely, each $\lambda_k$ is an eigenvalue of $T$ and is therefore a zero of the minimal polynomial by \ref{thm: eigenvalues are the zeros of the minimal polynomial}, so each factor $(z-\lambda_k)$ divides it. Because the $\lambda_k$ are distinct, the minimal polynomial equals $(z-\lambda_1)\cdots(z-\lambda_m)$.
 
   \Leftarrowdirection Suppose the minimal polynomial of $T$ is $(z-\lambda_1) \cdots (z-\lambda_m)$ for distinct scalars $\lambda_1, \ddd, \lambda_m \in \myF$.
   Write
@@ -186,7 +186,7 @@
   \end{align}
 
   Since $u \in U$ was arbitrary, $q(z) := (z-\lambda_1)\cdots (z-\lambda_{m-1})$ is a polynomial \st $q(T)(u)=0$ for every $u \in U$. By \ref{thm: every zero polynomial is a multiple of the minimal polynomial}, $q(z)$ is a polynomial multiple of the minimal polynomial of $\left . T \right |_{U}$.
-  By our induction hypothesis, there is a basis of $U$ consisting of eigenvectors of $\left . T \right |_U$ and therefore, as well as eigenvectors of $T$.
+  By our induction hypothesis, there is a basis of $U$ consisting of eigenvectors of $\left . T \right |_U$, which are therefore also eigenvectors of $T$.
   Suppose
   \begin{equation}
     x\in U \cap \mynull (T-\lambda_m I) = U \cap E(\lambda_m, T).
@@ -246,7 +246,7 @@
   \end{equation}
 
   By \ref{thm: minimal polynomial of a restriction operator}, the minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of $\left.T\right|_U$.
-  Hence, the minimal polynomial of $\left.T\right|_U$ has the form required by \ref{thm: necessary and sufficient condition for diagonalizability}, which shows that $\left.T\right|_U$ is diagonalizable. It consists of any factor of the form $(z-\lambda_k)$.
+  Hence, the minimal polynomial of $\left.T\right|_U$ has the form required by \ref{thm: necessary and sufficient condition for diagonalizability}, which shows that $\left.T\right|_U$ is diagonalizable: its factors are among $(z-\lambda_1), \ddd, (z-\lambda_m)$, and they are distinct.
 \end{prf}
 
 % 5.66

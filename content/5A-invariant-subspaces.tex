@@ -7,7 +7,7 @@
   A \lm from a \vs to itself is called an \qt{operator}.
 \end{mydef}
 
-(Suppose $T\in \linmap(V)$, then may be $\left.T\right|_{V_{k}}$ is not an operator on a subspace $V_k$)
+(Suppose $T\in \linmap(V)$; then $\left.T\right|_{V_{k}}$ may not be an operator on a subspace $V_k$.)
 
 % 5.2
 \begin{mydef} [invariant subspace]
@@ -21,8 +21,8 @@
 \end{example}
 
 \begin{example}
-  Let $T\in \linmap(V)$. Then $\{0\}, V, \operatorname{null} T, \operatorname{range} T$ are all invariant. \\
-  (Sometimes, $\operatorname{null} T = \{0\}$ and $\operatorname{range} T=V$ if $T$ is invertible.)
+  Let $T\in \linmap(V)$. Then $\{0\}, V, \mynull T, \myrange T$ are all invariant. \\
+  (If $T$ is invertible, then $\mynull T = \{0\}$ and $\myrange T=V$.)
 \end{example}
 
 \bfemph{Invariant subspaces of dimension one: }
@@ -48,7 +48,7 @@ Conversely, if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-
 \setcounter{thm}{6}
 \begin{thm} [equivalent conditions to be an eigenvalue]
   \label{thm: equivalent conditions to be an eigenvalue}
-  The following are equivalent for $T \in \linmap(V)$ and $\lambda \in \myF$:
+  Suppose $V$ is finite-dimensional. Then the following are equivalent for $T \in \linmap(V)$ and $\lambda \in \myF$:
   \begin{enumerate}[label=\textbf{(\alph*)}]
     \item $\lambda$ is an eigenvalue of $T$. \label{first}
     \item $T-\lambda I$ is not injective. \label{second}
@@ -66,7 +66,7 @@ Conversely, if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-
 \begin{mydef} [eigenvector]
   Let $T\in \linmap(V)$. A vector $v \in V$ is called an \qt{eigenvector} of $T$ corresponding to $\lambda$ if $v\neq 0$ and $Tv = \lambda v$.
   In other words:
-  A vector $v\in V, v \neq 0$ is an eigenvector corresponding to $\lambda \iff v \in \operatorname{null}(T-\lambda I_V)$.
+  A vector $v\in V, v \neq 0$ is an eigenvector corresponding to $\lambda \iff v \in \mynull(T-\lambda I_V)$.
 \end{mydef}
 
 % 5.12
@@ -98,10 +98,10 @@ Conversely, if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-
     a_1 \underbrace{(\lambda_1 - \lambda_m)}_{\neq 0} v_1 + \cdots + a_{m-1} \underbrace{(\lambda_{m-1}-\lambda_{m})}_{\neq 0} v_{m-1}=0,
   \end{equation}
 
-  which contradicts the minimality of $m$. Therefore, no such linearly dependent list of eigenvectors can exist.
+  By the minimality of $m$, the shorter list $v_1, \ddd, v_{m-1}$ is linearly independent, so the equation above forces $a_k(\lambda_k - \lambda_m) = 0$ for each $k \in \{1, \ddd, m-1\}$. Because the eigenvalues are distinct, $\lambda_k - \lambda_m \neq 0$, and hence $a_1 = \cdots = a_{m-1} = 0$. The original equation then reduces to $a_m v_m = 0$, and since $v_m \neq 0$ we also get $a_m = 0$. This contradicts the choice of the $a$'s as not all zero. Therefore, no such linearly dependent list of eigenvectors can exist.
 \end{prf}
 
-\begin{thm}[number of eigenvectors]
+\begin{thm}[number of eigenvalues]
   \label{thm: operator cannot have more eigenvalues than dimension of vector space}
   Each operator $T \in \linmap(V)$ on $V$ has at most $\dim V$ distinct eigenvalues.
 \end{thm}
@@ -123,7 +123,7 @@ Conversely, if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-
     \item If $T$ is invertible with inverse $T^{-1}$, then $T^{-m}\in \linmap(V)$ is defined by $T^{-m} :\equiv (T^{-1})^m$.
   \end{itemize}
 \end{mydef}
-$T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ for $m,n \in \mathbb{Z}$ if $T$ is invertible. And for $m,n \in \mathbb{N}$ if $T$ is not invertible.
+$T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ hold for $m,n \in \mathbb{Z}$ if $T$ is invertible, and for $m,n \in \mathbb{N}$ if $T$ is not invertible.
 
 \begin{mydef} [notation $p(T)$]
   For $\mathcal{P} (\myF) \ni p(z) = a_0+a_1z+a_2z^2+\cdots+a_mz^m$
@@ -165,7 +165,7 @@ $T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ for $m,n \in \mathbb{Z}$ if $T$ is inve
   \end{equation}
 \end{thm}
 \begin{prf}
-  \StepOne First, let $u \in \operatorname{null} p(T)$. Then,
+  \StepOne First, let $u \in \mynull p(T)$. Then,
   \begin{equation}
     p(T)u = 0.
   \end{equation}
