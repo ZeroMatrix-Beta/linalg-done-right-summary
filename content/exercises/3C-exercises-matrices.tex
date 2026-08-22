@@ -1,3 +1,44 @@
 \section*{Exercises about Matrices}
 
 \exercise{1}
+\begin{xrcs}
+  Suppose $V$ and $W$ are finite-dimensional and $T \in \linmap(V,W)$. Prove that with respect to any bases of $V$ and $W$,
+  \begin{equation}
+    \dim \myrange T = \text{column rank of } \mmatrix(T).
+  \end{equation}
+
+  \begin{xprf}
+    Let $v_1, \dots, v_n$ be a basis of $V$ and $w_1, \dots, w_m$ be a basis of $W$.
+    Since $v_1, \dots, v_n$ spans $V$, we have $\myrange T = \myspan{Tv_1, \dots, Tv_n}$.
+    Define the coordinate isomorphism $\Phi : W \to \myF^{m,1}$ with respect to the basis $w_1, \dots, w_m$ by
+    \begin{equation}
+      \Phi\left(\sum_{j=1}^m c_j w_j\right) := (c_1, \dots, c_m)^\top.
+    \end{equation}
+    For each $k \in \{1, \dots, n\}$, by definition of the matrix $\mmatrix(T)$, $\Phi(Tv_k) = \mmatrix(T)_{\mathsmaller{\bullet}, k}$ (the $k$-th column of $\mmatrix(T)$).
+    Since $\Phi$ is an isomorphism, it preserves dimensions of subspaces:
+    \begin{equation}
+      \dim \myrange T = \dim \myspan{Tv_1, \dots, Tv_n} = \dim \myspan{\mmatrix(T)_{\mathsmaller{\bullet}, 1}, \dots, \mmatrix(T)_{\mathsmaller{\bullet}, n}} = \text{column rank of } \mmatrix(T).
+    \end{equation}
+  \end{xprf}
+\end{xrcs}
+
+\exercise{2}
+\begin{xrcs}
+  Suppose $A \in \myF^{m,n}$ and $C \in \myF^{n,p}$. Prove that
+  \begin{equation}
+    \operatorname{rank}(AC) \leq \min\{\operatorname{rank} A, \operatorname{rank} C\}.
+  \end{equation}
+
+  \begin{xprf}
+    By column-wise matrix multiplication, each column of $AC$ is a linear combination of the columns of $A$. Therefore, the span of the columns of $AC$ is contained in the span of the columns of $A$, which implies
+    \begin{equation}
+      \operatorname{rank}(AC) \leq \operatorname{rank} A.
+    \end{equation}
+    Similarly, by row-wise matrix multiplication, each row of $AC$ is a linear combination of the rows of $C$. Therefore, the span of the rows of $AC$ is contained in the span of the rows of $C$, which implies
+    \begin{equation}
+      \text{row rank of } (AC) \leq \text{row rank of } C.
+    \end{equation}
+    Since the row rank of any matrix equals its column rank (Theorem \ref{thm: column rank equals row rank}), this gives $\operatorname{rank}(AC) \leq \operatorname{rank} C$.
+    Combining both inequalities yields $\operatorname{rank}(AC) \leq \min\{\operatorname{rank} A, \operatorname{rank} C\}$.
+  \end{xprf}
+\end{xrcs}

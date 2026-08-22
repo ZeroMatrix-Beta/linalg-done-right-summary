@@ -140,11 +140,23 @@
 % 3.125
 \setcounter{thm}{124}
 \begin{thm} [dimension of the annihilator]
-    If $U\subseteq V$ and $\dim V < \infty$, then
-    \begin{equation}
-      \dim U^0 = \dim V - \dim U.
-    \end{equation}
+  \label{thm: dimension of the annihilator}
+  If $U\subseteq V$ and $\dim V < \infty$, then
+  \begin{equation}
+    \dim U^0 = \dim V - \dim U.
+  \end{equation}
 \end{thm}
+\begin{prf}
+  Let $i \in \linmap(U, V)$ be the inclusion map defined by $i(u) = u$ for all $u \in U$.
+  Define the dual map $i' \in \linmap(\dual{V}, \dual{U})$ by $i'(\varphi) = \varphi \circ i = \left.\varphi\right|_U$.
+  Then $\mynull i' = \{\varphi \in \dual{V} \mid \left.\varphi\right|_U = 0\} = U^0$.
+  Furthermore, by extending a basis of $U$ to a basis of $V$, every linear functional on $U$ extends to a linear functional on $V$, so $i'$ is surjective ($\myrange i' = \dual{U}$).
+  By the Rank-Nullity Theorem (\ref{rank-nullity-theorem}) applied to $i'$:
+  \begin{equation}
+    \dim \dual{V} = \dim \mynull i' + \dim \myrange i' \implies \dim V = \dim U^0 + \dim U.
+  \end{equation}
+  Thus, $\dim U^0 = \dim V - \dim U$.
+\end{prf}
 
 % 3.127
 \setcounter{thm}{126}
@@ -155,53 +167,105 @@
     \item $U^0 = \dual{V} \iff U = \{0\}$
    \end{enumerate}
 \end{thm}
+\begin{prf}
+  Follows directly from \ref{thm: dimension of the annihilator}:
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item $U^0 = \{0\} \iff \dim U^0 = 0 \iff \dim V - \dim U = 0 \iff \dim U = \dim V \iff U = V$.
+    \item $U^0 = \dual{V} \iff \dim U^0 = \dim V \iff \dim V - \dim U = \dim V \iff \dim U = 0 \iff U = \{0\}$.
+  \end{enumerate}
+  \vspace{-\baselineskip}
+\end{prf}
 
 % 3.128
 \begin{thm}[the null space of $\dual{T}$]
+  \label{thm: the null space of dual T}
   If $\dim V < \infty$, $\dim W<\infty$, and $T \in \linmap (V,W)$, then:
   \begin{enumerate}[label=\textbf{(\alph*)}]
     \item $\mynull \dual{T} = (\myrange T)^0$
     \item $\dim \mynull \dual{T} = \dim \mynull T + \dim W - \dim V$
   \end{enumerate}
 \end{thm}
+\begin{prf}
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item Let $\varphi \in \dual{W}$. Then $\varphi \in \mynull \dual{T} \iff \dual{T}(\varphi) = 0 \iff \varphi \circ T = 0 \iff \varphi(Tv) = 0 \quad \forall v \in V \iff \varphi \in (\myrange T)^0$.
+    \item Using part (a) and \ref{thm: dimension of the annihilator}:
+    \begin{equation}
+      \dim \mynull \dual{T} = \dim (\myrange T)^0 = \dim W - \dim \myrange T.
+    \end{equation}
+    Substituting $\dim \myrange T = \dim V - \dim \mynull T$ (by Rank-Nullity) gives $\dim \mynull \dual{T} = \dim \mynull T + \dim W - \dim V$.
+  \end{enumerate}
+  \vspace{-\baselineskip}
+\end{prf}
 
 % 3.129
-\begin{thm}[$T$ surjective, $\dual{T}$ injective]
-    If $\dim V < \infty$, $\dim W<\infty$, and $T \in \linmap (V,W)$, then:
+\begin{thm}[$T$ surjective $\iff \dual{T}$ injective]
+  \label{thm: T surjective iff dual T injective}
+  If $\dim V < \infty$, $\dim W<\infty$, and $T \in \linmap (V,W)$, then:
   \begin{equation}
     T \text{ is surjective} \iff \dual{T} \text{ is injective.}
   \end{equation}
 \end{thm}
+\begin{prf}
+  $T$ is surjective $\iff \myrange T = W \iff (\myrange T)^0 = \{0\} \iff \mynull \dual{T} = \{0\}$ (by \ref{thm: the null space of dual T}(a)) $\iff \dual{T}$ is injective.
+\end{prf}
 
 % 3.130
 \begin{thm}[the range of $\dual{T}$]
-    If $\dim V < \infty$, $\dim W<\infty$, and $T \in \linmap (V,W)$, then:
-    \begin{enumerate}[label=\textbf{(\alph*)}]
-      \item $\dim \myrange \dual{T} = \dim \myrange T$
-      \item $\myrange \dual{T} = (\mynull T)^0$
-    \end{enumerate}
+  \label{thm: the range of dual T}
+  If $\dim V < \infty$, $\dim W<\infty$, and $T \in \linmap (V,W)$, then:
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item $\dim \myrange \dual{T} = \dim \myrange T$
+    \item $\myrange \dual{T} = (\mynull T)^0$
+  \end{enumerate}
 \end{thm}
+\begin{prf}
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item By Rank-Nullity on $\dual{T} \in \linmap(\dual{W}, \dual{V})$ and \ref{thm: the null space of dual T}(a):
+    \begin{equation}
+      \dim \myrange \dual{T} = \dim \dual{W} - \dim \mynull \dual{T} = \dim W - \dim(\myrange T)^0 = \dim \myrange T.
+    \end{equation}
+    \item If $\psi \in \myrange \dual{T}$, then $\psi = \dual{T}(\varphi) = \varphi \circ T$ for some $\varphi \in \dual{W}$. For any $u \in \mynull T$, $\psi(u) = \varphi(Tu) = \varphi(0) = 0$, which shows $\psi \in (\mynull T)^0$. Thus $\myrange \dual{T} \subseteq (\mynull T)^0$.
+    Since $\dim \myrange \dual{T} = \dim \myrange T = \dim V - \dim \mynull T = \dim (\mynull T)^0$, the two subspaces must be equal: $\myrange \dual{T} = (\mynull T)^0$.
+  \end{enumerate}
+  \vspace{-\baselineskip}
+\end{prf}
 
 % 3.131
-\begin{thm} [$T$ injective, $\dual{T}$ surjective]
-    If $\dim V < \infty$, $\dim W<\infty$, and $T \in \linmap (V,W)$, then:
-    \begin{equation}
-      T \text{ is injective} \iff \dual{T} \text{ is surjective.}
-    \end{equation}
+\begin{thm} [$T$ injective $\iff \dual{T}$ surjective]
+  If $\dim V < \infty$, $\dim W<\infty$, and $T \in \linmap (V,W)$, then:
+  \begin{equation}
+    T \text{ is injective} \iff \dual{T} \text{ is surjective.}
+  \end{equation}
 \end{thm}
+\begin{prf}
+  $T$ is injective $\iff \mynull T = \{0\} \iff (\mynull T)^0 = \dual{V} \iff \myrange \dual{T} = \dual{V}$ (by \ref{thm: the range of dual T}(b)) $\iff \dual{T}$ is surjective.
+\end{prf}
 
 \subsection{Matrix of Dual of Linear Map}
 
 % 3.132
 \setcounter{thm}{131}
-\begin{thm}
-  Suppose $V, W$ are finite-dimensional and $T \in \linmap(V,W)$.
+\begin{thm}[matrix of $\dual{T}$ is the transpose of matrix of $T$]
+  Suppose $V, W$ are finite-dimensional and $T \in \linmap(V,W)$. Let $v_1, \dots, v_n$ be a basis of $V$ and $w_1, \dots, w_m$ be a basis of $W$, with corresponding dual bases $\varphi_1, \dots, \varphi_n$ and $\psi_1, \dots, \psi_m$. Then
   \begin{equation}
-    \implies \mmatrix(\dual{T}) = (\mmatrix(T))^{\top}.
+    \mmatrix(\dual{T}) = (\mmatrix(T))^{\top}.
   \end{equation}
 \end{thm}
+\begin{prf}
+  Let $A = \mmatrix(T)$ and $B = \mmatrix(\dual{T})$.
+  For $k \in \{1, \dots, n\}$ and $j \in \{1, \dots, m\}$, we have $Tv_k = \sum_{r=1}^m A_{r,k} w_r$.
+  Applying the definition of the dual map gives
+  \begin{equation}
+    (\dual{T}\psi_j)(v_k) = \psi_j(Tv_k) = \psi_j\left(\sum_{r=1}^m A_{r,k} w_r\right) = \sum_{r=1}^m A_{r,k} \psi_j(w_r) = A_{j,k}.
+  \end{equation}
+  On the other hand, $\dual{T}\psi_j = \sum_{r=1}^n B_{r,j} \varphi_r$, so evaluating at $v_k$ gives $(\dual{T}\psi_j)(v_k) = B_{k,j}$.
+  Thus, $B_{k,j} = A_{j,k}$, which means $\mmatrix(\dual{T}) = (\mmatrix(T))^\top$.
+\end{prf}
 
 %3.133
 \begin{thm}
   If $A \in \myF^{m,n}$, then the column rank of $A$ equals the row rank of $A$.
 \end{thm}
+\begin{prf}
+  Follows directly from \ref{thm: column rank equals row rank}.
+\end{prf}

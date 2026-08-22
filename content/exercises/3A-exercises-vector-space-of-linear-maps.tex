@@ -26,8 +26,9 @@
 %   \end{xprf}
 % \end{xrcs}
 
+\exercise{7}
 \begin{xrcs}
-  Show that every linear map from a one-dimensional vector space to itself is a multiplication by some scalar. More precisely, prove that if $\mydim V = 1$ and $T \in \linmap (V)$, then there exists $\lambda in \myF$ such that $Tv = \lambda v$ for all $v \in V$.
+  Show that every linear map from a one-dimensional vector space to itself is a multiplication by some scalar. More precisely, prove that if $\mydim V = 1$ and $T \in \linmap (V)$, then there exists $\lambda \in \myF$ such that $Tv = \lambda v$ for all $v \in V$.
 
   \begin{xprf}
     If $T = 0$, take $\lambda = 0$ and there's nothing more to show. Otherwise, because $T \neq 0$ there exists $v_1 \in V$ with $T(v_1) \neq 0$. Since $\dim V = 1$, $\{v_1\}$ is a basis of $V$, so every $v \in V$ can be written uniquely as $v=a_1 v_1, \; a_1 \in \myF$. Because $T(v_1)$ lies in the one-dimensional space $V=\myspan{v_1}$, there is a unique scalar $\lambda \in \myF$ such that
@@ -37,7 +38,7 @@
 
     Then for any $v = a_1 v_1$,
     \begin{equation}
-      T(v) = T(a_1 v_1) = a_1 T(v_1) = a_1 (\lambda v_1) = \lambda (a_1 v_1) = \lambda v
+      T(v) = T(a_1 v_1) = a_1 T(v_1) = a_1 (\lambda v_1) = \lambda (a_1 v_1) = \lambda v.
     \end{equation}
 
     Hence, $T$ acts by multiplication by $\lambda$ on all of $V$, as desired.
@@ -73,6 +74,7 @@
 %   The inequality above demonstrates that $T$ is not a linear map, because it fails to satisfy additivity.
 % \end{prf}
 
+\exercise{12}
 \begin{xrcs}
   Suppose $U$ is a subspace of $V$ with $U \neq V$. Let $S \in \linmap(U, W)$ and $S \neq 0$, which means that $Su \neq 0$ for some $u \in U$. Define $T: V \to W$ by
   \begin{equation}

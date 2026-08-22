@@ -13,6 +13,21 @@
     \item $\dim \myrange T = \dim \myrange T^* = \dim  \myrange T^*T$.
   \end{enumerate}
 \end{thm}
+\begin{prf}
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item $(T^*T)^* = T^*(T^*)^* = T^*T$, so $T^*T$ is self-adjoint. Moreover, for all $v \in V$, $\ip{T^*Tv}{v} = \ip{Tv}{Tv} = \norm{Tv}^2 \geq 0$. Thus $T^*T$ is positive.
+    \item If $v \in \mynull T$, then $Tv = 0 \implies T^*Tv = 0 \implies v \in \mynull T^*T$.
+    Conversely, if $v \in \mynull T^*T$, then $\norm{Tv}^2 = \ip{T^*Tv}{v} = \ip{0}{v} = 0 \implies Tv = 0 \implies v \in \mynull T$.
+    Thus $\mynull T^*T = \mynull T$.
+    \item Using \ref{thm: null space and range of T^*} and part (b):
+    \begin{equation}
+      \myrange T^*T = (\mynull (T^*T)^*)^\bot = (\mynull T^*T)^\bot = (\mynull T)^\bot = \myrange T^*.
+    \end{equation}
+    \item By the Rank-Nullity Theorem, $\dim \myrange T^* = \dim V - \dim \mynull T^* = \dim V - (\dim W - \dim \myrange T) = \dim \myrange T$.
+    Combined with (c), $\dim \myrange T = \dim \myrange T^* = \dim \myrange T^*T$.
+  \end{enumerate}
+  \vspace{-\baselineskip}
+\end{prf}
 
 \begin{mydef}[singular values]
   Suppose $T \in \linmap (V,W)$. The \qt{singular values} of $T$ are the nonnegative square roots of the eigenvalues of $T^*T$, listed in decreasing order, each included as many times as the dimension of the corresponding eigenspace of $T^*T$.
@@ -27,6 +42,14 @@
     \item $T$ is surjective $\iff$ the number of positive singular values of $T$ equals $\dim W$.
   \end{enumerate}
 \end{thm}
+\begin{prf}
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item $T$ is injective $\iff \mynull T = \{0\} \iff \mynull T^*T = \{0\}$ (by \ref{thm: properties of T^*T}(b)) $\iff 0$ is not an eigenvalue of $T^*T \iff 0$ is not a singular value of $T$.
+    \item The total number of singular values is $\dim V$. The number of zero singular values is $\dim \mynull T^*T = \dim \mynull T$. Thus the number of positive singular values is $\dim V - \dim \mynull T = \dim \myrange T$.
+    \item $T$ is surjective $\iff \dim \myrange T = \dim W \iff$ the number of positive singular values equals $\dim W$.
+  \end{enumerate}
+  \vspace{-\baselineskip}
+\end{prf}
 
 The table below compares eigenvalues with singular values.
 
@@ -54,20 +77,31 @@ The table below compares eigenvalues with singular values.
 \begin{thm}[isometries characterized through singular values]
   \label{thm: isometries characterized by having all singular values equal 1}
   Suppose $S \in \linmap (V,W)$. Then
-  \[
+  \begin{equation}
     S \text{ is an isometry} \iff \text{all singular values of } S \text{ equal } 1.
-  \]
+  \end{equation}
 \end{thm}
+\begin{prf}
+  $S$ is an isometry $\iff S^*S = I \iff$ all eigenvalues of $S^*S$ equal $1 \iff$ all singular values of $S$ equal $\sqrt{1} = 1$.
+\end{prf}
 
 \subsection{SVD for Linear Maps and for Matrices}
 
 \mce{70}
 \begin{thm}[singular value decomposition]
-  Let $T\in \linmap (V,W)$, and let the positive singular values of $T$ be $s_1, \ddd, s_m$. Then there exist two orthonormal lists $e_1, \ddd, e_m$ in $V$ and $f_1, \ddd, f_m$ in $W$ \st
-  \[
+  \label{thm: singular value decomposition}
+  Let $T\in \linmap (V,W)$, and let the positive singular values of $T$ be $s_1, \ddd, s_m$. Then there exist orthonormal lists $e_1, \ddd, e_m$ in $V$ and $f_1, \ddd, f_m$ in $W$ \st
+  \begin{equation}
     Tv = s_1 \ip{v}{e_1} f_1 + \cdots + s_m \ip{v}{e_m}f_m \quad \forall v \in V.
-  \]
+  \end{equation}
 \end{thm}
+\begin{prf}
+  Let $n = \dim V$. Since $T^*T$ is a positive operator on $V$, by the Spectral Theorem there exists an orthonormal basis $e_1, \dots, e_n$ of $V$ consisting of eigenvectors of $T^*T$ with eigenvalues $s_1^2, \dots, s_m^2, 0, \dots, 0$.
+  For $j \in \{1, \dots, m\}$, define $f_j := \frac{Te_j}{s_j} \in W$.
+  For $j, k \in \{1, \dots, m\}$, $\ip{f_j}{f_k} = \frac{1}{s_j s_k} \ip{T^*Te_j}{e_k} = \frac{s_j}{s_k} \ip{e_j}{e_k} = \delta_{j,k}$, so $f_1, \dots, f_m$ is an orthonormal list in $W$.
+  For $j > m$, $T^*Te_j = 0 \implies \norm{Te_j}^2 = \ip{T^*Te_j}{e_j} = 0 \implies Te_j = 0$.
+  For any $v \in V$, writing $v = \sum_{j=1}^n \ip{v}{e_j} e_j$ yields $Tv = \sum_{j=1}^m s_j \ip{v}{e_j} f_j$.
+\end{prf}
 
 \mce{74}
 \begin{mydef}[diagonal matrix]
@@ -93,21 +127,34 @@ The table below compares the spectral theorem with the singular value decomposit
 
 \begin{thm}[singular value decomposition of adjoint and pseudoinverse]
   \label{thm: singular value decomposition of adjoint and pseudoinverse}
-  Suppose $T \in \linmap(V,W)$ and the positive singular values of $T$ are $s_1, \ddd, s_m$. Suppose $e_1, \ddd, e_m$ and $f_1, \ddd, f_m$ are orthonormal lists in $V$ and $W$ such that we have the following SVD:
-  \[
+  Suppose $T \in \linmap(V,W)$, and let the positive singular values of $T$ be $s_1, \ddd, s_m$. Suppose $e_1, \ddd, e_m$ and $f_1, \ddd, f_m$ are orthonormal lists in $V$ and $W$ such that we have the SVD:
+  \begin{equation}
     Tv = s_1 \ip{v}{e_1} f_1 + \cdots + s_m \ip{v}{e_m}f_m \quad \forall v \in V.
-  \]
-
-  Then we have for all $w \in W$:
-  \begin{itemize}
+  \end{equation}
+  Then, for all $w \in W$, we have:
+  \begin{enumerate}[label=\textbf{(\alph*)}]
     \item $T^*w = s_1 \ip{w}{f_1}e_1 + \cdots + s_m \ip{w}{f_m}e_m$;
-    \item $T^\dagger w = \tfrac{\ip{w}{f_1}}{s_1} e_1 + \cdots + \tfrac{\ip{w}{f_m}}{s_m} e_m$.
-  \end{itemize}
+    \item $T^\dagger w = \frac{\ip{w}{f_1}}{s_1} e_1 + \cdots + \frac{\ip{w}{f_m}}{s_m} e_m$.
+  \end{enumerate}
 \end{thm}
+\begin{prf}
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item For any $v \in V$ and $w \in W$: $\ip{v}{T^*w} = \ip{Tv}{w} = \sum_{j=1}^m s_j \ip{v}{e_j} \ip{f_j}{w} = \left\langle v, \, \sum_{j=1}^m s_j \ip{w}{f_j} e_j \right\rangle$, so $T^*w = \sum_{j=1}^m s_j \ip{w}{f_j} e_j$.
+    \item Since $\myrange T = \myspan{f_1, \dots, f_m}$ and $(\mynull T)^\bot = \myspan{e_1, \dots, e_m}$, the restricted operator $T|_{(\mynull T)^\bot}$ maps $e_j \mapsto s_j f_j$. Its inverse maps $f_j \mapsto \frac{1}{s_j} e_j$.
+    For any $w \in W$, $P_{\myrange T} w = \sum_{j=1}^m \ip{w}{f_j} f_j$, so $T^\dagger w = \sum_{j=1}^m \frac{\ip{w}{f_j}}{s_j} e_j$.
+  \end{enumerate}
+  \vspace{-\baselineskip}
+\end{prf}
 
 \begin{thm}[matrix version of SVD]
-  Suppose $A$ is a $p$-by-$n$ matrix of rank $m \geq 1$. Then there exist a $p$-by-$n$ matrix $B$ with orthonormal columns, an $m$-by-$m$ diagonal matrix $D$ with positive numbers on the diagonal, and an $n$-by-$m$ matrix $C$ with orthonormal columns \st
-  \[
+  Suppose $A \in \myF^{p,n}$ is a $p$-by-$n$ matrix of rank $m \geq 1$. Then there exist a $p$-by-$m$ matrix $B$ with orthonormal columns, an $m$-by-$m$ diagonal matrix $D$ with positive numbers on the diagonal, and an $n$-by-$m$ matrix $C$ with orthonormal columns \st
+  \begin{equation}
     A = BDC^*.
-  \]
+  \end{equation}
 \end{thm}
+\begin{prf}
+  Apply SVD to the operator $T(x) = Ax$ from $\myF^n$ to $\myF^p$.
+  Then $Ax = \sum_{j=1}^m s_j \ip{x}{e_j} f_j$.
+  Let $B$ have columns $f_1, \dots, f_m$, $C$ have columns $e_1, \dots, e_m$, and $D = \operatorname{diag}(s_1, \dots, s_m)$.
+  Then $BDC^* x = \sum_{j=1}^m s_j \ip{x}{e_j} f_j = Ax$, so $A = BDC^*$.
+\end{prf}

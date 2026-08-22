@@ -18,8 +18,7 @@ The dot product on $\real^n$ has the following properties:
 \begin{itemize}
   \item $x \cdot x = \norm{x}^2 \quad \forall x \in \real^n$;
   \item $x \cdot x = 0 \iff x= 0$;
-  \item For $y\in \real^n$, the map from $\real^n$ to $\real$ that sends $x \in \real^n$ to $x\cdot y$ is linear. \\
-  $T: \real^n \to \real, T(x) = x \cdot y$. Then $T$ is linear for a fixed $y \in \real^n$. %TODO: check.
+  \item For $y\in \real^n$, the map from $\real^n$ to $\real$ that sends $x \in \real^n$ to $x\cdot y$ is linear ($T: \real^n \to \real, T(x) = x \cdot y$).
   \item $x \cdot y = y \cdot x$.
 \end{itemize}
 
@@ -55,7 +54,7 @@ For $z \in \compl$, we define the norm of $z$ by
 \begin{thm}[basic properties of an inner product]
   $\forall u,v,w \in V$ and $\forall \lambda \in \myF$:
   \begin{enumerate}[label=\textbf{(\alph*)}]
-    \item $x \in V \mapsto \ip{u}{x} \in \myF$ is a linear map from $V$ to $\myF$.
+    \item $x \in V \mapsto \ip{x}{u} \in \myF$ is a linear map from $V$ to $\myF$;
     \item $\ip{0}{v} = 0$;
     \item $\ip{v}{0} = 0$;
     \item $\ip{u}{v+w} = \ip{u}{v} + \ip{u}{w}$;
@@ -177,7 +176,7 @@ For $z \in \compl$, we define the norm of $z$ by
   \begin{equation}
     \norm{u+v} \leq \norm{u} + \norm{v}.
   \end{equation}
-  This inequality is an equality $\iff$ $u=rv$ for some $r\in \real \setminus \{0\}$.
+  This inequality is an equality $\iff$ one of $u, v$ is a non-negative real multiple of the other (i.e., $u = cv$ with $c \geq 0$, or $v = 0$).
 \end{thm}
 \begin{minipage}{\linewidth-30pt}
 \begin{prf} Let $u,v \in V$, where both might equal $0$. Thus,
@@ -194,7 +193,7 @@ For $z \in \compl$, we define the norm of $z$ by
         &=    (\norm{u} + \norm{v})^2. &
       \end{aligned}
     \end{equation}
-We have equality in the triangle inequality $\iff \ip{u}{v} = \norm{u}\cdot\norm{v} \iff u = \lambda v$.
+We have equality in the triangle inequality $\iff \ip{u}{v} = \norm{u}\cdot\norm{v} \iff u = c v$ for some $c \geq 0$ (or $v = 0$).
 \end{prf}
 \end{minipage}
 

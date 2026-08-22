@@ -1,104 +1,109 @@
-\subsection*{Exercises about Bases}
+\section*{Exercises about Bases}
 
-\setcounter{xrcscount}{5}
-% E 6
+\exercise{6}
 \begin{xrcs}
   Claim: If $v_1, v_2, v_3, v_4$ is a basis of $V$, then
   \begin{equation}
-    v_1 + v_2, v_2 + v_3, v_3+v_4, v_4 $ is also a basis of $V.
+    v_1 + v_2, \; v_2 + v_3, \; v_3 + v_4, \; v_4 \text{ is also a basis of } V.
   \end{equation}
 
   \begin{xprf}
     \StepOne We first show linear independence. Let $a_1, a_2, a_3, a_4 \in \myF$ such that
     \begin{equation}
-      a_1 (v_1+v_2) + a_2(v_2+v_3) + a_3(v_3+v_4)+a_4 v_4 = 0.
+      a_1 (v_1+v_2) + a_2(v_2+v_3) + a_3(v_3+v_4) + a_4 v_4 = 0.
     \end{equation}
-
-    This is the case if and only if
+    Expanding this expression gives:
     \[
-    a_1 v_1 + a_1 v_2 + a_2 v_2 + a_2 v_3 + a_3 v_3 + a_3 v_4 + a_4 v_4
-    = a_1 v_1 + (a_1 + a_2) v_2 + (a_2 + a_3) v_3 + (a_3 + a_4)v_4=0
+      a_1 v_1 + (a_1 + a_2) v_2 + (a_2 + a_3) v_3 + (a_3 + a_4) v_4 = 0.
     \]
+    Since $v_1, \ldots, v_4$ is a basis (hence linearly independent), the coefficients must vanish:
+    \[
+      a_1 = 0, \quad a_1 + a_2 = 0, \quad a_2 + a_3 = 0, \quad a_3 + a_4 = 0.
+    \]
+    Since $a_1 = 0$, back-substitution immediately yields $a_2 = 0, a_3 = 0, a_4 = 0$.
+    Thus, the list $v_1 + v_2, v_2 + v_3, v_3+v_4, v_4$ is linearly independent.
 
-    Since $v_1, \ldots, v_4$ are linearly independent, this is only the case if $0 = a_1 = a_1 + a_2 = a_2 + a_3 = a_3 + a_4$ and therefore, since $a_1=0$, $\iff$ $a_1 = \cdots = a_4 = 0$. So the list $v_1 + v_2, v_2 + v_3, v_3+v_4, v_4$ is linearly independent as well.
-
-    \StepTwo Now we also have to show, that $v_1 + v_2, v_2 + v_3, v_3+v_4, v_4$ spans $V$. Let $u \in V$. With our old basis, $u$ would have been written as
+    \StepTwo We now show that the list spans $V$. Let $u \in V$. Since $v_1, \dots, v_4$ is a basis, there exist scalars $b_1, \dots, b_4 \in \myF$ such that
     \begin{equation}
       \label{eq: equation of u}
-      u = b_1 v_1 + \cdots + b_4 v_4.
+      u = b_1 v_1 + b_2 v_2 + b_3 v_3 + b_4 v_4.
     \end{equation}
-
-    So let $v \in V$ such that
+    We can express $u$ as a linear combination of the new list by solving for coefficients $a_1, \dots, a_4$:
     \[
-      \begin{aligned}
-        v
-        & = a_1 (v_1+v_2) + a_2(v_2+v_3) + a_3(v_3+v_4)+a_4 v_4 \\
-        & = a_1 v_1 + (a_1 + a_2) v_2 + (a_2 + a_3) v_3 + (a_3 + a_4)v_4=0
-      \end{aligned}
+      a_1 = b_1, \quad a_2 = b_2 - b_1, \quad a_3 = b_3 - b_2 + b_1, \quad a_4 = b_4 - b_3 + b_2 - b_1.
     \]
-
-    Comparing this with the equation of $u$ \eqref{eq: equation of u}, we see that $v$ can be indeed any vector in $V$, since $v_1, v_2, v_3, v_4$ is a basis.
-
-    If we want to rewrite vector $u$ we would write $a_1 = b_1.$ Next we would have $a_1 + a_2 = b_2$ and therefore $a_2 = b_2 - a_1 = b_2-b_1$. Next we would have $a_2+a_3=b_3$ and thus $a_3= b_3-a_2 = b_3 - (b_2-b_1)$. Lastly $a_4 = b_4-a_3 = b_4-(b_3 - (b_2-b_1))$. Putting this all together we have
+    Substituting these gives
     \[
-      \begin{aligned}
-        u
-        & = b_1 \cdot (v_1+v_2) + (b_2-b_1)\cdot(v_2+v_3) + (b_3 - (b_2-b_1)) \cdot (v_3 + v_4) + (b_4-(b_3 - (b_2-b_1))) \cdot v_4 \\
-        & = b_1  (v_1+v_2) + (b_2-b_1)(v_2+v_3) + (b_3 - b_2+b_1)  (v_3 + v_4) + (b_4-b_3+b_2-b_1)  v_4 \\
-        & = b_1 v_1 + b_2 v_2 + b_3 v_3 + b_4 v_4.
-      \end{aligned}
+      u = b_1 (v_1+v_2) + (b_2-b_1)(v_2+v_3) + (b_3 - b_2 + b_1)(v_3 + v_4) + (b_4 - b_3 + b_2 - b_1) v_4.
     \]
-
-    which can be verified by comparing the coefficents of the $v$'s. For example, adding the two coefficients $(b_3 - b_2+b_1)$ and $(b_4-b_3+b_2-b_1)$ of $v_4$ together yields $b_4$. So every $u \in V$ can be expressed in either of the two lists $v_1, v_2, v_3, v_4$ or $v_1 + v_2, v_2 + v_3, v_3+v_4, v_4$. Since we have shown linear independence as well, $v_1 + v_2, v_2 + v_3, v_3+v_4, v_4$ is a basis of $V$.
+    Thus, the list spans $V$. Since it is also linearly independent, it is a basis of $V$.
   \end{xprf}
 \end{xrcs}
 
-% ==============================================================================
-% AI FEEDBACK: Exercise 8
-% ------------------------------------------------------------------------------
-% Note on Mathematical Validity:
-% The claim is false in general.
-% Counterexample: In $V = \real^4$, let $v_1, v_2, v_3, v_4$ be the standard basis.
-% Define $U = \myspan(v_1, v_2, v_3 + v_4)$.
-% Here $v_1, v_2 \in U$, while $v_3 \notin U$ and $v_4 \notin U$.
-% However, $\dim U = 3$, so $v_1, v_2$ is NOT a basis of $U$.
-% The gap in the proof is assuming that $a_4 v_4 \in U$, whereas only the linear
-% combination $a_3 v_3 + a_4 v_4 = u - (a_1 v_1 + a_2 v_2) \in U$.
-% ==============================================================================
-% E 8
+\exercise{8}
 \begin{xrcs}
-  Claim: If $v_1, v_2, v_3, v_4$ is a basis of $V$ and $U \subseteq V$, such that $v_1, v_2 \in U$ and $v_3 \notin U$ and $v_4 \notin U$, then $v_1, v_2$ is a basis of $U$.
+  Prove or give a counterexample: If $v_1, v_2, v_3, v_4$ is a basis of $V$ and $U \subseteq V$ is a subspace such that $v_1, v_2 \in U$ and $v_3 \notin U$ and $v_4 \notin U$, then $v_1, v_2$ is a basis of $U$.
 
-  \begin{xprf}
-    Any vector in $U$ can be represented as a unique linear combination of $v_1, v_2, v_3, v_4$ since $U \subseteq V$. Let $u\in U$ such that $u=a_1 v_1 + a_2 v_2 + a_3 v_3 + a_4 v_4$. In this case, $a_3$ must equal to $0$, because otherwise, due to closedness under addition and multiplication, we could subtract $a_1 v_1 + a_2 v_2+a_4v_4$ from $u$ and multiply by $\frac{1}{a_3}$ to get $v_3$, which is not in $U$. The same goes for $a_4$, which must be $0$ as well. So every vector in $U$ is of the form $u=a_1 v_1 + a_2 v_2$, since $v_1, v_2 \in U$ and $v_3, v_4 \notin U$. Since every basis has the same length and $v_1$ and $v_2$ are linearly independent, the list $v_1, v_2$ forms a basis of $U$.
-  \end{xprf}
-\end{xrcs}
+  \begin{xsol}
+    The statement is false.
 
-
-\begin{xrcs}
-  Suppose $v_1, \cdots, v_m$ is a list of vectors in $V$. For $k \in \{1, \ldots, m\},$ let
-  \begin{equation}
-    w_k = v_1 + \cdots + v_k
-  \end{equation}
-
-  Show that $v_1, \ldots, v_m$ is a basis of $V$ if and only if $w_1, \ldots, w_m$ is a basis of $V$.
-
-  \begin{xprf}
-    Let us first observe the following two patterns
+    \prooffont{Counterexample:} In $V = \real^4$, let $v_1, v_2, v_3, v_4$ be the standard basis. Define
     \begin{equation}
-      \begin{aligned}
-        w_1 &= v_1                    & \qquad v_1 &= w_1       \\
-        w_2 &= v_1 + v_2              & \qquad v_2 &= w_2 - w_1 \\
-        w_3 &= v_1 + v_2 + v_3        & \qquad v_3 &= w_3 - w_2 \\
-        w_4 &= v_1 + v_2 + v_3 + v_4  & \qquad v_4 &= w_4 - w_3 \\
-        &\;\;\vdots               &            &\;\;\vdots \\
-        w_n &= v_1 + \cdots + v_n     & \qquad v_n &= w_n - w_{n-1}
-      \end{aligned}
+      U := \myspan{v_1, v_2, v_3 + v_4}.
     \end{equation}
-  \end{xprf}
+    Then $v_1, v_2 \in U$, while $v_3 \notin U$ and $v_4 \notin U$.
+    However, the three vectors $v_1, v_2, v_3+v_4$ are linearly independent, so $\dim U = 3$.
+    Therefore, the list $v_1, v_2$ (which has length $2$) cannot span $U$ and is not a basis of $U$.
+  \end{xsol}
+
+% ==============================================================================
+% ORIGINAL ATTEMPT (Commented out):
+% ------------------------------------------------------------------------------
+% AI FEEDBACK:
+% 1. Mathematical Error: The attempted proof claims $a_3 v_3 \in U$ and $a_4 v_4 \in U$,
+%    which assumes each component must independently lie in $U$.
+% 2. In reality, a sum of vectors outside $U$ (like $v_3 + v_4$) can lie in $U$ even
+%    though neither vector individually belongs to $U$.
+% ==============================================================================
+%   \begin{xprf}
+%     Any vector in $U$ can be represented as a unique linear combination of $v_1, v_2, v_3, v_4$ since $U \subseteq V$. Let $u\in U$ such that $u=a_1 v_1 + a_2 v_2 + a_3 v_3 + a_4 v_4$. In this case, $a_3$ must equal $0$, because otherwise, due to closedness under addition and scalar multiplication, we could subtract $a_1 v_1 + a_2 v_2+a_4v_4$ from $u$ and multiply by $\frac{1}{a_3}$ to get $v_3$, which is not in $U$. The same goes for $a_4$, which must be $0$ as well. So every vector in $U$ is of the form $u=a_1 v_1 + a_2 v_2$, since $v_1, v_2 \in U$ and $v_3, v_4 \notin U$. Since every basis has the same length and $v_1$ and $v_2$ are linearly independent, the list $v_1, v_2$ forms a basis of $U$.
+%   \end{xprf}
 \end{xrcs}
 
+\exercise{9}
+\begin{xrcs}
+  Suppose $v_1, \dots, v_m$ is a list of vectors in $V$. For $k \in \{1, \ldots, m\},$ let
+  \begin{equation}
+    w_k := v_1 + \cdots + v_k.
+  \end{equation}
+  Show that $v_1, \ldots, v_m$ is a basis of $V \iff w_1, \ldots, w_m$ is a basis of $V$.
 
-\phantom{.}
+  \begin{xprf}
+    By Exercise 2A.4, $\myspan{w_1, \dots, w_m} = \myspan{v_1, \dots, v_m}$.
+    Thus, $w_1, \dots, w_m$ spans $V$ if and only if $v_1, \dots, v_m$ spans $V$.
 
-\hrule
+    Now we check linear independence:
+    \begin{itemize}
+      \item Suppose $v_1, \dots, v_m$ is linearly independent. If $c_1 w_1 + \cdots + c_m w_m = 0$, expanding in terms of the $v$'s yields:
+      \[
+        (c_1 + c_2 + \cdots + c_m) v_1 + (c_2 + \cdots + c_m) v_2 + \cdots + c_m v_m = 0.
+      \]
+      By linear independence of $v_1, \dots, v_m$, each coefficient is zero:
+      \[
+        c_m = 0 \implies c_{m-1} = 0 \implies \cdots \implies c_1 = 0.
+      \]
+      Thus, $w_1, \dots, w_m$ is linearly independent.
+
+      \item Conversely, suppose $w_1, \dots, w_m$ is linearly independent. If $a_1 v_1 + \cdots + a_m v_m = 0$, substituting $v_1 = w_1$ and $v_k = w_k - w_{k-1}$ for $k \ge 2$ yields:
+      \[
+        (a_1 - a_2) w_1 + (a_2 - a_3) w_2 + \cdots + (a_{m-1} - a_m) w_{m-1} + a_m w_m = 0.
+      \]
+      By linear independence of $w_1, \dots, w_m$:
+      \[
+        a_m = 0 \implies a_{m-1} = 0 \implies \cdots \implies a_1 = 0.
+      \]
+      Thus, $v_1, \dots, v_m$ is linearly independent.
+    \end{itemize}
+    Since both spanning and linear independence are equivalent, $v_1, \dots, v_m$ is a basis of $V \iff w_1, \dots, w_m$ is a basis of $V$.
+  \end{xprf}
+\end{xrcs}

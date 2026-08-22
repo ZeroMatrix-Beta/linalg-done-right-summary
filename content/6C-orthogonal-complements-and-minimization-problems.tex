@@ -30,7 +30,7 @@
     \item { We have to check for additive identity, closedness under addition, and closedness under scalar multiplication:
     \begin{itemize}
       \item $\ip{u}{0}=0 \quad \forall u\in U \implies 0 \in U^{\bot}.$
-      \item Let $v,w \in U^{\bot}, u \in U$. $\ip{u}{v+w}=\ip{u}{v}+\ip{v}{w}=0 \implies v+w \in U^{\bot}.$
+      \item Let $v,w \in U^{\bot}$ and $u \in U$. Then $\ip{u}{v+w} = \ip{u}{v} + \ip{u}{w} = 0 + 0 = 0 \implies v+w \in U^{\bot}.$
       \item Let $\lambda \in \myF, w \in U^{\bot}, u \in U: \ip{u}{\lambda w} = \overline \lambda \ip{u}{w} = \overline \lambda 0 = 0 \implies \lambda w \in U^{\bot}$.
     \end{itemize}
     Therefore, $U^{\bot}$ is a subspace of $V$.
@@ -148,7 +148,7 @@
   \qt{$\Leftarrow$-direction:} Only using \ref{thm: properties of the orthogonal complement}(c): if $U=V$, then $U^\bot = V^\bot = \{0\}$.
 \end{prf}
 
-\begin{mydef}[orthogonal projection, $P_u$]
+\begin{mydef}[orthogonal projection, $P_U$]
   Suppose $U \subseteq V$, $\dim U \neq \infty$. The \qt{orthogonal projection} of $V$ onto $U$ is the operator $P_U \in \linmap(V)$ defined as follows: \\
   $\forall v \in V$, we can write $v = u + w, \where u \in U \myand w \in U^\bot$ (Because $V=U \oplus U^\bot$). Then let:
   \begin{equation}
@@ -170,7 +170,7 @@
   Notice that $P_U u = u$ and $P_U v = 0 \iff v \in \{u\}^\bot$. Recall that $\ip{u}{u} = \norm{u}^2$.
 \end{example}
 
-\begin{thm}[properties orthogonal projection $P_U$]
+\begin{thm}[properties of orthogonal projection $P_U$]
   \label{thm: properties orthogonal projection}
   Suppose $U \subseteq V$, $\dim U \neq \infty$. Then:
   \begin{enumerate}[label=\textbf{(\alph*)}]
@@ -188,6 +188,20 @@
     \]
   \end{enumerate}
 \end{thm}
+\begin{prf}
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item Linearity follows from the uniqueness of the direct sum decomposition $V = U \oplus U^\bot$.
+    \item If $u \in U$, then $u = u + 0$ with $u \in U$ and $0 \in U^\bot$, so $P_U u = u$.
+    \item If $w \in U^\bot$, then $w = 0 + w$ with $0 \in U$ and $w \in U^\bot$, so $P_U w = 0$.
+    \item By definition, $P_U v \in U$ for all $v$, and $P_U u = u$ for all $u \in U$, so $\myrange P_U = U$.
+    \item $v \in \mynull P_U \iff P_U v = 0 \iff v \in U^\bot$, so $\mynull P_U = U^\bot$.
+    \item By definition of $P_U$, $v = P_U v + w$ for some $w \in U^\bot$, so $v - P_U v = w \in U^\bot$.
+    \item For any $v \in V$, $P_U v \in U$. By (b), $P_U(P_U v) = P_U v$, so $P_U^2 = P_U$.
+    \item Since $v = P_U v + (v - P_U v)$ with $P_U v \perp (v - P_U v)$, by Pythagoras $\norm{v}^2 = \norm{P_U v}^2 + \norm{v - P_U v}^2 \geq \norm{P_U v}^2$.
+    \item Let $u = \sum_{j=1}^m \ip{v}{e_j} e_j$. In \ref{thm: Bessel's inequality}, we showed that $u \in U$ and $v - u \in U^\bot$. By definition of $P_U$, $P_U v = u$.
+  \end{enumerate}
+  \vspace{-\baselineskip}
+\end{prf}
 
 \subsection{Minimization Problems}
 Given a subspace $U\subseteq V$ and $v\in V$, find a $u \in U$ \st $\norm{v-u}$ is as small as possible.

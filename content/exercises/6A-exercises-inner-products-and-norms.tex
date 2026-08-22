@@ -1,0 +1,49 @@
+\section*{Exercises about Inner Products and Norms}
+
+\exercise{7}
+\begin{xrcs}
+  (Cauchy-Schwarz Equality) Suppose $u, v \in V$. Prove that
+  \begin{equation}
+    |\langle u, v \rangle| = \|u\| \|v\|
+  \end{equation}
+  if and only if one of $u, v$ is a scalar multiple of the other.
+% \begin{xprf}
+%   \Leftarrowdirection If $u = c v$ for some $c \in \myF$, then:
+%   \[
+%     |\langle u, v \rangle| = |\langle c v, v \rangle| = |c| |\langle v, v \rangle| = |c| \|v\|^2 = (|c| \|v\|) \|v\| = \|c v\| \|v\| = \|u\| \|v\|.
+%   \]
+%   If $v = 0$, then $v = 0 u$ and both sides equal $0$.
+%
+%   \Rightarrowdirection Conversely, suppose $|\langle u, v \rangle| = \|u\| \|v\|$.
+%   If $v = 0$, then $v = 0 u$ is a scalar multiple of $u$.
+%   Assume $v \neq 0$, and consider the orthogonal decomposition vector $w = u - \frac{\langle u, v \rangle}{\|v\|^2} v$.
+%   Computing its squared norm:
+%   \[
+%     \|w\|^2 = \|u\|^2 - \frac{|\langle u, v \rangle|^2}{\|v\|^2} = \|u\|^2 - \frac{\|u\|^2 \|v\|^2}{\|v\|^2} = 0.
+%   \]
+%   By positive definiteness of norms, $w = 0$, which implies $u = \frac{\langle u, v \rangle}{\|v\|^2} v$.
+%   Thus $u$ is a scalar multiple of $v$.
+% \end{xprf}
+\end{xrcs}
+
+\exercise{16}
+\begin{xrcs}
+  (Jordan-von Neumann Theorem) Prove that a norm $\|\cdot\|$ on a real vector space $V$ satisfies the parallelogram identity
+  \begin{equation}
+    \|u+v\|^2 + \|u-v\|^2 = 2\|u\|^2 + 2\|v\|^2 \quad \forall u,v \in V
+  \end{equation}
+  if and only if there exists an inner product on $V$ such that $\|v\| = \sqrt{\langle v, v \rangle}$ for all $v \in V$.
+% \begin{xprf}
+%   \Rightarrowdirection Define $\langle u, v \rangle := \frac{1}{4}\left(\|u+v\|^2 - \|u-v\|^2\right)$.
+%   Using the parallelogram identity:
+%   \[
+%     \langle u+w, v \rangle + \langle u-w, v \rangle = 2\langle u, v \rangle.
+%   \]
+%   Setting $w = u$ gives $\langle 2u, v \rangle = 2\langle u, v \rangle$.
+%   Setting $u = \frac{x+y}{2}$ and $w = \frac{x-y}{2}$ gives additivity $\langle x+y, v \rangle = \langle x, v \rangle + \langle y, v \rangle$.
+%   Induction yields $\langle c u, v \rangle = c \langle u, v \rangle$ for $c \in \mathbb{Q}$, and continuity extends homogeneity to all $c \in \real$.
+%   Positivity and symmetry are immediate from the norm properties.
+%
+%   \Leftarrowdirection If $\|\cdot\|$ is induced by an inner product $\langle \cdot, \cdot \rangle$, expanding $\|u+v\|^2 = \langle u+v, u+v \rangle$ and $\|u-v\|^2 = \langle u-v, u-v \rangle$ and adding them yields $2\|u\|^2 + 2\|v\|^2$.
+% \end{xprf}
+\end{xrcs}

@@ -1,0 +1,29 @@
+\section*{Exercises about Singular Value Decomposition}
+
+\exercise{1}
+\begin{xrcs}
+  Suppose $T \in \linmap(V)$ is an invertible operator on a finite-dimensional inner product space $V$ with singular values $s_1 \geq s_2 \geq \dots \geq s_n > 0$. Prove that the singular values of $T^{-1}$ are
+  \begin{equation}
+    \frac{1}{s_n} \ge \frac{1}{s_{n-1}} \ge \dots \ge \frac{1}{s_1} > 0.
+  \end{equation}
+% \begin{xprf}
+%   By the Singular Value Decomposition (Theorem \ref{thm: singular value decomposition}), there exist orthonormal bases $e_1, \dots, e_n$ and $f_1, \dots, f_n$ of $V$ such that for all $v \in V$:
+%   \[
+%     Tv = \sum_{j=1}^n s_j \langle v, e_j \rangle f_j.
+%   \]
+%   In particular, $T e_j = s_j f_j$ for each $j \in \{1, \dots, n\}$.
+%   Applying $T^{-1}$ to both sides yields $e_j = s_j T^{-1} f_j$, so:
+%   \[
+%     T^{-1} f_j = \frac{1}{s_j} e_j \quad \text{for } j = 1, \dots, n.
+%   \]
+%   Thus for every $w \in V$:
+%   \[
+%     T^{-1} w = \sum_{j=1}^n \frac{1}{s_j} \langle w, f_j \rangle e_j.
+%   \]
+%   Since $(f_j)$ and $(e_j)$ are orthonormal bases, this is the Singular Value Decomposition of $T^{-1}$.
+%   Reversing the index order $k = n - j + 1$ arranges the singular values in non-increasing order:
+%   \[
+%     \frac{1}{s_n} \ge \frac{1}{s_{n-1}} \ge \dots \ge \frac{1}{s_1} > 0.
+%   \]
+% \end{xprf}
+\end{xrcs}

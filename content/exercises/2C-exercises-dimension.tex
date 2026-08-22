@@ -1,6 +1,39 @@
-\subsection*{Exercises about Dimension 2C}
+\section*{Exercises about Dimension}
 
-\setcounter{xrcscount}{19}
+\exercise{1}
+\begin{xrcs}
+  Suppose $V$ is finite-dimensional and $U$ is a subspace of $V$ such that $\dim U = \dim V$. Prove that $U = V$.
+% \begin{xprf}
+%   Let $u_1, \dots, u_n$ be a basis of $U$, so $n = \dim U = \dim V$.
+%   The list $u_1, \dots, u_n$ is linearly independent in $V$ and has length $n = \dim V$.
+%   By Theorem \ref{thm: linearly independent list of the right length is a basis}, every linearly independent list of length $\dim V$ in a finite-dimensional space $V$ is a basis of $V$.
+%   Therefore, $V = \myspan{u_1, \dots, u_n} = U$.
+% \end{xprf}
+\end{xrcs}
+
+\exercise{8}
+\begin{xrcs}
+  Suppose $U$ is a subspace of a finite-dimensional vector space $V$. Prove that there exists a subspace $W$ of $V$ such that
+  \begin{equation}
+    V = U \oplus W.
+  \end{equation}
+% \begin{xprf}
+%   Let $u_1, \dots, u_m$ be a basis of $U$.
+%   By Theorem \ref{thm: every linearly independent list can be extended to a basis}, this list can be extended to a basis
+%   \[
+%     u_1, \dots, u_m, w_1, \dots, w_k
+%   \]
+%   of $V$, where $m + k = \dim V$.
+%   Define $W := \myspan{w_1, \dots, w_k}$.
+%   Since the combined list spans $V$, $V = U + W$.
+%   Moreover, if $v \in U \cap W$, then $v = a_1 u_1 + \dots + a_m u_m = b_1 w_1 + \dots + b_k w_k$, so
+%   $a_1 u_1 + \dots + a_m u_m - b_1 w_1 - \dots - b_k w_k = 0$.
+%   By linear independence of the basis, all coefficients are $0$, hence $v = 0$.
+%   Therefore, $U \cap W = \{0\}$, which proves $V = U \oplus W$.
+% \end{xprf}
+\end{xrcs}
+
+\exercise{19}
 \begin{xrcs}
   Explain why you might guess, motivated by analogy with the formula for the number of elements in the union of three finite sets, that if $V_1$, $V_2$, $V_3$ are subspaces of a finite-dimensional vector space $V$, then
   \begin{equation}

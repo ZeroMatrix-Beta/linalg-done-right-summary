@@ -1,4 +1,76 @@
 \section{Commuting Operators}
-\begin{mydef}
-  Two operators or matrices $S$ and $T$ \qt{commute} if $ST=TS$.
+
+\begin{mydef}[commuting operators]
+  Two operators $S, T \in \linmap(V)$ \qt{commute} if
+  \begin{equation}
+    ST = TS.
+  \end{equation}
 \end{mydef}
+
+% 5.70
+\setcounter{thm}{69}
+\begin{thm}[eigenspace is invariant under commuting operator]
+  \label{thm: eigenspace is invariant under commuting operator}
+  Suppose $S, T \in \linmap(V)$ commute and $\lambda \in \myF$. Then the eigenspace $E(\lambda, T)$ is invariant under $S$.
+\end{thm}
+\begin{prf}
+  Let $u \in E(\lambda, T)$, so $Tu = \lambda u$. Since $S$ and $T$ commute:
+  \begin{equation}
+    T(Su) = (TS)u = (ST)u = S(Tu) = S(\lambda u) = \lambda (Su).
+  \end{equation}
+  This shows that $Su \in E(\lambda, T)$. Thus, $E(\lambda, T)$ is invariant under $S$.
+\end{prf}
+
+% 5.72
+\setcounter{thm}{71}
+\begin{thm}[commuting operators have a common eigenvector]
+  \label{thm: commuting operators have a common eigenvector}
+  Suppose $V$ is a finite-dimensional complex vector space ($\dim V \ge 1$), and $S, T \in \linmap(V)$ commute. Then $S$ and $T$ have a common eigenvector.
+\end{thm}
+\begin{prf}
+  Because $V$ is a finite-dimensional complex vector space, by \ref{thm: every operator on a finite-dimensional nonzero complex vector space has an eigenvalue}, $T$ has an eigenvalue $\lambda \in \compl$.
+  Let $U := E(\lambda, T) = \mynull(T-\lambda I) \neq \{0\}$.
+  By \ref{thm: eigenspace is invariant under commuting operator}, $U$ is invariant under $S$, so the restriction $\left.S\right|_U \in \linmap(U)$ is an operator on $U$.
+  Since $U \neq \{0\}$ is a complex vector space, $\left.S\right|_U$ has an eigenvalue $\alpha \in \compl$ with an eigenvector $v \in U, v \neq 0$.
+  Then $Sv = \alpha v$ (since $v$ is an eigenvector of $\left.S\right|_U$) and $Tv = \lambda v$ (since $v \in E(\lambda, T)$).
+  Thus, $v$ is a common eigenvector of $S$ and $T$.
+\end{prf}
+
+% 5.74
+\setcounter{thm}{73}
+\begin{thm}[simultaneous upper triangularization]
+  \label{thm: simultaneous upper triangularization}
+  Suppose $V$ is a finite-dimensional complex vector space and $S, T \in \linmap(V)$ commute. Then there is a basis of $V$ with respect to which both $S$ and $T$ have upper-triangular matrices.
+\end{thm}
+\begin{prf}
+  We proceed by induction on $n = \dim V$. If $n = 1$, the result holds trivially.
+  Suppose $n > 1$ and the result holds for all vector spaces of dimension $n-1$.
+  By \ref{thm: commuting operators have a common eigenvector}, $S$ and $T$ have a common eigenvector $v_1 \in V$.
+  Let $U := \myspan{v_1}$, which is a $1$-dimensional subspace invariant under both $S$ and $T$.
+  Consider the quotient space $V/U$, which has dimension $n-1$.
+  Define operators $\widehat{S}, \widehat{T} \in \linmap(V/U)$ by
+  \begin{equation}
+    \widehat{S}(v+U) := Sv + U \quad \text{and} \quad \widehat{T}(v+U) := Tv + U.
+  \end{equation}
+  Since $S$ and $T$ commute, $\widehat{S}$ and $\widehat{T}$ also commute.
+  By the induction hypothesis, there is a basis $v_2+U, \dots, v_n+U$ of $V/U$ with respect to which both $\widehat{S}$ and $\widehat{T}$ have upper-triangular matrices.
+  Then $v_1, v_2, \dots, v_n$ is a basis of $V$ with respect to which both $S$ and $T$ have upper-triangular matrices.
+\end{prf}
+
+% 5.76
+\setcounter{thm}{75}
+\begin{thm}[simultaneous diagonalization]
+  \label{thm: simultaneous diagonalization}
+  Suppose $S, T \in \linmap(V)$ are diagonalizable operators that commute ($ST=TS$). Then there is a basis of $V$ consisting of vectors that are eigenvectors of both $S$ and $T$.
+\end{thm}
+\begin{prf}
+  Let $\lambda_1, \dots, \lambda_m$ be the distinct eigenvalues of $T$. Since $T$ is diagonalizable, by \ref{thm: conditions equivalent to diagonalizability}:
+  \begin{equation}
+    V = E(\lambda_1, T) \oplus \cdots \oplus E(\lambda_m, T).
+  \end{equation}
+  By \ref{thm: eigenspace is invariant under commuting operator}, each $E(\lambda_j, T)$ is invariant under $S$.
+  Since $S$ is diagonalizable, its restriction to any invariant subspace is also diagonalizable.
+  Thus, for each $j \in \{1, \dots, m\}$, there is a basis of $E(\lambda_j, T)$ consisting of eigenvectors of $S$.
+  Every vector in this basis of $E(\lambda_j, T)$ is also an eigenvector of $T$ (with eigenvalue $\lambda_j$).
+  Putting these bases together yields a basis of $V$ consisting of common eigenvectors of $S$ and $T$.
+\end{prf}

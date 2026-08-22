@@ -1,51 +1,60 @@
 \section*{Exercises about Span and Linear Independence}
 
+\exercise{1}
 \begin{xrcs}
-  We want to find a list of four distinct vectors in $\myF^3$ whose span equals
+  Find a list of four distinct vectors in $\myF^3$ whose span equals
   \begin{equation}
     \left \{  \left(x,y,z \right) \in \myF^3 \mid x + y + z = 0 \right \}.
   \end{equation}
+
+  \begin{xsol}
+    The plane $x+y+z=0$ is spanned by the two linearly independent vectors $(1,-1,0)$ and $(0,1,-1)$. To get four distinct vectors that span the same subspace, we can add two more distinct nonzero vectors from the plane, for instance:
+    \begin{equation}
+      (1,-1,0), \quad (0,1,-1), \quad (1,0,-1), \quad (2,-1,-1).
+    \end{equation}
+    Since each of these vectors satisfies $x+y+z=0$, their span is contained in the plane. Furthermore, since the first two vectors already span the entire plane, the span of all four vectors equals the desired set.
+  \end{xsol}
 \end{xrcs}
 
+\exercise{3}
 \begin{xrcs}
-  Claim: If $v_1, v_2, v_3, v_4$ spans $V$, then the list $v_1 - v_2, v_2 -v_3, v_3 -v_4, v_4$ also spans $V$.
+  Claim: If $v_1, v_2, v_3, v_4$ spans $V$, then the list $v_1 - v_2, v_2 - v_3, v_3 - v_4, v_4$ also spans $V$.
 
   \begin{xprf}
-    Let $u \in V$ and $a_i, b_i \in \myF$ \st
+    Let $u \in V$. Since $v_1, v_2, v_3, v_4$ spans $V$, there exist scalars $b_1, b_2, b_3, b_4 \in \myF$ such that
+    \[
+      u = b_1 v_1 + b_2 v_2 + b_3 v_3 + b_4 v_4.
+    \]
+    We seek scalars $a_1, a_2, a_3, a_4 \in \myF$ such that
     \[
     \begin{aligned}
-      u
-      &= a_1 (v_1 -v_2) + a_2 (v_2-v_3) + a_3 (v_3-v_4)-a_4 v_4 \\
-      &= a_1 v_1 - a_1 v_2 + a_2v_2 - a_2 v_3 + a_3 v_3 - a_3 v_4 + a_4 v_4 \\
-      &= \underbrace{a_1}_{b_1} v_1 + \underbrace{(a_2 -a_1)}_{b_2} v_2 + \underbrace{(a_3 -a_2)}_{b_3} v_3 + \underbrace{(a_4 -a_3)}_{b_4} v_4 \\
-      \implies b_1 & = a_1 \\
-      b_2 &= a_2 -a_1 = a_2 - b_1 \iff a_2 = b_1 + b_2 \\
-      b_3 &= a_3 - a_2 = a_3 - b_1 -b_2 \iff a_3 = b_1 + b_2 + b_3 \\
-      b_4 &= a_4 - a_3 = a_4 - b_1 - b_2 - b_3 \iff a_4 = b_1 + b_2 + b_3 + b_4
+      u &= a_1 (v_1 - v_2) + a_2 (v_2 - v_3) + a_3 (v_3 - v_4) + a_4 v_4 \\
+        &= a_1 v_1 + (a_2 - a_1) v_2 + (a_3 - a_2) v_3 + (a_4 - a_3) v_4.
     \end{aligned}
     \]
-
-    So, if we have an arbitrary vector $u \in V$ such that
+    Matching coefficients gives the system:
     \[
-    u = b_1 v_1 +  b_2 v_2 + b_3 v_3 + b_4 v_4
+    \begin{aligned}
+      a_1 &= b_1, \\
+      a_2 - a_1 &= b_2 \iff a_2 = b_1 + b_2, \\
+      a_3 - a_2 &= b_3 \iff a_3 = b_1 + b_2 + b_3, \\
+      a_4 - a_3 &= b_4 \iff a_4 = b_1 + b_2 + b_3 + b_4.
+    \end{aligned}
     \]
-
-    it can be rewritten as a linear combination
+    Hence, any $u \in V$ can be written as
     \[
-    u = b_1 (v_1 - v_2) + (b_1-b_2)(v_2-v_3) + (b_1+b_2+b_3)(v_2-v_4)+(b_1+b_2+b_3+b_4)v_4
+      u = b_1 (v_1 - v_2) + (b_1+b_2)(v_2 - v_3) + (b_1+b_2+b_3)(v_3 - v_4) + (b_1+b_2+b_3+b_4) v_4.
     \]
-
-    So, the list $v_1 - v_2, v_2 -v_3, v_3 -v_4, v_4$ also spans $V$.
+    Therefore, the list $v_1 - v_2, v_2 - v_3, v_3 - v_4, v_4$ also spans $V$.
   \end{xprf}
 \end{xrcs}
 
-
+\exercise{4}
 \begin{xrcs}
   Claim: If $v_1, \ddd, v_m \in V$ and
   \[
-    w_k :\equiv v_1 + \cdots + v_k \quad \forall k\in \{1, \ddd, m\},
+    w_k := v_1 + \cdots + v_k \quad \forall k\in \{1, \ddd, m\},
   \]
-
   then $\myspan{v_1, \ddd, v_m} = \myspan{w_1, \ddd, w_m}$.
 
   \begin{xprf}
@@ -55,91 +64,93 @@
       w_1 &= v_1
       & \qquad v_1 &= w_1       \\
       w_2 &= v_1 + v_2
-      & \qquad v_2 &= w_2-v_1 = w_2 - w_1 \\
-      w_3 &= \boxed{v_1 + v_2 + v_3}
-      & \qquad v_3 &= w_3-v_1-v_2 = w_3-w_1-w_2+w_1 = w_3 - w_2 \\
+      & \qquad v_2 &= w_2 - w_1 \\
+      w_3 &= v_1 + v_2 + v_3
+      & \qquad v_3 &= w_3 - w_2 \\
       w_4 &= v_1 + v_2 + v_3 + v_4
-      & \qquad v_4 &= w_4-\boxed{(v_1 + v_2 + v_3)}=w_4 - w_3 \\
+      & \qquad v_4 &= w_4 - w_3 \\
       &\;\;\vdots
       &            &\;\;\vdots \\
       w_m &= v_1 + \cdots + v_m
-      & \qquad v_m &= w_m - w_{m-1}
+      & \qquad v_m &= w_m - w_{m-1}.
     \end{aligned}
     \]
 
-    \StepOne If $u \in \myspan{v_1, \ddd, v_m}$ we have for some $a_1, \ddd, a_m \in \myF$
+    \StepOne If $u \in \myspan{v_1, \ddd, v_m}$, there exist $a_1, \ddd, a_m \in \myF$ such that
     \[
     \begin{aligned}
       u &= a_1 v_1 + \cdots + a_m v_m \\
-      &= a_1 w_1 + a_2 (-w_1 + w_2) + a_3(-w_2 + w_3) + \cdots + a_m (-w_{m-1} + w_m) \\
-      &= (a_1 - a_2) w_1 + (a_2-a_3) w_2 + \cdots + (a_{m-1} + a_m) w_{m-1} + a_m w_m \\
+        &= a_1 w_1 + a_2 (w_2 - w_1) + a_3 (w_3 - w_2) + \cdots + a_m (w_m - w_{m-1}) \\
+        &= (a_1 - a_2) w_1 + (a_2 - a_3) w_2 + \cdots + (a_{m-1} - a_m) w_{m-1} + a_m w_m.
     \end{aligned}
     \]
-
-    Thus, $u \in \myspan {w_1, \ddd, w_m}$, and therefore,
+    Thus, $u \in \myspan{w_1, \ddd, w_m}$, and therefore,
     \begin{equation}
       \label{eq: fact1}
       \myspan{v_1, \ddd, v_m} \subseteq \myspan{w_1, \ddd, w_m}.
     \end{equation}
 
-
-    \StepTwo If $u \in \myspan{w_1, \ddd, w_m}$ we have for some $a_1, \ddd, a_m \in \myF$
+    \StepTwo If $u \in \myspan{w_1, \ddd, w_m}$, there exist $a_1, \ddd, a_m \in \myF$ such that
     \[
     \begin{aligned}
       u &= a_1 w_1 + \cdots + a_m w_m \\
-      &= a_1 v_1 + a_2 (v_1+v_2) + \cdots + a_m(v_1 + \cdots + v_m) \\
-      &= a_1 v_1 + (a_2 v_1+ a_2 v_2) + \cdots + (a_m v_1 + \cdots + a_m v_m) \\
-      &= (a_1 + \cdots + a_m) v_1 + (a_2 + \cdots + a_m) v_2 + \cdots + a_m v_m
+        &= a_1 v_1 + a_2 (v_1+v_2) + \cdots + a_m (v_1 + \cdots + v_m) \\
+        &= (a_1 + \cdots + a_m) v_1 + (a_2 + \cdots + a_m) v_2 + \cdots + a_m v_m.
     \end{aligned}
     \]
-
-    Thus, $u \in \myspan{v_1, \ddd, v_m}$ and therefore
+    Thus, $u \in \myspan{v_1, \ddd, v_m}$, and therefore,
     \begin{equation}
       \label{eq: fact2}
       \myspan{w_1, \ddd, w_m} \subseteq \myspan{v_1, \ddd, v_m}.
     \end{equation}
 
-    \eqref{eq: fact1} and \eqref{eq: fact2} together imply that $\myspan{w_1, \ddd, w_m} = \myspan{v_1, \ddd, v_m}$.
+    Combining \eqref{eq: fact1} and \eqref{eq: fact2} shows that $\myspan{w_1, \ddd, w_m} = \myspan{v_1, \ddd, v_m}$.
   \end{xprf}
 \end{xrcs}
 
-
-\setcounter{xrcscount}{15}
+\exercise{11}
 \begin{xrcs}
-  Explain why no list of four polynoials spans $\polyn_4(\myF)$.
+  Suppose $v_1, \ddd, v_m$ is a linearly independent list in $V$ and $w \in V$. Prove that $v_1, \ddd, v_m, w$ is linearly independent if and only if
+  \begin{equation}
+    w \notin \myspan{v_1, \ddd, v_m}.
+  \end{equation}
+% \begin{xprf}
+%   \Rightarrowdirection Suppose $v_1, \dots, v_m, w$ is linearly independent. If $w \in \myspan{v_1, \dots, v_m}$, then $w = c_1 v_1 + \dots + c_m v_m$, which gives a non-trivial linear combination $c_1 v_1 + \dots + c_m v_m - w = 0$ with coefficient $-1 \neq 0$ for $w$, contradicting linear independence. Thus $w \notin \myspan{v_1, \dots, v_m}$.
+%
+%   \Leftarrowdirection Conversely, suppose $w \notin \myspan{v_1, \dots, v_m}$. Consider scalars $a_1, \dots, a_m, c \in \myF$ such that
+%   \[
+%     a_1 v_1 + \dots + a_m v_m + c w = 0.
+%   \]
+%   If $c \neq 0$, then $w = -\frac{a_1}{c}v_1 - \dots - \frac{a_m}{c}v_m \in \myspan{v_1, \dots, v_m}$, a contradiction.
+%   Thus $c = 0$. The equation then reduces to $a_1 v_1 + \dots + a_m v_m = 0$.
+%   Since $v_1, \dots, v_m$ is linearly independent, $a_1 = \dots = a_m = 0$.
+%   Therefore, all coefficients are zero, and $v_1, \dots, v_m, w$ is linearly independent.
+% \end{xprf}
+\end{xrcs}
+
+\exercise{16}
+\begin{xrcs}
+  Explain why no list of four polynomials spans $\polyn_4(\myF)$.
 
   \begin{xsol}
-    $\polyn_4(\myF)$ has $5$ degrees of freedom and looks like this:
-    \[
-      \polyn_4(\myF) = \left \{a_0 + a_1 z + a_2z^2 + a_3 z^3 + a_4 z^4 : a_0, \ddd, a4 \in \myF \right \}.
-    \]
-
-    If you span $4$ polynomials, you can not get $5$ degrees of freedom.
+    The list $1, z, z^2, z^3, z^4$ is linearly independent in $\polyn_4(\myF)$ and has length $5$. By \ref{thm: length of linearly dependent list less or equal to length of spanning list}, the length of every linearly independent list in a finite-dimensional vector space is less than or equal to the length of every spanning list.
+    Therefore, every spanning list of $\polyn_4(\myF)$ must have length at least $5$. Thus, no list of four polynomials can span $\polyn_4(\myF)$.
   \end{xsol}
 \end{xrcs}
 
-\setcounter{xrcscount}{19}
+\exercise{19}
 \begin{xrcs}
-  Suppose $p_0, p_1, \ddd, p_m$ are polynomials in $\polyn_m(\myF)$ such that $p_k(2) = 0$ for $0\leq k \leq m$. \\
+  Suppose $p_0, p_1, \ddd, p_m$ are polynomials in $\polyn_m(\myF)$ such that $p_k(2) = 0$ for $0 \leq k \leq m$.
   Prove that $p_0, p_1, \ddd, p_m$ is not linearly independent in $\polyn_m(\myF)$.
 
   \begin{xprf}
-    Define an evaluation map $\varphi : \polyn_m(\myF) \to \myF$ such that
-    \[
-    \varphi(p) := p(2) \quad \forall p \in \polyn(\myF).
-    \]
-
-    The polynomials that vanish at $z=2$ lie in the subspace $\mynull(\varphi)$ of $\polyn_m(\myF)$. So, we have
-    \[
-    \mynull(\varphi) \subseteq \polyn_m(\myF).
-    \]
-
-    Any polynomial $p \in \mynull(\varphi)$ can be written as
-    \[
-    p(z) = (z-2) q(z),
-    \]
-
-    where $q(z) \in \polyn_{m-1} (\myF)$. Therefore, $\mydim \mynull(\varphi) = m$. Since $p_0, p_1, \ddd, p_m \in \mynull(\varphi)$, the given list is not linearly independent by \ref{thm: length of linearly dependent list less or equal to length of spanning list}, because it has length $m+1$.
+    Define the evaluation functional $\varphi : \polyn_m(\myF) \to \myF$ by $\varphi(p) := p(2)$ for all $p \in \polyn_m(\myF)$.
+    The polynomials that vanish at $z=2$ lie in the subspace $\mynull(\varphi)$ of $\polyn_m(\myF)$.
+    Any polynomial $p \in \mynull(\varphi)$ satisfies $p(2) = 0$, so $p(z) = (z-2) q(z)$ for some $q \in \polyn_{m-1}(\myF)$.
+    Since $\dim \polyn_{m-1}(\myF) = m$, we have $\dim \mynull(\varphi) = m$.
+    The list $p_0, p_1, \ddd, p_m$ consists of $m+1$ vectors in the $m$-dimensional subspace $\mynull(\varphi)$.
+    By Theorem \ref{thm: length of linearly dependent list less or equal to length of spanning list}, no linearly independent list in $\mynull(\varphi)$ can have length greater than $\dim \mynull(\varphi) = m$.
+    Therefore, the list $p_0, p_1, \ddd, p_m$ of length $m+1$ is linearly dependent (not linearly independent).
   \end{xprf}
 \end{xrcs}
 

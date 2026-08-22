@@ -2,14 +2,18 @@
 
 % 2.34
 \setcounter{thm}{33}
-\begin{thm} [basis length] Any two bases of a \fdvs have the same length. So, the basis length does not depend on the basis.
+\begin{thm} [basis length] Any two bases of a \fdvs have the same length.
 \end{thm}
 \begin{prf}
-  Let $B_1$ and $B_2$ be $2$ bases of $V$. Since both are linearly independent and both span $V$, we have $|B_1| \leq |B_2|$ and $|B_2| \leq |B_1|$ by using \ref{thm: length of linearly dependent list less or equal to length of spanning list}. Therefore, $|B_1|=|B_2|$.
+  Let $B_1$ and $B_2$ be two bases of a finite-dimensional vector space $V$.
+  Since $B_1$ is linearly independent and $B_2$ spans $V$, \ref{thm: length of linearly dependent list less or equal to length of spanning list} implies $|B_1| \leq |B_2|$.
+  Interchanging roles, since $B_2$ is linearly independent and $B_1$ spans $V$, we also have $|B_2| \leq |B_1|$.
+  Therefore, $|B_1| = |B_2|$.
 \end{prf}
 
-\begin{mydef} [dimension]
-  $\dim V :\equiv$ length of any basis of $V$.
+\begin{mydef} [dimension, $\dim V$]
+  The \qt{dimension} of a finite-dimensional vector space $V$, denoted by $\dim V$, is the length of any basis of $V$.
+  The dimension of the trivial vector space $\{0\}$ is defined to be $0$.
 \end{mydef}
 
 % 2.37
@@ -22,37 +26,46 @@
   \end{equation}
 \end{thm}
 \begin{prf}
-  Since the length of every linearly independent list is smaller or equal to every spanning list in $V$ according to
-  \ref{thm: length of linearly dependent list less or equal to length of spanning list}, we have the situation that the length of the basis of $U$ is less than or equal to the length of the basis of $V$.
+  Let $u_1, \dots, u_m$ be a basis of $U$, so $m = \dim U$. Since $u_1, \dots, u_m$ is linearly independent in $U \subseteq V$, it is a linearly independent list in $V$.
+  Let $w_1, \dots, w_n$ be a basis of $V$, so $n = \dim V$, and $w_1, \dots, w_n$ spans $V$.
+  By \ref{thm: length of linearly dependent list less or equal to length of spanning list}, the length of any linearly independent list in $V$ is less than or equal to the length of any spanning list in $V$. Therefore, $m \leq n$, which means $\dim U \leq \dim V$.
 \end{prf}
 
-
 % 2.38
-\begin{thm} [linearly independent list of the right length]
+\begin{thm} [linearly independent list of the right length is a basis]
   \label{thm: linearly independent list of the right length is a basis}
-  Every linearly independent list of vectors of length $\dim V$ is a basis.
+  Every linearly independent list of vectors in $V$ of length $\dim V$ is a basis of $V$.
 \end{thm}
 \begin{prf}
-  Let $\dim V = n$ and $v_1, \ldots, v_n$ be linearly independent in $V$. This list can be extended to a basis of $V$ by \ref{thm: every linearly independent list of vectors in a finite-dimensional vector space can be extended to a basis of the vector space}. However, every basis of $V$ has length $n$, so no elements are adjoined to $v_1, \ldots, v_n$ by such an extension process.
+  Let $\dim V = n$ and let $v_1, \ldots, v_n$ be a linearly independent list in $V$.
+  By \ref{thm: every linearly independent list of vectors in a finite-dimensional vector space can be extended to a basis of the vector space}, this list can be extended to a basis of $V$.
+  However, by Theorem 2.34, every basis of $V$ has length $n = \dim V$.
+  Thus, no additional vectors can be adjoined to $v_1, \ldots, v_n$, so the list itself is already a basis of $V$.
 \end{prf}
 
 % 2.39
 \begin{thm} [subspace of full dimension]
   \label{thm: subspace of full dimension equals the whole space}
-  If $U$ is a subspace of $V$ and $\dim U = \dim V \neq \infty$, then $U=V$.
+  If $U$ is a subspace of $V$ and $\dim U = \dim V < \infty$, then $U=V$.
 \end{thm}
 \begin{prf}
-  Let $u_1, \ldots, u_n$ be a basis of $U$. Thus, $n = \dim U$, and by the hypothesis, we also have $n = \dim V$. Thus, $u_1, \ldots, u_n$ is a linearly independent list of vectors in $V$ of length $\dim V$. So, by our previous theorem \ref{thm: linearly independent list of the right length is a basis}, we see that $u_1, \ldots, u_n$ is a basis of $V$. In particular, every vector in $V$ is a linear combination of $u_1, \ldots, u_n$. Thus, $U=V$.
+  Let $u_1, \ldots, u_n$ be a basis of $U$, where $n = \dim U$. By hypothesis, $n = \dim V$.
+  Thus, $u_1, \ldots, u_n$ is a linearly independent list in $V$ of length $\dim V$.
+  By \ref{thm: linearly independent list of the right length is a basis}, $u_1, \ldots, u_n$ is a basis of $V$.
+  In particular, $V = \myspan{u_1, \ldots, u_n} = U$.
 \end{prf}
 
 % 2.42
 \setcounter{thm}{41}
 \begin{thm} [spanning list of the right length]
   \label{thm: spanning list of the right length}
-  Every spanning list of vectors in $V$ $(\dim V \neq \infty)$ with length $\dim V$ is a basis of $V$.
+  Every spanning list of vectors in $V$ with length $\dim V$ is a basis of $V$.
 \end{thm}
 \begin{prf}
-  Suppose $\dim V = n$ and $v_1, \ldots, v_n$ spans $V$. The list $v_1, \ldots, v_n$ can be reduced to a basis of $V$ by \ref{thm: every spanning list contains a basis}. But our list already has length $n$, so no elements will get deleted. Thus, $v_1, \ldots, v_n$ is a basis of $V$, as desired.
+  Suppose $\dim V = n$ and $v_1, \ldots, v_n$ spans $V$.
+  By \ref{thm: every spanning list contains a basis}, the list $v_1, \ldots, v_n$ can be reduced to a basis of $V$.
+  However, every basis of $V$ has length $n$, so no vectors can be removed during the reduction process.
+  Thus, $v_1, \ldots, v_n$ is a basis of $V$.
 \end{prf}
 
 % 2.43
@@ -130,15 +143,13 @@ If $V_1$ and $V_2$ are subspaces of a \fdvs $V$, then
 \end{equation}
 \end{thm}
 \begin{prf}
-Let $r_1, \ddd, r_n \in V$ be a basis of $V_1 \cap V_2$, where $n \in \nat_{\geq 0}$. This means the basis can also be the empty list, and $V_1 \cap V_2$ might equal $\{ \vec 0 \}$. Note that the empty list is defined to be linearly independent, and the span of the empty list is defined to be equal to $\{ \vec 0 \}$. By this definition, we have
-\[
-\dim(V_1 \cap V_2) = n.
-\]
+Let $r_1, \ddd, r_n \in V$ be a basis of $V_1 \cap V_2$, so $\dim(V_1 \cap V_2) = n$.
+(If $V_1 \cap V_2 = \{ \vec 0 \}$, this basis is the empty list, with $n = 0$.)
 
-Since $r_1, \ddd, r_n$ is linearly independent in $V$ as well as in $V_1$ and $V_2$, this list can be extended to a basis of $V_1$ and $V_2$. So let
+Since $r_1, \ddd, r_n$ is a linearly independent list in $V_1$ as well as in $V_2$, by \ref{thm: every linearly independent list of vectors in a finite-dimensional vector space can be extended to a basis of the vector space} we can extend it to:
 \begin{itemize}
-  \item $r_1, \ddd, r_n, u_1, \ddd, u_j$ be a basis of $V_1$, and
-  \item $r_1, \ddd, r_n, w_1, \ddd, w_k$ be a basis of $V_2$ for $j,k \in \nat_{\geq 0}$.
+  \item a basis $r_1, \ddd, r_n, u_1, \ddd, u_j$ of $V_1$ (so $\dim V_1 = n+j$), and
+  \item a basis $r_1, \ddd, r_n, w_1, \ddd, w_k$ of $V_2$ (so $\dim V_2 = n+k$).
 \end{itemize}
 
 Then we have $\dim (V_1) = n+j$ and $\dim(V_2) = n+k$. Note that the extensions might be empty ($j,k \in \nat_{\geq 0}$), meaning $V_1$ or $V_2$ could coincide with $V_1 \cap V_2$. If both subspaces equal $V_1 \cap V_2$, this would imply $V_1 = V_2$. The reader can easily verify that the formula still holds in this case: $\dim (V_2+V_2) = \dim (V_2) = 2 \cdot \dim (V_2) - \dim (V_2 \cap V_2)$.
@@ -148,17 +159,18 @@ We will show that
   \label{eq: basis with r u and w}
   r_1, \ddd, r_n, u_1, \ddd, u_j, w_1, \ddd, w_k
 \end{equation}
-
-is a basis of $V_1 + V_2$. This will complete the proof because then we will have
+is a basis of $V_1 + V_2$. Once this is established, the proof is complete because the length of this basis is
 \begin{equation}
   \begin{aligned}
     \dim (V_1 + V_2) &= n + j + k \\
     &= (n+j) + (n+k) - n \\
-    &= \dim (V_1) + \dim (V_2) - \dim (V_1 \cap V_2).
+    &= \dim V_1 + \dim V_2 - \dim (V_1 \cap V_2).
   \end{aligned}
 \end{equation}
 
-The list \eqref{eq: basis with r u and w} is contained in $V_1 + V_2$. The span of this list contains $V_1$ and $V_2$; therefore, it equals $V_1 + V_2$. Thus, to show that \eqref{eq: basis with r u and w} is a basis of $V_1 + V_2$, we only need to show that it is linearly independent. Therefore, let $a_1, \ddd, a_n, b_1, \ddd, b_j, c_1, \ddd, c_k \in \myF$, such that
+Clearly, the list \eqref{eq: basis with r u and w} is contained in $V_1 + V_2$, and its span contains both $V_1 = \myspan{r_1, \dots, r_n, u_1, \dots, u_j}$ and $V_2 = \myspan{r_1, \dots, r_n, w_1, \dots, w_k}$. Thus, it spans $V_1 + V_2$.
+
+It remains to prove linear independence. Suppose there exist scalars $a_1, \ddd, a_n, b_1, \ddd, b_j, c_1, \ddd, c_k \in \myF$ such that
 \begin{equation}
   \label{eq: linear independence formula for r u and w}
   \begin{aligned}

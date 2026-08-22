@@ -1,0 +1,54 @@
+\section*{Exercises about Orthogonal Complements and Minimization Problems}
+
+\exercise{6}
+\begin{xrcs}
+  Suppose $U$ is a finite-dimensional subspace of an inner product space $V$. Prove that
+  \begin{equation}
+    (U^\perp)^\perp = U \quad \text{and} \quad V = U \oplus U^\perp.
+  \end{equation}
+% \begin{xprf}
+%   \StepOne We first show $V = U \oplus U^\perp$.
+%   Let $u_1, \dots, u_m$ be an orthonormal basis of $U$.
+%   For any $v \in V$, define $P_U v = \sum_{j=1}^m \langle v, u_j \rangle u_j \in U$.
+%   Then $v = P_U v + (v - P_U v)$.
+%   For each $k \in \{1, \dots, m\}$, $\langle v - P_U v, u_k \rangle = \langle v, u_k \rangle - \langle v, u_k \rangle = 0$, so $v - P_U v \in U^\perp$.
+%   Thus $V = U + U^\perp$.
+%   If $w \in U \cap U^\perp$, then $\langle w, w \rangle = 0 \implies w = 0$, so $U \cap U^\perp = \{0\}$.
+%   Hence $V = U \oplus U^\perp$.
+%
+%   \StepTwo We now show $(U^\perp)^\perp = U$.
+%   If $u \in U$, then $\langle u, w \rangle = 0$ for all $w \in U^\perp$, so $u \in (U^\perp)^\perp$, proving $U \subseteq (U^\perp)^\perp$.
+%   Conversely, let $v \in (U^\perp)^\perp$.
+%   By Step 1, write $v = u + w$ with $u \in U$ and $w \in U^\perp$.
+%   Since $v \in (U^\perp)^\perp$ and $w \in U^\perp$, we have $\langle v, w \rangle = 0$.
+%   Thus $0 = \langle u+w, w \rangle = \langle u, w \rangle + \langle w, w \rangle = 0 + \|w\|^2 = \|w\|^2$.
+%   This forces $w = 0$, so $v = u \in U$, proving $(U^\perp)^\perp \subseteq U$.
+%   Therefore, $(U^\perp)^\perp = U$.
+% \end{xprf}
+\end{xrcs}
+
+\exercise{11}
+\begin{xrcs}
+  (Best Approximation Theorem) Suppose $U$ is a finite-dimensional subspace of an inner product space $V$ and $v \in V$. Prove that
+  \begin{equation}
+    \|v - P_U v\| \leq \|v - u\| \quad \forall u \in U,
+  \end{equation}
+  with equality if and only if $u = P_U v$.
+% \begin{xprf}
+%   Let $u \in U$. We decompose $v - u$ as:
+%   \[
+%     v - u = (v - P_U v) + (P_U v - u).
+%   \]
+%   Notice that $v - P_U v \in U^\perp$ and $P_U v - u \in U$.
+%   Therefore, $v - P_U v$ and $P_U v - u$ are orthogonal vectors.
+%   By the Pythagorean theorem:
+%   \[
+%     \|v - u\|^2 = \|(v - P_U v) + (P_U v - u)\|^2 = \|v - P_U v\|^2 + \|P_U v - u\|^2.
+%   \]
+%   Since $\|P_U v - u\|^2 \geq 0$, we have:
+%   \[
+%     \|v - u\|^2 \geq \|v - P_U v\|^2 \iff \|v - P_U v\| \leq \|v - u\|.
+%   \]
+%   Equality holds if and only if $\|P_U v - u\|^2 = 0 \iff P_U v - u = 0 \iff u = P_U v$.
+% \end{xprf}
+\end{xrcs}

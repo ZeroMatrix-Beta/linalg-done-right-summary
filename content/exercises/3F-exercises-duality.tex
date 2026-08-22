@@ -57,148 +57,59 @@
       \varphi (v) = b_1 + \cdots + b_m.
     \end{equation}
 
-    It is easy to see that $\varphi (u) = 0$ vor every $u \in U$ (since $U \cap W = \{0\}$, by \ref{thm: sum and intersection of two subspaces}) and that $\varphi$ is linear.
+    It is easy to see that $\varphi (u) = 0$ for every $u \in U$ (since $U \cap W = \{0\}$, by \ref{thm: sum and intersection of two subspaces}) and that $\varphi$ is linear.
   \end{xsol}
 \end{xrcs}
 
 \exercise{10}
 \begin{xrcs}
-  Suppose $m$ is positive integer.
+  Suppose $m$ is a positive integer.
   \begin{enumerate}
     \item Show that $1, x-5, \ddd, (x-5)^m$ is a basis of $\polyn_m(\real)$.
     \item What is the dual basis of the basis in (a)?
   \end{enumerate}
 
   \begin{xsol}
-    We first start the exercise by solving it for $\polyn_4(\real)$ straight forward before solving it more abstract and generic for $\polyn_m(\real)$. Recall that $e_0 = x^0, e_1 = x^1, \ddd, e_4 = x^4$ is the standard basis of $\polyn_4(\real)$. We want to show that $v_0 = 1, v_1 = x-5, \ddd, v_4 = (x-5)^4$ is a basis as well. If we do some rewiting and expansion of the formulas, we get
+    We first start the exercise by solving it for $\polyn_4(\real)$ before solving it abstractly for $\polyn_m(\real)$. Recall that $e_0 = x^0, e_1 = x^1, \ddd, e_4 = x^4$ is the standard basis of $\polyn_4(\real)$. We want to show that $v_0 = 1, v_1 = x-5, \ddd, v_4 = (x-5)^4$ is a basis as well. Expanding the polynomials:
     \begin{equation}
       \begin{aligned}
-        v_0 = (x^1-5x^0)^0 &= 1x^0 \;,\\
-        v_1 = (x^1-5x^0)^1 &= -5x^0+x^1 \;,\\
-        v_2 = (x^1-5x^0)^2 &= 25x^0-10x^1+x^2 \;,\\
-        v_3 = (x^1-5x^0)^3 &= -125x^0+75x^1-15x^2+x^3 \;,\\
-        v_4 = (x^1-5x^0)^4 &= 625x^0-500x^1+150x^2-20x^3+x^4 \;.\\
+        v_0 = (x-5)^0 &= 1x^0, \\
+        v_1 = (x-5)^1 &= -5x^0 + x^1, \\
+        v_2 = (x-5)^2 &= 25x^0 - 10x^1 + x^2, \\
+        v_3 = (x-5)^3 &= -125x^0 + 75x^1 - 15x^2 + x^3, \\
+        v_4 = (x-5)^4 &= 625x^0 - 500x^1 + 150x^2 - 20x^3 + x^4.
       \end{aligned}
     \end{equation}
 
-    Now, for a given $p \in \polyn_4(\real)$ so that $p(x) = b_0 x^0 + b_1 x^1 + \cdots + b_4 x^4$ ($b_j \in \myF$) we want to show that there exists $a_i \in \myF$ such that $\sum_{j=0}^{4} b_j e_j = \sum_{j=0}^{4} a_j v_j$. So let's expand
+    Now, for a given $p \in \polyn_4(\real)$ with $p(x) = b_0 x^0 + b_1 x^1 + \cdots + b_4 x^4$ ($b_j \in \real$), we show that there exist $a_j \in \real$ such that $\sum_{j=0}^{4} b_j e_j = \sum_{j=0}^{4} a_j v_j$. Expanding $\sum_{j=0}^4 a_j v_j$ and matching coefficients with $\sum_{j=0}^4 b_j x^j$:
     \begin{equation}
       \begin{aligned}
-        \textstyle
-        \sum_{j=0}^{4} a_j v_j
-          &= a_0 (1x^0) + a_1 (-5x^0+x^1) + a_2 (25x^0-10x^1+x^3) \\
-          &  \qquad + a_3 (-125x^0+75x^1-15x^2+x^3) + a_4 (625x^0-500x^1+150x^2+x^4) \\
-          &= (a_0 - 5a_1 + 25 a_2 - 125 a_3 + 625 a_4) + (a_1 -10 a_2 + 75 a_3 - 500 a_4) x\\
-          & \qquad + (a_2 - 15 a_3 + 150 a_4) x^2 + (a_3 - 20 a_4) x^3 + a_4 x^4 \\
-          &= b_0 x^0 + b_1 x^1 + \cdots + b_4 x^4 = \textstyle \sum_{j=0}^{4} b_j e_j.
+        a_4 &= b_4, \\
+        a_3 &= b_3 + 20 a_4, \\
+        a_2 &= b_2 + 15 a_3 - 150 a_4, \\
+        a_1 &= b_1 + 10 a_2 - 75 a_3 + 500 a_4, \\
+        a_0 &= b_0 + 5a_1 - 25 a_2 + 125 a_3 - 625 a_4.
       \end{aligned}
     \end{equation}
 
-    We can solve this for $a_j$ by back substitution:
-    \begin{equation}
-      \begin{aligned}
-      a_4 &= b_4, \\
-      a_3 &= b_3 + 20 a_4, \\
-      a_2 &= b_2 + 15 a_3 - 150 a_4, \\
-      a_1 &= b_1 + 10 a_2 + 75 a_3 - 500 a_4, \text{ and finally } \\
-      a_0 &= b_0 + 5a_1 - 25 a_2 + 125 a_3 - 625 a_4.
-      \end{aligned}
-    \end{equation}
+    Since this triangular system can always be solved uniquely by back-substitution, $v_0, \ddd, v_4$ is indeed a basis of $\polyn_4(\real)$.
 
-    Hence, $v_1, \ddd, v_4$ is indeed a basis of $\polyn_4(\real)$. Now, we want to find the dual basis $\psi_0, \psi_1, \ddd, \psi_4$ of $v_1, \ddd, v_4$. Recall that the condition
+    Now, we find the dual basis $\psi_0, \psi_1, \ddd, \psi_4$ of $v_0, \ddd, v_4$. Recall the duality condition:
     \begin{equation}
-      \phi_j (v_k) = \delta_{j,k} = \begin{cases}
-        1,\quad j=k \\ 0, \quad j \neq k
+      \psi_j (v_k) = \delta_{j,k} = \begin{cases}
+        1, & j=k, \\
+        0, & j \neq k.
       \end{cases}
     \end{equation}
 
-    must hold, and we thus want to define each $\phi_j$ on the standard basis $e_0, \ddd, e_4$. So let's start with $\psi_0$, where $\psi_0 (v_0) = 1$ and zero on all other $v$'s.
+    More generally, using the binomial theorem on $(x-5)^k = \sum_{i=0}^k \binom{k}{i} (-5)^{k-i} x^i$, we observe that the linear functional $\psi_j$ defined by
     \begin{equation}
-      \begin{aligned}
-      \psi_0(v_0) &= 1\psi_0(x^0) = 1 \;. \implies \psi_0(x^0) = 1.\\
-      \psi_0(v_1) &= -5\psi_0(x^0)+\psi_0(x^1) = 0. \implies \psi_0(x^1) = 5 \;.\\
-      \psi_0(v_2) &= 25psi_0(x^0)-10\psi_0(x^1)+\psi_0(x^2)= 0. \implies \phi(x^2) = 25 \;.\\
-      \psi_0(v_3) &= -125\psi_0(x^0)+75\psi_0(x^1)-15\psi_0(x^2)+\psi_0(x^3) = 0. \implies \psi_0(x^3) = 125.\\
-      \psi_0(v_4) &= 625\psi_0(x^0)-500\psi_0(x^1)+150\psi_0(x^2)-20\psi_0(x^3)+\psi_0(x^4) = 0 . \implies \psi_0(x^4) = 625 .\\
-      \end{aligned}
+      \psi_j(p) := \frac{1}{j!} p^{(j)}(5)
     \end{equation}
-
-    Now, the same for $\psi_1$:
-    \begin{equation}
-      \begin{aligned}
-      \psi_1(v_0) &= 1\psi_1(x^0) = 0 \;. \implies \psi_0(x^0) = 0.\\
-      \psi_1(v_1) &= -5\psi_1(x^0)+\psi_1(x^1) = 1. \implies \psi_1(x^1) = 1 \;.\\
-      \psi_1(v_2) &= 25psi_0(x^0)-10\psi_1(x^1)+\psi_1(x^2)= 0. \implies \psi_1(x^2) = 10 \;.\\
-      \psi_1(v_3) &= -125\psi_1(x^0)+75\psi_1(x^1)-15\psi_1(x^2)+\psi_1(x^3) = 0. \implies \psi_1(x^3) = 75.\\
-      \psi_1(v_4) &= 625\psi_1(x^0)-500\psi_1(x^1)+150\psi_1(x^2)-20\psi_1(x^3)+\psi_1(x^4) = 0 . \implies \psi_1(x^4) = 500 .\\
-      \end{aligned}
-    \end{equation}
-
-    Now, $\psi_2$:
-    \begin{equation}
-      \begin{aligned}
-      \psi_2(v_0) &= 1\psi_2(x^0) = 0 \;. \implies \psi_2(x^0) = 0.\\
-      \psi_2(v_1) &= -5\psi_2(x^0)+\psi_2(x^1) = 0. \implies \psi_2(x^1) = 0 \;.\\
-      \psi_2(v_2) &= 25\psi_2(x^0)-10\psi_2(x^1)+\psi_2(x^2)= 1. \implies \psi_2(x^2) = 1 \;.\\
-      \psi_2(v_3) &= -125\psi_2(x^0)+75\psi_2(x^1)-15\psi_2(x^2)+\psi_2(x^3) = 0. \implies \psi_2(x^3) = 15.\\
-      \psi_2(v_4) &= 625\psi_2(x^0)-500\psi_2(x^1)+150\psi_2(x^2)-20\psi_2(x^3)+\psi_2(x^4) = 0 . \implies \psi_2(x^4) = 150 .\\
-      \end{aligned}
-    \end{equation}
-
-   For $\psi_3$ we get $\psi_3(x^0) = \psi_3(x_1) = \psi_3(x^2) = 0$ and $\psi_3 (x^3) = 1$. Now what is left to calculate is
-   \begin{equation}
-     \psi_3(v_4) = 625\psi_2(x^0)-500\psi_2(x^1)+150\psi_2(x^2)-20\psi_2(x^3)+\psi_2(x^4) = 0.
-   \end{equation}
-
-    Hence, $\psi_4(v_4) = 20.$ For $\psi_4$ we get $\psi_4(x^0) = \psi_4(x_1) = \cdots = \psi_4(x^3) = 0$, and $\psi_4(v_4) = 1$, and thus, $\psi_4(x^4) = 1$. Now, let's take a more generic approach making extensive use of the binomic formula
-    \begin{equation}
-      (a+b)^n = \sum_{i=0}^{n} \binom{n}{i} a^{i}b^{n-i}, \quad (a,b \in \real, n\in \nat),
-    \end{equation}
-
-    and Pascal's identity
-    \begin{equation}
-      \binom{n}{k} + \binom{n}{k+1} = \binom{n+1}{k+1}, \quad (n,k \in \nat).
-    \end{equation}
-
-    We start by rewriting once again
-    \begin{equation}
-      \begin{aligned}
-        v_0 = (x^1-5x^0)^0 &= \binom{0}{0}(-5)^0 e_0 = e^0\;,\\
-        v_1 = (x^1-5x^0)^1 &= \binom{1}{0}(-5)^1 e_0 + \binom{1}{1}(-5)^0 e_1 \;,\\
-        v_2 = (x^1-5x^0)^2 &= \binom{2}{0}(-5)^2 e_0 + \binom{2}{1}(-5)^1 e_1 + \binom{2}{2}(-5)^0 e_2\;,\\
-        & \; \vdots \\
-        v_m = (x^1-5x^0  )^m &= \binom{m}{0}(-5)^m e_0 + \binom{m}{1}(-5)^{m-1} e_1 + \cdots + \binom{m}{m}(-5)^0 e_m
-                           = \sum_{i=0}^{m} \binom{m}{i} (-5)^{m-i} e_{i}.
-      \end{aligned}
-    \end{equation}
-
-    Now, $\psi_j(e_k) = \binom{k}{j} 5^{k-j}$, taylor polynomials. (why?).
-
-    ChatGTP: Now, why is $\psi_j(e_k) = \binom{k}{j} \cdot 5^{k-j}$?
-    We want to define the dual basis $\{\psi_j\}_{j=0}^m$ of $\{v_k\}_{k=0}^m$, meaning we require
-    \[
-    \psi_j((x-5)^k) = \delta_{j,k}.
-    \]
-    Using the binomial theorem, we can expand each $(x-5)^k$ as
-    \[
-    (x-5)^k = \sum_{i=0}^k \binom{k}{i} (-5)^{k-i} e_i.
-    \]
-    To satisfy the condition $\psi_j((x-5)^k) = \delta_{j,k}$, it is enough to define $\psi_j$ on the standard basis $\{e_k\}$ by
-    \[
-    \psi_j(e_k) = \binom{k}{j} \cdot 5^{k-j}.
-    \]
-    This works because $\psi_j$ corresponds to applying the $j$-th derivative at $x=5$, divided by $j!$, to polynomials:
-    \[
-    \psi_j(p(x)) = \frac{1}{j!} p^{(j)}(5),
-    \]
-    and
-    \[
-    \frac{1}{j!} \cdot \frac{d^j}{dx^j} x^k \Big|_{x=5} = \binom{k}{j} \cdot 5^{k-j}.
-    \]
-    Thus, $\{\psi_j\}_{j=0}^m$ is indeed the dual basis of $\{v_k\}_{k=0}^m$.
+    satisfies $\psi_j((x-5)^k) = \frac{1}{j!} \frac{d^j}{dx^j}(x-5)^k\big|_{x=5} = \delta_{j,k}$.
+    Thus, the dual basis is given by $\psi_j(p) = \frac{p^{(j)}(5)}{j!}$ for $j = 0, \dots, m$.
   \end{xsol}
 \end{xrcs}
-
 
 \exercise{11}
 \begin{xrcs}
@@ -209,22 +120,20 @@
   \end{equation}
 
   \begin{xsol}
-    For a given $\psi \in \dual{V}$, let $\Gamma \in \dual{V}$ defined by
+    For a given $\psi \in \dual{V}$, define $\Gamma \in \dual{V}$ by
     \begin{equation}
-      \Gamma := \psi(v_1) \varphi_1 + \cdots +  \psi(v_n) \varphi_n
+      \Gamma := \psi(v_1) \varphi_1 + \cdots +  \psi(v_n) \varphi_n.
     \end{equation}
-
-    juste like in \eqref{eq: equation for psi}. We want to show that $\Gamma = \psi$. Observe that $\Gamma$ is a linear functional, since it is the linear combination of some linear  functionals $\varphi_1, \ddd, \varphi_n$ (which are the dual basis of $V$). In this case, $\psi(v_1), \ddd, \psi(v_n)$ are the scalars of this sum, which do not change for a given $\psi$ and a given basis of $V$. If we now apply $\Gamma$ to each $v_k$ (for $k = 1, \ddd, n$), we get
+    We want to show that $\Gamma = \psi$. Applying $\Gamma$ to each basis vector $v_k$ ($k = 1, \ddd, n$):
     \begin{equation}
       \begin{aligned}
         \Gamma(v_k) &= (\psi(v_1) \varphi_1 + \cdots +  \psi(v_n) \varphi_n) (v_k) \\
-         &= \psi(v_1) \varphi_1 (v_k) + \cdots +  \psi(v_k) \varphi_n (v_k) + \cdots +  \psi(v_n) \varphi_n (v_k) \\
-         &= \psi(v_1) \cdot 0 + \cdots +  \psi(v_k) \cdot 1 + \cdots +  \psi(v_k) \cdot 0 \\
-         &= \psi(v_k).
+                    &= \psi(v_1) \varphi_1 (v_k) + \cdots +  \psi(v_k) \varphi_k (v_k) + \cdots +  \psi(v_n) \varphi_n (v_k) \\
+                    &= \psi(v_1) \cdot 0 + \cdots +  \psi(v_k) \cdot 1 + \cdots +  \psi(v_n) \cdot 0 \\
+                    &= \psi(v_k).
       \end{aligned}
     \end{equation}
-
-    Hence, $\Gamma$ and $\psi$ agree on every basis vector $v_k$. Therefore, $\Gamma = \psi$.
+    Hence, $\Gamma$ and $\psi$ agree on every vector of the basis $v_1, \dots, v_n$. Since a linear map is uniquely determined by its values on a basis, $\Gamma = \psi$.
   \end{xsol}
 \end{xrcs}
 
@@ -332,14 +241,14 @@
   \end{xsol}
 \end{xrcs}
 
-\exercise{16}
+\exercise{15}
 \begin{xrcs}
   Suppose $W$ is finite-dimensional and $T \in \linmap (V,W)$. Prove that
   \begin{equation}
     \dual{T} = 0 \iff T = 0.
   \end{equation}
   \begin{xprf}
-    \Rightarrowdirection Assume $\dual{T} = 0$. By definition, $\dual{T} = \varphi \circ T = 0$ for every $\varphi \in \dual{W}$. If $W = \{0\}$, then necessarily $T = 0$, so $\dual{T} = 0$ holds trivially.
+    \Rightarrowdirection Assume $\dual{T} = 0$. By definition, $\dual{T}(\varphi) = \varphi \circ T = 0$ for every $\varphi \in \dual{W}$. If $W = \{0\}$, then necessarily $T = 0$, so $\dual{T} = 0$ holds trivially.
     For this reason, assume for now that $W \neq 0$ and let $w_1, \ddd, w_n$ be a basis of $W$. Suppose for the sake of contradiction that $T \neq 0$. Hence, there exists a nonzero $v \in V$ and a nonzero $w \in W$ such that $w=T(v)$. Express $w$ as $w=a_1 w_1 + \cdots + a_n w_n$. Since $w \neq 0$, pick $k$ such that $a_k \neq 0$. Define $\varphi \in \dual{W}$ by
     \begin{equation}
       \varphi(b_1 w_1 + \cdots + b_n w_n) = \frac{b_k}{a_k},
@@ -367,34 +276,61 @@
 \begin{xrcs}
   Suppose $V$ and $W$ are finite-dimensional and $T \in \linmap(V,W)$. Prove that
   \begin{equation}
-      T$ is invertible $\iff$ $\dual{T} \in \linmap(\dual{W}, \dual{V})$ is invertible.$
+    T \text{ is invertible} \iff \dual{T} \in \linmap(\dual{W}, \dual{V}) \text{ is invertible.}
   \end{equation}
 
   \begin{xprf}
-    \Rightarrowdirection Let $T \in \linmap(V,W)$ be invertible and $T^{-1} \in \linmap(W,V)$ be the inverse of $T$. We want first want to show that $\dual{\left(T^{-1} \right) }$ is the inverse of $\dual{T} $, that is
+    \Rightarrowdirection Let $T \in \linmap(V,W)$ be invertible and let $T^{-1} \in \linmap(W,V)$ be the inverse of $T$. We first want to show that $\dual{\left(T^{-1} \right)}$ is the inverse of $\dual{T}$, that is,
     \begin{equation}
-      \dual{\left(T^{-1} \right) } = \left(\dual{T} \right)^{-1}.
+      \dual{\left(T^{-1} \right)} = \left(\dual{T}\right)^{-1}.
     \end{equation}
 
-    For $\dual{\left(T^{-1} \right) } \in \lin{\dual{V}}{\dual{W}}$ to be an inverse of $\dual{T} \in \lin{\dual{W}}{\dual{V}}$, it must hold that $\dual{\left(T^{-1} \right) } \dual{T} = I_{W'}$ and $\dual{T} \dual{\left(T^{-1} \right) } = I_{V'}$. Note that $I_W \neq I_{W'}$ and $I_V \neq I_{V'}$. Therefore, let's compute for $\psi \in \dual{V}$:
+    For $\dual{\left(T^{-1}\right)} \in \lin{\dual{V}}{\dual{W}}$ to be the inverse of $\dual{T} \in \lin{\dual{W}}{\dual{V}}$, it must hold that $\dual{\left(T^{-1}\right)} \dual{T} = I_{\dual{W}}$ and $\dual{T} \dual{\left(T^{-1}\right)} = I_{\dual{V}}$. For any $\psi \in \dual{W}$, we compute:
     \begin{equation}
-      \left(\dual{ \left(T^{-1}\right) } \circ \dual{T} \right)(\psi) = \dual{\left(T^{-1}\right)} \left(\psi \circ T ^ {-1}\right)
-      = \left(\psi \circ  T \right) \circ T^{-1} = \psi \circ \left(T T^{-1} \right) = \psi .
+      \left(\dual{\left(T^{-1}\right)} \circ \dual{T}\right)(\psi) = \dual{\left(T^{-1}\right)}(\psi \circ T)
+      = (\psi \circ T) \circ T^{-1} = \psi \circ (T T^{-1}) = \psi \circ I_W = \psi.
     \end{equation}
 
-    Thus, $\dual{T}  \dual{\left(T^{-1} \right) } = I_{V'}$. The other composition works by the same argument. Let $\psi \in \dual{W}$. So,
+    Thus, $\dual{\left(T^{-1}\right)} \dual{T} = I_{\dual{W}}$. For the other direction, let $\varphi \in \dual{V}$:
     \begin{equation}
-      \left(\dual{T} \circ \dual{\left(T^{-1}\right)}\right)(\varphi) = \dual{T} \left(\varphi \circ T^{-1} \right)
-      = \left(\varphi \circ T^{-1} \right) \circ T = \varphi \circ \left(T^{-1} T \right) = \varphi,
+      \left(\dual{T} \circ \dual{\left(T^{-1}\right)}\right)(\varphi) = \dual{T}(\varphi \circ T^{-1})
+      = (\varphi \circ T^{-1}) \circ T = \varphi \circ (T^{-1} T) = \varphi \circ I_V = \varphi,
     \end{equation}
 
-    for that $ \dual{\left(T^{-1} \right) } \dual{T} = I_{W'}$. Hence, $\dual{T}$ is invertible with $\dual{\left(T^{-1} \right) } = \left(\dual{T} \right)^{-1}$.
+    so $\dual{T} \dual{\left(T^{-1}\right)} = I_{\dual{V}}$. Hence, $\dual{T}$ is invertible with $\left(\dual{T}\right)^{-1} = \dual{\left(T^{-1}\right)}$.
 
-    \Leftarrowdirection If $\dual{T}$ is invertible, then it is surjective (and also injective) by \ref{thm: injectivity is equivalent to surjectivity}. Take any nonzero $v \in V$ and $\varphi \in \dual{V}$ with $\varphi (v) \neq 0$. Surjectivity of $\dual{T}$ yields a $\psi \in \dual{W}$ with $\dual{T} (\psi) = \varphi$, or $\varphi = \psi \circ T$. Therefore,
+    \Leftarrowdirection If $\dual{T}$ is invertible, then it is surjective (and also injective) by \ref{thm: injectivity is equivalent to surjectivity}. Take any nonzero $v \in V$ and $\varphi \in \dual{V}$ with $\varphi (v) \neq 0$. Surjectivity of $\dual{T}$ yields a $\psi \in \dual{W}$ with $\dual{T}(\psi) = \varphi$, meaning $\varphi = \psi \circ T$. Therefore,
     \begin{equation}
-      0 \neq \varphi(v) = \psi(Tv) = (\psi \circ T) (v).
+      0 \neq \varphi(v) = \psi(Tv) = (\psi \circ T)(v).
     \end{equation}
 
-    This implies that $Tv \neq 0$, and thus, $\mynull T = \{ 0\}$ (since $v$ was arbitrary and nonzero). This forces $T$ to be injective. Because $\dual{T}$ is invertible, we have $\mydim \dual{W} = \mydim \dual{V}$, and hence, $\mydim W = \mydim V$ (see \ref{thm: dim V' = dim V}). An injective linear map between finite-dimensional vector spaces of the same dimension is surjective, so $T$ is bijectiive, and therefore, invertible.
+    This implies that $Tv \neq 0$, and thus $\mynull T = \{0\}$ (since $v$ was arbitrary and nonzero). This forces $T$ to be injective. Because $\dual{T}$ is invertible, we have $\dim \dual{W} = \dim \dual{V}$, and hence $\dim W = \dim V$ (see \ref{thm: dim V' = dim V}). An injective linear map between finite-dimensional vector spaces of the same dimension is surjective, so $T$ is bijective, and therefore, invertible.
   \end{xprf}
+\end{xrcs}
+
+\exercise{19}
+\begin{xrcs}
+  Suppose $U$ and $W$ are subspaces of a finite-dimensional vector space $V$. Prove that
+  \begin{equation}
+    (U + W)^0 = U^0 \cap W^0 \quad \text{and} \quad (U \cap W)^0 = U^0 + W^0.
+  \end{equation}
+% \begin{xprf}
+%   \StepOne We prove $(U+W)^0 = U^0 \cap W^0$.
+%   Let $\varphi \in \dual{V}$. Then $\varphi \in (U+W)^0 \iff \varphi(u+w) = 0$ for all $u \in U, w \in W$.
+%   Taking $w = 0$ gives $\varphi(u) = 0$ for all $u \in U$ ($\varphi \in U^0$), and taking $u = 0$ gives $\varphi(w) = 0$ for all $w \in W$ ($\varphi \in W^0$).
+%   Thus $\varphi \in (U+W)^0 \iff \varphi \in U^0 \cap W^0$.
+%
+%   \StepTwo We prove $(U \cap W)^0 = U^0 + W^0$.
+%   Since $U \cap W \subseteq U$ and $U \cap W \subseteq W$, taking annihilators gives $U^0 \subseteq (U \cap W)^0$ and $W^0 \subseteq (U \cap W)^0$, so $U^0 + W^0 \subseteq (U \cap W)^0$.
+%   To show equality, we compare dimensions:
+%   \[
+%   \begin{aligned}
+%     \dim(U^0 + W^0) &= \dim U^0 + \dim W^0 - \dim(U^0 \cap W^0) \\
+%     &= (\dim V - \dim U) + (\dim V - \dim W) - \dim((U+W)^0) \\
+%     &= 2\dim V - \dim U - \dim W - (\dim V - \dim(U+W)) \\
+%     &= \dim V - (\dim U + \dim W - \dim(U+W)) = \dim V - \dim(U \cap W) = \dim((U \cap W)^0).
+%   \end{aligned}
+%   \]
+%   Since $U^0 + W^0$ is a subspace of $(U \cap W)^0$ of the same dimension, $U^0 + W^0 = (U \cap W)^0$.
+% \end{xprf}
 \end{xrcs}

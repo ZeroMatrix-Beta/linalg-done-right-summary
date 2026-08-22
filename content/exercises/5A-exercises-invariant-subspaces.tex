@@ -81,7 +81,7 @@
 
 \exercise{21}
 \begin{xrcs}
-  Supppose $T \in \linmap(V)$ is invertible
+  Suppose $T \in \linmap(V)$ is invertible.
   \begin{enumerate}
     \item Suppose $\lambda \in \myF$ with $\lambda \neq 0$. Prove that $\lambda$ is an eigenvalue of $T$ $\iff$ $\frac{1}{\lambda}$ is an eigenvalue of $T^{-1}$.
     \item Prove that $T$ and $T^{-1}$ have the same eigenvectors.
@@ -155,6 +155,23 @@
   \end{xprf}
 \end{xrcs}
 
+\exercise{24}
+\begin{xrcs}
+  Suppose $T \in \linmap(V)$ and $\lambda_1, \ddd, \lambda_m$ are distinct eigenvalues of $T$. Prove that the sum of the corresponding eigenspaces is a direct sum:
+  \begin{equation}
+    E(\lambda_1, T) + \cdots + E(\lambda_m, T) = E(\lambda_1, T) \oplus \cdots \oplus E(\lambda_m, T).
+  \end{equation}
+% \begin{xprf}
+%   To show that the sum is direct, suppose $u_1 + \dots + u_m = 0$, where $u_j \in E(\lambda_j, T)$ for each $j \in \{1, \dots, m\}$.
+%   We must show that every $u_j = 0$.
+%   Suppose for contradiction that not all $u_j$ are zero.
+%   Discarding the terms where $u_j = 0$, we obtain a non-empty sum of nonzero eigenvectors corresponding to distinct eigenvalues that equals zero.
+%   However, by Theorem \ref{thm: linear independence of eigenvectors}, eigenvectors corresponding to distinct eigenvalues are linearly independent.
+%   Thus no non-trivial linear combination of them can equal zero, a contradiction.
+%   Therefore, $u_1 = \dots = u_m = 0$, which proves that the sum is a direct sum.
+% \end{xprf}
+\end{xrcs}
+
 \exercise{25}
 \begin{xrcs}
   Suppose $T \in \linmap (V)$ and $u,w$ are eigenvectors of $T$ such that $u + w$ is also an eigenvector of $T$. Prove that $u$ and $w$ are eigenvectors of $T$ corresponding to the same eigenvalue.
@@ -184,7 +201,14 @@
 
 \exercise{26}
 \begin{xrcs}
-  Let $u,v $
+  Suppose $T \in \linmap(V)$ and $u, v \in V$ are nonzero eigenvectors of $T$ corresponding to distinct eigenvalues $\lambda \neq \mu$. Prove that $u+v$ is not an eigenvector of $T$.
+
+  \begin{xprf}
+    Suppose for the sake of contradiction that $u+v$ is an eigenvector of $T$.
+    By Exercise 25, $u$ and $v$ must be eigenvectors of $T$ corresponding to the same eigenvalue.
+    However, $u$ corresponds to $\lambda$ and $v$ corresponds to $\mu$ with $\lambda \neq \mu$, a contradiction.
+    Therefore, $u+v$ cannot be an eigenvector of $T$.
+  \end{xprf}
 \end{xrcs}
 
 \exercise{33}

@@ -249,6 +249,35 @@
   Hence, the minimal polynomial of $\left.T\right|_U$ has the form required by \ref{thm: necessary and sufficient condition for diagonalizability}, which shows that $\left.T\right|_U$ is diagonalizable. It consists of any factor of the form $(z-\lambda_k)$.
 \end{prf}
 
+% 5.66
+\setcounter{thm}{65}
+\begin{mydef}[Gershgorin disk]
+  \label{def: gershgorin disk}
+  Let $A \in \myF^{n,n}$. For $j \in \{1, \dots, n\}$, let $r_j := \sum_{k \neq j} |A_{j,k}|$ denote the sum of the absolute values of the off-diagonal entries in the $j$-th row of $A$. The $j$-th \qt{Gershgorin disk} is the closed disk in the complex plane defined by
+  \begin{equation}
+    D(A_{j,j}, r_j) := \{ z \in \compl \mid |z - A_{j,j}| \leq r_j \}.
+  \end{equation}
+\end{mydef}
 
-
-% TODO: Gerhgorin Disk Theorem Def 5.66 and Theorem 5.677
+% 5.67
+\begin{thm}[Gershgorin disk theorem]
+  \label{thm: gershgorin disk theorem}
+  Let $A \in \myF^{n,n}$. Every eigenvalue of $A$ is contained in some Gershgorin disk of $A$. In other words, if $\lambda \in \myF$ is an eigenvalue of $A$, then
+  \begin{equation}
+    \lambda \in \bigcup_{j=1}^n D(A_{j,j}, r_j).
+  \end{equation}
+\end{thm}
+\begin{prf}
+  Let $x = (x_1, \dots, x_n)^\top \neq 0$ be an eigenvector of $A$ corresponding to $\lambda$, so $Ax = \lambda x$.
+  Choose an index $j \in \{1, \dots, n\}$ such that $|x_j| = \max \{|x_1|, \dots, |x_n|\} > 0$.
+  The $j$-th row of the equation $Ax = \lambda x$ gives $\sum_{k=1}^n A_{j,k} x_k = \lambda x_j$.
+  Rearranging gives
+  \begin{equation}
+    (\lambda - A_{j,j}) x_j = \sum_{k \neq j} A_{j,k} x_k.
+  \end{equation}
+  Taking absolute values and using the triangle inequality:
+  \begin{equation}
+    |\lambda - A_{j,j}| \, |x_j| \leq \sum_{k \neq j} |A_{j,k}| \, |x_k| \leq \sum_{k \neq j} |A_{j,k}| \, |x_j| = r_j |x_j|.
+  \end{equation}
+  Dividing by $|x_j| > 0$ yields $|\lambda - A_{j,j}| \leq r_j$, so $\lambda \in D(A_{j,j}, r_j)$.
+\end{prf}

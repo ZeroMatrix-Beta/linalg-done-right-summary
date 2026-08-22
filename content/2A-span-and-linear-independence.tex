@@ -54,16 +54,13 @@
 
 % 2.8
 \begin{mydef} [spanning a vector space]
-  If $V=\myspan{\oneTillM{v}}$, we say $\oneTillM{v}$ \qt{spans} $V$.
+  If $V=\myspan{\oneTillM{v}}$, we say that the list $\oneTillM{v}$ \qt{spans} $V$.
 \end{mydef}
 
 % 2.9
 \setcounter{thm}{8}
 \begin{mydef} [finite-dimensional vector space]
-  Such a vector space is called finite\-/dimensional. We write
-  \begin{equation}
-    \dim V \neq \infty \text{ or } \dim V < \infty.
-  \end{equation}
+  A vector space $V$ is called \qt{finite-dimensional} if some list of vectors in $V$ spans $V$.
 \end{mydef}
 
 
@@ -83,23 +80,20 @@
 
 % 2.11
 \begin{mydef}[degree of a polynomial, $\deg p$]
-  The degree $m$ of a polynomial $p=a_0+a_1z+a_2z^2+\cdots+a_mz^m$ is denoted with
+  The degree of a non-zero polynomial $p(z)=a_0+a_1z+a_2z^2+\cdots+a_mz^m$ (with $a_m \neq 0$) is defined by
   \begin{equation}
     \deg p := m.
   \end{equation}
 
-  We also define for the zero polynomial $p=0$:
+  For the zero polynomial $p=0$, we define:
   \begin{equation}
-    \degree p = \degree 0 := -\infty.
+    \deg 0 := -\infty.
   \end{equation}
 \end{mydef}
 
 % 2.12
-\begin{mydef} [the set of all polynomials with degree $m$]
-  $\polyn_m (\myF )=\myspan{1,z,\dots,z^m}$ denotes the set of all polynomials with coefficients in $\myF$ and degree at most $m$. One should actually use the lambda notation $\lambda z.z^m$ to speak of functions and write $\polyn_m (\myF )=\myspan{\lambda z.1,\lambda z.z,\dots,\lambda z.z^m}$, but this is not done most of the time. Note that
-  \begin{equation}
-    \dim \polyn_m(\myF) = m+1.
-  \end{equation}
+\begin{mydef} [the set of all polynomials of degree at most $m$]
+  For $m \ge 0$, $\polyn_m (\myF )=\myspan{1,z,\dots,z^m}$ denotes the set of all polynomials with coefficients in $\myF$ and degree at most $m$. Note that $\dim \polyn_m(\myF) = m+1$.
 \end{mydef}
 
 %2.13
@@ -113,49 +107,32 @@
 
 \setcounter{thm}{14}
 \begin{mydef} [linear independence]
-  There are $2$ ways to think about \qt{linear independence}. Let's first start with the motivation. A list of vectors $\oneTillM{v}$ is called \qt{\lid} if every combination of these vectors $w = b_1v_1 + \dots+ b_mv_m \in \myspan{\oneTillM{v}}$ has a unique choice of scalars $b_1, \dots, b_m \in \myF$. That means there does not exist another choice $b'_1, \dots, b'_m \in \myF$, with at least one $b_j \neq b'_j$, such that
+  A list of vectors $\oneTillM{v}$ in $V$ is called \qt{\lid} if the only choice of scalars $a_1, \dots, a_m \in \myF$ satisfying
   \begin{equation}
-    b_1v_1 + \dots+ b_mv_m = b'_1v_1 + \dots+ b'_mv_m.
+    a_1 v_1 + \dots + a_m v_m = 0
   \end{equation}
-
-  \bfemph{The actual definition of linear independence:} \\
-  A list of vectors $\oneTillM{v}$ is called \lid if the only way to combine them together and yield zero is if we choose every coefficient $\lambda_i$ to be zero:
+  is $a_1 = \cdots = a_m = 0$.
+  
+  Equivalently, a list of vectors $\oneTillM{v}$ is linearly independent if and only if every vector $w \in \myspan{\oneTillM{v}}$ has a unique representation as a linear combination of $\oneTillM{v}$.
+  Indeed, if $w = a_1 v_1 + \dots + a_m v_m = c_1 v_1 + \dots + c_m v_m$, subtracting gives
   \begin{equation}
-    \lambda_1v_1 + \dots + \lambda_mv_m = 0 \iff \lambda_1 = \cdots = \lambda_m = 0.
+    (a_1 - c_1) v_1 + \dots + (a_m - c_m) v_m = 0,
   \end{equation}
-
-  Another way to put it:\\
-  Let $w\in \myspan{v_1, \dots, v_m}$ such that for $a_1, \dots, a_m, c_1, \dots, c_m \in \myF$:
-  \begin{equation}
-    \begin{aligned}
-      w & =a_1 v_1 + \cdots + a_m v_m \myand \\
-      w & =c_1 v_1 + \cdots + c_m v_m \\
-      & \iff \\
-      0 & = \underbrace{(a_1 - c_1)}_{= \, 0\text{?}} v_1 + \cdots + \underbrace{(a_m -c_m)}_{= \, 0\text{?}} v_m.
-    \end{aligned}
-  \end{equation}
-
-  If $a_1 = c_1, a_2 = c_2, \dots, a_m = c_m$ is the only solution, the representation of $w$ as a linear combination of $v_1, \ldots, v_m$ is unique and the only way to add them up together equaling $0$ is $0v_1+\cdots+0v_m=0$. Both of these definitions are equivalent.
+  which by linear independence forces $a_1 = c_1, \dots, a_m = c_m$.
 
   Note: The empty list $()$ is also defined to be linearly independent.
 \end{mydef}
 
-
-%\textbf{2.16}
 \begin{mydef} [linear dependence]
-  Otherwise, $\oneTillM{v}$ is called \qt{linearly dependent}. For example, let $V$ be a $2$-dimensional vector space and let $u, v \in V$ be linearly dependent. Then we have $a, b$ such that $au + bv = 0$ with
-  $a \neq 0$ and $b \neq 0$. Thus, we can write: $u = \left( -\sfrac{b}{a} \right) v$.
+  A list of vectors in $V$ is called \qt{linearly dependent} if it is not linearly independent.
+  That is, $\oneTillM{v}$ is linearly dependent if there exist scalars $a_1, \dots, a_m \in \myF$, not all zero, such that
+  \begin{equation}
+    a_1 v_1 + \dots + a_m v_m = 0.
+  \end{equation}
+  For example, if two non-zero vectors $u, v \in V$ are linearly dependent, there exist $a, b \in \myF$ with $(a,b) \neq (0,0)$ such that $au + bv = 0$. Since $u, v \neq 0$, both $a \neq 0$ and $b \neq 0$, so $u = \left( -\sfrac{b}{a} \right) v$.
 \end{mydef}
 
-%	\textbf{2.19} Linear dependence lemma:\\
-%	Suppose $\oneTillM{v}\in V$ is a linearly dependent list.
-%	$\implies \exists \kInOneTillM$ : $v_k \in \myspan{\oneTill{v}{k-1}}$
-
-
-%\textbf{2.29}
-
 \setcounter{thm}{18}
-%\textbf{2.19}
 \begin{thm} [linear dependence lemma]
   \label{thm: linear dependence lemma}
   Suppose the list $v_{1}, \dots, v_{m}\in V$ is linearly dependent. Then there is an index $k \in \{ 1, \dots, m \}$ with
@@ -163,77 +140,62 @@
     \label{eq: conditions in the linear dependence lemma}
     v_k \in \myspan {v_1, \dots, v_{k-1}}.
   \end{equation}
-  Furthermore, if $k$ satisfies the conditions above \eqref{eq: conditions in the linear dependence lemma} and the $k^{\text{th}}$-term is removed from $v_1, \dots, v_m$, then the span of the remaining list equals $\myspan {v_1, \dots, v_{m}}$:
+  Furthermore, if $k$ satisfies the condition above \eqref{eq: conditions in the linear dependence lemma} and $v_k$ is removed from $v_1, \dots, v_m$, then the span of the remaining list equals $\myspan {v_1, \dots, v_{m}}$:
   \begin{equation}
     \myspan {v_1, \dots, v_{k-1}, \xcancel{v_k}, v_{k+1}, \dots, v_m} = \myspan {v_1, \dots, v_m}.
   \end{equation}
 \end{thm}
 
 \begin{prf}
-  Because the list $\onetillm{v}$ is linearly dependent, we have a non-trivial linear combination
+  Because the list $\onetillm{v}$ is linearly dependent, there exist scalars $a_1, \ldots, a_m \in \myF$, not all zero, such that
   \begin{equation}
-    a_1 v_1 + \cdots + a_m v_m = 0,
+    a_1 v_1 + \cdots + a_m v_m = 0.
   \end{equation}
-
-  where $a_1, \ldots, a_m \in \myF$ and $a_j \neq 0$ and $a_k \neq 0$, for $j,k \in \{1, \ddd, m\}$ and $j \neq k$
-  (we know at least $2$ $a$'s are not $0$). Let $k$ be the largest element of $\setonetillm$ such that $a_k \neq 0$. Therefore,
+  Let $k$ be the largest element of $\setonetillm$ such that $a_k \neq 0$.
+  If $k = 1$, then $a_1 v_1 = 0$, so $v_1 = 0 \in \myspan{()} = \{0\}$.
+  If $k > 1$, then dividing by $a_k \neq 0$ gives
   \begin{equation}
     v_k = - \frac{a_1}{a_k}v_1 - \cdots - \frac{a_{k-1}}{a_k}v_{k-1},
   \end{equation}
+  showing that $v_k \in \myspan{v_1, \ddd, v_{k-1}}$.
 
-  showing $v_k \in \myspan{v_1, \ddd, v_{k-1}}$.
-  Now for the second claim, suppose $k$ is any element of $\setonetillm$ such that
-  \begin{equation}
-    v_k \in \myspan{v_1, \ddd, v_{k-1}}
-  \end{equation}
-
-  and write
+  Now for the second claim, suppose $k \in \setonetillm$ satisfies $v_k \in \myspan{v_1, \ddd, v_{k-1}}$, so
   \begin{equation}
     \label{eq: equation for v_k}
-    v_k = b_1v_1 + \cdots + b_{k-1}v_{k-1}, \mytext{where} b_1, \ddd, b_{k-1} \in \myF.
+    v_k = b_1v_1 + \cdots + b_{k-1}v_{k-1} \quad \text{for some } b_1, \ddd, b_{k-1} \in \myF.
   \end{equation}
-
-  Suppose $u \in \myspan{v_1, \ddd, v_m}$. So,
+  Let $u \in \myspan{v_1, \ddd, v_m}$. Then there exist $c_1, \ddd, c_m \in \myF$ such that
   \begin{equation}
     \label{eq: first linear combination for u}
-    u = c_1v_1 + \cdots + c_kv_k + \cdots +c_{m}v_{m}, \mytext{where} c_1, \ddd, c_{m} \in \myF.
+    u = c_1v_1 + \cdots + c_kv_k + \cdots + c_{m}v_{m}.
   \end{equation}
-
-  Now we can replace $v_k$ with the right side of \eqref{eq: equation for v_k} in equation \eqref{eq: first linear combination for u}:
+  Substituting \eqref{eq: equation for v_k} into \eqref{eq: first linear combination for u} gives
   \begin{equation}
     \begin{aligned}
       \label{eq: second linear combination for u}
-      u
-      & = c_1v_1 + \cdots + c_k \cdot (b_1v_1 + \cdots + b_{k-1}v_{k-1}) + \cdots +c_{m}v_{m} \\
-      & = (c_1 + c_k b_1)\cdot v_1 + (c_2 + c_k b_2) \cdot v_2 + \cdots + (c_{k-1}+c_k b_{k-1}) \cdot v_{k-1} + c_{k+1} v_{k+1} + \cdots + c_m v_m,
+      u &= c_1v_1 + \cdots + c_k (b_1v_1 + \cdots + b_{k-1}v_{k-1}) + c_{k+1} v_{k+1} + \cdots + c_m v_m \\
+        &= (c_1 + c_k b_1) v_1 + \cdots + (c_{k-1}+c_k b_{k-1}) v_{k-1} + c_{k+1} v_{k+1} + \cdots + c_m v_m,
     \end{aligned}
   \end{equation}
-
-  which shows that $u \in \myspan{v_1, \ddd, v_{k-1}, v_{k+1}, \ddd, v_m}$. Combining \eqref{eq: first linear combination for u} and \eqref{eq: second linear combination for u}, we conclude that
+  which shows that $u \in \myspan{v_1, \ddd, v_{k-1}, v_{k+1}, \ddd, v_m}$. Hence,
   \begin{equation}
-    \myspan{v_1, \ddd, v_{k-1}, \xcancel{v_k}, v_{k+1}, \ddd, v_m} = \myspan{v_1, \ddd, v_m},
+    \myspan{v_1, \ddd, v_{k-1}, \xcancel{v_k}, v_{k+1}, \ddd, v_m} = \myspan{v_1, \ddd, v_m}.
   \end{equation}
-
-  as desired.
 \end{prf}
 
 \setcounter{thm}{21}
-%\textbf{2.22}
-\begin{thm} [length of linearly independent list $\mathbb{\leq}$ length of spanning list]
+\begin{thm} [length of linearly independent list $\le$ length of spanning list]
   \label{thm: length of linearly dependent list less or equal to length of spanning list}
   In a \fd vector space, the length of every linearly independent list of vectors is less than or equal to the length of every spanning list of vectors.
 \end{thm}
 \begin{prf}
-  Let $u_1, \ldots, u_m \in V$ be a linearly independent list and let $w_1, \ldots, w_n \in V$ such that
-  \begin{equation}
-    V=\myspan{w_1, \ldots, w_n}.
-  \end{equation}
-
+  Let $u_1, \ldots, u_m \in V$ be a linearly independent list and let $w_1, \ldots, w_n \in V$ be a spanning list of $V$, so $V = \myspan{w_1, \ldots, w_n}$.
   We need to prove that $m \leq n$.
-  We construct, in $m$ steps, a spanning list of size $n$ that incorporates $u_1,\dots,u_m$. This will force $m\le n$. Start with
+  
+  We construct, in $m$ steps, a spanning list of size $n$ that incorporates $u_1,\dots,u_m$ one by one, replacing one of the $w$'s at each step.
+  Start with
   \[
-      B_0 := (w_1, \dots, w_n),
-      \quad V = \myspan {B_0}.
+      B_0 := (w_1, \dots, w_n), \quad V = \myspan{B_0}.
   \]
 
   \prooffont{Step 1:} Add $u_1$ to $B_0$, so set
@@ -241,22 +203,22 @@
     B_1^* := (u_1, w_1, \ldots, w_n).
   \end{equation}
 
-  Since $u_1 \in \myspan {B_0}$, the enlarged list is dependent, so by the Linear Dependence Lemma \ref{thm: linear dependence lemma}, we can remove one of the original $w$'s, say $w_j$, obtaining
+  Since $u_1 \in \myspan {B_0}$, the enlarged list is linearly dependent. By the Linear Dependence Lemma \ref{thm: linear dependence lemma}, one of the vectors in $B_1^*$ is in the span of the previous vectors. Since $u_1 \neq 0$ (as $u_1, \ddd, u_m$ is linearly independent), that vector cannot be $u_1$; it must be one of the original $w$'s, say $w_j$. Removing $w_j$ gives
   \begin{equation*}
     B_1 := B_1^* \setminus \{w_j\} = \Big(u_1, w_1, \ldots, w_{j-1}, \xcancel{w_j}, w_{j+1}, \ldots, w_n\Big), \quad V=\myspan {B_1}.
   \end{equation*}
 
-  \prooffont{Step k, for k=2$\mathbf{, \ddd,}$m:} The list $B_{k-1}$ from the previous step $k-1$ spans $V$. So we have $u_{k} \in \myspan{B_{k-1}}$, because the span never changed by our algorithm. Hence, if we add $u_k$ to the list, it becomes linearly dependent, since it has length $(n+1) = k + (n-(k-1))$. Let
+  \prooffont{Step k, for k=2$\mathbf{, \ddd,}$m:} The list $B_{k-1}$ from the previous step $k-1$ spans $V$. So $u_{k} \in \myspan{B_{k-1}}$. Adding $u_k$ to the list makes it linearly dependent. Let
   \begin{equation*}
-    B_k^* :\equiv \Big(u_1, \ldots, u_{k-1}, u_k, \underbrace{\widetilde w_{1}, \ldots, \widetilde w_{n-(k-1)} }_{\text{remaining $w$'s}} \Big), \quad V=\myspan {B_k^*},
+    B_k^* :\equiv \Big(u_1, \ldots, u_{k-1}, u_k, \underbrace{\widetilde w_{1}, \ldots, \widetilde w_{n-(k-1)} }_{\text{remaining $w$'s}} \Big), \quad V=\myspan {B_k^*}.
   \end{equation*}
 
-  where $\widetilde w_{1}, \ldots, \widetilde w_{n-(k-1)}$ are our remaining $n-(k-1)$ $w$'s at our current step $k$, which are the same as from the previous list $B_{k-1}$. We then remove another vector; since the $u$'s remain independent, that must be one of the $w$'s, say $\widetilde w_j$, obtaining
+  By the Linear Dependence Lemma, some vector in $B_k^*$ is in the span of the preceding vectors. It cannot be any of the $u$'s (since $u_1, \ddd, u_m$ is linearly independent), so it must be one of the remaining $w$'s, say $\widetilde w_j$, obtaining
   \begin{equation*}
     B_k := B_k^* \setminus \{\widetilde w_j \} = \Big(u_1, \ldots, u_{k}, \widetilde w_1, \ldots, \widetilde w_{j-1}, \xcancel{\widetilde w_j}, \widetilde w_{j+1}, \ldots, \widetilde w_{n-(k-1)}\Big), \quad V=\myspan B_k.
   \end{equation*}
 
-  After each step $k$, $\lvert B_k\rvert = n$ and $u_1,\dots,u_k\in B_k$.
+  After each step $k$, $|B_k| = n$ and $u_1,\dots,u_k\in B_k$.
 
   \emph{\bfseries Conclusion:} After $m$ steps, $B_m$ is a spanning list of size $n$ containing the $m$ independent vectors; hence, $m \leq n$.
 \end{prf}
@@ -274,26 +236,24 @@
   \begin{equation}
     U = \{0\},
   \end{equation}
-
   we are done. Otherwise, pick any nonzero $u_1 \in U$.
 
   \prooffont{Step k, ($\mathbf{2 \le}$ k $\mathbf{\le m}$):} If
   \begin{equation}
     U = \myspan{u_1, \ldots, u_{k-1}},
   \end{equation}
-
-  then $U$ is \fd and we are done.
+  then $U$ is finite-dimensional and we are done.
 
   If
   \begin{equation}
     U \neq \myspan{u_1, \ldots, u_{k-1}},
   \end{equation}
-
   then choose a vector $u_k \in U$ \st
   \begin{equation}
     u_k \notin \myspan{u_1, \ldots, u_{k-1}}.
   \end{equation}
 
-  After each step, as long as the process continues, we have constructed a list of vectors such that no vector in the list is in the span of the previous vectors. Hence, at each stage we maintain a linearly independent list (by the Linear Dependence Lemma (\ref{thm: linear dependence lemma})). No list of independent vectors in $V$ can exceed the length of any spanning list of $V$ (by \ref{thm: length of linearly dependent list less or equal to length of spanning list}).
-  Thus, the process eventually terminates (after at most $m=\dim V$ steps), so $U$ has a finite basis.
+  After each step, no vector in the list is in the span of the previous vectors, maintaining a linearly independent list by the Linear Dependence Lemma (\ref{thm: linear dependence lemma}).
+  By \ref{thm: length of linearly dependent list less or equal to length of spanning list}, the length of any linearly independent list in $V$ cannot exceed $\dim V$.
+  Thus, the process must terminate in at most $m = \dim V$ steps, so $U$ has a finite spanning list and is finite-dimensional.
 \end{prf}

@@ -1,4 +1,4 @@
-\section*{Exercises about Null Spaces and Ranges}
+\section*{Exercises about Products and Quotients of Vector Spaces}
 
 \exercise{6}
 \begin{xrcs}
@@ -71,5 +71,37 @@
       \end{cases}
     \end{equation}
   \end{xprf}
+\end{xrcs}
+
+\exercise{13}
+\begin{xrcs}
+  Suppose $T \in \linmap(V,W)$. Define $\widetilde{T}: V/\mynull T \to W$ by
+  \begin{equation}
+    \widetilde{T}(v + \mynull T) := Tv.
+  \end{equation}
+  Prove that $\widetilde{T}$ is an isomorphism from $V/\mynull T$ onto $\myrange T$ (the First Isomorphism Theorem for Vector Spaces).
+% \begin{xprf}
+%   \StepOne We first show that $\widetilde{T}$ is well-defined and injective.
+%   Let $u, v \in V$. Then:
+%   \[
+%     u + \mynull T = v + \mynull T \iff u - v \in \mynull T \iff T(u-v) = 0 \iff Tu = Tv.
+%   \]
+%   The forward direction ($\implies$) shows that $\widetilde{T}$ is well-defined.
+%   The backward direction ($\impliedby$) shows that $\widetilde{T}(u + \mynull T) = \widetilde{T}(v + \mynull T) \implies u + \mynull T = v + \mynull T$, so $\widetilde{T}$ is injective.
+%
+%   \StepTwo We verify linearity. For any $u, v \in V$ and $\lambda \in \myF$:
+%   \[
+%   \begin{aligned}
+%     \widetilde{T}((u + \mynull T) + (v + \mynull T)) &= \widetilde{T}((u+v) + \mynull T) = T(u+v) = Tu + Tv \\
+%     &= \widetilde{T}(u + \mynull T) + \widetilde{T}(v + \mynull T),
+%   \end{aligned}
+%   \]
+%   and $\widetilde{T}(\lambda(u + \mynull T)) = \widetilde{T}(\lambda u + \mynull T) = T(\lambda u) = \lambda Tu = \lambda \widetilde{T}(u + \mynull T)$.
+%
+%   \StepThree Finally, we check that $\widetilde{T}$ is surjective onto $\myrange T$.
+%   Let $w \in \myrange T$. By definition of the range, there exists $v \in V$ such that $Tv = w$.
+%   Then $\widetilde{T}(v + \mynull T) = Tv = w$.
+%   Thus, $\widetilde{T}$ is a linear bijection from $V/\mynull T$ onto $\myrange T$, hence an isomorphism.
+% \end{xprf}
 \end{xrcs}
 

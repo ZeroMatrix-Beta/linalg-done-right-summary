@@ -60,10 +60,21 @@
   Thus, $T$ is positive (semidefinite), showing that $(f) \implies (a)$.
 \end{prf}
 
-\begin{thm}[uniqueness of square root]
+\begin{thm}[uniqueness of positive square root]
   \label{thm: uniqueness of square root}
   Each positive operator on $V$ has a unique positive square root.
 \end{thm}
+\begin{prf}
+  Suppose $T \in \linmap(V)$ is positive, and $R \in \linmap(V)$ is a positive square root of $T$, so $R^2 = T$.
+  Let $\lambda_1, \ddd, \lambda_m$ be the distinct eigenvalues of $R$. Because $R$ is positive, $\lambda_j \ge 0$ for each $j \in \{1, \dots, m\}$.
+  By the Spectral Theorem,
+  \begin{equation}
+    V = E(\lambda_1, R) \oplus \cdots \oplus E(\lambda_m, R).
+  \end{equation}
+  If $v \in E(\lambda_j, R)$, then $Tv = R^2v = \lambda_j^2 v$, so $E(\lambda_j, R) \subseteq E(\lambda_j^2, T)$.
+  Because the distinct non-negative numbers $\lambda_1, \dots, \lambda_m$ have distinct squares $\lambda_1^2, \dots, \lambda_m^2$, and the eigenspaces $E(\lambda_j, R)$ direct sum to $V$, we have $E(\lambda_j^2, T) = E(\lambda_j, R)$ for each $j$.
+  Thus the eigenvalues and eigenspaces of $R$ are uniquely determined by $T$, proving that $R$ is unique.
+\end{prf}
 
 \begin{mydef}[notation: $\sqrt{T}$]
   For $T$ a positive operator, $\sqrt{T}$ denotes the unique positive square root of $T$.

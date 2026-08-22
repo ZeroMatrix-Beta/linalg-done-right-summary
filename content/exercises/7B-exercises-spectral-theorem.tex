@@ -1,0 +1,28 @@
+\section*{Exercises about the Spectral Theorem}
+
+\exercise{1}
+\begin{xrcs}
+  Suppose $V$ is a complex inner product space and $T \in \linmap(V)$. Prove that $T$ is self-adjoint if and only if
+  \begin{equation}
+    \langle Tv, v \rangle \in \real \quad \forall v \in V.
+  \end{equation}
+% \begin{xprf}
+%   \Rightarrowdirection Suppose $T$ is self-adjoint ($T = T^*$). Then for every $v \in V$:
+%   \[
+%     \langle Tv, v \rangle = \langle v, T^* v \rangle = \langle v, Tv \rangle = \overline{\langle Tv, v \rangle}.
+%   \]
+%   A complex number that equals its complex conjugate is real, so $\langle Tv, v \rangle \in \real$.
+%
+%   \Leftarrowdirection Conversely, suppose $\langle Tv, v \rangle \in \real$ for all $v \in V$. Then:
+%   \[
+%     \langle Tv, v \rangle = \overline{\langle Tv, v \rangle} = \langle v, Tv \rangle = \langle T^* v, v \rangle.
+%   \]
+%   Rearranging yields:
+%   \[
+%     \langle (T - T^*)v, v \rangle = 0 \quad \forall v \in V.
+%   \]
+%   Over a complex inner product space, if an operator $A$ satisfies $\langle Av, v \rangle = 0$ for all $v \in V$, then $A = 0$ (Theorem \ref{thm: <Tv,v> = 0 for all v implies T = 0}).
+%   Applying this with $A = T - T^*$ gives $T - T^* = 0$, so $T = T^*$.
+%   Therefore, $T$ is self-adjoint.
+% \end{xprf}
+\end{xrcs}

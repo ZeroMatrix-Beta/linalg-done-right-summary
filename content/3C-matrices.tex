@@ -316,16 +316,43 @@ For $1 \leq k \leq p$, we have:
 % 3.56
 \setcounter{thm}{55}
 \begin{thm}[column-row factorization]
+  \label{thm: column-row factorization}
   Suppose $A \in \myF^{m,n}$ with column rank $c \geq 1$. Then there exist $C\in \myF^{m,c}$ and $R\in \myF^{c,n}$ such that
   \begin{equation}
     A = CR.
   \end{equation}
 \end{thm}
+\begin{prf}
+  Let $c$ be the column rank of $A$. Then the subspace of $\myF^{m,1}$ spanned by the columns of $A$ has dimension $c$. Let $C_{\mathsmaller{\bullet}, 1}, \ldots, C_{\mathsmaller{\bullet}, c} \in \myF^{m,1}$ be a basis of this subspace, and let $C \in \myF^{m,c}$ be the matrix whose columns are these basis vectors.
+  Since each column $A_{\mathsmaller{\bullet}, k}$ of $A$ is in the span of the columns of $C$, for each $k \in \{1, \ldots, n\}$ there exist scalars $R_{1,k}, \ldots, R_{c,k} \in \myF$ such that
+  \begin{equation}
+    A_{\mathsmaller{\bullet}, k} = R_{1,k} C_{\mathsmaller{\bullet}, 1} + \cdots + R_{c,k} C_{\mathsmaller{\bullet}, c}.
+  \end{equation}
+  Let $R \in \myF^{c,n}$ be the matrix whose entry in row $j$, column $k$ is $R_{j,k}$. By \ref{thm: linear combination of columns}, column $k$ of $CR$ equals $A_{\mathsmaller{\bullet}, k}$. Hence, $A = CR$.
+\end{prf}
 
- % 3.57}
+ % 3.57
 \begin{thm}[column rank and row rank]
-  If $A\in \myF^{m,n}$, then column rank of $A$ $=$ row rank of $A$. This leads to the next definition.
+  \label{thm: column rank equals row rank}
+  If $A\in \myF^{m,n}$, then
+  \begin{equation}
+    \text{column rank of } A = \text{row rank of } A.
+  \end{equation}
 \end{thm}
+\begin{prf}
+  If $A = 0$, both ranks equal $0$. If $A \neq 0$, let $c$ be the column rank of $A \ge 1$.
+  By \ref{thm: column-row factorization}, there exist $C \in \myF^{m,c}$ and $R \in \myF^{c,n}$ such that $A = CR$.
+  By row-wise matrix multiplication, each row of $A$ is a linear combination of the $c$ rows of $R$.
+  Therefore, the span of the rows of $A$ is contained in the span of the $c$ rows of $R$, which implies
+  \begin{equation}
+    \text{row rank of } A \leq c = \text{column rank of } A.
+  \end{equation}
+  Applying this inequality to $A^t$, we get
+  \begin{equation}
+    \text{column rank of } A = \text{row rank of } A^t \leq \text{column rank of } A^t = \text{row rank of } A.
+  \end{equation}
+  Combining both inequalities yields $\text{column rank of } A = \text{row rank of } A$.
+\end{prf}
 
 \begin{mydef} [rank]
   The \qt{rank} of a matrix $A \in  \myF^{m,n}$ is the column rank of $A$.

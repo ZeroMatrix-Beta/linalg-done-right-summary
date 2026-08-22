@@ -149,4 +149,71 @@
   Therefore, \textbf{(c)} holds.
 \end{prf}
 
+\mce{31}
+\begin{thm}[Gram-Schmidt procedure]
+  \label{thm: gram-schmidt procedure}
+  Suppose $v_1, \ddd, v_m$ is a linearly independent list of vectors in $V$. Let $e_1 := \frac{v_1}{\norm{v_1}}$. For $k = 2, \ddd, m$, define $e_k$ inductively by
+  \begin{equation}
+    e_k := \frac{v_k - \sum_{j=1}^{k-1} \ip{v_k}{e_j} e_j}{\norm{v_k - \sum_{j=1}^{k-1} \ip{v_k}{e_j} e_j}}.
+  \end{equation}
+  Then $e_1, \ddd, e_m$ is an orthonormal list of vectors in $V$ such that
+  \begin{equation}
+    \myspan{v_1, \ddd, v_k} = \myspan{e_1, \ddd, e_k} \quad \text{for each } k \in \{1, \ddd, m\}.
+  \end{equation}
+\end{thm}
+\begin{prf}
+  We proceed by induction on $k$. For $k=1$, $\norm{e_1} = \norm{\frac{v_1}{\norm{v_1}}} = 1$, and $\myspan{e_1} = \myspan{v_1}$.
+  Suppose $1 < k \leq m$ and $e_1, \ddd, e_{k-1}$ is an orthonormal list whose span equals $\myspan{v_1, \ddd, v_{k-1}}$.
+  Since $v_1, \ddd, v_m$ is linearly independent, $v_k \notin \myspan{v_1, \ddd, v_{k-1}} = \myspan{e_1, \ddd, e_{k-1}}$.
+  Thus, the numerator $v_k - \sum_{j=1}^{k-1} \ip{v_k}{e_j} e_j$ is nonzero, so $e_k$ is well-defined and has norm $1$.
+  For each $1 \leq \ell < k$:
+  \begin{equation}
+    \ip{e_k}{e_\ell} = \frac{\ip{v_k}{e_\ell} - \sum_{j=1}^{k-1} \ip{v_k}{e_j} \ip{e_j}{e_\ell}}{\norm{v_k - \sum_{j=1}^{k-1} \ip{v_k}{e_j} e_j}} = \frac{\ip{v_k}{e_\ell} - \ip{v_k}{e_\ell}}{\norm{v_k - \sum_{j=1}^{k-1} \ip{v_k}{e_j} e_j}} = 0.
+  \end{equation}
+  Thus, $e_1, \ddd, e_k$ is an orthonormal list.
+  Since $e_k \in \myspan{v_1, \ddd, v_k}$ and $v_k \in \myspan{e_1, \ddd, e_k}$, we have $\myspan{v_1, \ddd, v_k} = \myspan{e_1, \ddd, e_k}$.
+\end{prf}
+
+\mce{34}
+\begin{thm}[existence of orthonormal basis]
+  \label{thm: existence of orthonormal basis}
+  Every finite-dimensional inner product space has an orthonormal basis.
+\end{thm}
+\begin{prf}
+  Let $V$ be a finite-dimensional inner product space. By \ref{thm: every finite-dimensional vector space has a basis}, $V$ has a basis $v_1, \ddd, v_n$. Applying the Gram-Schmidt Procedure (\ref{thm: gram-schmidt procedure}) to $v_1, \ddd, v_n$ produces an orthonormal list $e_1, \ddd, e_n$ in $V$ of length $n = \dim V$. By \ref{thm: orthonormal lists are linearly independent}, $e_1, \ddd, e_n$ is an orthonormal basis of $V$.
+\end{prf}
+
+\mce{38}
+\begin{thm}[Schur's theorem]
+  \label{thm: schur's theorem}
+  Suppose $V$ is a finite-dimensional complex inner product space and $T \in \linmap(V)$. Then there is an orthonormal basis of $V$ with respect to which $T$ has an upper-triangular matrix.
+\end{thm}
+\begin{prf}
+  By \ref{thm: necessary and sufficient condition to have an upper-triangular-matrix}, there is a basis $v_1, \ddd, v_n$ of $V$ with respect to which $T$ has an upper-triangular matrix.
+  Apply the Gram-Schmidt Procedure to $v_1, \ddd, v_n$ to obtain an orthonormal basis $e_1, \ddd, e_n$.
+  Since $\myspan{e_1, \ddd, e_k} = \myspan{v_1, \ddd, v_k}$ for each $k \in \{1, \ddd, n\}$, and each subspace $\myspan{v_1, \ddd, v_k}$ is invariant under $T$, each subspace $\myspan{e_1, \ddd, e_k}$ is invariant under $T$.
+  Thus, by \ref{thm: conditions equivalent to upper triangular matrix}, the matrix of $T$ with respect to $e_1, \ddd, e_n$ is upper triangular.
+\end{prf}
+
 \subsection{Linear Functionals on Inner Product Spaces}
+
+\mce{42}
+\begin{thm}[Riesz representation theorem]
+  \label{thm: riesz representation theorem}
+  Suppose $V$ is a finite-dimensional inner product space and $\varphi \in \dual{V}$ is a linear functional on $V$. Then there exists a unique vector $u \in V$ such that
+  \begin{equation}
+    \varphi(v) = \ip{v}{u} \quad \forall v \in V.
+  \end{equation}
+\end{thm}
+\begin{prf}
+  \prooffont{Existence:} Let $e_1, \ddd, e_n$ be an orthonormal basis of $V$.
+  For any $v \in V$, by \ref{thm: writing a vector as a linear combination of an orthonormal basis}(a), $v = \sum_{k=1}^n \ip{v}{e_k} e_k$.
+  Applying $\varphi$ gives
+  \begin{equation}
+    \varphi(v) = \sum_{k=1}^n \ip{v}{e_k} \varphi(e_k) = \left\langle v, \, \sum_{k=1}^n \overline{\varphi(e_k)} e_k \right\rangle.
+  \end{equation}
+  Setting $u := \sum_{k=1}^n \overline{\varphi(e_k)} e_k \in V$, we have $\varphi(v) = \ip{v}{u}$ for all $v \in V$.
+
+  \prooffont{Uniqueness:} Suppose $u, \widetilde{u} \in V$ satisfy $\ip{v}{u} = \varphi(v) = \ip{v}{\widetilde{u}}$ for all $v \in V$.
+  Then $\ip{v}{u - \widetilde{u}} = 0$ for all $v \in V$. Taking $v = u - \widetilde{u}$ gives $\norm{u - \widetilde{u}}^2 = 0 \implies u = \widetilde{u}$.
+\end{prf}

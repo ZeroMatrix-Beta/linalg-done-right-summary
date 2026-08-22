@@ -4,23 +4,30 @@
 
 \mce{82}
 \begin{thm}[upper bound for $\norm{Tv}$]
+  \label{thm: upper bound for ||Tv||}
   Suppose $T \in \linmap (V,W)$. Let $s_1$ be the largest singular value of $T$. Then
-  \[
+  \begin{equation}
     \norm{Tv} \leq s_1 \norm{v} \quad \forall v \in V.
-  \]
+  \end{equation}
 \end{thm}
+\begin{prf}
+  Let $Tv = \sum_{j=1}^m s_j \ip{v}{e_j} f_j$ be an SVD of $T$. Then:
+  \begin{equation}
+    \norm{Tv}^2 = \sum_{j=1}^m s_j^2 |\ip{v}{e_j}|^2 \leq s_1^2 \sum_{j=1}^m |\ip{v}{e_j}|^2 \leq s_1^2 \norm{v}^2 \quad \text{(by Bessel's inequality)}.
+  \end{equation}
+  Taking square roots gives $\norm{Tv} \leq s_1 \norm{v}$.
+\end{prf}
 
 \mce{86}
 \begin{mydef}[norm of a linear map]
   Suppose $T \in \linmap (V,W)$. Then the \qt{norm} of $T$, denoted by $\norm{T}$, is defined by
-  \[
+  \begin{equation}
     \norm{T} :\equiv \max \left \{ \norm{Tv} \; \,\Big\vert\, v \in V \myand \norm{v} \leq 1 \right \}.
-  \]
+  \end{equation}
 \end{mydef}
 
 \begin{thm}[basic properties of norms of linear maps]
   \label{thm: basic properties of norms of linear maps}
-  %\phantom{.} \\
   Let $T\in \linmap(V,W)$. Then:
   \begin{enumerate}[label=\textbf{(\alph*)}]
     \item $\norm{T} \geq 0$;
@@ -29,6 +36,15 @@
     \item $\norm{S+T} \leq \norm{S} + \norm{T} \quad \forall S \in \linmap(V,W)$.
   \end{enumerate}
 \end{thm}
+\begin{prf}
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item Since $\norm{Tv} \geq 0$ for all $v$, $\norm{T} = \max_{\norm{v} \leq 1} \norm{Tv} \geq 0$.
+    \item If $T = 0$, $\norm{Tv} = 0$ for all $v$, so $\norm{T} = 0$. If $\norm{T} = 0$, then for all $v \neq 0$, $\norm{T(v/\norm{v})} = 0 \implies Tv = 0 \implies T = 0$.
+    \item $\norm{(\lambda T)v} = |\lambda| \norm{Tv}$, so taking the maximum over $\norm{v} \leq 1$ yields $\norm{\lambda T} = |\lambda| \norm{T}$.
+    \item For any $v$ with $\norm{v} \leq 1$, $\norm{(S+T)v} \leq \norm{Sv} + \norm{Tv} \leq \norm{S} + \norm{T}$. Taking the maximum over $\norm{v} \leq 1$ gives $\norm{S+T} \leq \norm{S} + \norm{T}$.
+  \end{enumerate}
+  \vspace{-\baselineskip}
+\end{prf}
 
 \begin{thm}[alternative formulas for $\norm{T}$]
   \label{thm: alternative formulas for ||T||}
@@ -40,47 +56,73 @@
     $\norm{Tv} \leq c \norm{v} \quad \forall v \in V$.
   \end{enumerate}
 \end{thm}
+\begin{prf}
+  Let $s_1$ be the largest singular value of $T$ with corresponding eigenvector $e_1$ of $T^*T$ ($\norm{e_1} = 1$).
+  Then $\norm{Te_1}^2 = \ip{T^*Te_1}{e_1} = s_1^2 \implies \norm{Te_1} = s_1$.
+  By \ref{thm: upper bound for ||Tv||}, $\norm{Tv} \leq s_1$ for all $\norm{v} \leq 1$.
+  Thus $\norm{T} = s_1$, which proves (a), (b), and (c).
+\end{prf}
 
 \begin{thm}[norm of the adjoint]
   \label{thm: norm of the adjoint}
   Suppose $T \in \linmap(V,W)$. Then $\norm{T^*} = \norm{T}$.
 \end{thm}
+\begin{prf}
+  The nonzero eigenvalues of $(T^*)^* T^* = TT^*$ are identical to those of $T^*T$.
+  Thus $T^*$ and $T$ have the same positive singular values, so by \ref{thm: alternative formulas for ||T||}(a), $\norm{T^*} = \norm{T}$.
+\end{prf}
 
 \subsection{Approximation by Linear Maps with Lower-Dimensional Range}
 
 \mce{92}
 \begin{thm}[best approximation by linear map whose range has dimension $\leq k$]
+  \label{thm: best approximation by rank k}
   Let $T \in \linmap (V,W)$, and let $s_1 \geq \cdots \geq s_m$ be the positive singular values of $T$. Suppose $1 \leq k < m$. Then
-  \[
+  \begin{equation}
     \min \left\{ \; \norm{T-S} \; \,\Big\vert\, S \in \linmap (V,W) \myand \dim \myrange S \leq k \; \right\} = s_{k+1}.
-  \]
+  \end{equation}
 
   Furthermore, if
-  \[
+  \begin{equation}
     Tv = s_1 \ip{v}{e_1}f_1 + \cdots + s_m \ip{v}{e_m}f_m
-  \]
-
+  \end{equation}
   is a singular value decomposition of $T$, and $T_k \in \linmap(V,W)$ is defined by
-  \[
-    T_k v = s_1 \ip{v}{e_1}f_1 + \cdots + s_k \ip{v}{e_k}f_k \quad \forall v \in V,
-  \]
-
+  \begin{equation}
+    T_k v := s_1 \ip{v}{e_1}f_1 + \cdots + s_k \ip{v}{e_k}f_k \quad \forall v \in V,
+  \end{equation}
   then $\dim \myrange T_k = k$ and $\norm{T-T_k} = s_{k+1}$.
 \end{thm}
-
+\begin{prf}
+  For $T_k$, $(T-T_k)v = \sum_{j=k+1}^m s_j \ip{v}{e_j} f_j$, which is an SVD with largest singular value $s_{k+1}$. By \ref{thm: alternative formulas for ||T||}(a), $\norm{T-T_k} = s_{k+1}$.
+  Now let $S \in \linmap(V,W)$ with $\dim \myrange S \leq k$. By Rank-Nullity, $\dim \mynull S \geq \dim V - k$.
+  Since $\dim \myspan{e_1, \dots, e_{k+1}} = k+1$, the subspace $\mynull S \cap \myspan{e_1, \dots, e_{k+1}}$ contains a unit vector $v = \sum_{j=1}^{k+1} a_j e_j$ ($\sum |a_j|^2 = 1$).
+  Then $Sv = 0$, so $\norm{(T-S)v}^2 = \norm{Tv}^2 = \sum_{j=1}^{k+1} s_j^2 |a_j|^2 \geq s_{k+1}^2 \sum_{j=1}^{k+1} |a_j|^2 = s_{k+1}^2$.
+  Thus $\norm{T-S} \geq s_{k+1}$, which proves the minimum equals $s_{k+1}$.
+\end{prf}
 
 \begin{thm}[polar decomposition]
-  Suppose $T\in \linmap(V)$. Then there exists a unique unitary operator $S\in \linmap(V)$ \st
-  \[
-    T=S\sqrt{T^*T}.
-  \]
+  \label{thm: polar decomposition}
+  Suppose $T\in \linmap(V)$. Then there exists an isometry (unitary operator) $S\in \linmap(V)$ \st
+  \begin{equation}
+    T = S\sqrt{T^*T}.
+  \end{equation}
+  If $T$ is invertible, then $S$ is uniquely determined.
 \end{thm}
+\begin{prf}
+  Let $Tv = \sum_{j=1}^m s_j \ip{v}{e_j} f_j$ be an SVD of $T$, where $s_1, \dots, s_m > 0$.
+  Extend $e_1, \dots, e_m$ to an orthonormal basis $e_1, \dots, e_n$ of $V$, and $f_1, \dots, f_m$ to an orthonormal basis $f_1, \dots, f_n$ of $V$.
+  Define $S \in \linmap(V)$ by $Se_j = f_j$ for $j = 1, \dots, n$. Since $S$ maps an orthonormal basis to an orthonormal basis, $S$ is an isometry.
+  Note that $\sqrt{T^*T} e_j = s_j e_j$ for $j \leq m$ and $\sqrt{T^*T}e_j = 0$ for $j > m$.
+  Hence $S\sqrt{T^*T} e_j = S(s_j e_j) = s_j f_j = Te_j$ for $j \leq m$, and $S\sqrt{T^*T}e_j = 0 = Te_j$ for $j > m$.
+  Thus $T = S\sqrt{T^*T}$.
+  If $T$ is invertible, then $\sqrt{T^*T}$ is invertible, so $S = T(\sqrt{T^*T})^{-1}$ is unique.
+\end{prf}
 
 \subsection{Operators Applied to Ellipsoids and Parallelepipeds}
 \mce{95}
 \begin{mydef}[ball, $B$]
   The \qt{ball} in $V$ of radius $1$ centered at $0$, denoted by $B$, is defined by
-  \[
+  \begin{equation}
     B := \left\{v \in V \; \,\Big\vert\, \norm{v} < 1  \right\}.
-  \]
+  \end{equation}
 \end{mydef}

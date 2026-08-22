@@ -94,7 +94,7 @@ Note: Every isometry is injective. Every injective operator on a finite-dimensio
 \mce{53}
 \begin{thm}[characterizations of unitary operators]
   \label{thm: characterizations of unitary operators}
-  Suppose $S \in \linmap(V)$. Suppose $e_1, \ddd, e_n$ is an orthonormal basis of $V$. Then:
+  Suppose $S \in \linmap(V)$ and $e_1, \ddd, e_n$ is an orthonormal basis of $V$. Then the following are equivalent:
   \begin{enumerate}[label=\textbf{(\alph*)}]
     \item $S$ is a unitary operator;
     \item $S^*S = SS^* = I$;
@@ -104,12 +104,23 @@ Note: Every isometry is injective. Every injective operator on a finite-dimensio
     \item $S^*$ is a unitary operator.
   \end{enumerate}
 \end{thm}
+\begin{prf}
+  An operator $S \in \linmap(V)$ on a finite-dimensional space is an isometry $\iff S^*S = I$ (by \ref{thm: characterizations of isometries}).
+  Since $V$ is finite-dimensional, $S^*S = I \iff SS^* = I \iff S^{-1} = S^*$, which establishes the equivalence of (a), (b), and (c).
+  The equivalence with (d) follows because $S$ is an isometry $\iff Se_1, \dots, Se_n$ is an orthonormal list of length $\dim V$, hence an orthonormal basis.
+  The equivalence with (e) and (f) follows because $S^*$ is unitary $\iff (S^*)^* S^* = S S^* = I$, and the rows of $\mmatrix(S)$ are the conjugates of the columns of $\mmatrix(S^*)$.
+\end{prf}
 
 \mce{54}
 \begin{thm}[eigenvalues of unitary operators]
   \label{thm: eigenvalues of unitary operators}
-  Suppose $\lambda$ is an eigenvalue of a unitary operator. Then $|\lambda| = 1$.
+  Suppose $\lambda$ is an eigenvalue of a unitary operator $S \in \linmap(V)$. Then $|\lambda| = 1$.
 \end{thm}
+\begin{prf}
+  Let $v \neq 0$ be an eigenvector of $S$ corresponding to $\lambda$, so $Sv = \lambda v$.
+  Because $S$ is an isometry, $\norm{v} = \norm{Sv} = \norm{\lambda v} = |\lambda| \norm{v}$.
+  Since $\norm{v} \neq 0$, dividing by $\norm{v}$ gives $|\lambda| = 1$.
+\end{prf}
 
 \mce{55}
 \begin{thm}[description of unitary operators on complex inner product spaces]
@@ -120,6 +131,11 @@ Note: Every isometry is injective. Every injective operator on a finite-dimensio
     \item There is an orthonormal basis of $V$ consisting of eigenvectors of $S$ whose corresponding eigenvalues all have absolute value $1$.
   \end{enumerate}
 \end{thm}
+\begin{prf}
+  \Rightarrowdirection Suppose $S$ is unitary. Then $S^*S = I = SS^*$, so $S$ is normal. By the Complex Spectral Theorem (\ref{thm: complex spectral theorem}), $V$ has an orthonormal basis of eigenvectors of $S$. By \ref{thm: eigenvalues of unitary operators}, each corresponding eigenvalue has absolute value $1$.
+
+  \Leftarrowdirection If $e_1, \dots, e_n$ is an orthonormal basis of eigenvectors with $Se_k = \lambda_k e_k$ and $|\lambda_k| = 1$, then for any $v = \sum a_k e_k$, $\norm{Sv}^2 = \sum |\lambda_k a_k|^2 = \sum |a_k|^2 = \norm{v}^2$. Thus $S$ is an isometry, hence a unitary operator.
+\end{prf}
 
 \mce{56}
 \subsection{QR Factorization}
@@ -136,14 +152,24 @@ Note: Every isometry is injective. Every injective operator on a finite-dimensio
     \item $Q^*Q=QQ^*=I$, the $n$-by-$n$ matrix with $1$'s on the diagonal and $0$'s elsewhere.
   \end{enumerate}
 \end{thm}
+\begin{prf}
+  This is the matrix translation of \ref{thm: characterizations of unitary operators} applied to the operator $x \mapsto Qx$ on $\myF^n$.
+\end{prf}
 
 \begin{thm}[QR factorization]
-  Suppose $A$ is a square matrix with linearly independent columns. Then there exist unique matrices $Q$ and $R$ such that $Q$ is unitary, $R$ is upper triangular with only positive numbers on its diagonal, and
-  \[
-    A=QR.
-  \]
+  \label{thm: QR factorization}
+  Suppose $A \in \myF^{n,n}$ is an invertible square matrix. Then there exist unique matrices $Q$ and $R$ such that $Q$ is unitary, $R$ is upper triangular with only positive numbers on its diagonal, and
+  \begin{equation}
+    A = QR.
+  \end{equation}
 \end{thm}
+\begin{prf}
+  \prooffont{Existence:} Let $a_1, \ddd, a_n$ denote the columns of $A$. Apply the Gram-Schmidt Procedure (\ref{thm: gram-schmidt procedure}) to $a_1, \ddd, a_n$ to obtain an orthonormal basis $q_1, \ddd, q_n$ of $\myF^n$.
+  Then each $a_k = R_{1,k} q_1 + \cdots + R_{k,k} q_k$ with $R_{k,k} = \norm{a_k - \sum_{j=1}^{k-1} \ip{a_k}{q_j}q_j} > 0$.
+  Setting $Q$ to be the unitary matrix with columns $q_1, \ddd, q_n$ and $R = (R_{j,k})$ gives $A = QR$.
 
+  \prooffont{Uniqueness:} If $A = Q_1 R_1 = Q_2 R_2$, then $Q_2^* Q_1 = R_2 R_1^{-1}$. The matrix $Q_2^* Q_1$ is unitary, while $R_2 R_1^{-1}$ is upper triangular with positive diagonal entries. The only such matrix is $I$, so $R_1 = R_2$ and $Q_1 = Q_2$.
+\end{prf}
 
 \subsection{Cholesky Factorization}
 
@@ -152,18 +178,31 @@ Note: Every isometry is injective. Every injective operator on a finite-dimensio
   \label{thm: positive invertible operator}
   A self-adjoint operator $T\in \linmap(V)$ is a positive invertible operator $\iff \ip{Tv}{v} > 0 \quad \forall v \in V, v \neq 0$.
 \end{thm}
+\begin{prf}
+  \Rightarrowdirection If $T$ is positive and invertible, $\ip{Tv}{v} \ge 0$. If $\ip{Tv}{v} = 0$, by \ref{thm: T positive and <Tv,v> = 0 => Tv = 0}, $Tv = 0 \implies v = 0$. Thus $\ip{Tv}{v} > 0$ for all $v \neq 0$.
+
+  \Leftarrowdirection If $\ip{Tv}{v} > 0$ for all $v \neq 0$, then $T$ is positive. If $Tv = 0$, then $\ip{Tv}{v} = 0 \implies v = 0$, so $\mynull T = \{0\}$, which implies $T$ is invertible.
+\end{prf}
 
 \begin{mydef}[positive definite]
   A matrix $B \in \myF^{n,n}$ is called \qt{positive definite} if $B^* = B$ and
-  \[
+  \begin{equation}
     \ip{Bx}{x} > 0 \quad \forall x \in \myF^n, \, x \neq 0.
-  \]
+  \end{equation}
 \end{mydef}
 
 \begin{thm}[Cholesky factorization]
-  Suppose $B$ is a positive definite matrix. Then there exists a unique upper triangular matrix $R$ with only positive numbers on its diagonal \st
-  \[
+  \label{thm: cholesky factorization}
+  Suppose $B \in \myF^{n,n}$ is a positive definite matrix. Then there exists a unique upper-triangular matrix $R$ with only positive numbers on its diagonal \st
+  \begin{equation}
     B = R^*R.
-  \]
+  \end{equation}
 \end{thm}
+\begin{prf}
+  \prooffont{Existence:} By \ref{thm: uniqueness of square root}, the positive definite matrix $B$ has a unique positive square root $\sqrt{B}$, which is invertible.
+  Applying QR factorization (\ref{thm: QR factorization}) to $\sqrt{B}$ gives $\sqrt{B} = QR$ for unitary $Q$ and upper-triangular $R$ with positive diagonal entries.
+  Then $B = (\sqrt{B})^* \sqrt{B} = (QR)^* (QR) = R^* Q^* Q R = R^* R$.
+
+  \prooffont{Uniqueness:} If $B = R_1^* R_1 = R_2^* R_2$, then $(R_2 R_1^{-1})^* (R_2 R_1^{-1}) = I$, so $R_2 R_1^{-1}$ is unitary and upper triangular with positive diagonal entries. Hence $R_2 R_1^{-1} = I \implies R_1 = R_2$.
+\end{prf}
 

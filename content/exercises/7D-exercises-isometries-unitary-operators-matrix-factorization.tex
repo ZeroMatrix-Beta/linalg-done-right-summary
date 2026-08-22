@@ -1,0 +1,32 @@
+\section*{Exercises about Isometries, Unitary Operators, and Matrix Factorization}
+
+\exercise{1}
+\begin{xrcs}
+  Suppose $S \in \linmap(V)$ is an operator on a finite-dimensional inner product space $V$. Prove that the following are equivalent:
+  \begin{enumerate}
+    \item $S^* S = I$.
+    \item $\langle Su, Sv \rangle = \langle u, v \rangle$ for all $u, v \in V$.
+    \item $\|Su\| = \|u\|$ for all $u \in V$.
+  \end{enumerate}
+% \begin{xprf}
+%   \StepOne (a) $\iff$ (b):
+%   By definition of the adjoint, $\langle Su, Sv \rangle = \langle S^*Su, v \rangle$.
+%   Thus $\langle Su, Sv \rangle = \langle u, v \rangle \iff \langle S^*Su - u, v \rangle = 0 \iff \langle (S^*S - I)u, v \rangle = 0$ for all $u, v \in V$.
+%   Choosing $v = (S^*S - I)u$ forces $(S^*S - I)u = 0$ for all $u$, so $S^*S = I$.
+%
+%   \StepTwo (b) $\implies$ (c):
+%   If $\langle Su, Sv \rangle = \langle u, v \rangle$ for all $u, v$, then setting $v = u$ yields:
+%   \[
+%     \|Su\|^2 = \langle Su, Su \rangle = \langle u, u \rangle = \|u\|^2 \implies \|Su\| = \|u\|.
+%   \]
+%
+%   \StepThree (c) $\implies$ (b):
+%   Suppose $\|Su\| = \|u\|$ for all $u \in V$.
+%   If $\myF = \real$, by the real polarization identity (Theorem \ref{thm: real polarization identity}):
+%   \[
+%     \langle Su, Sv \rangle = \frac{\|Su+Sv\|^2 - \|Su-Sv\|^2}{4} = \frac{\|S(u+v)\|^2 - \|S(u-v)\|^2}{4} = \frac{\|u+v\|^2 - \|u-v\|^2}{4} = \langle u, v \rangle.
+%   \]
+%   If $\myF = \compl$, the complex polarization identity (Theorem \ref{thm: complex polarization identity}) gives the same result.
+%   Thus all three statements are equivalent.
+% \end{xprf}
+\end{xrcs}

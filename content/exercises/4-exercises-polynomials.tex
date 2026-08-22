@@ -1,16 +1,40 @@
 \section*{Exercises about Polynomials}
 
+\exercise{3}
+\begin{xrcs}
+  (Lagrange Interpolation) Suppose $z_1, \ddd, z_{m+1} \in \myF$ are distinct and $w_1, \ddd, w_{m+1} \in \myF$. Prove that there exists a unique polynomial $p \in \polyn_m(\myF)$ such that
+  \begin{equation}
+    p(z_j) = w_j \quad \text{for } j = 1, \ddd, m+1.
+  \end{equation}
+% \begin{xprf}
+%   Define the linear evaluation map $T: \polyn_m(\myF) \to \myF^{m+1}$ by
+%   \[
+%     T(p) := (p(z_1), p(z_2), \dots, p(z_{m+1})).
+%   \]
+%   If $p \in \mynull T$, then $p(z_j) = 0$ for each $j \in \{1, \dots, m+1\}$.
+%   Thus $p$ has at least $m+1$ distinct roots in $\myF$.
+%   Since $\deg p \le m$, the only polynomial with more roots than its degree is the zero polynomial, so $p = 0$.
+%   Thus $\mynull T = \{0\}$, meaning $T$ is injective.
+%   Since $\dim \polyn_m(\myF) = m+1 = \dim \myF^{m+1}$, Theorem \ref{thm: injectivity is equivalent to surjectivity} implies that $T$ is an isomorphism (bijective).
+%   Therefore, for every $(w_1, \dots, w_{m+1}) \in \myF^{m+1}$, there exists a unique $p \in \polyn_m(\myF)$ such that $T(p) = (w_1, \dots, w_{m+1})$, which proves $p(z_j) = w_j$ for each $j$.
+% \end{xprf}
+\end{xrcs}
+
 \exercise{4}
 \begin{xrcs}
   Suppose $m$ is a positive integer. Is the set
   \begin{equation}
-    \{0\} \cup \{ p \in \polyn (\myF) : \deg p = m \} = S
+    S := \{0\} \cup \{ p \in \polyn (\myF) : \deg p = m \}
   \end{equation}
-
   a subspace of $\polyn (\myF)$?
 
   \begin{xsol}
-    The set in question is not a subspace of $\polyn (\myF)$, because it is not closed under addition. Take $m = 4$, then $p = 1  + 2 x^2 + 3 x^3 + 4 x^4$ and $s = 4 x^4$ are both in $S$, but $p - s$ is not.
+    The set $S$ is not a subspace of $\polyn (\myF)$ because it is not closed under addition.
+    For example, let $p(x) = x^m + x$ and $q(x) = -x^m$. Both $p$ and $q$ have degree $m$ (so $p, q \in S$), but
+    \[
+      p(x) + q(x) = x
+    \]
+    has degree $1 \neq m$ (for $m \neq 1$) and is not $0$, so $p+q \notin S$. (If $m=1$, take $p(x)=x+1$ and $q(x)=-x$, so $p(x)+q(x)=1$, which has degree $0 \neq 1$). Thus, $S$ is not a subspace.
   \end{xsol}
 \end{xrcs}
 
@@ -18,35 +42,67 @@
 \begin{xrcs}
   Is the set
   \begin{equation}
-    \{0\} \cup \{ p \in \polyn (\myF) : \deg p \text{ is even} \} = S
+    S := \{0\} \cup \{ p \in \polyn (\myF) : \deg p \text{ is even} \}
   \end{equation}
-
   a subspace of $\polyn (\myF)$?
 
   \begin{xsol}
-    The same counter-example as in the previous question applies to this one.
+    The set $S$ is not a subspace of $\polyn (\myF)$ because it is not closed under addition.
+    For example, let $p(x) = x^4 + x^3$ and $q(x) = -x^4$. Both $p$ and $q$ have degree $4$ (which is even, so $p, q \in S$), but
+    \[
+      p(x) + q(x) = x^3
+    \]
+    has degree $3$, which is odd and not $0$. Thus, $p+q \notin S$, so $S$ is not a subspace.
   \end{xsol}
 \end{xrcs}
 
 \exercise{6}
 \begin{xrcs}
-  Suppose that $m$ and $n$ are positive integers with $m \neq n$, and suppose $\lambda_1, \ddd, \lambda_m \in \myF$. Prove that there exists a polynomial $p \in \polyn(\myF)$ with $\deg p = m$ such that $0 = p(\lambda_1) = \cdots = p(\lambda_m)$ and such that $p$ has no other zeros.
+  Suppose that $m$ and $n$ are positive integers with $m \leq n$, and suppose $\lambda_1, \ddd, \lambda_m \in \myF$. Prove that there exists a polynomial $p \in \polyn(\myF)$ with $\deg p = n$ such that $0 = p(\lambda_1) = \cdots = p(\lambda_m)$ and such that $p$ has no other zeros in $\myF$.
 
   \begin{xprf}
-    Define $p \in \polyn_n (\myF)$ by
+    Define $p \in \polyn(\myF)$ by
     \begin{equation}
       \begin{aligned}
-        p (z)
-          &= (z-\lambda_1) (z-\lambda_2) \cdots (z-\lambda_{m-1}) \underbrace{(z-\lambda_m)(z-\lambda_m)\cdot(z-\lambda_m)}_{n-m+1 \text{ times}} \\
-          &= \left(\sum_{k = 1}^{m-1} (z-\lambda_k) \right) (z-\lambda_m)^{n-m+1} \qquad \forall z \in \myF.
+        p(z) &:= (z-\lambda_1)(z-\lambda_2)\cdots(z-\lambda_{m-1}) \underbrace{(z-\lambda_m)(z-\lambda_m)\cdots(z-\lambda_m)}_{n-m+1 \text{ times}} \\
+             &= \left(\prod_{k = 1}^{m-1} (z-\lambda_k) \right) (z-\lambda_m)^{n-m+1} \qquad (\forall z \in \myF).
       \end{aligned}
     \end{equation}
+    The degree of $p$ is $(m-1) + (n-m+1) = n$.
+    Clearly, evaluating $p$ at $z = \lambda_k$ yields $p(\lambda_k) = 0$ for every $k \in \{1, \ddd, m\}$.
+
+    Now, suppose $\lambda \in \myF$ is a zero of $p$, so $p(\lambda) = 0$. Since $\myF$ is a field, the product
+    \[
+      (\lambda-\lambda_1)(\lambda-\lambda_2)\cdots(\lambda-\lambda_{m-1})(\lambda-\lambda_m)^{n-m+1} = 0
+    \]
+    can only equal $0$ if at least one of the factors is $0$.
+    Thus, $\lambda - \lambda_k = 0$ for some $k \in \{1, \ddd, m\}$, meaning $\lambda = \lambda_k$.
+    Therefore, $p$ has no zeros other than $\lambda_1, \ddd, \lambda_m$.
   \end{xprf}
-
-  If $p$ would have another root than $\lambda_1, \ddd, \lambda_m \in \myF$, say $\lambda_{\text{fresh}}$, we could write $p$ as
-  \begin{equation}
-    p(z) = (z- \lambda_{\text{fresh}}) q(z) \quad \forall z \in \myF,
-  \end{equation}
-
-  where $q \in \polyn_{n-1} (\myF)$ would have one $(z-\lambda_j)$-term less than $p$. But this is impossible and contradicts the allready exising structure of $p$. Hence, $p$ has no other zeros.
 \end{xrcs}
+
+% ==============================================================================
+% ORIGINAL ATTEMPT (Commented out): Exercise 6 Draft
+% ------------------------------------------------------------------------------
+% AI FEEDBACK:
+% 1. Product Notation: Line 41 of the draft wrote $\sum_{k=1}^{m-1} (z-\lambda_k)$
+%    instead of the product $\prod_{k=1}^{m-1} (z-\lambda_k)$.
+% 2. Statement Consistency: The problem hypothesis requires $m \le n$ (and $\deg p = n$),
+%    whereas the draft had $m \neq n$ in the premise.
+% 3. Environment Scoping: The second part of the argument was placed outside \end{xprf}.
+% ==============================================================================
+% \begin{xprf}
+%   Define $p \in \polyn_n (\myF)$ by
+%   \begin{equation}
+%     \begin{aligned}
+%       p (z)
+%         &= (z-\lambda_1) (z-\lambda_2) \cdots (z-\lambda_{m-1}) \underbrace{(z-\lambda_m)(z-\lambda_m)\cdot(z-\lambda_m)}_{n-m+1 \text{ times}} \\
+%         &= \left(\sum_{k = 1}^{m-1} (z-\lambda_k) \right) (z-\lambda_m)^{n-m+1} \qquad \forall z \in \myF.
+%     \end{aligned}
+%   \end{equation}
+% \end{xprf}
+% If $p$ would have another root than $\lambda_1, \ddd, \lambda_m \in \myF$, say $\lambda_{\text{fresh}}$, we could write $p$ as
+% \begin{equation}
+%   p(z) = (z- \lambda_{\text{fresh}}) q(z) \quad \forall z \in \myF,
+% \end{equation}
+% where $q \in \polyn_{n-1} (\myF)$ would have one $(z-\lambda_j)$-term less than $p$. But this is impossible and contradicts the already existing structure of $p$. Hence, $p$ has no other zeros.

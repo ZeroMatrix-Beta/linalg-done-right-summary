@@ -38,7 +38,7 @@
   \setcounter{thm}{64}
   \begin{thm} [injectivity is equivalent to surjectivity]
     \label{thm: injectivity is equivalent to surjectivity}
-    For $T\in \linmap(V,W)$, if $V$ and $W$ are finite-dimensional, injectivity is equivalent to surjectivity:
+    Suppose $V$ and $W$ are finite-dimensional vector spaces of the same dimension ($\dim V = \dim W$). Then, for $T\in \linmap(V,W)$:
     \begin{equation}
       T \text{ is invertible} \iff T \text{ is injective} \iff T \text{ is surjective.}
     \end{equation}
@@ -49,7 +49,7 @@
     \end{equation}
   \end{thm}
   \begin{prf}
-    The rank-nullity theorem (\ref{rank-nullity-theorem}) or fundamental theorem of linear maps states that
+    The rank-nullity theorem (\ref{rank-nullity-theorem}) states that
     \begin{equation}
       \label{rank-nullity-nested-equation}
       \dim V = \dim \mynull T + \dim \myrange T.
@@ -59,16 +59,15 @@
     \begin{equation}
       \dim \myrange T = \dim V = \dim W,
     \end{equation}
-    which means $T$ is surjective ($\myrange T = \dim W$). This is because every linearly independent list of vectors of length $\dim W$ is a basis by
-    \ref{thm: linearly independent list of the right length is a basis}. And that's how dimension is defined. (TODO)
+    which implies $\myrange T = W$ by \ref{thm: subspace of full dimension equals the whole space}. Hence, $T$ is surjective.
 
-    If $T$ is surjective, we have $\dim \myrange T = \dim W$ to begin with, and therefore \eqref{rank-nullity-nested-equation} becomes
+    If $T$ is surjective, then $\dim \myrange T = \dim W = \dim V$, and therefore \eqref{rank-nullity-nested-equation} becomes
     \begin{equation}
       \dim \mynull T = \dim V - \dim \myrange T = \dim V - \dim W = 0,
     \end{equation}
 
     which makes $T$ also injective.
-    Since injectivity and surjectivity together imply invertibility, this ends the proof.
+    Since injectivity and surjectivity together imply invertibility, this completes the proof.
   \end{prf}
 
 
@@ -107,11 +106,9 @@
     Two \fd vector spaces $U$, $V$ over $\mathbb{F}$ are isomorphic $\iff$ they have the same dimension (i.e., $\dim U = \dim V$).
   \end{thm}
   \begin{prf}
-    exercise
+    \Rightarrowdirection If $T: U \to V$ is an isomorphism, $T$ is injective and surjective. Since $\mynull T = \{0\}$ and $\myrange T = V$, the Rank-Nullity Theorem gives $\dim U = \dim \mynull T + \dim \myrange T = 0 + \dim V = \dim V$.
 
-    \Rightarrowdirection rank-nullity theorem
-
-    \Leftarrowdirection surjectivity and injectivity.
+    \Leftarrowdirection Suppose $\dim U = \dim V = n$. Let $u_1, \ddd, u_n$ be a basis of $U$ and $v_1, \ddd, v_n$ a basis of $V$. By the Linear Map Lemma (\ref{thm: linear map lemma}), there exists a linear map $T: U \to V$ such that $Tu_k = v_k$ for each $k \in \{1, \dots, n\}$. Since $T$ maps a basis to a basis, $T$ is both injective and surjective (hence an isomorphism).
   \end{prf}
 
 
@@ -121,7 +118,10 @@
     Suppose $\oneTillN{v}$ is a basis of $V$ and $\oneTillM{w}$ is a basis of $W$. Then $\mathcal{M}$ is an isomorphism between $\lvw$ and $\mathbb{F}^{m,n}$.
   \end{thm}
   \begin{prf}
-    exercise (injectivity and surjectivity)
+    The map $\mathcal{M}: \linmap(V,W) \to \myF^{m,n}$ is linear by \ref{thm: matrix of the sum of linear maps} and \ref{thm: matrix of a scalar times a linear map}.
+    If $\mathcal{M}(T) = 0$, then $Tv_k = 0$ for all $k \in \{1, \dots, n\}$, so $T = 0$, which proves that $\mathcal{M}$ is injective.
+    For any matrix $A \in \myF^{m,n}$, by the Linear Map Lemma (\ref{thm: linear map lemma}) there exists $T \in \linmap(V,W)$ defined by $Tv_k = \sum_{j=1}^m A_{j,k} w_j$. Then $\mathcal{M}(T) = A$, which proves that $\mathcal{M}$ is surjective.
+    Thus, $\mathcal{M}$ is an isomorphism.
   \end{prf}
 
   %\textbf{3.72}
@@ -288,6 +288,10 @@
       A = C^{-1} B C.
     \end{equation}
   \end{thm}
+  \begin{prf}
+    By \ref{thm: matrix of product of linear maps2}, $CA = \m{I} \m{T} = \m{IT} = \m{TI} = \m{T}\m{I} = BC$.
+    Multiplying both sides by $C^{-1}$ on the left gives $A = C^{-1} B C$.
+  \end{prf}
 
   % 3.86
   \setcounter{thm}{85}

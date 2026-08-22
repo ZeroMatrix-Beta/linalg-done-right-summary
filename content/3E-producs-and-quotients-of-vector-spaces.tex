@@ -35,13 +35,13 @@
   \underbrace{
     \left (
     \begin{matrix}
-      v_{1_1} \\ 0 \phantom{\vdots} \! \! \! \\ \vdots \\ \vdots \\ \vdots \\ 0 \phantom{\vdots} \! \! \!
+      v_{1_1} \\ 0 \vphantom{\vdots} \\ \vdots \\ \vdots \\ \vdots \\ 0 \vphantom{\vdots}
     \end{matrix}
     \right )
     \; \mathlarger{,} \;
     \left (
     \begin{matrix}
-      v_{1_2} \\ 0 \phantom{\vdots} \! \! \! \\ \vdots \\ \vdots \\ \vdots \\ 0 \phantom{\vdots} \! \! \!
+      v_{1_2} \\ 0 \vphantom{\vdots} \\ \vdots \\ \vdots \\ \vdots \\ 0 \vphantom{\vdots}
     \end{matrix}
     \right )
     \mathlarger{,}
@@ -49,7 +49,7 @@
     \mathlarger{,}
     \left (
     \begin{matrix}
-      v_{1_{\dim V_1}} \\ 0 \phantom{\vdots} \! \! \! \\ \vdots \\ \vdots \\ \vdots \\ 0 \phantom{\vdots} \! \! \!
+      v_{1_{\dim V_1}} \\ 0 \vphantom{\vdots} \\ \vdots \\ \vdots \\ \vdots \\ 0 \vphantom{\vdots}
     \end{matrix}
     \right )
   }_{\text{constructed from basis vectors of $V_1$}}
@@ -61,13 +61,13 @@
   \underbrace{
     \left (
     \begin{matrix}
-      0 \phantom{\vdots} \! \! \! \\ \vdots \\ v_{k_1} \\ 0 \phantom{\vdots} \! \! \! \phantom{\vdots} \! \! \!  \\ \vdots \\ 0 \phantom{\vdots} \! \! \!
+      0 \vphantom{\vdots} \\ \vdots \\ v_{k_1} \\ 0 \vphantom{\vdots} \\ \vdots \\ 0 \vphantom{\vdots}
     \end{matrix}
     \right )
     \; \mathlarger{,} \;
     \left (
     \begin{matrix}
-      0 \phantom{\vdots} \! \! \! \\ \vdots \\ v_{k_{2}} \\ 0 \phantom{\vdots} \! \! \! \\ \vdots \\ 0 \phantom{\vdots} \! \! \!
+      0 \vphantom{\vdots} \\ \vdots \\ v_{k_{2}} \\ 0 \vphantom{\vdots} \\ \vdots \\ 0 \vphantom{\vdots}
     \end{matrix}
     \right )
     \mathlarger{,}
@@ -75,7 +75,7 @@
     \mathlarger{,}
     \left (
     \begin{matrix}
-      0 \phantom{\vdots} \! \! \! \\ \vdots \\ v_{k_{\dim V_k}} \\ 0 \phantom{\vdots} \! \! \! \\ \vdots \\ 0 \phantom{\vdots} \! \! \!
+      0 \vphantom{\vdots} \\ \vdots \\ v_{k_{\dim V_k}} \\ 0 \vphantom{\vdots} \\ \vdots \\ 0 \vphantom{\vdots}
     \end{matrix}
     \right )
   }_{\text{constructed from basis vectors of $V_k$}}
@@ -85,13 +85,13 @@
   \underbrace{
       \left (
       \begin{matrix}
-        0 \phantom{\vdots} \! \! \!  \\ \vdots \\ \vdots \\ \vdots \\ 0 \phantom{\vdots} \! \! \! \\ v_{m_1}
+        0 \vphantom{\vdots} \\ \vdots \\ \vdots \\ \vdots \\ 0 \vphantom{\vdots} \\ v_{m_1}
       \end{matrix}
       \right )
       \; \mathlarger{,} \;
       \left (
       \begin{matrix}
-        0 \phantom{\vdots} \! \! \!  \\ \vdots \\ \vdots \\ \vdots \\ 0 \phantom{\vdots} \! \! \! \\ v_{m_2}
+        0 \vphantom{\vdots} \\ \vdots \\ \vdots \\ \vdots \\ 0 \vphantom{\vdots} \\ v_{m_2}
       \end{matrix}
       \right )
       \mathlarger{,}
@@ -99,7 +99,7 @@
       \mathlarger{,}
       \left (
       \begin{matrix}
-        0 \phantom{\vdots} \! \! \!  \\ \vdots \\ \vdots \\ \vdots \\ 0 \phantom{\vdots} \! \! \! \\ v_{m_{\dim V_m}}
+        0 \vphantom{\vdots} \\ \vdots \\ \vdots \\ \vdots \\ 0 \vphantom{\vdots} \\ v_{m_{\dim V_m}}
       \end{matrix}
       \right )
   }_{\text{constructed from basis vectors of $V_m$}}
@@ -141,7 +141,7 @@ In the next result, the map $\Gamma$ is surjective by the definition of $V_1 + \
   The map $\Gamma: V_1 \times \cdots \times V_m \to V_1 + \cdots + V_m$ in \ref{thm: products and direct sums} is surjective. Thus, by the rank-nullity theorem \ref{rank-nullity-theorem}, $\Gamma$ is injective $\iff \dim \mynull \Gamma = 0$, and therefore
   \[
   \begin{aligned}
-    &\dim (\underbrace{V_1 \times \cdots \times V_m}_{\text{domain}})=\underbrace{\dim \mynull \Gamma \phantom{V_m} \! \! \! \! \! \! \! \! \! \! \!}_{= \; 0} +  \dim(\underbrace{V_1 + \cdots + V_m}_{\text{codomain} \; \subseteq \; V
+    &\dim (\underbrace{V_1 \times \cdots \times V_m}_{\text{domain}})=\underbrace{\dim \mynull \Gamma \vphantom{V_m}}_{= \; 0} +  \dim(\underbrace{V_1 + \cdots + V_m}_{\text{codomain} \; \subseteq \; V
     }) \\
     &\dim (V_1 + \cdots + V_m) = \dim (V_1 \times \cdots \times V_m).
   \end{aligned}
@@ -262,26 +262,46 @@ In the next result, the map $\Gamma$ is surjective by the definition of $V_1 + \
   \end{equation}
 \end{mydef}
 
-\begin{thm}
-  Suppose $\dim V < \infty$ and $U \subseteq V$.
+\begin{thm}[dimension of quotient space]
+  \label{thm: dimension of quotient space}
+  Suppose $\dim V < \infty$ and $U \subseteq V$ is a subspace. Then
   \begin{equation}
-    \implies \dim V/U = \dim V - \dim U.
+    \dim V/U = \dim V - \dim U.
   \end{equation}
 \end{thm}
+\begin{prf}
+  Let $\pi: V \to V/U$ be the quotient map $\pi(v) = v + U$.
+  The map $\pi$ is surjective, so $\myrange \pi = V/U$. Furthermore, $v \in \mynull \pi \iff v + U = 0 + U \iff v \in U$, so $\mynull \pi = U$.
+  Applying the Rank-Nullity Theorem (\ref{rank-nullity-theorem}) to $\pi$ gives
+  \begin{equation}
+    \dim V = \dim \mynull \pi + \dim \myrange \pi = \dim U + \dim V/U.
+  \end{equation}
+  Subtracting $\dim U$ from both sides yields $\dim V/U = \dim V - \dim U$.
+\end{prf}
 
 \begin{mydef}[notation $\widetilde{T}$]
   Suppose $T \in \linmap(V,W)$. Define $\widetilde{T}: V/(\mynull T) \to W$ by
   \begin{equation}
-    \widetilde{T}(v+\mynull T) = Tv.
+    \widetilde{T}(v+\mynull T) := Tv.
   \end{equation}
 \end{mydef}
 
 \begin{thm}[null space and range of $\widetilde{T}$]
+  \label{thm: null space and range of T tilde}
   Suppose $T\in \linmap(V,W)$. Then:
   \begin{enumerate}[label=\textbf{(\alph*)}]
-    \item $\widetilde{T} \circ \pi = T,$ where $\pi$ is the quotient map $V$ onto $V/(\mynull T)$;
+    \item $\widetilde{T} \circ \pi = T,$ where $\pi$ is the quotient map of $V$ onto $V/(\mynull T)$;
     \item $\widetilde{T}$ is injective;
     \item $\myrange \widetilde{T} = \myrange T$;
     \item $V/(\mynull T)$ and $\myrange T$ are isomorphic vector spaces.
   \end{enumerate}
 \end{thm}
+\begin{prf}
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item For every $v \in V$, $(\widetilde{T} \circ \pi)(v) = \widetilde{T}(\pi(v)) = \widetilde{T}(v + \mynull T) = Tv$, so $\widetilde{T} \circ \pi = T$.
+    \item Suppose $v + \mynull T \in \mynull \widetilde{T}$. Then $0 = \widetilde{T}(v + \mynull T) = Tv$, so $v \in \mynull T$, which means $v + \mynull T = 0 + \mynull T$. Thus $\mynull \widetilde{T} = \{0 + \mynull T\}$, proving that $\widetilde{T}$ is injective.
+    \item $\myrange \widetilde{T} = \{\widetilde{T}(v + \mynull T) \mid v \in V\} = \{Tv \mid v \in V\} = \myrange T$.
+    \item Since $\widetilde{T}$ is a linear map that is injective and maps onto $\myrange T$, it is an isomorphism from $V/(\mynull T)$ onto $\myrange T$.
+  \end{enumerate}
+  \vspace{-\baselineskip}
+\end{prf}

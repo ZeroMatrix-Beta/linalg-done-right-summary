@@ -1,15 +1,15 @@
 \section*{Exercises about Definition of a Vector Space}
 
-%1
+\exercise{1}
 \begin{xrcs}
   Prove that $-(-v) = v \quad \forall v \in V$.
 
   \begin{xprf}
-    Let $v \in V$. By definition, we know that $v + (-v) = 0$. We also know by definition, that the additive inverse of $(-v)$, which is unique by \ref{thm: unique additive identity}, is denoted by $-(-v)$. The very first equations shows that $-(-v) = v$, since $v + (-v) = -(-v) + (-v) = 0$.
+    Let $v \in V$. By definition, we know that $v + (-v) = 0$. We also know by definition that the additive inverse of $(-v)$, which is unique by \ref{thm: unique additive identity}, is denoted by $-(-v)$. The very first equation shows that $-(-v) = v$, since $v + (-v) = -(-v) + (-v) = 0$.
   \end{xprf}
 \end{xrcs}
 
-%2
+\exercise{2}
 \begin{xrcs}
   Suppose for $a \in \myF$ and $v \in V$ we have $a \cdot v = 0$. Prove that $a=0$ or $v=0$.
 
@@ -23,26 +23,27 @@
   \end{xprf}
 \end{xrcs}
 
-
-%3
+\exercise{3}
 \begin{xrcs}
   Suppose $v,w \in V$. Explain why there exists a unique $x \in V$ such that $v + 3x = w$.
 
   \begin{xsol}
-    To solve this equation for $x$, we first need to subtract $v$ from $w$ and aftwewards devide by $3$. The additive inverse of $v$ is unique. But also the result of multyplying a vector by a number is unique.
+    To solve this equation for $x$, we first need to subtract $v$ from $w$ and afterwards divide by $3$. The additive inverse of $v$ is unique. But also the result of multiplying a vector by a number is unique.
   \end{xsol}
 \end{xrcs}
 
+\exercise{4}
 \begin{xrcs}
+  The empty set is not a vector space. The empty set fails to satisfy only one of the requirements in the definition of a vector space. Which one?
 
-\begin{xsol}
-    The only requirement for a vector space the empty set fails to satisfy is the existence of an additive idenity.
-\end{xsol}
-
+  \begin{xsol}
+    The only requirement for a vector space the empty set fails to satisfy is the existence of an additive identity (since the empty set contains no elements, it cannot contain a $0$ element).
+  \end{xsol}
 \end{xrcs}
 
+\exercise{6}
 \begin{xrcs}
-  Show that in the definition of a vector space, the additive inverse condition can be replace with the condition that
+  Show that in the definition of a vector space, the additive inverse condition can be replaced with the condition that
   \[
     0v = 0 \quad \forall v \in V.
   \]
@@ -53,10 +54,10 @@
     \begin{aligned}
       0 = 0v &= (1 + (-1))v \\
       &= 1v + (-1)v \\
-      &= v + (-1)v \\
+      &= v + (-1)v.
     \end{aligned}
     \]
 
-    So, $\forall v \in V$ it holds that $0= v + (-1)v$, meaning that for every $v$ we have an additive inverse, namely $(-1)v$.
+    So, $\forall v \in V$ it holds that $0 = v + (-1)v$, meaning that for every $v$ we have an additive inverse, namely $(-1)v$.
   \end{xprf}
 \end{xrcs}

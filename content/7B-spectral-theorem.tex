@@ -66,13 +66,11 @@ The previous result along with \ref{thm: eigenvalues are the zeros of the minima
   \end{enumerate}
 \end{thm}
 \begin{prf}
-  \StepOne First, suppose (a) holds, so $T$ is self-adjoint. Our results on minimal polynomials, specifically:
-  \begin{itemize}
-    \item Every orthonormal list extends to an orthonormal basis (Todo: 6.37)
-    \item minimal polynomial of self-adjoint operator
-  \end{itemize}
-
-  imply that $T$ has an upper-triangular matrix with respect to some orthonormal basis of $V$. With respect to this basis, the matrix $\mmatrix(T^*)$ of $T^*$ is the transpose of the matrix $\mmatrix(T)$ of $T$:
+  \StepOne First, suppose (a) holds, so $T$ is self-adjoint.
+  By \ref{thm: minimal polynomial of self-adjoint operator}, the minimal polynomial of $T$ factors as $(z-\lambda_1)\cdots(z-\lambda_m)$ for some $\lambda_1, \ddd, \lambda_m \in \real$.
+  By \ref{thm: necessary and sufficient condition to have an upper-triangular-matrix}, $T$ has an upper-triangular matrix with respect to some basis of $V$.
+  Applying the Gram-Schmidt Procedure (\ref{thm: gram-schmidt procedure}) to this basis gives an orthonormal basis $e_1, \ddd, e_n$ of $V$ with respect to which $T$ has an upper-triangular matrix.
+  With respect to this basis, the matrix $\mmatrix(T^*)$ of $T^*$ is the transpose of the matrix $\mmatrix(T)$ of $T$:
   \[
   \mmatrix(T^*)^t = \mmatrix(T).
   \]
@@ -81,7 +79,7 @@ The previous result along with \ref{thm: eigenvalues are the zeros of the minima
 
   \StepTwo Second, suppose (b) holds, so $T$ has a diagonal matrix $\mmatrix(T)$ with respect to some orthonormal basis of $V$. That diagonal matrix $\mmatrix(T)$ equals its transpose (i.e., $\mmatrix(T)= \mmatrix(T)^t$). Thus, with respect to that basis, $T^*=T$, proving that (b) implies (a).
 
-  \StepThree The equivalence of (b) and (c) follows from the definitions. Suppose (b) has a diagonal matrix whose entries are $\lambda_1, \ddd, \lambda_m$ with an orthonormal basis $e_1, \ddd, e_m$. Hence, $Te_k = \lambda_k e_k$ (for $k = 1, \ddd, m$). Therefore, $e_1, \ddd, e_m$ are the eigenvectors of $T$.
+  \StepThree The equivalence of (b) and (c) follows from the definitions. Suppose (b) has a diagonal matrix whose entries are $\lambda_1, \ddd, \lambda_n$ with an orthonormal basis $e_1, \ddd, e_n$. Hence, $Te_k = \lambda_k e_k$ (for $k = 1, \ddd, n$). Therefore, $e_1, \ddd, e_n$ are the eigenvectors of $T$.
 \end{prf}
 
 \subsection{Complex Spectral Theorem}
@@ -125,8 +123,8 @@ The previous result along with \ref{thm: eigenvalues are the zeros of the minima
     &= \ip{(\overline{a_{1,1}} e_1 + \cdots + \overline{a_{1,n}} e_n)}{(\overline{a_{1,1}} e_1 + \cdots + \overline{a_{1,n}} e_n)} \\
     &= \ip{\overline{a_{1,1}} e_1}{\sum_{k=1}^n \overline{a_{1,k}} e_k} + \cdots + \ip{\overline{a_{1,n}} e_n}{\sum_{k=1}^n \overline{a_{1,k}} e_k} \\
     &= \Big( \ip{\overline{a_{1,1}} e_1}{\overline{a_{1,1}} e_1} + \underbrace{\ip{\overline{a_{1,1}} e_1}{\overline{a_{1,2}} e_2}}_{= \; 0} + \cdots + \underbrace{\ip{\overline{a_{1,1}} e_1}{\overline{a_{1,n}} e_n}}_{= \; 0} \Big) \\
-    &\phantom{=} \; + \Big( \underbrace{\ip{\overline{a_{1,2}} e_2}{\overline{a_{1,1}} e_1}}_{= \; 0} + \ip{\overline{a_{1,2}} e_2}{\overline{a_{1,2}} e_2} + \cdots + \underbrace{\ip{\overline{a_{1,2}} e_2}{\overline{a_{1,n}} e_n}}_{= \; 0} \Big) \\
-    &\phantom{=} \; + \mathlarger{\ddd} + \Big( \underbrace{\ip{\overline{a_{1,n}} e_n}{\overline{a_{1,1}} e_1}}_{= \; 0} + \underbrace{\ip{\overline{a_{1,n}} e_n}{\overline{a_{1,2}} e_2}}_{= \; 0} + \cdots + \ip{\overline{a_{1,n}} e_n}{\overline{a_{1,n}} e_n} \Big) \\
+    &\hphantom{=} \; + \Big( \underbrace{\ip{\overline{a_{1,2}} e_2}{\overline{a_{1,1}} e_1}}_{= \; 0} + \ip{\overline{a_{1,2}} e_2}{\overline{a_{1,2}} e_2} + \cdots + \underbrace{\ip{\overline{a_{1,2}} e_2}{\overline{a_{1,n}} e_n}}_{= \; 0} \Big) \\
+    &\hphantom{=} \; + \mathlarger{\ddd} + \Big( \underbrace{\ip{\overline{a_{1,n}} e_n}{\overline{a_{1,1}} e_1}}_{= \; 0} + \underbrace{\ip{\overline{a_{1,n}} e_n}{\overline{a_{1,2}} e_2}}_{= \; 0} + \cdots + \ip{\overline{a_{1,n}} e_n}{\overline{a_{1,n}} e_n} \Big) \\
     &= \overline{a_{1,1}} \, \overline{\overline{a_{1,1}}} \ip{e_1}{e_1} + \overline{a_{1,2}} \, \overline{\overline{a_{1,2}}} \ip{e_2}{e_2} + \cdots + \overline{a_{1,n}} \, \overline{\overline{a_{1,n}}} \ip{e_n}{e_n} \\
     &= |\overline{a_{1,1}}|^2 + |\overline{a_{1,2}}|^2 + \cdots + |\overline{a_{1,n}}|^2 \\
     &= |a_{1,1}|^2 + |a_{1,2}|^2 + \cdots + |a_{1,n}|^2.

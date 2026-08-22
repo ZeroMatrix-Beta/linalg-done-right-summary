@@ -1,0 +1,38 @@
+\section*{Exercises about Commuting Operators}
+
+\exercise{1}
+\begin{xrcs}
+  Suppose $S, T \in \linmap(V)$ commute ($ST = TS$). Prove that $\mynull S$ and $\myrange S$ are invariant under $T$.
+
+  \begin{xprf}
+    \StepOne We first show that $\mynull S$ is invariant under $T$.
+    Let $u \in \mynull S$. Then $Su = 0$. Using the fact that $S$ and $T$ commute:
+    \begin{equation}
+      S(Tu) = (ST)u = (TS)u = T(Su) = T(0) = 0.
+    \end{equation}
+    Therefore, $Tu \in \mynull S$. This proves that $\mynull S$ is invariant under $T$.
+
+    \StepTwo We now show that $\myrange S$ is invariant under $T$.
+    Let $w \in \myrange S$. Then $w = Sv$ for some $v \in V$. Applying $T$ and using commutativity yields:
+    \begin{equation}
+      Tw = T(Sv) = (TS)v = (ST)v = S(Tv).
+    \end{equation}
+    Since $Tv \in V$, $S(Tv) \in \myrange S$, which implies $Tw \in \myrange S$.
+    Thus, $\myrange S$ is invariant under $T$.
+  \end{xprf}
+\end{xrcs}
+
+\exercise{2}
+\begin{xrcs}
+  Suppose $S, T \in \linmap(V)$ commute ($ST = TS$) and $\lambda \in \myF$. Prove that the eigenspace $E(\lambda, S)$ is invariant under $T$.
+
+  \begin{xprf}
+    Let $u \in E(\lambda, S)$. By definition of eigenspaces, $Su = \lambda u$.
+    Applying $S$ to $Tu$ and using commutativity of $S$ and $T$:
+    \begin{equation}
+      S(Tu) = (ST)u = (TS)u = T(Su) = T(\lambda u) = \lambda (Tu).
+    \end{equation}
+    This shows that $Tu$ is in the $\lambda$-eigenspace of $S$, i.e., $Tu \in E(\lambda, S)$.
+    Therefore, $E(\lambda, S)$ is invariant under $T$.
+  \end{xprf}
+\end{xrcs}

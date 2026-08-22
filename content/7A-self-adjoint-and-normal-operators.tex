@@ -104,7 +104,7 @@ $\myF$ denotes $\real$ or $\compl$. $V$ and $W$ are nonzero finite-dimensional i
       $\alignLongunderstack{
         \ip{v}{(S+T)^*w}
         &=\ip{(S+T)v}{w}=\ip{Sv+Tv}{w} \\
-        &=\ip{Sv}{w}+\ip{Tv}{w}=\ip{v}{S^*w}+\ip{v}{S^*w}
+        &=\ip{Sv}{w}+\ip{Tv}{w}=\ip{v}{S^*w}+\ip{v}{T^*w}
         =\ip{v}{S^*w+T^*w}
       }$
 
@@ -237,7 +237,7 @@ $\myF$ denotes $\real$ or $\compl$. $V$ and $W$ are nonzero finite-dimensional i
 \begin{thm}[matrix of $T^*$ equals conjugate transpose matrix of $T$]
   Let $T \in \lvw$. Suppose $e_1, \ddd, e_n$ is an orthonormal basis of $V$ and $f_1, \ddd, f_m$ is an orthonormal basis of $W$. Then
   \[
-    \mmatrix(T^*, (f_1, \ddd, f_m), (e_1, \ddd, e_m)) = ( \mmatrix(T, (e_1, \ddd, e_n), (f_1, \ddd, f_m)))^*.
+    \mmatrix(T^*, (f_1, \ddd, f_m), (e_1, \ddd, e_n)) = ( \mmatrix(T, (e_1, \ddd, e_n), (f_1, \ddd, f_m)))^*.
   \]
 
   Or the short version:
@@ -347,9 +347,9 @@ If $\myF = \real$, then every eigenvalue is real, so the next result is interest
     \item $\ip{T(u+w)}{u+w} = \ip{Tu}{u} + \ip{Tw}{u} + \ip{Tu}{w} + \ip{Tw}{w}$;
     \item $\ip{T(u-w)}{u-w} = \ip{Tu}{u} - \ip{Tw}{u} - \ip{Tu}{w} + \ip{Tw}{w}$;
     \item $\ip{T(u+iw)}{u+iw} = \ip{Tu}{u} + i\ip{Tw}{u} + \overline i \ip{Tu}{w} + i \overline i \ip{Tw}{w}$ \\
-    $\phantom{\ip{T(u+iw)}{u+iw} } = \ip{Tu}{u} + i \ip{Tw}{u} - i\ip{Tu}{w} + \ip{Tw}{w}$;
+    $\hphantom{\ip{T(u+iw)}{u+iw} } = \ip{Tu}{u} + i \ip{Tw}{u} - i\ip{Tu}{w} + \ip{Tw}{w}$;
     \item $\ip{T(u-iw)}{u-iw} = \ip{Tu}{u} - i\ip{Tw}{u} - \overline i \ip{Tu}{w} + i \overline i \ip{Tw}{w}$ \\
-    $\phantom{\ip{T(u+iw)}{u+iw} } = \ip{Tu}{u} - i \ip{Tw}{u} + i\ip{Tu}{w} + \ip{Tw}{w}$.
+    $\hphantom{\ip{T(u-iw)}{u-iw} } = \ip{Tu}{u} - i \ip{Tw}{u} + i\ip{Tu}{w} + \ip{Tw}{w}$.
   \end{itemize}
 
   That means that:

@@ -96,3 +96,19 @@
     Finally, by definition $|S|$ is exactly the number of diagonal entries of $A$ equal to $\lambda$. We conclude that the scalar $\lambda$ appears on the diagonal of $A$ precisely $\dim E(\lambda, T)$ times.
   \end{xprf}
 \end{xrcs}
+
+\exercise{14}
+\begin{xrcs}
+  Suppose $S, T \in \linmap(V)$ are diagonalizable operators on a finite-dimensional vector space $V$ that commute ($ST = TS$). Prove that there exists a basis of $V$ consisting of vectors that are eigenvectors of both $S$ and $T$.
+% \begin{xprf}
+%   Since $S$ is diagonalizable, $V$ decomposes as a direct sum of the distinct eigenspaces of $S$:
+%   \[
+%     V = E(\lambda_1, S) \oplus \dots \oplus E(\lambda_m, S).
+%   \]
+%   Because $S$ and $T$ commute, each eigenspace $E(\lambda_j, S)$ is invariant under $T$ (by Exercise 5E.2).
+%   Since $T$ is diagonalizable, its restriction $T|_{E(\lambda_j, S)}$ to the invariant subspace $E(\lambda_j, S)$ is also diagonalizable.
+%   Therefore, for each $j \in \{1, \dots, m\}$, there exists a basis $\mathcal{B}_j$ of $E(\lambda_j, S)$ consisting of eigenvectors of $T$.
+%   Every vector in $\mathcal{B}_j$ is an eigenvector of $T$, and (since it belongs to $E(\lambda_j, S)$) it is also an eigenvector of $S$ with eigenvalue $\lambda_j$.
+%   The union $\mathcal{B} = \mathcal{B}_1 \cup \dots \cup \mathcal{B}_m$ is a basis of $V = \bigoplus_{j=1}^m E(\lambda_j, S)$ consisting of vectors that are simultaneous eigenvectors of both $S$ and $T$.
+% \end{xprf}
+\end{xrcs}
