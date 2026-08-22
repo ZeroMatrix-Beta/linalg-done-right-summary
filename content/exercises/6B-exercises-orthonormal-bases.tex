@@ -1,22 +1,98 @@
 \section*{Exercises about Orthonormal Bases}
 
+\exercise{1}
+\begin{xrcs}
+  Suppose $e_1, \ddd, e_m$ is a list of vectors in $V$ such that
+  \begin{equation}
+    \|a_1 e_1 + \dots + a_m e_m\|^2 = |a_1|^2 + \dots + |a_m|^2
+  \end{equation}
+  for all $a_1, \ddd, a_m \in \myF$. Show that $e_1, \ddd, e_m$ is an orthonormal list.
+
+% \begin{xprf}
+%   Setting $a_k = 1$ and $a_j = 0$ for all $j \neq k$ gives $\|e_k\|^2 = 1^2 = 1$, so each $e_k$ is a unit vector.
+%   Now for $j \neq k$, setting $a_j = 1, a_k = 1$, and all other $a_i = 0$:
+%   \[
+%     \|e_j + e_k\|^2 = 1^2 + 1^2 = 2.
+%   \]
+%   Expanding the left side yields $\|e_j\|^2 + 2\realpart\langle e_j, e_k \rangle + \|e_k\|^2 = 1 + 2\realpart\langle e_j, e_k \rangle + 1 = 2 + 2\realpart\langle e_j, e_k \rangle$.
+%   Thus $\realpart\langle e_j, e_k \rangle = 0$.
+%   If $\myF = \compl$, setting $a_j = 1, a_k = i$ similarly gives $\imagpart\langle e_j, e_k \rangle = 0$.
+%   Therefore, $\langle e_j, e_k \rangle = 0$ for all $j \neq k$, proving that $e_1, \dots, e_m$ is orthonormal.
+% \end{xprf}
+\end{xrcs}
+
+\exercise{2}
+\begin{xrcs}
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item Suppose $\theta \in \real$. Show that both
+    \[
+      (\cos \theta, \sin \theta), (-\sin \theta, \cos \theta) \quad \text{and} \quad (\cos \theta, \sin \theta), (\sin \theta, -\cos \theta)
+    \]
+    are orthonormal bases of $\real^2$.
+    \item Show that each orthonormal basis of $\real^2$ is of the form given by one of the two possibilities in (a).
+  \end{enumerate}
+
+% \begin{xsol}
+%   \StepOne (a) In each pair, both vectors have squared norm $\cos^2\theta + \sin^2\theta = 1$ and their dot product is $-\cos\theta\sin\theta + \sin\theta\cos\theta = 0$ (or $\cos\theta\sin\theta - \sin\theta\cos\theta = 0$). By Theorem \ref{thm: orthonormal lists of the right length are orthonormal bases}, any orthonormal list of length $2$ in $\real^2$ is an orthonormal basis.
+%
+%   \StepTwo (b) Let $e_1 = (x_1, y_1), e_2 = (x_2, y_2)$ be an orthonormal basis of $\real^2$. Since $\|e_1\|^2 = x_1^2 + y_1^2 = 1$, there exists $\theta \in [0, 2\pi)$ such that $e_1 = (\cos\theta, \sin\theta)$.
+%   Since $e_2 \perp e_1$ and $\|e_2\| = 1$, $e_2$ is a unit vector on the line perpendicular to $(\cos\theta, \sin\theta)$, so $e_2 = \pm(-\sin\theta, \cos\theta)$, which matches the two forms in (a).
+% \end{xsol}
+\end{xrcs}
+
 \exercise{3}
 \begin{xrcs}
-  (Bessel's Inequality) Suppose $e_1, \ddd, e_m$ is an orthonormal list in an inner product space $V$. Prove that for every $v \in V$,
+  Suppose $e_1, \ddd, e_m$ is an orthonormal list in $V$ and $v \in V$. Prove that
   \begin{equation}
-    \sum_{j=1}^m |\langle v, e_j \rangle|^2 \leq \|v\|^2.
+    \|v\|^2 = \sum_{j=1}^m |\langle v, e_j \rangle|^2 \iff v \in \myspan{e_1, \ddd, e_m}.
   \end{equation}
+
 % \begin{xprf}
-%   Let $u = \sum_{j=1}^m \langle v, e_j \rangle e_j$.
-%   For each $k \in \{1, \dots, m\}$, we have:
-%   \[
-%     \langle v - u, e_k \rangle = \langle v, e_k \rangle - \sum_{j=1}^m \langle v, e_j \rangle \langle e_j, e_k \rangle = \langle v, e_k \rangle - \langle v, e_k \rangle = 0.
-%   \]
-%   Thus $v - u$ is orthogonal to every $e_k$, and hence $v - u \perp u$.
-%   Applying the Pythagorean theorem to $v = (v - u) + u$:
+%   Let $u = \sum_{j=1}^m \langle v, e_j \rangle e_j \in \myspan\{e_1, \dots, e_m\}$.
+%   For each $k \in \{1, \dots, m\}$, $\langle v - u, e_k \rangle = \langle v, e_k \rangle - \langle v, e_k \rangle = 0$, so $v - u \perp u$.
+%   By the Pythagorean Theorem:
 %   \[
 %     \|v\|^2 = \|v - u\|^2 + \|u\|^2 = \|v - u\|^2 + \sum_{j=1}^m |\langle v, e_j \rangle|^2.
 %   \]
-%   Since $\|v - u\|^2 \geq 0$, we obtain $\sum_{j=1}^m |\langle v, e_j \rangle|^2 \leq \|v\|^2$.
+%   Therefore:
+%   \[
+%     \|v\|^2 = \sum_{j=1}^m |\langle v, e_j \rangle|^2 \iff \|v - u\|^2 = 0 \iff v = u \iff v \in \myspan\{e_1, \dots, e_m\}.
+%   \]
 % \end{xprf}
 \end{xrcs}
+
+\exercise{19}
+\begin{xrcs}
+  Suppose $v_1, \ddd, v_n$ is a basis of $V$. Prove that there exists a basis $u_1, \ddd, u_n$ of $V$ such that
+  \begin{equation}
+    \langle v_j, u_k \rangle =
+    \begin{cases}
+      0 & \text{if } j \neq k, \\
+      1 & \text{if } j = k.
+    \end{cases}
+  \end{equation}
+
+% \begin{xprf}
+%   Let $\varphi_1, \dots, \varphi_n \in \dual{V}$ be the dual basis of $v_1, \dots, v_n$, so $\varphi_k(v_j) = \delta_{j,k}$.
+%   By the Riesz Representation Theorem (\ref{thm: riesz representation theorem}), for each $k \in \{1, \dots, n\}$ there exists a unique $u_k \in V$ such that
+%   \[
+%     \varphi_k(v) = \langle v, u_k \rangle \quad \forall v \in V.
+%   \]
+%   Then $\langle v_j, u_k \rangle = \varphi_k(v_j) = \delta_{j,k}$.
+%   Since $\varphi_1, \dots, \varphi_n$ is a basis of $\dual{V}$ and the Riesz map $\varphi \mapsto u$ is an isomorphism (or conjugate-isomorphism), $u_1, \dots, u_n$ is linearly independent of length $n = \dim V$, hence a basis of $V$.
+% \end{xprf}
+\end{xrcs}
+
+% ==============================================================================
+% EARLIER VERSION (Commented out): content that was present at commit 2035a81
+% and that the later exercise rewrite dropped. Kept here for reference.
+% ==============================================================================
+% \exercise{3}
+%   (Bessel's Inequality) Suppose $e_1, \ddd, e_m$ is an orthonormal list in an inner product space $V$. Prove that for every $v \in V$,
+%     \sum_{j=1}^m |\langle v, e_j \rangle|^2 \leq \|v\|^2.
+%   Let $u = \sum_{j=1}^m \langle v, e_j \rangle e_j$.
+%   For each $k \in \{1, \dots, m\}$, we have:
+%     \langle v - u, e_k \rangle = \langle v, e_k \rangle - \sum_{j=1}^m \langle v, e_j \rangle \langle e_j, e_k \rangle = \langle v, e_k \rangle - \langle v, e_k \rangle = 0.
+%   Thus $v - u$ is orthogonal to every $e_k$, and hence $v - u \perp u$.
+%   Applying the Pythagorean theorem to $v = (v - u) + u$:
+%   Since $\|v - u\|^2 \geq 0$, we obtain $\sum_{j=1}^m |\langle v, e_j \rangle|^2 \leq \|v\|^2$.

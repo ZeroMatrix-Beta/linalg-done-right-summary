@@ -2,27 +2,82 @@
 
 \exercise{1}
 \begin{xrcs}
-  Suppose $V$ is a complex inner product space and $T \in \linmap(V)$. Prove that $T$ is self-adjoint if and only if
-  \begin{equation}
-    \langle Tv, v \rangle \in \real \quad \forall v \in V.
-  \end{equation}
+  Prove that a normal operator on a complex inner product space is self-adjoint if and only if all its eigenvalues are real.
+
 % \begin{xprf}
-%   \Rightarrowdirection Suppose $T$ is self-adjoint ($T = T^*$). Then for every $v \in V$:
+%   By the Complex Spectral Theorem (\ref{thm: complex spectral theorem}), there exists an orthonormal basis $e_1, \dots, e_n$ of $V$ consisting of eigenvectors of $T$.
+%   Let $\lambda_1, \dots, \lambda_n \in \compl$ be the corresponding eigenvalues, so $T e_j = \lambda_j e_j$ for each $j \in \{1, \dots, n\}$.
+%   Since $\dual{T} e_j = \overline{\lambda_j} e_j$, we have:
 %   \[
-%     \langle Tv, v \rangle = \langle v, T^* v \rangle = \langle v, Tv \rangle = \overline{\langle Tv, v \rangle}.
+%     T = \dual{T} \iff T e_j = \dual{T} e_j \;\forall j \iff \lambda_j e_j = \overline{\lambda_j} e_j \;\forall j \iff \lambda_j = \overline{\lambda_j} \;\forall j \iff \lambda_j \in \real \;\forall j.
 %   \]
+% \end{xprf}
+\end{xrcs}
+
+\exercise{2}
+\begin{xrcs}
+  Suppose $\myF = \compl$. Suppose $T \in \linmap(V)$ is normal and has only one eigenvalue. Prove that $T$ is a scalar multiple of the identity operator.
+
+% \begin{xprf}
+%   Let $\lambda \in \compl$ be the unique eigenvalue of $T$.
+%   By the Complex Spectral Theorem (\ref{thm: complex spectral theorem}), there exists an orthonormal basis $e_1, \dots, e_n$ of $V$ consisting of eigenvectors of $T$.
+%   Since $\lambda$ is the only eigenvalue of $T$, we must have $T e_j = \lambda e_j$ for every $j \in \{1, \dots, n\}$.
+%   Therefore, for every $v = \sum_{j=1}^n c_j e_j \in V$:
+%   \[
+%     Tv = \sum_{j=1}^n c_j T e_j = \sum_{j=1}^n c_j \lambda e_j = \lambda \sum_{j=1}^n c_j e_j = \lambda v.
+%   \]
+%   Thus $T = \lambda I$, which is a scalar multiple of the identity operator.
+% \end{xprf}
+\end{xrcs}
+
+\exercise{3}
+\begin{xrcs}
+  Suppose $\myF = \compl$ and $T \in \linmap(V)$ is normal. Prove that the set of eigenvalues of $T$ is contained in $\{0, 1\}$ if and only if there is a subspace $U$ of $V$ such that
+  \begin{equation}
+    T = P_U.
+  \end{equation}
+
+% \begin{xprf}
+%   \Leftarrowdirection If $T = P_U$ for some subspace $U$, then $T^2 = T$ and $T$ is self-adjoint (hence normal). Its eigenvalues must satisfy $\lambda^2 = \lambda$, so $\lambda \in \{0, 1\}$.
+%
+%   \Rightarrowdirection Conversely, suppose all eigenvalues of $T$ belong to $\{0, 1\}$.
+%   Since all eigenvalues are real, Exercise 1 implies that $T$ is self-adjoint.
+%   By the Spectral Theorem, there is an orthonormal basis $e_1, \dots, e_n$ of $V$ with $T e_j = \lambda_j e_j$ where $\lambda_j \in \{0, 1\}$.
+%   Then $T^2 e_j = \lambda_j^2 e_j = \lambda_j e_j = T e_j$ for each $j$, so $T^2 = T$.
+%   By Exercise 7A.20, an idempotent self-adjoint operator is an orthogonal projection, so $T = P_U$ for $U = \myrange T$.
+% \end{xprf}
+\end{xrcs}
+
+\exercise{4}
+\begin{xrcs}
+  Prove that a normal operator on a complex inner product space is skew (meaning $\dual{T} = -T$) if and only if all its eigenvalues are purely imaginary (meaning $\realpart \lambda = 0$).
+
+% \begin{xprf}
+%   By the Complex Spectral Theorem (\ref{thm: complex spectral theorem}), there exists an orthonormal basis $e_1, \dots, e_n$ of $V$ with $T e_j = \lambda_j e_j$.
+%   Then $\dual{T} e_j = \overline{\lambda_j} e_j$.
+%   Therefore:
+%   \[
+%     \dual{T} = -T \iff \dual{T} e_j = -T e_j \;\forall j \iff \overline{\lambda_j} e_j = -\lambda_j e_j \;\forall j \iff \overline{\lambda_j} = -\lambda_j \;\forall j \iff \realpart \lambda_j = 0 \;\forall j.
+%   \]
+% \end{xprf}
+\end{xrcs}
+
+% ==============================================================================
+% EARLIER VERSION (Commented out): content that was present at commit 2035a81
+% and that the later exercise rewrite dropped. Kept here for reference.
+% ==============================================================================
+%   Suppose $V$ is a complex inner product space and $T \in \linmap(V)$. Prove that $T$ is self-adjoint if and only if
+%   \begin{equation}
+%     \langle Tv, v \rangle \in \real \quad \forall v \in V.
+%   \end{equation}
+%   \Rightarrowdirection Suppose $T$ is self-adjoint ($T = T^*$). Then for every $v \in V$:
+%     \langle Tv, v \rangle = \langle v, T^* v \rangle = \langle v, Tv \rangle = \overline{\langle Tv, v \rangle}.
 %   A complex number that equals its complex conjugate is real, so $\langle Tv, v \rangle \in \real$.
 %
 %   \Leftarrowdirection Conversely, suppose $\langle Tv, v \rangle \in \real$ for all $v \in V$. Then:
-%   \[
 %     \langle Tv, v \rangle = \overline{\langle Tv, v \rangle} = \langle v, Tv \rangle = \langle T^* v, v \rangle.
-%   \]
 %   Rearranging yields:
-%   \[
 %     \langle (T - T^*)v, v \rangle = 0 \quad \forall v \in V.
-%   \]
-%   Over a complex inner product space, if an operator $A$ satisfies $\langle Av, v \rangle = 0$ for all $v \in V$, then $A = 0$ (Theorem \ref{thm: <Tv,v> = 0 for all v implies T = 0}).
+%   Over a complex inner product space, if an operator $A$ satisfies $\langle Av, v \rangle = 0$ for all $v \in V$, then $A = 0$ (Theorem \ref{thm: Tv orthogonality to v}).
 %   Applying this with $A = T - T^*$ gives $T - T^* = 0$, so $T = T^*$.
 %   Therefore, $T$ is self-adjoint.
-% \end{xprf}
-\end{xrcs}

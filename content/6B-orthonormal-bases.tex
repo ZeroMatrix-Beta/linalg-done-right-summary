@@ -102,6 +102,7 @@
 \end{mydef}
 
 \begin{thm}[orthonormal lists of the right length are orthonormal bases]
+  \label{thm: orthonormal lists of the right length are orthonormal bases}
   Suppose $V$ is finite-dimensional. Then every orthonormal list of vectors in $V$ of length $\dim V$ is an orthonormal basis of $V$.
 \end{thm}
 \begin{prf}
@@ -192,7 +193,7 @@
   By \ref{thm: necessary and sufficient condition to have an upper-triangular-matrix}, there is a basis $v_1, \ddd, v_n$ of $V$ with respect to which $T$ has an upper-triangular matrix.
   Apply the Gram-Schmidt Procedure to $v_1, \ddd, v_n$ to obtain an orthonormal basis $e_1, \ddd, e_n$.
   Since $\myspan{e_1, \ddd, e_k} = \myspan{v_1, \ddd, v_k}$ for each $k \in \{1, \ddd, n\}$, and each subspace $\myspan{v_1, \ddd, v_k}$ is invariant under $T$, each subspace $\myspan{e_1, \ddd, e_k}$ is invariant under $T$.
-  Thus, by \ref{thm: conditions equivalent to upper triangular matrix}, the matrix of $T$ with respect to $e_1, \ddd, e_n$ is upper triangular.
+  Thus, by \ref{thm: conditions for upper-triangular matrix}, the matrix of $T$ with respect to $e_1, \ddd, e_n$ is upper triangular.
 \end{prf}
 
 \subsection{Linear Functionals on Inner Product Spaces}

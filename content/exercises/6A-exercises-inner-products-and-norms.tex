@@ -1,38 +1,85 @@
 \section*{Exercises about Inner Products and Norms}
 
-\exercise{7}
+\exercise{5}
 \begin{xrcs}
-  (Cauchy-Schwarz Equality) Suppose $u, v \in V$. Prove that
-  \begin{equation}
-    |\langle u, v \rangle| = \|u\| \|v\|
-  \end{equation}
-  if and only if one of $u, v$ is a scalar multiple of the other.
+  Suppose $V$ is a real inner product space.
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item Show that $\langle u+v, u-v \rangle = \|u\|^2 - \|v\|^2$ for every $u, v \in V$.
+    \item Show that if $u, v \in V$ have the same norm, then $u+v$ is orthogonal to $u-v$.
+    \item Use (b) to show that the diagonals of a rhombus are perpendicular to each other.
+  \end{enumerate}
+
 % \begin{xprf}
-%   \Leftarrowdirection If $u = c v$ for some $c \in \myF$, then:
+%   \StepOne (a) Expanding using bilinearity and symmetry of the real inner product:
 %   \[
-%     |\langle u, v \rangle| = |\langle c v, v \rangle| = |c| |\langle v, v \rangle| = |c| \|v\|^2 = (|c| \|v\|) \|v\| = \|c v\| \|v\| = \|u\| \|v\|.
+%     \langle u+v, u-v \rangle = \langle u, u \rangle - \langle u, v \rangle + \langle v, u \rangle - \langle v, v \rangle = \|u\|^2 - \|v\|^2.
 %   \]
-%   If $v = 0$, then $v = 0 u$ and both sides equal $0$.
 %
-%   \Rightarrowdirection Conversely, suppose $|\langle u, v \rangle| = \|u\| \|v\|$.
-%   If $v = 0$, then $v = 0 u$ is a scalar multiple of $u$.
-%   Assume $v \neq 0$, and consider the orthogonal decomposition vector $w = u - \frac{\langle u, v \rangle}{\|v\|^2} v$.
-%   Computing its squared norm:
-%   \[
-%     \|w\|^2 = \|u\|^2 - \frac{|\langle u, v \rangle|^2}{\|v\|^2} = \|u\|^2 - \frac{\|u\|^2 \|v\|^2}{\|v\|^2} = 0.
-%   \]
-%   By positive definiteness of norms, $w = 0$, which implies $u = \frac{\langle u, v \rangle}{\|v\|^2} v$.
-%   Thus $u$ is a scalar multiple of $v$.
+%   \StepTwo (b) If $\|u\| = \|v\|$, then $\|u\|^2 - \|v\|^2 = 0$. By (a), $\langle u+v, u-v \rangle = 0$, so $u+v \perp u-v$.
+%
+%   \StepThree (c) A rhombus in $\real^2$ is a parallelogram whose sides have equal length $\|u\| = \|v\|$. The vectors along the diagonals are $u+v$ and $u-v$. By (b), $\langle u+v, u-v \rangle = 0$, meaning the diagonals are perpendicular.
 % \end{xprf}
 \end{xrcs}
 
-\exercise{16}
+\exercise{6}
+\begin{xrcs}
+  Suppose $u, v \in V$. Prove that $\langle u, v \rangle = 0$ if and only if
+  \begin{equation}
+    \|u\| \leq \|u + a v\| \quad \forall a \in \myF.
+  \end{equation}
+
+% \begin{xprf}
+%   \Rightarrowdirection Suppose $\langle u, v \rangle = 0$. For any $a \in \myF$, the Pythagorean Theorem yields:
+%   \[
+%     \|u + av\|^2 = \|u\|^2 + \|av\|^2 = \|u\|^2 + |a|^2 \|v\|^2 \geq \|u\|^2.
+%   \]
+%   Taking square roots gives $\|u\| \leq \|u + av\|$ for all $a \in \myF$.
+%
+%   \Leftarrowdirection Conversely, suppose $\|u\| \leq \|u + av\|$ for all $a \in \myF$.
+%   Squaring both sides gives:
+%   \[
+%     \|u\|^2 \leq \|u + av\|^2 = \|u\|^2 + 2\realpart(a \langle v, u \rangle) + |a|^2 \|v\|^2 \implies 0 \leq 2\realpart(a \langle v, u \rangle) + |a|^2 \|v\|^2.
+%   \]
+%   If $v = 0$, then $\langle u, v \rangle = 0$ holds trivially.
+%   If $v \neq 0$, set $a = -t \frac{\langle u, v \rangle}{\|v\|^2}$ for $t > 0$. Then:
+%   \[
+%     0 \leq -2t \frac{|\langle u, v \rangle|^2}{\|v\|^2} + t^2 \frac{|\langle u, v \rangle|^2}{\|v\|^2} = t(t-2) \frac{|\langle u, v \rangle|^2}{\|v\|^2}.
+%   \]
+%   Choosing $t = 1$ gives $t(t-2) = -1$, which implies:
+%   \[
+%     0 \leq -\frac{|\langle u, v \rangle|^2}{\|v\|^2} \implies |\langle u, v \rangle|^2 \leq 0 \implies \langle u, v \rangle = 0.
+%   \]
+% \end{xprf}
+\end{xrcs}
+
+\exercise{20}
+\begin{xrcs}
+  (Reverse Triangle Inequality) Prove that if $u, v \in V$, then
+  \begin{equation}
+    |\|u\| - \|v\|| \leq \|u - v\|.
+  \end{equation}
+
+% \begin{xprf}
+%   By the triangle inequality:
+%   \[
+%     \|u\| = \|(u - v) + v\| \leq \|u - v\| + \|v\| \implies \|u\| - \|v\| \leq \|u - v\|.
+%   \]
+%   Interchanging the roles of $u$ and $v$ gives:
+%   \[
+%     \|v\| - \|u\| \leq \|v - u\| = \|u - v\| \implies -(\|u\| - \|v\|) \leq \|u - v\|.
+%   \]
+%   Combining both inequalities yields $|\|u\| - \|v\|| \leq \|u - v\|$.
+% \end{xprf}
+\end{xrcs}
+
+\exercise{28}
 \begin{xrcs}
   (Jordan-von Neumann Theorem) Prove that a norm $\|\cdot\|$ on a real vector space $V$ satisfies the parallelogram identity
   \begin{equation}
     \|u+v\|^2 + \|u-v\|^2 = 2\|u\|^2 + 2\|v\|^2 \quad \forall u,v \in V
   \end{equation}
   if and only if there exists an inner product on $V$ such that $\|v\| = \sqrt{\langle v, v \rangle}$ for all $v \in V$.
+
 % \begin{xprf}
 %   \Rightarrowdirection Define $\langle u, v \rangle := \frac{1}{4}\left(\|u+v\|^2 - \|u-v\|^2\right)$.
 %   Using the parallelogram identity:
@@ -47,3 +94,23 @@
 %   \Leftarrowdirection If $\|\cdot\|$ is induced by an inner product $\langle \cdot, \cdot \rangle$, expanding $\|u+v\|^2 = \langle u+v, u+v \rangle$ and $\|u-v\|^2 = \langle u-v, u-v \rangle$ and adding them yields $2\|u\|^2 + 2\|v\|^2$.
 % \end{xprf}
 \end{xrcs}
+
+% ==============================================================================
+% EARLIER VERSION (Commented out): content that was present at commit 2035a81
+% and that the later exercise rewrite dropped. Kept here for reference.
+% ==============================================================================
+% \exercise{7}
+%   (Cauchy-Schwarz Equality) Suppose $u, v \in V$. Prove that
+%     |\langle u, v \rangle| = \|u\| \|v\|
+%   if and only if one of $u, v$ is a scalar multiple of the other.
+%   \Leftarrowdirection If $u = c v$ for some $c \in \myF$, then:
+%     |\langle u, v \rangle| = |\langle c v, v \rangle| = |c| |\langle v, v \rangle| = |c| \|v\|^2 = (|c| \|v\|) \|v\| = \|c v\| \|v\| = \|u\| \|v\|.
+%   If $v = 0$, then $v = 0 u$ and both sides equal $0$.
+%   \Rightarrowdirection Conversely, suppose $|\langle u, v \rangle| = \|u\| \|v\|$.
+%   If $v = 0$, then $v = 0 u$ is a scalar multiple of $u$.
+%   Assume $v \neq 0$, and consider the orthogonal decomposition vector $w = u - \frac{\langle u, v \rangle}{\|v\|^2} v$.
+%   Computing its squared norm:
+%     \|w\|^2 = \|u\|^2 - \frac{|\langle u, v \rangle|^2}{\|v\|^2} = \|u\|^2 - \frac{\|u\|^2 \|v\|^2}{\|v\|^2} = 0.
+%   By positive definiteness of norms, $w = 0$, which implies $u = \frac{\langle u, v \rangle}{\|v\|^2} v$.
+%   Thus $u$ is a scalar multiple of $v$.
+% \exercise{16}

@@ -2,31 +2,100 @@
 
 \exercise{1}
 \begin{xrcs}
-  Suppose $S \in \linmap(V)$ is an operator on a finite-dimensional inner product space $V$. Prove that the following are equivalent:
-  \begin{enumerate}
-    \item $S^* S = I$.
-    \item $\langle Su, Sv \rangle = \langle u, v \rangle$ for all $u, v \in V$.
-    \item $\|Su\| = \|u\|$ for all $u \in V$.
-  \end{enumerate}
+  Suppose $\dim V \geq 2$ and $S \in \linmap(V,W)$. Prove that $S$ is an isometry if and only if $Se_1, Se_2$ is an orthonormal list in $W$ for every orthonormal list $e_1, e_2$ of length two in $V$.
+
 % \begin{xprf}
+%   \Rightarrowdirection If $S$ is an isometry, then by Theorem \ref{thm: characterizations of isometries}(d), $S$ maps every orthonormal list in $V$ to an orthonormal list in $W$.
+%
+%   \Leftarrowdirection Conversely, suppose $S$ maps every orthonormal pair in $V$ to an orthonormal pair in $W$.
+%   Let $u \in V$ with $\|u\| = 1$. Since $\dim V \ge 2$, choose $v \in V$ such that $u, v$ is an orthonormal list.
+%   By hypothesis, $Su, Sv$ is orthonormal in $W$, so in particular $\|Su\| = 1 = \|u\|$.
+%   For any nonzero $x \in V$, write $x = \|x\| \frac{x}{\|x\|}$. Then $\|Sx\| = \|x\| \|S(\frac{x}{\|x\|})\| = \|x\| \cdot 1 = \|x\|$.
+%   Clearly $\|S(0)\| = 0 = \|0\|$.
+%   Thus $\|Sx\| = \|x\|$ for all $x \in V$, which proves that $S$ is an isometry.
+% \end{xprf}
+\end{xrcs}
+
+\exercise{3}
+\begin{xrcs}
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item Show that the product of two unitary operators on $V$ is a unitary operator.
+    \item Show that the inverse of a unitary operator on $V$ is a unitary operator.
+  \end{enumerate}
+
+% \begin{xprf}
+%   \StepOne (a) Let $S, T \in \linmap(V)$ be unitary operators, so $\dual{S}S = S\dual{S} = I$ and $\dual{T}T = T\dual{T} = I$.
+%   Then $(ST)^*(ST) = (\dual{T}\dual{S})(ST) = \dual{T}(\dual{S}S)T = \dual{T}IT = \dual{T}T = I$.
+%   Similarly $(ST)(ST)^* = (ST)(\dual{T}\dual{S}) = S(T\dual{T})\dual{S} = S I \dual{S} = S\dual{S} = I$.
+%   Thus $ST$ is a unitary operator.
+%
+%   \StepTwo (b) Let $S \in \linmap(V)$ be unitary, so $S^{-1} = \dual{S}$.
+%   Then $(S^{-1})^*(S^{-1}) = (\dual{S})^* \dual{S} = S\dual{S} = I$, and $(S^{-1})(S^{-1})^* = \dual{S}(\dual{S})^* = \dual{S}S = I$.
+%   Thus $S^{-1}$ is a unitary operator.
+% \end{xprf}
+\end{xrcs}
+
+\exercise{4}
+\begin{xrcs}
+  Suppose $\myF = \compl$ and $A, B \in \linmap(V)$ are self-adjoint. Show that $A + iB$ is unitary if and only if $AB = BA$ and $A^2 + B^2 = I$.
+
+% \begin{xprf}
+%   Since $A, B$ are self-adjoint, $(A + iB)^* = \dual{A} + (iB)^* = A - iB$.
+%   Computing the product:
+%   \[
+%     (A + iB)^*(A + iB) = (A - iB)(A + iB) = A^2 + i(AB - BA) + B^2 = (A^2 + B^2) + i(AB - BA).
+%   \]
+%   $A+iB$ is unitary $\iff (A+iB)^*(A+iB) = I \iff (A^2 + B^2) + i(AB - BA) = I$.
+%   Taking real and imaginary parts of this operator identity (or using self-adjointness of $A^2+B^2$ and $i(AB-BA)$) yields:
+%   \[
+%     A^2 + B^2 = I \quad \text{and} \quad AB - BA = 0 \iff AB = BA.
+%   \]
+% \end{xprf}
+\end{xrcs}
+
+\exercise{5}
+\begin{xrcs}
+  Suppose $S \in \linmap(V)$. Prove that the following are equivalent:
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item $S$ is a self-adjoint unitary operator.
+    \item $S = 2P - I$ for some orthogonal projection $P$ on $V$.
+    \item There exists a subspace $U$ of $V$ such that $Su = u$ for every $u \in U$ and $Sw = -w$ for every $w \in U^\perp$.
+  \end{enumerate}
+
+% \begin{xprf}
+%   (a) $\implies$ (b): Suppose $\dual{S} = S$ and $\dual{S}S = I$, so $S^2 = I$.
+%   Define $P = \frac{S + I}{2}$. Then $\dual{P} = \frac{\dual{S} + I}{2} = \frac{S+I}{2} = P$, so $P$ is self-adjoint.
+%   Also $P^2 = \frac{(S+I)^2}{4} = \frac{S^2 + 2S + I}{4} = \frac{I + 2S + I}{4} = \frac{2S+2I}{4} = P$.
+%   By Exercise 7A.20, $P$ is an orthogonal projection, and $2P - I = (S+I) - I = S$.
+%
+%   (b) $\implies$ (c): If $S = 2P_U - I$, then for $u \in U$: $Su = 2P_U u - u = 2u - u = u$.
+%   For $w \in U^\perp$: $Sw = 2P_U w - w = 0 - w = -w$.
+%
+%   (c) $\implies$ (a): With respect to an orthonormal basis consisting of an orthonormal basis of $U$ followed by an orthonormal basis of $U^\perp$, $\mmatrix(S)$ is diagonal with diagonal entries $1$ and $-1$.
+%   Since its matrix is real and diagonal with entries $\pm 1$, $\dual{S} = S$ and $S^*S = I$.
+% \end{xprf}
+\end{xrcs}
+
+% ==============================================================================
+% EARLIER VERSION (Commented out): content that was present at commit 2035a81
+% and that the later exercise rewrite dropped. Kept here for reference.
+% ==============================================================================
+%   Suppose $S \in \linmap(V)$ is an operator on a finite-dimensional inner product space $V$. Prove that the following are equivalent:
+%   \begin{enumerate}
+%     \item $S^* S = I$.
+%     \item $\langle Su, Sv \rangle = \langle u, v \rangle$ for all $u, v \in V$.
+%     \item $\|Su\| = \|u\|$ for all $u \in V$.
 %   \StepOne (a) $\iff$ (b):
 %   By definition of the adjoint, $\langle Su, Sv \rangle = \langle S^*Su, v \rangle$.
 %   Thus $\langle Su, Sv \rangle = \langle u, v \rangle \iff \langle S^*Su - u, v \rangle = 0 \iff \langle (S^*S - I)u, v \rangle = 0$ for all $u, v \in V$.
 %   Choosing $v = (S^*S - I)u$ forces $(S^*S - I)u = 0$ for all $u$, so $S^*S = I$.
-%
 %   \StepTwo (b) $\implies$ (c):
 %   If $\langle Su, Sv \rangle = \langle u, v \rangle$ for all $u, v$, then setting $v = u$ yields:
-%   \[
 %     \|Su\|^2 = \langle Su, Su \rangle = \langle u, u \rangle = \|u\|^2 \implies \|Su\| = \|u\|.
-%   \]
 %
 %   \StepThree (c) $\implies$ (b):
 %   Suppose $\|Su\| = \|u\|$ for all $u \in V$.
 %   If $\myF = \real$, by the real polarization identity (Theorem \ref{thm: real polarization identity}):
-%   \[
 %     \langle Su, Sv \rangle = \frac{\|Su+Sv\|^2 - \|Su-Sv\|^2}{4} = \frac{\|S(u+v)\|^2 - \|S(u-v)\|^2}{4} = \frac{\|u+v\|^2 - \|u-v\|^2}{4} = \langle u, v \rangle.
-%   \]
 %   If $\myF = \compl$, the complex polarization identity (Theorem \ref{thm: complex polarization identity}) gives the same result.
 %   Thus all three statements are equivalent.
-% \end{xprf}
-\end{xrcs}

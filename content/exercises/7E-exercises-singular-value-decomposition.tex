@@ -2,10 +2,62 @@
 
 \exercise{1}
 \begin{xrcs}
+  Suppose $T \in \linmap(V,W)$. Show that $T = 0$ if and only if all singular values of $T$ are $0$.
+
+% \begin{xprf}
+%   \Rightarrowdirection If $T = 0$, then $\dual{T}T = 0$, whose only eigenvalue is $0$ (with multiplicity $\dim V$). Thus all singular values of $T$ are $\sqrt{0} = 0$.
+%
+%   \Leftarrowdirection Conversely, suppose all singular values of $T$ are $0$.
+%   Then the largest singular value $s_1 = 0$.
+%   By Theorem \ref{thm: upper bound for ||Tv||} (or Theorem \ref{thm: role of positive singular values}(b)), $\|Tv\| \le s_1 \|v\| = 0$ for all $v \in V$, which implies $Tv = 0$ for all $v \in V$, so $T = 0$.
+% \end{xprf}
+\end{xrcs}
+
+\exercise{2}
+\begin{xrcs}
+  Suppose $T \in \linmap(V,W)$ and $s > 0$. Prove that $s$ is a singular value of $T$ if and only if there exist nonzero vectors $v \in V$ and $w \in W$ such that
+  \begin{equation}
+    Tv = sw \quad \text{and} \quad \dual{T}w = sv.
+  \end{equation}
+
+% \begin{xprf}
+%   \Rightarrowdirection Suppose $s$ is a singular value of $T$. By the Singular Value Decomposition (\ref{thm: singular value decomposition}), there exist orthonormal lists $e_1, \dots, e_m$ in $V$ and $f_1, \dots, f_m$ in $W$ such that $T e_j = s_j f_j$ and $\dual{T} f_j = s_j e_j$.
+%   Since $s$ is a singular value, $s = s_k$ for some $k$. Setting $v = e_k \neq 0$ and $w = f_k \neq 0$ yields $Tv = sw$ and $\dual{T}w = sv$.
+%
+%   \Leftarrowdirection Conversely, suppose nonzero vectors $v \in V, w \in W$ satisfy $Tv = sw$ and $\dual{T}w = sv$.
+%   Then $\dual{T}Tv = \dual{T}(sw) = s \dual{T}w = s(sv) = s^2 v$.
+%   Since $v \neq 0$, $s^2$ is an eigenvalue of $\dual{T}T$.
+%   Since $s > 0$, $\sqrt{s^2} = s$ is a singular value of $T$.
+% \end{xprf}
+\end{xrcs}
+
+\exercise{7}
+\begin{xrcs}
+  Suppose $T \in \linmap(V)$ is self-adjoint with eigenvalues $\lambda_1, \ddd, \lambda_n$. Prove that the singular values of $T$ are
+  \begin{equation}
+    |\lambda_1|, \ddd, |\lambda_n| \quad \text{(arranged in non-increasing order)}.
+  \end{equation}
+
+% \begin{xprf}
+%   Since $T$ is self-adjoint ($\dual{T} = T$), we have $\dual{T}T = T^2$.
+%   By the Spectral Theorem (Theorem \ref{thm: real spectral theorem} or \ref{thm: complex spectral theorem}), there exists an orthonormal basis $e_1, \dots, e_n$ of $V$ such that $T e_j = \lambda_j e_j$ for each $j \in \{1, \dots, n\}$.
+%   Then:
+%   \[
+%     \dual{T} T e_j = T^2 e_j = T(\lambda_j e_j) = \lambda_j^2 e_j.
+%   \]
+%   Thus the eigenvalues of $\dual{T}T$ are $\lambda_1^2, \dots, \lambda_n^2$.
+%   The singular values of $T$ are the non-negative square roots of the eigenvalues of $\dual{T}T$, which are $\sqrt{\lambda_j^2} = |\lambda_j|$ for $j = 1, \dots, n$.
+%   Arranging them in non-increasing order gives the singular values of $T$.
+% \end{xprf}
+\end{xrcs}
+
+\exercise{10}
+\begin{xrcs}
   Suppose $T \in \linmap(V)$ is an invertible operator on a finite-dimensional inner product space $V$ with singular values $s_1 \geq s_2 \geq \dots \geq s_n > 0$. Prove that the singular values of $T^{-1}$ are
   \begin{equation}
     \frac{1}{s_n} \ge \frac{1}{s_{n-1}} \ge \dots \ge \frac{1}{s_1} > 0.
   \end{equation}
+
 % \begin{xprf}
 %   By the Singular Value Decomposition (Theorem \ref{thm: singular value decomposition}), there exist orthonormal bases $e_1, \dots, e_n$ and $f_1, \dots, f_n$ of $V$ such that for all $v \in V$:
 %   \[

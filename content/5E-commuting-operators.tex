@@ -28,7 +28,7 @@
   Suppose $V$ is a finite-dimensional complex vector space ($\dim V \ge 1$), and $S, T \in \linmap(V)$ commute. Then $S$ and $T$ have a common eigenvector.
 \end{thm}
 \begin{prf}
-  Because $V$ is a finite-dimensional complex vector space, by \ref{thm: every operator on a finite-dimensional nonzero complex vector space has an eigenvalue}, $T$ has an eigenvalue $\lambda \in \compl$.
+  Because $V$ is a finite-dimensional complex vector space, by \ref{thm: existence of eigenvalues}, $T$ has an eigenvalue $\lambda \in \compl$.
   Let $U := E(\lambda, T) = \mynull(T-\lambda I) \neq \{0\}$.
   By \ref{thm: eigenspace is invariant under commuting operator}, $U$ is invariant under $S$, so the restriction $\left.S\right|_U \in \linmap(U)$ is an operator on $U$.
   Since $U \neq \{0\}$ is a complex vector space, $\left.S\right|_U$ has an eigenvalue $\alpha \in \compl$ with an eigenvector $v \in U, v \neq 0$.

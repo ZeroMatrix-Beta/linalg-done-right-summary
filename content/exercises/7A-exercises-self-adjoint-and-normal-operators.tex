@@ -1,30 +1,113 @@
 \section*{Exercises about Self-Adjoint and Normal Operators}
 
-\exercise{4}
+\exercise{2}
 \begin{xrcs}
-  Suppose $T \in \linmap(V)$ is a normal operator on a finite-dimensional inner product space $V$. Prove that
+  Suppose $T \in \linmap(V,W)$. Prove that
   \begin{equation}
-    \mynull T = \mynull T^* \quad \text{and} \quad \myrange T = \myrange T^*.
+    T = 0 \iff \dual{T} = 0 \iff \dual{T}T = 0 \iff T\dual{T} = 0.
   \end{equation}
+
 % \begin{xprf}
-%   \StepOne Since $T$ is normal, $T^* T = T T^*$. For every $v \in V$:
-%   \[
-%     \|Tv\|^2 = \langle Tv, Tv \rangle = \langle T^*Tv, v \rangle = \langle TT^*v, v \rangle = \langle T^*v, T^*v \rangle = \|T^*v\|^2.
-%   \]
-%   Therefore:
-%   \[
-%     v \in \mynull T \iff Tv = 0 \iff \|Tv\| = 0 \iff \|T^*v\| = 0 \iff T^*v = 0 \iff v \in \mynull T^*.
-%   \]
-%   Thus, $\mynull T = \mynull T^*$.
+%   \StepOne If $T = 0$, then for all $v \in V, w \in W$: $\langle v, \dual{T}w \rangle = \langle Tv, w \rangle = \langle 0, w \rangle = 0$, so $\dual{T} = 0$.
+%   Conversely, if $\dual{T} = 0$, then $T = (\dual{T})^* = 0^* = 0$. Thus $T = 0 \iff \dual{T} = 0$.
 %
-%   \StepTwo By the fundamental relationship between range and null space of adjoints (Theorem \ref{thm: null space of T* is orthogonal complement of range of T}), we have:
+%   \StepTwo If $T = 0$, clearly $\dual{T}T = 0$. Conversely, if $\dual{T}T = 0$, then for all $v \in V$:
 %   \[
-%     \myrange T = (\mynull T^*)^\perp.
+%     \|Tv\|^2 = \langle Tv, Tv \rangle = \langle \dual{T}Tv, v \rangle = \langle 0, v \rangle = 0 \implies Tv = 0 \implies T = 0.
 %   \]
-%   Substituting $\mynull T^* = \mynull T = \mynull (T^{**})^*$ gives:
-%   \[
-%     \myrange T = (\mynull T)^\perp = (\mynull (T^*)^*)^\perp = \myrange T^*.
-%   \]
-%   Therefore, $\myrange T = \myrange T^*$.
+%   Thus $T = 0 \iff \dual{T}T = 0$.
+%
+%   \StepThree Applying Step 2 to $\dual{T}$ gives $\dual{T} = 0 \iff (\dual{T})^*(\dual{T}) = 0 \iff T\dual{T} = 0$.
+%   Combining with Step 1 gives all the equivalences.
 % \end{xprf}
 \end{xrcs}
+
+\exercise{3}
+\begin{xrcs}
+  Suppose $T \in \linmap(V)$ and $\lambda \in \myF$. Prove that
+  \begin{equation}
+    \lambda \text{ is an eigenvalue of } T \iff \overline{\lambda} \text{ is an eigenvalue of } \dual{T}.
+  \end{equation}
+
+% \begin{xprf}
+%   $\lambda$ is an eigenvalue of $T$ $\iff$ $T - \lambda I$ is not injective $\iff$ $T - \lambda I$ is not invertible.
+%   Since an operator is invertible if and only if its adjoint is invertible (Theorem \ref{thm: properties of the adjoint}), this is equivalent to:
+%   \[
+%     (T - \lambda I)^* = \dual{T} - \overline{\lambda} I \text{ is not invertible}.
+%   \]
+%   On a finite-dimensional space, $\dual{T} - \overline{\lambda} I$ is not invertible if and only if it is not injective, which means $\overline{\lambda}$ is an eigenvalue of $\dual{T}$.
+% \end{xprf}
+\end{xrcs}
+
+\exercise{4}
+\begin{xrcs}
+  Suppose $T \in \linmap(V)$ and $U$ is a subspace of $V$. Prove that
+  \begin{equation}
+    U \text{ is invariant under } T \iff U^\perp \text{ is invariant under } \dual{T}.
+  \end{equation}
+
+% \begin{xprf}
+%   \Rightarrowdirection Suppose $U$ is invariant under $T$. Let $w \in U^\perp$. For every $u \in U$, we have $Tu \in U$, so
+%   \[
+%     \langle u, \dual{T}w \rangle = \langle Tu, w \rangle = 0.
+%   \]
+%   Thus $\dual{T}w \in U^\perp$, proving $U^\perp$ is invariant under $\dual{T}$.
+%
+%   \Leftarrowdirection Conversely, suppose $U^\perp$ is invariant under $\dual{T}$. Applying the forward direction to $\dual{T}$ and the subspace $U^\perp$, we find that $(U^\perp)^\perp = U$ is invariant under $(\dual{T})^* = T$.
+% \end{xprf}
+\end{xrcs}
+
+\exercise{9}
+\begin{xrcs}
+  Prove that the product of two self-adjoint operators on $V$ is self-adjoint if and only if the two operators commute.
+
+% \begin{xprf}
+%   Let $S, T \in \linmap(V)$ be self-adjoint, so $\dual{S} = S$ and $\dual{T} = T$.
+%   Then $(ST)^* = \dual{T}\dual{S} = TS$.
+%   Therefore:
+%   \[
+%     ST \text{ is self-adjoint} \iff (ST)^* = ST \iff TS = ST \iff S \text{ and } T \text{ commute}.
+%   \]
+% \end{xprf}
+\end{xrcs}
+
+\exercise{20}
+\begin{xrcs}
+  Suppose $P \in \linmap(V)$ is such that $P^2 = P$. Prove that the following are equivalent:
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item $P$ is self-adjoint.
+    \item $P$ is normal.
+    \item There is a subspace $U$ of $V$ such that $P = P_U$.
+  \end{enumerate}
+
+% \begin{xprf}
+%   (a) $\implies$ (b): Every self-adjoint operator is normal.
+%
+%   (b) $\implies$ (c): Suppose $P$ is normal. Since $P^2 = P$, by Exercise 3B.27 we have $V = \mynull P \oplus \myrange P$.
+%   Since $P$ is normal, by Theorem \ref{thm: range, null space, and eigenvectors of a normal operator}, $\mynull P = \mynull \dual{P}$.
+%   By Theorem \ref{thm: null space and range of T^*}, $\mynull \dual{P} = (\myrange P)^\perp$.
+%   Thus $\mynull P = (\myrange P)^\perp$, which means $\mynull P \perp \myrange P$.
+%   Let $U = \myrange P$. For any $v = u + w$ with $u \in U$ and $w \in U^\perp = \mynull P$, we have $Pv = Pu + Pw = u + 0 = u = P_U v$. Thus $P = P_U$.
+%
+%   (c) $\implies$ (a): If $P = P_U$, then by Theorem \ref{thm: properties orthogonal projection}, $P_U$ is self-adjoint.
+% \end{xprf}
+\end{xrcs}
+
+% ==============================================================================
+% EARLIER VERSION (Commented out): content that was present at commit 2035a81
+% and that the later exercise rewrite dropped. Kept here for reference.
+% ==============================================================================
+% \exercise{4}
+%   Suppose $T \in \linmap(V)$ is a normal operator on a finite-dimensional inner product space $V$. Prove that
+%     \mynull T = \mynull T^* \quad \text{and} \quad \myrange T = \myrange T^*.
+%   \StepOne Since $T$ is normal, $T^* T = T T^*$. For every $v \in V$:
+%     \|Tv\|^2 = \langle Tv, Tv \rangle = \langle T^*Tv, v \rangle = \langle TT^*v, v \rangle = \langle T^*v, T^*v \rangle = \|T^*v\|^2.
+%   Therefore:
+%     v \in \mynull T \iff Tv = 0 \iff \|Tv\| = 0 \iff \|T^*v\| = 0 \iff T^*v = 0 \iff v \in \mynull T^*.
+%   Thus, $\mynull T = \mynull T^*$.
+%
+%   \StepTwo By the fundamental relationship between range and null space of adjoints (Theorem \ref{thm: null space and range of T^*}), we have:
+%     \myrange T = (\mynull T^*)^\perp.
+%   Substituting $\mynull T^* = \mynull T = \mynull (T^{**})^*$ gives:
+%     \myrange T = (\mynull T)^\perp = (\mynull (T^*)^*)^\perp = \myrange T^*.
+%   Therefore, $\myrange T = \myrange T^*$.
