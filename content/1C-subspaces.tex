@@ -20,7 +20,7 @@
 \begin{prf} We need to show the proposition in two directions.
   \begin{description}
     \item{\Rightarrowdirection} If $U$ is a subspace of $V$, then $U$ satisfies the three conditions above by the definition of a vector space.
-    \item{\Leftarrowdirection} The first condition ensures that the additive identity $0$ of $U$ is in $U$. The other two conditions make sure that addition and scalar multiplication make sense on $U$.
+    \item{\Leftarrowdirection} The first condition ensures that the additive identity $0$ of $V$ is in $U$. The other two conditions make sure that addition and scalar multiplication make sense on $U$.
     Thanks to \ref{thm: minus one times a vector} and the third condition (closedness under scalar multiplication), every $u \in U$ has an additive inverse $-u = (-1) u$.
     The other parts of the definition of a vector space, such as associativity, commutativity, and the distributive properties, are automatically satisfied for $U$ because they hold on the larger space $V$. Thus, $U$ is a vector space and hence a subspace of $V$.
   \end{description}
@@ -77,7 +77,7 @@
   Now, we have to show the minimality of $W$ and that $W$ is contained in every subspace of $V$ containing $V_1, \ddd, V_m$.
   The subspaces $V_1, \ddd, V_m$ are all contained in $W$, i.e., $\forall \kInOneTillM: V_k \subseteq W$. This is because every $v \in V_k$ can be written as $v = 0 + \cdots + v + \cdots + 0$.
 
-  Conversely, every subspace of $V$ containing $V_1, \ldots, V_m$ contains $W$, because $V$ is closed under addition. Thus, $W$ is the smallest subspace of $V$ containing $V_1, \ldots, V_m$.
+  Conversely, every subspace of $V$ containing $V_1, \ldots, V_m$ contains $W$, because such a subspace is closed under addition. Thus, $W$ is the smallest subspace of $V$ containing $V_1, \ldots, V_m$.
 \end{prf}
 
 \subsection{Direct Sums}
@@ -150,7 +150,7 @@
       \label{eq: zero equals u plus w}
       0 = u+w.
     \end{equation}
-    By \ref{thm: condition for a direct sum}, we know that our goal is to show that this implies $u=w=0$. The equation \eqref{eq: zero equals u plus w} above implies that $u=-w\in W$ and $w=-u \in U$ for all arbitrary choices of $U$ and $W$. Thus, $u,w \in U\cap W$. Hence, $u=w=0$. Therefore, $U+W$ is a direct sum.
+    By \ref{thm: condition for a direct sum}, we know that our goal is to show that this implies $u=w=0$. The equation \eqref{eq: zero equals u plus w} above implies that $u=-w\in W$ and $w=-u \in U$, because $U$ and $W$ are closed under additive inverses. Thus, $u,w \in U\cap W$. Hence, $u=w=0$. Therefore, $U+W$ is a direct sum.
   \end{description}
   \vspace{-\baselineskip}
 \end{prf}

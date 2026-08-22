@@ -3,6 +3,7 @@
 % 2.34
 \setcounter{thm}{33}
 \begin{thm} [basis length] Any two bases of a \fdvs have the same length.
+  \label{thm: basis length}
 \end{thm}
 \begin{prf}
   Let $B_1$ and $B_2$ be two bases of a finite-dimensional vector space $V$.
@@ -39,7 +40,7 @@
 \begin{prf}
   Let $\dim V = n$ and let $v_1, \ldots, v_n$ be a linearly independent list in $V$.
   By \ref{thm: every linearly independent list of vectors in a finite-dimensional vector space can be extended to a basis of the vector space}, this list can be extended to a basis of $V$.
-  However, by Theorem 2.34, every basis of $V$ has length $n = \dim V$.
+  However, by \ref{thm: basis length}, every basis of $V$ has length $n = \dim V$.
   Thus, no additional vectors can be adjoined to $v_1, \ldots, v_n$, so the list itself is already a basis of $V$.
 \end{prf}
 

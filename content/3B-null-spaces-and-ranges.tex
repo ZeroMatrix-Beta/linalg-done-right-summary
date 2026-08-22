@@ -83,7 +83,7 @@
   Hence, $\myrange T$ is closed under addition.
   If $w \in \myrange T$ and $\lambda \in \myF$, then there exists a $v \in V$ such that $w = Tv$. For $w$ it holds that
   $\lambda w = \lambda Tv = T(\lambda v) \in \myrange T$.
-  Therefore, $\myrange T$ is closed under scalar multiplication. By \ref{thm: conditions for a subspace}, $\myrange T$ is a subspace of $W$, since we have checked for all $3$ conditions.
+  Therefore, $\myrange T$ is closed under scalar multiplication. By \ref{thm: conditions for a subspace}, $\myrange T$ is a subspace of $W$, since we have checked all three conditions.
 \end{prf}
 
 %3.19
@@ -150,7 +150,7 @@
   Suppose $V$ and $W$ are finite-dimensional vector spaces such that $\dim V > \dim W$.
   Then no linear map from $V$ to $W$ is injective.
 \end{thm}
-\begin{prf} Let $T\in \linmap(V,W)$ such that $\dim V > \dim W$. Using \ref{rank-nullity-theorem}, we have
+\begin{prf} Let $T\in \linmap(V,W)$, where $\dim V > \dim W$. Using \ref{rank-nullity-theorem}, we have
   \begin{align}
     \dim \mynull T &= \dim V - \dim \myrange T \\
                    &\geq \dim V - \dim W  \\
@@ -167,7 +167,7 @@
   Suppose $V$ and $W$ are finite-dimensional vector spaces such that $\dim V < \dim W$. Then no linear map from $V$ to $W$ is surjective.
 \end{thm}
 \begin{prf}
-  Let $T\in \linmap (V,W)$ such that $\dim V < \dim W$. Then
+  Let $T\in \linmap (V,W)$, where $\dim V < \dim W$. Then
   \begin{align}
     \dim \myrange T & = \dim V - \dim \mynull T \\
                     & \leq \dim V  \\

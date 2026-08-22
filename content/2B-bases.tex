@@ -31,7 +31,7 @@
   Every spanning list of vectors in a vector space $V$ can be reduced to a basis of $V$. That is, if $V = \myspan{v_1, \ddd, v_n}$, some sublist of $v_1, \dots, v_n$ is a basis of $V$.
 \end{thm}
 \begin{prf}
-  Suppose $V = \myspan{v_1, \ldots, v_n}$. Let $B = (v_1, \ldots, v_n)$. We proceed in $n$ steps:
+  Suppose $V = \myspan{v_1, \ldots, v_n}$. Let $B_0 = (v_1, \ldots, v_n)$. We proceed in $n$ steps:
 
   \emph{\bfseries Step 1: }
   If $v_1 = 0$, delete $v_1$ from $B_0$:
@@ -57,7 +57,7 @@
     B_k :\equiv B_{k-1}.
   \end{equation}
 
-  Stop the process after step $n$, getting a list $B_n$. By the Linear Dependence Lemma (\ref{thm: linear dependence lemma}(b)), deleting a vector that is in the span of the previous vectors does not change the span, so $B_n$ still spans $V$. Furthermore, the construction guarantees that no vector in $B_n$ is in the span of the previous ones. By the Linear Dependence Lemma (\ref{thm: linear dependence lemma}), this implies that $B_n$ is linearly independent (otherwise some vector would be in the span of its predecessors). Hence, $B_n$ is a basis of $V$.
+  Stop the process after step $n$, getting a list $B_n$. By the Linear Dependence Lemma (\ref{thm: linear dependence lemma}), deleting a vector that is in the span of the previous vectors does not change the span, so $B_n$ still spans $V$. Furthermore, the construction guarantees that no vector in $B_n$ is in the span of the previous ones. By the Linear Dependence Lemma (\ref{thm: linear dependence lemma}), this implies that $B_n$ is linearly independent (otherwise some vector would be in the span of its predecessors). Hence, $B_n$ is a basis of $V$.
 \end{prf}
 
 \setcounter{thm}{30}

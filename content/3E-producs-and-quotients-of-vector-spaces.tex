@@ -108,7 +108,7 @@
   The list of all such vectors is linearly independent and spans $V_1 \times \cdots \times V_m$. Thus, it is a basis of $V_1 \times \cdots \times V_m$, and the length of this basis is $(\dim V_1 + \cdots + \dim V_m)$.
 \end{prf}
 
-In the next result, the map $\Gamma$ is surjective by the definition of $V_1 + \cdots + V_m$ because of closedness. Thus, the last word in the result below could be changed from \qt{injective} to \qt{invertible}.
+In the next result, the map $\Gamma$ is surjective by the definition of $V_1 + \cdots + V_m$: every element of that sum is, by definition, of the form $v_1 + \cdots + v_m$ with each $v_k \in V_k$. Thus, the last word in the result below could be changed from \qt{injective} to \qt{invertible}.
 
 % 3.93
 \begin{thm}[products and direct sums]
@@ -125,7 +125,7 @@ In the next result, the map $\Gamma$ is surjective by the definition of $V_1 + \
 
 \end{thm}
 \begin{prf}
-  By \ref{thm: injectivity iff null space equals zero-set}, $\Gamma$ is injective $\iff v_1 = \cdots = v_m = 0$ [Stated correctly, $\Gamma$ is injective $\iff \mynull \Gamma = \{ \vec 0 \}$]. This means the only way to write $0$ as a sum $v_1 + \cdots + v_m$, where each $v_k \in V_k$, is by taking each $v_k=0$. Thus, \ref{thm: condition for a direct sum} shows that $\Gamma$ is injective $\iff V_1 + \cdots + V_m$ is a direct sum, as desired.
+  By \ref{thm: injectivity iff null space equals zero-set}, $\Gamma$ is injective $\iff \mynull \Gamma = \{ \vec 0 \}$. Now $\mynull \Gamma$ consists of those $(v_1, \ddd, v_m)$ with $v_1 + \cdots + v_m = 0$, so $\mynull \Gamma = \{ \vec 0 \}$ says precisely that the only way to write $0$ as a sum $v_1 + \cdots + v_m$, where each $v_k \in V_k$, is by taking each $v_k=0$. Thus, \ref{thm: condition for a direct sum} shows that $\Gamma$ is injective $\iff V_1 + \cdots + V_m$ is a direct sum, as desired.
 \end{prf}
 
 \begin{thm}[a sum is a direct sum if and only if the dimensions add up]
@@ -138,37 +138,34 @@ In the next result, the map $\Gamma$ is surjective by the definition of $V_1 + \
 \end{thm}
 
 \begin{prf}
-  The map $\Gamma: V_1 \times \cdots \times V_m \to V_1 + \cdots + V_m$ in \ref{thm: products and direct sums} is surjective. Thus, by the rank-nullity theorem \ref{rank-nullity-theorem}, $\Gamma$ is injective $\iff \dim \mynull \Gamma = 0$, and therefore
+  The map $\Gamma: V_1 \times \cdots \times V_m \to V_1 + \cdots + V_m$ in \ref{thm: products and direct sums} is surjective, so $\myrange \Gamma = V_1 + \cdots + V_m$. Thus, the rank-nullity theorem \ref{rank-nullity-theorem} gives
   \[
-  \begin{aligned}
-    &\dim (\underbrace{V_1 \times \cdots \times V_m}_{\text{domain}})=\underbrace{\dim \mynull \Gamma \vphantom{V_m}}_{= \; 0} +  \dim(\underbrace{V_1 + \cdots + V_m}_{\text{codomain} \; \subseteq \; V
-    }) \\
-    &\dim (V_1 + \cdots + V_m) = \dim (V_1 \times \cdots \times V_m).
-  \end{aligned}
+    \dim (\underbrace{V_1 \times \cdots \times V_m}_{\text{domain}}) = \dim \mynull \Gamma +  \dim(\underbrace{V_1 + \cdots + V_m}_{\text{codomain} \; \subseteq \; V}).
   \]
 
-  We can use \ref{thm: dimension of a product is the sum of dimensions} to conclude that
+  By \ref{thm: dimension of a product is the sum of dimensions}, the left-hand side equals $\dim V_1 + \cdots + \dim V_m$, so
+  \begin{equation}
+    \dim V_1 + \cdots + \dim V_m = \dim \mynull \Gamma + \dim (V_1 + \cdots + V_m).
+  \end{equation}
+
+  Reading this equation as a statement about $\dim \mynull \Gamma$ gives a chain of equivalences:
   \begin{equation}
     \begin{aligned}
-      &\dim (V_1 \times \cdots \times V_m) = \dim V_1 + \cdots + \dim V_m \mytext{and therefore } \\
-      &\dim (V_1 + \cdots + V_m) =  \dim V_1 + \cdots + \dim V_m.
+      \dim (V_1 + \cdots + V_m) = \dim V_1 + \cdots + \dim V_m
+      & \iff \dim \mynull \Gamma = 0 \
+      & \iff \Gamma \text{ is injective} \
+      & \iff V_1 + \cdots + V_m \text{ is a direct sum,}
     \end{aligned}
   \end{equation}
 
+  where the second equivalence holds by \ref{thm: injectivity iff null space equals zero-set} and the third by \ref{thm: products and direct sums}. This is exactly the desired result.
 
-  Since $\Gamma$ is injective, \ref{thm: products and direct sums} tells us that $V_1+\cdots+V_m$ is a direct sum.
-  So, we have that
-  \[\dim (V_1 + \cdots + V_m) =  \dim V_1 + \cdots + \dim V_m
-  \]
-
-  if and only if $V_1+\cdots+V_m$ is a direct sum.
-
-  \prooffont{Special case for m=2:} For the special case where $m=2$, we can use \ref{thm: dimension of a subspace}, where
+  \prooffont{Special case for m=2:} For the special case where $m=2$, we can use \ref{thm: dimension of a sum of subspaces}, where
   \[
     \dim (V_1 + V_2) = \dim V_1 + \dim V_2 - \dim (V_1 \cap V_2),
   \]
 
-  and we get $\dim (V_1 \cap V_2) = 0 \iff V_1 + V_2 = V_1 \oplus V_2$ by \ref{thm: dimension of a sum of subspaces}.
+  and we get $\dim (V_1 \cap V_2) = 0 \iff V_1 + V_2 = V_1 \oplus V_2$ by \ref{thm: sum and intersection of two subspaces}.
 \end{prf}
 
 \subsection{Quotient Spaces}

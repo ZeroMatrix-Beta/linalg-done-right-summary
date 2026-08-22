@@ -23,12 +23,12 @@
 
 \setcounter{thm}{109}
 %\textbf{3.110}
-\begin{thm}
+\begin{mydef}
   The dual space of $V$, denoted by $\dual{V}$ or $V^{*}$, is the vector space of all linear functionals on $V$, i.e.,
   \begin{equation}
     \dual{V} := \linmap(V, \myF).
   \end{equation}
-\end{thm}
+\end{mydef}
 
 %\textbf{3.111}
 \begin{thm} [$\dim \dual{V} = \dim V$]
@@ -82,7 +82,7 @@
     a_1 \varphi_1 + \cdots + a_n \varphi_n = 0 \text{ for some } a_1, \ddd, a_n \in \myF.
   \]
 
-  Which means that we get a function in $\linmap(V, \myF)$ that always returns $0$. In other words, $(a_1 \varphi_1 + \cdots + a_n \varphi_n)(v)=0$ for all $v \in V$. This implies
+  This means that we get a function in $\linmap(V, \myF)$ that always returns $0$. In other words, $(a_1 \varphi_1 + \cdots + a_n \varphi_n)(v)=0$ for all $v \in V$. This implies
   \[
     (a_1 \varphi_1 + \cdots + a_n \varphi_n)(v_k)=a_k \quad \forall k \in \{1, \ddd, n\}.
   \]
@@ -141,7 +141,7 @@
 \setcounter{thm}{124}
 \begin{thm} [dimension of the annihilator]
   \label{thm: dimension of the annihilator}
-  If $U\subseteq V$ and $\dim V < \infty$, then
+  If $U$ is a subspace of $V$ and $\dim V < \infty$, then
   \begin{equation}
     \dim U^0 = \dim V - \dim U.
   \end{equation}
@@ -161,7 +161,7 @@
 % 3.127
 \setcounter{thm}{126}
 \begin{thm} [condition for the annihilator to equal $\{0\}$ or the whole space]
-  If $\dim V < \infty$ and $U\subseteq V$, then:
+  If $\dim V < \infty$ and $U$ is a subspace of $V$, then:
   \begin{enumerate}[label=\textbf{(\alph*)}]
     \item $U^0 = \{0 \} \iff U = V$
     \item $U^0 = \dual{V} \iff U = \{0\}$
@@ -248,7 +248,7 @@
 \begin{thm}[matrix of $\dual{T}$ is the transpose of matrix of $T$]
   Suppose $V, W$ are finite-dimensional and $T \in \linmap(V,W)$. Let $v_1, \dots, v_n$ be a basis of $V$ and $w_1, \dots, w_m$ be a basis of $W$, with corresponding dual bases $\varphi_1, \dots, \varphi_n$ and $\psi_1, \dots, \psi_m$. Then
   \begin{equation}
-    \mmatrix(\dual{T}) = (\mmatrix(T))^{\top}.
+    \mmatrix(\dual{T}) = (\mmatrix(T))^{t}.
   \end{equation}
 \end{thm}
 \begin{prf}
@@ -259,7 +259,7 @@
     (\dual{T}\psi_j)(v_k) = \psi_j(Tv_k) = \psi_j\left(\sum_{r=1}^m A_{r,k} w_r\right) = \sum_{r=1}^m A_{r,k} \psi_j(w_r) = A_{j,k}.
   \end{equation}
   On the other hand, $\dual{T}\psi_j = \sum_{r=1}^n B_{r,j} \varphi_r$, so evaluating at $v_k$ gives $(\dual{T}\psi_j)(v_k) = B_{k,j}$.
-  Thus, $B_{k,j} = A_{j,k}$, which means $\mmatrix(\dual{T}) = (\mmatrix(T))^\top$.
+  Thus, $B_{k,j} = A_{j,k}$, which means $\mmatrix(\dual{T}) = (\mmatrix(T))^t$.
 \end{prf}
 
 %3.133

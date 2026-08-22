@@ -159,7 +159,7 @@
       \right ).
   \end{equation}
 
-    The vector depends on the basis, but it is not included in the notation.
+    The column $\mmatrix(u)$ depends on the basis, even though the basis is not included in the notation.
 %    Recall:
 %\begin{equation}
 %    \mathcal{M} (T) :\equiv
@@ -229,7 +229,7 @@
   \mce{81}
   \begin{thm} [matrix of product of linear maps]
     \label{thm: matrix of product of linear maps2}
-    Suppose $T\in \mathcal{L}(U,V)$ and $S\in \lvw$. If $\onetillm{u}$ is a basis of $U$, $\onetilln{v}$ is a basis of $V$, and $\onetill{w}{p}$ is a basis of $W$. Note that $\dim U = m$, $\dim V = n$, $\dim W = p$. Then we have:
+    Suppose $T\in \mathcal{L}(U,V)$ and $S\in \lvw$, where $\onetillm{u}$ is a basis of $U$, $\onetilln{v}$ is a basis of $V$, and $\onetill{w}{p}$ is a basis of $W$, so that $\dim U = m$, $\dim V = n$, and $\dim W = p$. Then we have:
     \begin{equation}
     \begin{aligned}
       &\mmatrix(ST, (\onetillm{u}), (\onetill{w}{p})) = \\
@@ -261,15 +261,15 @@
   \begin{prf}
     Careful application of \ref{thm: matrix of product of linear maps2} yields
     \begin{equation}
-      \m{I_V} = I_n = \m{I_V I_V} = \m{I_V, (v_1, \ddd, v_m), (u_1, \ddd, u_m)} \cdot \m{I_V, (u_1, \ddd, u_m), (v_1, \ddd, v_m)}.
+      \m{I_V} = I_m = \m{I_V I_V} = \m{I_V, (v_1, \ddd, v_m), (u_1, \ddd, u_m)} \cdot \m{I_V, (u_1, \ddd, u_m), (v_1, \ddd, v_m)}.
     \end{equation}
 
     Now, interchange the roles of the $u$'s and the $v$'s, getting
     \begin{equation}
-      \m{I_V} = I_n = \m{I_V I_V} = \m{I_V, (u_1, \ddd, u_m), (v_1, \ddd, v_m)} \cdot \m{I_V, (v_1, \ddd, v_m), (u_1, \ddd, u_m)}.
+      \m{I_V} = I_m = \m{I_V I_V} = \m{I_V, (u_1, \ddd, u_m), (v_1, \ddd, v_m)} \cdot \m{I_V, (v_1, \ddd, v_m), (u_1, \ddd, u_m)}.
     \end{equation}
 
-    So, the product of both matrices equals $I_n$, which is the identity in $\myF^{n,n}$.
+    So, the product of both matrices equals $I_m$, which is the identity in $\myF^{m,m}$.
   \end{prf}
 
   % 3.84
@@ -297,7 +297,7 @@
   % 3.86
   \setcounter{thm}{85}
   \begin{thm}
-    If $v_1, \ddd, v_m$ is a basis of $V$ and $T \in \op{V}$ is invertible, then
+    If $v_1, \ddd, v_m$ is a basis of $V$ and $T \in \linmap(V)$ is invertible, then
     \begin{equation}
       \mmatrix(T^{-1}) = (\mmatrix(T))^{-1},
     \end{equation}
