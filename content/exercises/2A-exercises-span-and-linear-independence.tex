@@ -133,7 +133,7 @@
   Explain why no list of four polynomials spans $\polyn_4(\myF)$.
 
   \begin{xsol}
-    The list $1, z, z^2, z^3, z^4$ is linearly independent in $\polyn_4(\myF)$ and has length $5$. By \ref{thm: length of linearly dependent list less or equal to length of spanning list}, the length of every linearly independent list in a finite-dimensional vector space is less than or equal to the length of every spanning list.
+    The list $1, z, z^2, z^3, z^4$ is linearly independent in $\polyn_4(\myF)$ and has length $5$. By \ref{thm: length of linearly independent list at most length of spanning list}, the length of every linearly independent list in a finite-dimensional vector space is less than or equal to the length of every spanning list.
     Therefore, every spanning list of $\polyn_4(\myF)$ must have length at least $5$. Thus, no list of four polynomials can span $\polyn_4(\myF)$.
   \end{xsol}
 \end{xrcs}
@@ -149,7 +149,7 @@
     Any polynomial $p \in \mynull(\varphi)$ satisfies $p(2) = 0$, so $p(z) = (z-2) q(z)$ for some $q \in \polyn_{m-1}(\myF)$.
     Since $\dim \polyn_{m-1}(\myF) = m$, we have $\dim \mynull(\varphi) = m$.
     The list $p_0, p_1, \ddd, p_m$ consists of $m+1$ vectors in the $m$-dimensional subspace $\mynull(\varphi)$.
-    By Theorem \ref{thm: length of linearly dependent list less or equal to length of spanning list}, no linearly independent list in $\mynull(\varphi)$ can have length greater than $\dim \mynull(\varphi) = m$.
+    By Theorem \ref{thm: length of linearly independent list at most length of spanning list}, no linearly independent list in $\mynull(\varphi)$ can have length greater than $\dim \mynull(\varphi) = m$.
     Therefore, the list $p_0, p_1, \ddd, p_m$ of length $m+1$ is linearly dependent (not linearly independent).
   \end{xprf}
 \end{xrcs}
