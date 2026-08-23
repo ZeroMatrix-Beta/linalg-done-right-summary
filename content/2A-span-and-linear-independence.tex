@@ -83,12 +83,12 @@
 
 % 2.11
 \begin{mydef}[degree of a polynomial, $\deg p$]
-  The degree of a non-zero polynomial $p(z)=a_0+a_1z+a_2z^2+\cdots+a_mz^m$ (with $a_m \neq 0$) is defined by
+  The degree $m$ of a non-zero polynomial $p(z)=a_0+a_1z+a_2z^2+\cdots+a_mz^m$ (with $a_m \neq 0$) is denoted by
   \begin{equation}
     \deg p := m.
   \end{equation}
 
-  For the zero polynomial $p=0$, we define:
+  We also define for the zero polynomial $p=0$:
   \begin{equation}
     \deg 0 := -\infty.
   \end{equation}
@@ -115,7 +115,7 @@
     a_1 v_1 + \dots + a_m v_m = 0
   \end{equation}
   is $a_1 = \cdots = a_m = 0$.
-  
+  is $a_1 = \cdots = a_m = 0$. In other words, the list is called \lid{} if the only way to combine the vectors together and yield zero is if we choose every coefficient to be zero.
   Equivalently, a list of vectors $\oneTillM{v}$ is linearly independent if and only if every vector $w \in \myspan{\oneTillM{v}}$ has a unique representation as a linear combination of $\oneTillM{v}$.
   Indeed, if $w = a_1 v_1 + \dots + a_m v_m = c_1 v_1 + \dots + c_m v_m$, subtracting gives
   \begin{equation}
