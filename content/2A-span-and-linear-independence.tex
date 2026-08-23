@@ -32,7 +32,7 @@
 
   and hence, the additive identity is in $\myspan{v_1, \ddd, v_m}$.
 
-  $\myspan{v_1, \ddd, v_m}$ is closed under addition, because for all $a$'s and $c$'s in $\myF$, we have
+  $\myspan{v_1, \ddd, v_m}$ is closed under addition, because $\forall$ $a$'s and $c$'s in $\myF$, we have
   \[
     \underbrace{(a_1 v_1 + \cdots + a_m v_m)}_{\in \; \myspan{v_1, \ddd, v_m}} + \underbrace{(c_1 v_1 + \cdots + c_m v_m)}_{\in \; \myspan{v_1, \ddd, v_m}} = (a_1 + c_1)v_1 + \cdots + (a_m + c_m)v_m \in \myspan{v_1, \ddd, v_m}.
   \]
@@ -60,7 +60,10 @@
 % 2.9
 \setcounter{thm}{8}
 \begin{mydef} [finite-dimensional vector space]
-  A vector space $V$ is called \qt{finite-dimensional} if some list of vectors in $V$ spans $V$.
+  A vector space $V$ is called \qt{finite-dimensional} if some list of vectors in $V$ spans $V$. For such a vector space, we write
+  \begin{equation}
+    \dim V \neq \infty \quad \text{or} \quad \dim V < \infty.
+  \end{equation}
 \end{mydef}
 
 
@@ -93,7 +96,7 @@
 
 % 2.12
 \begin{mydef} [the set of all polynomials of degree at most $m$]
-  For $m \ge 0$, $\polyn_m (\myF )=\myspan{1,z,\dots,z^m}$ denotes the set of all polynomials with coefficients in $\myF$ and degree at most $m$. Note that $\dim \polyn_m(\myF) = m+1$.
+  For $m \ge 0$, $\polyn_m (\myF )=\myspan{1,z,\dots,z^m}$ denotes the set of all polynomials with coefficients in $\myF$ and degree at most $m$. One should actually use the lambda notation $\lambda z.z^m$ to speak of functions and write $\polyn_m (\myF )=\myspan{\lambda z.1,\lambda z.z,\dots,\lambda z.z^m}$, but this is not done most of the time. Note that $\dim \polyn_m(\myF) = m+1$.
 \end{mydef}
 
 %2.13
@@ -253,7 +256,6 @@
     u_k \notin \myspan{u_1, \ldots, u_{k-1}}.
   \end{equation}
 
-  After each step, no vector in the list is in the span of the previous vectors, maintaining a linearly independent list by the Linear Dependence Lemma (\ref{thm: linear dependence lemma}).
-  By \ref{thm: length of linearly independent list at most length of spanning list}, the length of any linearly independent list in $V$ cannot exceed $\dim V$.
-  Thus, the process must terminate in at most $m = \dim V$ steps, so $U$ has a finite spanning list and is finite-dimensional.
+  After each step, as long as the process continues, we have constructed a list of vectors such that no vector in the list is in the span of the previous vectors. Hence, at each stage we maintain a linearly independent list, by the Linear Dependence Lemma (\ref{thm: linear dependence lemma}). No list of independent vectors in $V$ can exceed the length of any spanning list of $V$, by \ref{thm: length of linearly independent list at most length of spanning list}.
+  Thus, the process eventually terminates (after at most $m=\dim V$ steps), so $U$ has a finite spanning list and is therefore finite-dimensional.
 \end{prf}

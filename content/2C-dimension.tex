@@ -65,7 +65,7 @@
 \begin{prf}
   Suppose $\dim V = n$ and $v_1, \ldots, v_n$ spans $V$.
   By \ref{thm: every spanning list contains a basis}, the list $v_1, \ldots, v_n$ can be reduced to a basis of $V$.
-  However, every basis of $V$ has length $n$, so no vectors can be removed during the reduction process.
+However, our list already has length $n$, so no elements will get deleted during the reduction process.
   Thus, $v_1, \ldots, v_n$ is a basis of $V$.
 \end{prf}
 
@@ -160,7 +160,7 @@ We will show that
   \label{eq: basis with r u and w}
   r_1, \ddd, r_n, u_1, \ddd, u_j, w_1, \ddd, w_k
 \end{equation}
-is a basis of $V_1 + V_2$. Once this is established, the proof is complete because the length of this basis is
+is a basis of $V_1 + V_2$. This will complete the proof, because then we will have
 \begin{equation}
   \begin{aligned}
     \dim (V_1 + V_2) &= n + j + k \\
@@ -169,9 +169,9 @@ is a basis of $V_1 + V_2$. Once this is established, the proof is complete becau
   \end{aligned}
 \end{equation}
 
-Clearly, the list \eqref{eq: basis with r u and w} is contained in $V_1 + V_2$, and its span contains both $V_1 = \myspan{r_1, \dots, r_n, u_1, \dots, u_j}$ and $V_2 = \myspan{r_1, \dots, r_n, w_1, \dots, w_k}$. Thus, it spans $V_1 + V_2$.
+The list \eqref{eq: basis with r u and w} is contained in $V_1 + V_2$. The span of this list contains $V_1 = \myspan{r_1, \dots, r_n, u_1, \dots, u_j}$ and $V_2 = \myspan{r_1, \dots, r_n, w_1, \dots, w_k}$; therefore, it equals $V_1 + V_2$.
 
-It remains to prove linear independence. Suppose there exist scalars $a_1, \ddd, a_n, b_1, \ddd, b_j, c_1, \ddd, c_k \in \myF$ such that
+Thus, to show that \eqref{eq: basis with r u and w} is a basis of $V_1 + V_2$, we only need to show that it is linearly independent. Therefore, let $a_1, \ddd, a_n, b_1, \ddd, b_j, c_1, \ddd, c_k \in \myF$ be such that
 \begin{equation}
   \label{eq: linear independence formula for r u and w}
   \begin{aligned}
