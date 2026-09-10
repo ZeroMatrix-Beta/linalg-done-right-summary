@@ -56,18 +56,17 @@
     Therefore, the list $v_1, v_2$ (which has length $2$) cannot span $U$ and is not a basis of $U$.
   \end{xsol}
 
-% ==============================================================================
-% ORIGINAL ATTEMPT (Commented out):
-% ------------------------------------------------------------------------------
-% AI FEEDBACK:
-% 1. Mathematical Error: The attempted proof claims $a_3 v_3 \in U$ and $a_4 v_4 \in U$,
-%    which assumes each component must independently lie in $U$.
-% 2. In reality, a sum of vectors outside $U$ (like $v_3 + v_4$) can lie in $U$ even
-%    though neither vector individually belongs to $U$.
-% ==============================================================================
-%   \begin{xprf}
-%     Any vector in $U$ can be represented as a unique linear combination of $v_1, v_2, v_3, v_4$ since $U \subseteq V$. Let $u\in U$ such that $u=a_1 v_1 + a_2 v_2 + a_3 v_3 + a_4 v_4$. In this case, $a_3$ must equal $0$, because otherwise, due to closedness under addition and scalar multiplication, we could subtract $a_1 v_1 + a_2 v_2+a_4v_4$ from $u$ and multiply by $\frac{1}{a_3}$ to get $v_3$, which is not in $U$. The same goes for $a_4$, which must be $0$ as well. So every vector in $U$ is of the form $u=a_1 v_1 + a_2 v_2$, since $v_1, v_2 \in U$ and $v_3, v_4 \notin U$. Since every basis has the same length and $v_1$ and $v_2$ are linearly independent, the list $v_1, v_2$ forms a basis of $U$.
-%   \end{xprf}
+  \begin{failedattempt}
+    Any vector in $U$ can be represented as a unique linear combination of $v_1, v_2, v_3, v_4$ since $U \subseteq V$. Let $u\in U$ such that $u=a_1 v_1 + a_2 v_2 + a_3 v_3 + a_4 v_4$. In this case, $a_3$ must equal $0$, because otherwise, due to closedness under addition and scalar multiplication, we could subtract $a_1 v_1 + a_2 v_2+a_4v_4$ from $u$ and multiply by $\frac{1}{a_3}$ to get $v_3$, which is not in $U$. The same goes for $a_4$, which must be $0$ as well. So every vector in $U$ is of the form $u=a_1 v_1 + a_2 v_2$, since $v_1, v_2 \in U$ and $v_3, v_4 \notin U$. Since every basis has the same length and $v_1$ and $v_2$ are linearly independent, the list $v_1, v_2$ forms a basis of $U$.
+  \end{failedattempt}
+
+  \begin{ainote}[Where it breaks]
+    The sentence \qt{we could subtract $a_1 v_1 + a_2 v_2 + a_4 v_4$ from $u$} is the faulty step. Subtracting is only allowed inside $U$ if the vector being subtracted is itself in $U$, and $a_4 v_4$ need not be: $v_4 \notin U$ is given. So the argument quietly assumes that each component $a_k v_k$ of $u$ lies in $U$ separately, which is precisely what a subspace does \emph{not} guarantee. A subspace is closed under sums, but a sum landing in $U$ says nothing about its individual summands.
+
+    The counterexample above is exactly this loophole made concrete. For $u := v_3 + v_4 \in U$ the coefficients are $a_3 = a_4 = 1 \neq 0$, so the attempt's claim \qt{$a_3$ must equal $0$} is already false, even though $v_3 \notin U$ and $v_4 \notin U$ both hold as required.
+
+    A repair is possible, but only under a stronger hypothesis: if one assumes $\myspan{v_3,v_4} \cap U = \{0\}$, then the components really do split off and $v_1,v_2$ is a basis of $U$. The exercise deliberately does not give you that.
+  \end{ainote}
 \end{xrcs}
 
 \exercise{9}

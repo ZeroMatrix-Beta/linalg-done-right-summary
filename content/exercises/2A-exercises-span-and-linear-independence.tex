@@ -114,19 +114,25 @@
   \begin{equation}
     w \notin \myspan{v_1, \ddd, v_m}.
   \end{equation}
-% \begin{xprf}
-%   \Rightarrowdirection Suppose $v_1, \dots, v_m, w$ is linearly independent. If $w \in \myspan{v_1, \dots, v_m}$, then $w = c_1 v_1 + \dots + c_m v_m$, which gives a non-trivial linear combination $c_1 v_1 + \dots + c_m v_m - w = 0$ with coefficient $-1 \neq 0$ for $w$, contradicting linear independence. Thus $w \notin \myspan{v_1, \dots, v_m}$.
-%
-%   \Leftarrowdirection Conversely, suppose $w \notin \myspan{v_1, \dots, v_m}$. Consider scalars $a_1, \dots, a_m, c \in \myF$ such that
-%   \[
-%     a_1 v_1 + \dots + a_m v_m + c w = 0.
-%   \]
-%   If $c \neq 0$, then $w = -\frac{a_1}{c}v_1 - \dots - \frac{a_m}{c}v_m \in \myspan{v_1, \dots, v_m}$, a contradiction.
-%   Thus $c = 0$. The equation then reduces to $a_1 v_1 + \dots + a_m v_m = 0$.
-%   Since $v_1, \dots, v_m$ is linearly independent, $a_1 = \dots = a_m = 0$.
-%   Therefore, all coefficients are zero, and $v_1, \dots, v_m, w$ is linearly independent.
-% \end{xprf}
+  \begin{xprf}
+    \Rightarrowdirection Suppose $v_1, \dots, v_m, w$ is linearly independent. If $w \in \myspan{v_1, \dots, v_m}$, then $w = c_1 v_1 + \dots + c_m v_m$, which gives a non-trivial linear combination $c_1 v_1 + \dots + c_m v_m - w = 0$ with coefficient $-1 \neq 0$ for $w$, contradicting linear independence. Thus $w \notin \myspan{v_1, \dots, v_m}$.
+
+    \Leftarrowdirection Conversely, suppose $w \notin \myspan{v_1, \dots, v_m}$. Consider scalars $a_1, \dots, a_m, c \in \myF$ such that
+    \[
+      a_1 v_1 + \dots + a_m v_m + c w = 0.
+    \]
+    If $c \neq 0$, then $w = -\frac{a_1}{c}v_1 - \dots - \frac{a_m}{c}v_m \in \myspan{v_1, \dots, v_m}$, a contradiction.
+    Thus $c = 0$. The equation then reduces to $a_1 v_1 + \dots + a_m v_m = 0$.
+    Since $v_1, \dots, v_m$ is linearly independent, $a_1 = \dots = a_m = 0$.
+    Therefore, all coefficients are zero, and $v_1, \dots, v_m, w$ is linearly independent.
+  \end{xprf}
 \end{xrcs}
+
+\begin{ainote}[Why the order of the two steps matters]
+  In the $\Leftarrow$ direction it is essential that $c = 0$ is established \emph{first}. Only once $c$ is known to vanish does the equation collapse to $a_1 v_1 + \cdots + a_m v_m = 0$, where the hypothesis on $v_1, \ddd, v_m$ can be applied. Trying to use linear independence of $v_1, \ddd, v_m$ while the term $cw$ is still present proves nothing, since that hypothesis says nothing about $w$.
+
+  This exercise is the engine behind the basis-extension arguments later on: it says that a vector may be appended to a linearly independent list without spoiling independence exactly when it is genuinely new, i.e., not already reachable from the vectors present.
+\end{ainote}
 
 \exercise{16}
 \begin{xrcs}
@@ -147,69 +153,65 @@
     Define the evaluation functional $\varphi : \polyn_m(\myF) \to \myF$ by $\varphi(p) := p(2)$ for all $p \in \polyn_m(\myF)$.
     The polynomials that vanish at $z=2$ lie in the subspace $\mynull(\varphi)$ of $\polyn_m(\myF)$.
     Any polynomial $p \in \mynull(\varphi)$ satisfies $p(2) = 0$, so $p(z) = (z-2) q(z)$ for some $q \in \polyn_{m-1}(\myF)$.
+    Conversely, every $q \in \polyn_{m-1}(\myF)$ produces a polynomial $(z-2)q(z)$ of degree at most $m$ vanishing at $2$, so the map
+    \begin{equation}
+      \Phi : \polyn_{m-1}(\myF) \to \mynull(\varphi), \qquad \Phi(q) := (z-2)\,q(z)
+    \end{equation}
+    is onto. It is also injective, since $(z-2)q(z)$ is the zero polynomial only for $q = 0$. So $\Phi$ is an isomorphism, and the two spaces have the same dimension.
     Since $\dim \polyn_{m-1}(\myF) = m$, we have $\dim \mynull(\varphi) = m$.
     The list $p_0, p_1, \ddd, p_m$ consists of $m+1$ vectors in the $m$-dimensional subspace $\mynull(\varphi)$.
     By Theorem \ref{thm: length of linearly independent list at most length of spanning list}, no linearly independent list in $\mynull(\varphi)$ can have length greater than $\dim \mynull(\varphi) = m$.
     Therefore, the list $p_0, p_1, \ddd, p_m$ of length $m+1$ is linearly dependent (not linearly independent).
   \end{xprf}
-\end{xrcs}
 
-% ==============================================================================
-% ORIGINAL ATTEMPT (Commented out): Exercise 19
-% ------------------------------------------------------------------------------
-% AI FEEDBACK:
-% 1. Logical Flaw: The attempt defines $p_0(z) \equiv a_{0,0}$ as a constant polynomial,
-%    which is not given by the problem. The polynomials $p_0, \dots, p_m$ can each be of
-%    any degree $\le m$ with $p_k(2) = 0$.
-% 2. Point Evaluation vs. Zero Function: In line 180, substituting $p_0(2) = 0$ into
-%    the linear independence equation $b_0 p_0 + \dots = 0$ confuses evaluating a
-%    polynomial at a single point $z=2$ with $p_0$ being the zero polynomial.
-% 3. Correct Strategy: The active proof above uses the null space of the evaluation
-%    functional $\varphi(p) = p(2)$, which has dimension $m$. Since the list has
-%    length $m+1$ in an $m$-dimensional subspace, it must be linearly dependent.
-% ==============================================================================
-% \begin{xrcs}
-%   Suppose $p_0, p_1, \ddd, p_m$ are polynomials in $\polyn_m(\myF)$ such that
-%   $p_k(2) = 0 \quad \forall k \in \{0, \ddd, m\}$.
-%   Prove that $p_0, p_1, \ddd, p_m$ is not linearly independent in $\polyn_m(\myF)$.
-% \end{xrcs}
-% \begin{prf}
-%   Define the polynomials $p_0, p_1, \ddd, p_m$ for all $a$'s as elements of $\myF$:
-%   \[
-%   \begin{aligned}
-%     p_0(z) &:\equiv a_{0,0}  \\
-%     p_1(z) &:\equiv a_{1,0} + a_{1,1} z  \\
-%     p_2(z) &:\equiv a_{2,0} + a_{2,1} z + a_{2,2} z^2  \\
-%     p_3(z) &:\equiv a_{3,0} + a_{3,1} z + a_{3,2} z^2 + a_{3,3} z^3  \\
-%     \vdots & \quad \\
-%     p_m(z) &:\equiv a_{m,0} + a_{m,1} z + a_{m,2} z^2 + a_{m,3} z^3 + \cdots + a_{m,m} z^m
-%   \end{aligned}
-%   \]
-%
-%   By assumption, $p_k(2) = 0$ for $k = 0, \ddd, m$, which gives the following constraints:
-%   \[
-%   \begin{aligned}
-%     p_0(2) &= a_{0,0} = 0 \\
-%     p_1(2) &= a_{1,0} + a_{1,1} 2 = 0 \\
-%     p_2(2) &= a_{2,0} + a_{2,1} 2 + a_{2,2} 2^2  = 0  \\
-%     p_3(2) &= a_{3,0} + a_{3,1} 2 + a_{3,2} 2^2 + a_{3,3} 2^3  = 0  \\
-%     \vdots & \quad \\
-%     p_m(2) &= a_{m,0} + a_{m,1} 2 + a_{m,2} 2^2 + a_{m,3} 2^3 + \cdots + a_{m,m} 2^m  = 0
-%   \end{aligned}
-%   \]
-%
-%   From the definition of linear independence, we examine the equation:
-%   \[
-%     b_0 p_0 + b_1 p_1 + b_2 p_2 + \cdots + b_m p_m = 0 \iff b_0 0 + b_1 p_1 + b_2 p_2 + \cdots + b_m p_m = 0
-%   \]
-%
-%   Substituting $p_0(2) = 0$, this reduces to:
-%   \[
-%     b_0 \cdot 0 + b_1 p_1 + b_2 p_2 + \cdots + b_m p_m = 0.
-%   \]
-%
-%   Any choice of $b_0$ will solve this equation and give us a non-trivial solution.
-%   So the list of polynomials $p_0, p_1, \ddd, p_m$ is not linearly independent.
-% \end{prf}
+  \begin{failedattempt}
+    Define the polynomials $p_0, p_1, \ddd, p_m$ for all $a$'s as elements of $\myF$:
+    \[
+    \begin{aligned}
+      p_0(z) &:\equiv a_{0,0}  \\
+      p_1(z) &:\equiv a_{1,0} + a_{1,1} z  \\
+      p_2(z) &:\equiv a_{2,0} + a_{2,1} z + a_{2,2} z^2  \\
+      \vdots & \quad \\
+      p_m(z) &:\equiv a_{m,0} + a_{m,1} z + a_{m,2} z^2 + \cdots + a_{m,m} z^m
+    \end{aligned}
+    \]
+
+    By assumption, $p_k(2) = 0$ for $k = 0, \ddd, m$, which gives the following constraints:
+    \[
+    \begin{aligned}
+      p_0(2) &= a_{0,0} = 0 \\
+      p_1(2) &= a_{1,0} + a_{1,1} 2 = 0 \\
+      p_2(2) &= a_{2,0} + a_{2,1} 2 + a_{2,2} 2^2  = 0  \\
+      \vdots & \quad \\
+      p_m(2) &= a_{m,0} + a_{m,1} 2 + a_{m,2} 2^2 + \cdots + a_{m,m} 2^m  = 0
+    \end{aligned}
+    \]
+
+    From the definition of linear independence, we examine the equation:
+    \[
+      b_0 p_0 + b_1 p_1 + b_2 p_2 + \cdots + b_m p_m = 0.
+    \]
+
+    Substituting $p_0(2) = 0$, this reduces to:
+    \[
+      b_0 \cdot 0 + b_1 p_1 + b_2 p_2 + \cdots + b_m p_m = 0.
+    \]
+
+    Any choice of $b_0$ will solve this equation and give us a non-trivial solution.
+    So the list of polynomials $p_0, p_1, \ddd, p_m$ is not linearly independent.
+  \end{failedattempt}
+
+  \begin{ainote}[Where it breaks]
+    Two separate things go wrong.
+
+    \emph{The shapes of the $p_k$ are invented.} Writing $p_0(z) :\equiv a_{0,0}$ makes $p_0$ a constant, $p_1$ of degree at most $1$, and so on. The exercise says only that each $p_k$ lies in $\polyn_m(\myF)$, so \emph{every} $p_k$ may have degree up to $m$; there is no reason the index $k$ should cap the degree. (Indeed $p_0(2)=0$ together with $p_0$ constant would force $p_0 \equiv 0$, which trivialises the problem into a case that need not occur.)
+
+    \emph{A value at a point is confused with the zero polynomial.} The equation $b_0 p_0 + \cdots + b_m p_m = 0$ is an identity between \emph{functions}: it must hold for every $z$, not just at $z = 2$. Substituting $p_0(2) = 0$ replaces the polynomial $p_0$ by the number $0$ in an equation where $p_0$ appears as a vector. From $p_0(2)=0$ one may conclude nothing about $b_0 p_0$ as an element of $\polyn_m(\myF)$ unless $p_0$ is the zero polynomial, and it need not be.
+
+    The step \qt{any choice of $b_0$ will solve this equation} is where both errors surface at once: it is only true of the evaluated equation at $z = 2$, which is not the equation linear independence is about.
+
+    The repair is to stop working coefficient by coefficient and count dimensions instead, as the proof above does: all $m+1$ polynomials are trapped inside the $m$-dimensional space $\mynull(\varphi)$, and $m+1$ vectors never fit independently into $m$ dimensions.
+  \end{ainote}
+\end{xrcs}
 
 \clearpage
