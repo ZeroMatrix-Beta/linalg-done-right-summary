@@ -1,31 +1,5 @@
 \section*{Exercises about Vector Space of Linear Maps}
 
-% ==============================================================================
-% ORIGINAL ATTEMPT (Commented out): Exercise 7
-% ------------------------------------------------------------------------------
-% AI FEEDBACK:
-% 1. Mathematical Validity: Correct and complete.
-% 2. Comparison with Active Solution: The active proof below is slightly more direct
-%    by fixing a single basis vector $v_1 \in V \setminus \{0\}$ and observing that
-%    $Tv_1 \in V = \myspan(v_1) \implies Tv_1 = \lambda v_1$.
-% ==============================================================================
-% \begin{xrcs}
-%   Show that every linear map from a one-dimensional vector space to itself is a multiplication by some scalar.
-%   More precisely, prove that if $\mydim V = 1$ and $T \in \linmap (V)$, then there exists $\lambda \in \myF$
-%   such that $Tv = \lambda v$ for all $v \in V$.
-%   \begin{xprf}
-%     If $T$ is the zero operator, then the statement holds trivially for $\lambda = 0$.
-%     Therefore, assume $T \neq 0$. If $\mydim V = 1$, every $v \in V$ can be written as $a_1 v_1$,
-%     where $a_1 \in \myF$ and $v_1 \in V$. In this case, $v_1$ denotes a basis vector of $V$.
-%     Applying $T$, we get $Tv = T(a_1 v_1) = a_1 T v_1$. If we define $w_1 := T v_1$, this makes
-%     $w_1 \in V = \myspan(v_1)$, so $w_1 = \lambda v_1$ for some $\lambda \in \myF$. Thus:
-%     \begin{equation}
-%       Tv = T(a_1 v_1) = a_1 T v_1 = a_1 w_1 = a_1 \lambda v_1 = \lambda a_1 v_1 = \lambda v.
-%     \end{equation}
-%     This proves the claim.
-%   \end{xprf}
-% \end{xrcs}
-
 \exercise{7}
 \begin{xrcs}
   Show that every linear map from a one-dimensional vector space to itself is a multiplication by some scalar. More precisely, prove that if $\mydim V = 1$ and $T \in \linmap (V)$, then there exists $\lambda \in \myF$ such that $Tv = \lambda v$ for all $v \in V$.
@@ -46,34 +20,6 @@
 \end{xrcs}
 
 \setcounter{xrcscount}{11}
-% ==============================================================================
-% ORIGINAL ATTEMPT (Commented out): Exercise 12
-% ------------------------------------------------------------------------------
-% AI FEEDBACK:
-% 1. Mathematical Validity: Sound and complete proof by contradiction.
-% 2. Structure: Shows $u+v \notin U$ via subspace closure, which produces $T(u+v) = 0 \neq Su = Tu+Tv$.
-% ==============================================================================
-% \begin{xrcs}
-%   Suppose $U$ is a subspace of $V$ with $U \neq V$. Let $S \in \linmap(U, W)$ and $S \neq 0$, which means that $Su \neq 0$ for some $u \in U$. Define $T: V \to W$ by
-%   \begin{equation}
-%     Tv :\equiv
-%     \begin{cases}
-%       Sv & \mytext{if} v \in U, \\
-%       0  & \mytext{if} v \in V \mytext{and} v \notin U \quad (v \in V \backslash U)
-%     \end{cases}
-%   \end{equation}
-%   Prove that $T$ is not a linear map on $V$.
-% \end{xrcs}
-% \begin{prf}
-%   Let $u \in U$ and $v \in V$ with $v \notin U$ ($v \in V \backslash U$). Consider the sum $u + v$.
-%   We claim that $u+v \notin U$, because if $u+v \in U$ then by closure of $U$, we would have
-%   $(u+v)-u = v \in U$, which contradicts $v \notin U$. Therefore, it holds that
-%   \begin{equation}
-%     T(\underbrace{u+v}_{\notin \; U}) = 0 \neq Su + 0 = Tu + Tv.
-%   \end{equation}
-%   The inequality above demonstrates that $T$ is not a linear map, because it fails to satisfy additivity.
-% \end{prf}
-
 \exercise{12}
 \begin{xrcs}
   Suppose $U$ is a subspace of $V$ with $U \neq V$. Let $S \in \linmap(U, W)$ and $S \neq 0$, which means that $Su \neq 0$ for some $u \in U$. Define $T: V \to W$ by
@@ -88,20 +34,28 @@
   Prove that $T$ is not a linear map on $V$.
 
   \begin{xprf}
-    Let $u \in U$ and $v \in V$ with $v \notin U$ (i.e. $v \in V \backslash U$). Consider the sum $u + v$. We claim that $u+v \notin U$, because if $u+v \in U$ then by closure of $U$, we would have $(u+v)-u = v \in U$, which contradicts $v \notin U$. Therefore, it holds that
+    Both of the vectors we need are available. Since $S \neq 0$, we may \emph{choose} $u \in U$ with $Su \neq 0$, and since $U \neq V$ we may choose $v \in V$ with $v \notin U$ (i.e. $v \in V \backslash U$). Fix these two for the rest of the proof.
+
+    Consider the sum $u + v$. We claim that $u+v \notin U$, because if $u+v \in U$ then by closure of $U$, we would have $(u+v)-u = v \in U$, which contradicts $v \notin U$. Therefore, it holds that
     \begin{equation}
       T(\underbrace{u+v}_{\notin \; U}) = 0.
     \end{equation}
 
-    Whereas
+    Whereas, since $u \in U$ and $v \notin U$,
     \begin{equation}
-      Tu + Tv = Su + 0.
+      Tu + Tv = Su + 0 = Su.
     \end{equation}
 
-    We know that $Su \neq 0$ for some $u \in U$. This demonstrates that $T$ is not a linear map because it fails to satisfy additivity. The failure of $T$ to be a linear map arises because $T$
+    By the choice of $u$ we have $Su \neq 0$, so $T(u+v) = 0 \neq Su = Tu + Tv$. This demonstrates that $T$ is not a linear map because it fails to satisfy additivity. The failure of $T$ to be a linear map arises because $T$
      is defined differently on $U$ and $V \backslash U$, breaking the additivity required for linearity.
   \end{xprf}
 \end{xrcs}
+
+\begin{ainote}[Choosing $u$ is not optional]
+  It matters that $u$ is \emph{chosen} with $Su \neq 0$ rather than taken arbitrarily. For an arbitrary $u \in U$ the computation still yields $T(u+v) = 0$ and $Tu + Tv = Su$, but if that particular $u$ happens to satisfy $Su = 0$ the two sides agree and nothing is contradicted. Additivity fails as soon as it fails for \emph{one} pair of vectors, so a single well-chosen witness is exactly what the proof needs --- and the hypothesis $S \neq 0$ is what guarantees one exists.
+
+  The same remark explains why both hypotheses are needed. Drop $S \neq 0$ and $T$ becomes the zero map, which is linear. Drop $U \neq V$ and there is no $v$ outside $U$, so $T = S$, which is linear as well. Neither hypothesis is decoration.
+\end{ainote}
 
 \exercise{13}
 \begin{xrcs}
