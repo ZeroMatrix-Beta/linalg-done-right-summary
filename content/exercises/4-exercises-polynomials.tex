@@ -6,19 +6,39 @@
   \begin{equation}
     p(z_j) = w_j \quad \text{for } j = 1, \ddd, m+1.
   \end{equation}
-% \begin{xprf}
-%   Define the linear evaluation map $T: \polyn_m(\myF) \to \myF^{m+1}$ by
-%   \[
-%     T(p) := (p(z_1), p(z_2), \dots, p(z_{m+1})).
-%   \]
-%   If $p \in \mynull T$, then $p(z_j) = 0$ for each $j \in \{1, \dots, m+1\}$.
-%   Thus $p$ has at least $m+1$ distinct roots in $\myF$.
-%   Since $\deg p \le m$, the only polynomial with more roots than its degree is the zero polynomial, so $p = 0$.
-%   Thus $\mynull T = \{0\}$, meaning $T$ is injective.
-%   Since $\dim \polyn_m(\myF) = m+1 = \dim \myF^{m+1}$, Theorem \ref{thm: injectivity is equivalent to surjectivity} implies that $T$ is an isomorphism (bijective).
-%   Therefore, for every $(w_1, \dots, w_{m+1}) \in \myF^{m+1}$, there exists a unique $p \in \polyn_m(\myF)$ such that $T(p) = (w_1, \dots, w_{m+1})$, which proves $p(z_j) = w_j$ for each $j$.
-% \end{xprf}
+  \begin{xprf}
+    Define the linear evaluation map $T: \polyn_m(\myF) \to \myF^{m+1}$ by
+    \[
+      T(p) := (p(z_1), p(z_2), \dots, p(z_{m+1})).
+    \]
+    If $p \in \mynull T$, then $p(z_j) = 0$ for each $j \in \{1, \dots, m+1\}$.
+    Thus $p$ has at least $m+1$ distinct roots in $\myF$.
+    Since $\deg p \le m$, the only polynomial with more roots than its degree is the zero polynomial, so $p = 0$.
+    Thus $\mynull T = \{0\}$, meaning $T$ is injective.
+    Since $\dim \polyn_m(\myF) = m+1 = \dim \myF^{m+1}$, Theorem \ref{thm: injectivity is equivalent to surjectivity} implies that $T$ is an isomorphism (bijective).
+    Therefore, for every $(w_1, \dots, w_{m+1}) \in \myF^{m+1}$, there exists a unique $p \in \polyn_m(\myF)$ such that $T(p) = (w_1, \dots, w_{m+1})$, which proves $p(z_j) = w_j$ for each $j$.
+  \end{xprf}
 \end{xrcs}
+
+\begin{ainote}[The polynomial the name promises]
+  The proof above is a pure existence-and-uniqueness argument: it never writes $p$ down. Since the exercise is called \emph{Lagrange interpolation}, here is the formula that gives the name its meaning. Put
+  \begin{equation}
+    \ell_j(z) := \prod_{\substack{k=1 \\ k \neq j}}^{m+1} \frac{z - z_k}{z_j - z_k} \quad \forall j \in \{1, \ddd, m+1\},
+  \end{equation}
+  which is legitimate because the $z_k$ are \emph{distinct}, so no denominator vanishes. Each $\ell_j$ has degree $m$, and by construction
+  \begin{equation}
+    \ell_j(z_i) = \begin{cases} 1 & i = j, \\ 0 & i \neq j, \end{cases}
+  \end{equation}
+  since for $i \neq j$ the factor with $k = i$ is zero, while at $z = z_j$ every factor is $1$. Therefore
+  \begin{equation}
+    p(z) = w_1 \ell_1(z) + \cdots + w_{m+1} \ell_{m+1}(z)
+  \end{equation}
+  satisfies $p(z_j) = w_j$ for every $j$, and $\deg p \leq m$.
+
+  Read structurally, $\ell_1, \ddd, \ell_{m+1}$ is the basis of $\polyn_m(\myF)$ that $T$ carries to the standard basis of $\myF^{m+1}$, so writing this formula down \emph{is} the construction of $T^{-1}$. The abstract proof and the explicit one are the same fact seen from two sides: the abstract one is shorter, the explicit one is what you compute with.
+
+  Note where distinctness is used in each. Explicitly, it keeps the denominators nonzero; abstractly, it is what makes $p$ have $m+1$ \emph{distinct} roots and hence forces $p = 0$. Drop it and the statement is false --- $z_1 = z_2$ with $w_1 \neq w_2$ has no solution at all.
+\end{ainote}
 
 \exercise{4}
 \begin{xrcs}
@@ -79,30 +99,35 @@
     Thus, $\lambda - \lambda_k = 0$ for some $k \in \{1, \ddd, m\}$, meaning $\lambda = \lambda_k$.
     Therefore, $p$ has no zeros other than $\lambda_1, \ddd, \lambda_m$.
   \end{xprf}
+
+  \begin{failedattempt}
+    Define $p \in \polyn_n (\myF)$ by
+    \begin{equation}
+      \begin{aligned}
+        p (z)
+          &= (z-\lambda_1) (z-\lambda_2) \cdots (z-\lambda_{m-1}) \underbrace{(z-\lambda_m)(z-\lambda_m)\cdot(z-\lambda_m)}_{n-m+1 \text{ times}} \\
+          &= \left(\sum_{k = 1}^{m-1} (z-\lambda_k) \right) (z-\lambda_m)^{n-m+1} \qquad \forall z \in \myF.
+      \end{aligned}
+    \end{equation}
+
+    If $p$ would have another root than $\lambda_1, \ddd, \lambda_m \in \myF$, say $\lambda_{\text{fresh}}$, we could write $p$ as
+    \begin{equation}
+      p(z) = (z- \lambda_{\text{fresh}}) q(z) \quad \forall z \in \myF,
+    \end{equation}
+    where $q \in \polyn_{n-1} (\myF)$ would have one $(z-\lambda_j)$-term less than $p$. But this is impossible and contradicts the already existing structure of $p$. Hence, $p$ has no other zeros.
+  \end{failedattempt}
+
+  \begin{ainote}[Where it breaks]
+    \emph{The notation says the wrong thing.} The second line writes $\sum_{k=1}^{m-1}(z-\lambda_k)$ where the first line clearly means a \emph{product}. That is not a harmless slip: the sum $\sum_{k=1}^{m-1}(z-\lambda_k)$ is a polynomial of degree $1$, not $m-1$, so the displayed \qt{equality} between the two lines is false and the degree count $n$ collapses. Read literally, the second line defines a polynomial of degree $1 + (n-m+1) = n-m+2$, and its zeros are $\lambda_m$ together with the single root of that linear factor, which is generally none of the $\lambda_k$. Correct symbol: $\prod$.
+
+    \emph{The uniqueness argument is only a gesture.} \qt{This is impossible and contradicts the already existing structure of $p$} does not identify what is contradicted. It is true that $p$ factors as $(z-\lambda_{\text{fresh}})q(z)$ when $\lambda_{\text{fresh}}$ is a root, but nothing so far forbids that: one still has to say \emph{why} a new linear factor cannot appear. The honest reason is that $\myF$ is a field and therefore has no zero divisors, so a product of the specific factors $(\lambda - \lambda_k)$ vanishes only when one of \emph{those} factors vanishes --- which is exactly the argument the corrected proof above gives, in one line and with no contradiction needed.
+
+    A direct argument is worth preferring here for a second reason: it avoids having to know that factorisations into linear factors are unique, which is a genuine theorem and heavier machinery than the problem requires.
+  \end{ainote}
 \end{xrcs}
 
-% ==============================================================================
-% ORIGINAL ATTEMPT (Commented out): Exercise 6 Draft
-% ------------------------------------------------------------------------------
-% AI FEEDBACK:
-% 1. Product Notation: Line 41 of the draft wrote $\sum_{k=1}^{m-1} (z-\lambda_k)$
-%    instead of the product $\prod_{k=1}^{m-1} (z-\lambda_k)$.
-% 2. Statement Consistency: The problem hypothesis requires $m \le n$ (and $\deg p = n$),
-%    whereas the draft had $m \neq n$ in the premise.
-% 3. Environment Scoping: The second part of the argument was placed outside \end{xprf}.
-% ==============================================================================
-% \begin{xprf}
-%   Define $p \in \polyn_n (\myF)$ by
-%   \begin{equation}
-%     \begin{aligned}
-%       p (z)
-%         &= (z-\lambda_1) (z-\lambda_2) \cdots (z-\lambda_{m-1}) \underbrace{(z-\lambda_m)(z-\lambda_m)\cdot(z-\lambda_m)}_{n-m+1 \text{ times}} \\
-%         &= \left(\sum_{k = 1}^{m-1} (z-\lambda_k) \right) (z-\lambda_m)^{n-m+1} \qquad \forall z \in \myF.
-%     \end{aligned}
-%   \end{equation}
-% \end{xprf}
-% If $p$ would have another root than $\lambda_1, \ddd, \lambda_m \in \myF$, say $\lambda_{\text{fresh}}$, we could write $p$ as
-% \begin{equation}
-%   p(z) = (z- \lambda_{\text{fresh}}) q(z) \quad \forall z \in \myF,
-% \end{equation}
-% where $q \in \polyn_{n-1} (\myF)$ would have one $(z-\lambda_j)$-term less than $p$. But this is impossible and contradicts the already existing structure of $p$. Hence, $p$ has no other zeros.
+\begin{ainote}[Two things the construction quietly gets right]
+  The $\lambda_k$ are \emph{not} assumed distinct. If some coincide, $p$ simply has a higher multiplicity there, every $p(\lambda_k) = 0$ still holds, and the set of zeros is still contained in $\{\lambda_1, \ddd, \lambda_m\}$. Nothing in the argument uses distinctness.
+
+  The edge case $m = 1$ also works: the product $\prod_{k=1}^{0}$ is empty, hence equal to $1$ by convention, and $p(z) = (z-\lambda_1)^n$ has degree $n$ with $\lambda_1$ as its only zero. The hypothesis $m \leq n$ is what keeps the exponent $n-m+1$ at least $1$, so $\lambda_m$ really is a zero rather than an inverted factor.
+\end{ainote}
