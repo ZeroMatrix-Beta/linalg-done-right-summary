@@ -53,15 +53,22 @@
     \end{itemize}
 
     \prooffont{The minimal polynomial of $T$:}
-    Let $v = (1, 1, \dots, 1)$. Since $\myrange T = \myspan{v}$ and $Tv = nv$, we have
+    Let $v = (1, 1, \dots, 1)$. By the definition of $T$ we have $Tx = S v$ for every $x \in \myF^n$, where $S = x_1 + \cdots + x_n$ as above; in particular $\myrange T = \myspan{v}$, and $Tv = nv$ since every coordinate of $v$ sums to $n$. Therefore, for every $x \in \myF^n$,
     \begin{equation}
-      T(T - nI)x = T(Tx - nx) = T(Sx_0 - nx) = 0 \quad \forall x \in \myF^n.
+      \begin{aligned}
+        T(T - nI)x &= T(Tx - nx) \\
+                   &= T(Sv) - n\,Tx
+                   &&\text{linearity of } T \\
+                   &= S\,Tv - n S v
+                   &&\text{using } Tx = Sv \text{ twice} \\
+                   &= S (nv) - n S v = 0.
+      \end{aligned}
     \end{equation}
-    Hence $T(T - nI) = 0$. Since $T \neq 0$ and $T \neq nI$ (for $n > 1$), the polynomial
+    Hence $T(T - nI) = 0$. Since $T \neq 0$ and $T \neq nI$ (for $n > 1$), neither $z$ nor $z-n$ annihilates $T$ on its own, so no polynomial of degree $1$ does; the monic polynomial of smallest degree that annihilates $T$ is therefore
     \begin{equation}
       p(z) = z(z - n)
     \end{equation}
-    is the minimal polynomial of $T$. (If $n = 1$, $T = I$, so the minimal polynomial is $z - 1$).
+    and this is the minimal polynomial of $T$. (If $n = 1$, $T = I$, so the minimal polynomial is $z - 1$).
   \end{xsol}
 \end{xrcs}
 

@@ -11,7 +11,12 @@
     v, Tv, T^2v, \dots, T^nv
   \end{equation}
 
-  of length $n+1$ cannot be linearly independent. Hence, some non-trivial linear combination of these vectors is zero, so there exists a non-constant polynomial $p \in \polyn(\compl)$ of minimal degree such that
+  of length $n+1$ cannot be linearly independent, since $\dim V = n$. Hence, some non-trivial linear combination of these vectors is zero: there are $a_0, \ddd, a_n \in \compl$, not all zero, with
+  \begin{equation}
+    a_0 v + a_1 Tv + \cdots + a_n T^n v = 0.
+  \end{equation}
+
+  At least one $a_j$ with $j \geq 1$ must be nonzero. Otherwise only $a_0$ survives, and $a_0 v = 0$ with $v \neq 0$ forces $a_0 = 0$ as well, contradicting that the $a$'s are not all zero. So the polynomial $a_0 + a_1 z + \cdots + a_n z^n$ is \emph{non-constant} and annihilates $v$. Among all non-constant polynomials with that property, choose one of minimal degree and call it $p$, so that
   \begin{equation}
     p(T)v = 0.
   \end{equation}
@@ -137,9 +142,9 @@ and so \(\lambda\) is an eigenvalue of \(T\) with eigenvector \(q(T)v\).
 
   for some scalars $c_0, c_1 \in  \myF$. If we define $q(z) := c_0+z$ in the first case or $q(z) := c_0+c_1z+z^2$ in the second case accordingly, then $q(T)v=0$.
 
-  In the first case, where $(-1)c_0v=Tv$ and $q(z)=c_0+z$, the vector $v$ by itself is linearly independent, and thus $\dim \mynull q(T) \geq 1$. Therefore,
+  In the first case, where $(-1)c_0v=Tv$ and $q(z)=c_0+z$, the vector $v$ by itself is linearly independent, and thus $\dim \mynull q(T) \geq 1$. Therefore, by the rank-nullity theorem \ref{rank-nullity-theorem},
   \begin{equation}
-    \dim \myrange q(T) \leq \dim V - \dim \mynull q(T) \leq 1.
+    \dim \myrange q(T) = \dim V - \dim \mynull q(T) \leq 2 - 1 = 1.
   \end{equation}
 
   Since $\myrange q(T)$ is at most one-dimensional and is invariant under $T$ (by \ref{thm: null space and range of p(T) are invariant under T}), we can restrict $T$ to this subspace. In this restricted setting $\myrange q(T)$, we know how to construct the desired polynomial; denote it by $s$, defined such that
@@ -219,7 +224,11 @@ and so \(\lambda\) is an eigenvalue of \(T\) with eigenvector \(q(T)v\).
     \dim \myrange q(T)  = \dim V - \dim \mynull q(T) \leq \dim V - m.
   \end{equation}
 
-  Because $\myrange q(T)$ is invariant under $T$ by \ref{thm: null space and range of p(T) are invariant under T}, we can apply our induction hypothesis to the operator $\left.T\right|_{\myrange q(T)}$.
+  Because $\myrange q(T)$ is invariant under $T$ by \ref{thm: null space and range of p(T) are invariant under T}, the restriction $\left.T\right|_{\myrange q(T)}$ is an operator on that subspace. The induction hypothesis may be applied to it, because $m \geq 1$ gives
+  \begin{equation}
+    \dim \myrange q(T) \leq \dim V - m \leq \dim V - 1 < \dim V,
+  \end{equation}
+  so $\myrange q(T)$ really is a space of strictly smaller dimension. (This is the step where the minimality of $m$ pays off: without $m \geq 1$ the induction would not descend.)
   Hence, there exists a monic polynomial $s \in \mathcal{P} (\myF)$ such that $\deg s \leq \dim V - m$ and
   \begin{equation}
     s\left(\left.T\right|_{\myrange q(T)}\right)=0.
@@ -424,7 +433,7 @@ are the coefficients of the minimal polynomial of $T$.
 
     Because $p$ is the minimal polynomial of $T$, we have $p(T)u=p(\lambda)u=0$. Since $u$ is nonzero, we have $p(\lambda) = 0$. This makes $\lambda$ a zero of $p$.
 
-    \item Use (a) and the second version of the fundamental theorem of algebra (\ref{fundamental-theorem-of-algebra-second-version}).
+    \item Use (a) and the second version of the fundamental theorem of algebra (\ref{fundamental-theorem-of-algebra-second-version}), which factors $p$ over $\compl$ as $c(z-\lambda_1)\cdots(z-\lambda_m)$. Here $c = 1$ because $p$ is monic, and by part (a) the numbers $\lambda_1, \ddd, \lambda_m$ are precisely the eigenvalues of $T$.
   \end{enumerate}
   \vspace*{-\baselineskip}
 \end{prf}

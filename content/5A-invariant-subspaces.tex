@@ -170,7 +170,7 @@ $T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ hold for $m,n \in \mathbb{Z}$ if $T$ is
     p(T)u = 0.
   \end{equation}
 
-  Since $p(T)$ commutes with $T$ (by associativity and distributivity of polynomial evaluation),
+  Since $p(T)$ commutes with $T$ --- which is \ref{multiplicative-properties} applied to the polynomials $p(z)$ and $z$, whose product is the same in either order ---
   \begin{equation}
     \begin{aligned}
       (p(T))(Tu) &= (p(T)T)(u) \\
@@ -190,3 +190,11 @@ $T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ hold for $m,n \in \mathbb{Z}$ if $T$ is
   \end{equation}
   so $Tu \in \myrange p(T)$.
 \end{prf}
+
+\begin{ainote}[Commuting is the whole content of this theorem]
+  Strip away the notation and both steps use one fact: $T$ commutes with $p(T)$. That is what lets $T$ be moved across $p(T)$ in Step 1 and back again in Step 2.
+
+  So the theorem is really an instance of something more general and worth remembering: \emph{if $S$ and $T$ commute, then $\mynull S$ and $\myrange S$ are invariant under $T$}. The proof is the same three lines, with $p(T)$ replaced by $S$. Polynomials in $T$ are simply the most common source of operators that commute with $T$.
+
+  This is used constantly later on. Every argument that restricts $T$ to $\mynull (T-\lambda I)^k$ or to $\myrange (T - \lambda I)^k$ --- the generalised eigenspaces --- is quoting this result, since those spaces are exactly the null spaces and ranges of polynomials in $T$.
+\end{ainote}
