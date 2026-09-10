@@ -60,10 +60,12 @@
 
     What is interesting is how nearly right it is. Since every line really is an $\iff$ once injectivity is cited, the chain can be read \emph{bottom-up} instead:
     \begin{equation}
-      a_1 T v_1 + \cdots + a_n T v_n = 0
-      \iff T(a_1 v_1 + \cdots + a_n v_n) = 0
-      \iffwtxt{$T$ injective} a_1 v_1 + \cdots + a_n v_n = 0
-      \iffwtxt{$v_k$ \lid} a_1 = \cdots = a_n = 0.
+      \begin{aligned}
+        a_1 T v_1 + \cdots + a_n T v_n = 0
+        &\iff T(a_1 v_1 + \cdots + a_n v_n) = 0 \\
+        &\iffwtxt{$T$ injective} a_1 v_1 + \cdots + a_n v_n = 0 \\
+        &\iffwtxt{$v_k$ \lid} a_1 = \cdots = a_n = 0.
+      \end{aligned}
     \end{equation}
     Read in that direction it is a complete and correct proof. The defect is one of logical bookkeeping, not of mathematical content: an $\iff$ chain proves what you want only if you enter it from the right end and justify each step.
   \end{ainote}
@@ -394,36 +396,15 @@
 
     \Leftarrowdirection Let $ST$ be the identity operator on $V$. That means: $\forall v \in V: S(T)(v) = v$. Suppose $u \in V$ satisfies $T(u) = 0$. Then we have $S(T(u)) = S(0) = 0$. Since $ST = I$, it follows that $u = 0$. We conclude that $\mynull T = \{0\}$, hence $T$ is injective.
   \end{xprf}
-% ==============================================================================
-% ORIGINAL ATTEMPT (Commented out): Exercise 23 Alternative Draft
-% ------------------------------------------------------------------------------
-% AI FEEDBACK:
-% 1. Mathematical Validity: Sound and complete.
-% 2. Structure: Extends $Tv_1, \dots, Tv_m$ to a basis of $W$ and defines the left
-%    inverse $S$ by mapping $Tv_i \mapsto v_i$ and the extension vectors to $0$.
-% ==============================================================================
-%  \begin{prf}
-%    \Rightarrowdirection Let $T \in \linmap (V,W)$ be injective. Let $v_1, \ddd, v_m$ be a basis of $V$.
-%    $T v_1, \ddd, T v_m$ is linearly independent in $W$ and forms a basis of $\myrange T$.
-%
-%    Let $n \equiv \dim W$. Extend this basis to a basis of $W$, say $T v_1, \ddd, T v_m, w_{m+1}, \ddd, w_n$.
-%    Every $w \in W$ can be uniquely expressed as
-%    \begin{equation}
-%      w = a_1 T v_1 + \cdots + a_m T v_m + a_{m+1} w_{m+1} + \cdots + a_{n} w_n,
-%    \end{equation}
-%    for some uniquely determined scalars $a_1, \ddd, a_n \in \myF$.
-%
-%    Define $S \in \linmap(W,V)$ by setting
-%    \begin{equation}
-%      \begin{aligned}
-%        S(w) &= S(a_1 T v_1 + \cdots + a_m T v_m + a_{m+1} w_{m+1} + \cdots + a_{n} w_n)  \\
-%             &:\equiv a_1 v_1 + \cdots + a_m v_m.
-%      \end{aligned}
-%    \end{equation}
-%
-%    Now, for any $v \in V$, we have $ST(v) = v$. Thus, $ST$ is the identity operator on $V$.
-%  \end{prf}
 \end{xrcs}
+
+\begin{ainote}[What $S$ is, and what it is not]
+  The map $S$ built in the $\Rightarrow$ direction is a \emph{left} inverse: it satisfies $ST = I_V$, but in general $TS \neq I_W$. Indeed $TS$ is the projection of $W$ onto $\myrange T$ that kills the extension vectors $w_{m+1}, \ddd, w_n$, so $TS = I_W$ exactly when $T$ is also surjective.
+
+  $S$ is also far from unique: the extension vectors may be sent anywhere in $V$ at all, and $ST = I_V$ still holds, because the computation of $ST(v)$ never touches them. Sending them to $0$ is merely the tidiest choice.
+
+  Note finally that the hypothesis \qt{$W$ finite-dimensional} is what allows the basis of $\myrange T$ to be extended to a basis of $W$ in the first place. The next exercise is the mirror image of this one, with $TS = I_W$ and the roles of injective and surjective exchanged.
+\end{ainote}
 
 \begin{xrcs}
   Suppose $W$ is finite-dimensional and $T \in \linmap (V,W)$. Prove that $T$ is surjective $\iff$ $\exists S \in \linmap (W,V)$ such that $TS$ is the identity operator on $W$.
@@ -434,18 +415,18 @@
       w_j = T(v_j).
     \end{equation}
 
-    Based on this list $v_1, \ddd, v_j$ which has no other special properties, we can define $S \in \linmap (W,V)$ for each $w \in W$ as follows:
+    Based on this list $v_1, \ddd, v_m$ which has no other special properties, we can define $S \in \linmap (W,V)$ for each $w \in W$ as follows:
     \begin{equation}
-      S(w) = S(a_1 w_1 + \cdots a_m w_m) := a_1 v_1 + \cdots + a_n v_n.
+      S(w) = S(a_1 w_1 + \cdots + a_m w_m) := a_1 v_1 + \cdots + a_m v_m.
     \end{equation}
 
     Now we have $\forall w \in W$:
     \begin{equation}
       \label{eq: strange way of calculating TS}
-      TS(w) = a_1 TS(w_1) + \cdots +a_n TS (w_n) = a_1 w_1 + \cdots + a_n w_n = w,
+      TS(w) = a_1 TS(w_1) + \cdots + a_m TS (w_m) = a_1 w_1 + \cdots + a_m w_m = w,
     \end{equation}
 
-    which makes $TS$ the identity operator on $W$. A different way of calculating $TS$ would be $TS(w) = T(a_1 v_1 + \cdots + a_n v_n) = a_1 T v_1 + \cdots + a_n T v_n = a_1 w_1 + \cdots + a_n w_n = w$. In equation \eqref{eq: strange way of calculating TS} we were using $S(w_j) = v_j$ for $1 \leq j \leq m$.
+    which makes $TS$ the identity operator on $W$. A different way of calculating $TS$ would be $TS(w) = T(a_1 v_1 + \cdots + a_m v_m) = a_1 T v_1 + \cdots + a_m T v_m = a_1 w_1 + \cdots + a_m w_m = w$. In equation \eqref{eq: strange way of calculating TS} we were using $S(w_j) = v_j$ for $1 \leq j \leq m$.
 
     \Leftarrowdirection Let $T \in \linmap (V,W)$ and $S \in \linmap(W,V)$ such that $TS$ is the identity operator on $W$. Let $w \in W$ and $v \in V$ such that $v=S(w)$. Now we apply $T$ on both sides and get $T(v) = T(S(w)) = w$. So for any $w \in W$ we found a preimage $v \in V$ such that $T(v) = w$, which makes $T$ surjective.
   \end{xprf}
@@ -488,7 +469,7 @@
       (U \cap \myrange T) \subseteq \myrange T|_X.
     \end{equation}
 
-    Conversely, let $u \in \myrange T|_X$. According to the definition of $X$, there exists a $w \in V$ such that $Tw \in U$. For this $w$ we have $u = T|_X (w)$. Since $T|_X$ is just $T$ on a restricted domain $X \subseteq V$, we have $u \in U$ and $u \in \myrange T$, hence $u \in (U \cap \myrange T)$. We conclude:
+    Conversely, let $u \in \myrange T|_X$. By definition of the range there exists a $w \in X$ with $u = T|_X (w) = Tw$, and by the definition of $X$ this $w$ satisfies $Tw \in U$. Since $T|_X$ is just $T$ on a restricted domain $X \subseteq V$, we have $u = Tw \in U$ and $u \in \myrange T$, hence $u \in (U \cap \myrange T)$. We conclude:
     \begin{equation}
       \myrange T|_X \subseteq (U \cap \myrange T).
     \end{equation}
@@ -612,44 +593,25 @@
       \end{aligned}
     \end{equation}
 
-    Equation \eqref{eq: null space of ST} and the equation \eqref{eq: dim myrange TS} above tell us, that $\myrange TS$ is at its maximum, if either $\dim \mynull S$ or $\dim \mynull T$ is $2$ and the other one is $3$. Hence $\dim \myrange TS = \min \{2,1\} = 2$.
+    Write $s := \dim \mynull S$ and $t := \dim \mynull T$, so that \eqref{eq: null space of ST} reads $s + t \geq 5$ and \eqref{eq: dim myrange TS} reads
+    \begin{equation}
+      \dim \myrange TS \leq \min \{5-s, \, 5-t\}.
+    \end{equation}
+
+    We are therefore asking how large $\min \{5-s,\, 5-t\}$ can be subject to $s+t \geq 5$, with $s,t$ integers in $\{0, \ddd, 5\}$. The bound is largest when $s$ and $t$ are as equal as possible, and since $s+t \geq 5$ cannot be met with $s = t = 2$, the best case is $\{s,t\} = \{2,3\}$, giving
+    \begin{equation}
+      \min \{5-2, \, 5-3\} = \min \{3,2\} = 2.
+    \end{equation}
+
+    Every other admissible pair gives a smaller value: pushing $s$ down forces $t$ up, and the minimum then tracks $5-t$ downwards. Hence $\dim \myrange TS \leq 2$ in all cases.
   \end{xprf}
 \end{xrcs}
 
-% ==============================================================================
-% ORIGINAL ATTEMPT (Commented out): Exercise 30 Draft (Preimage Subspace Dimension)
-% ------------------------------------------------------------------------------
-% AI FEEDBACK:
-% 1. Mathematical Validity: Completely sound and rigorous.
-% 2. Structure: Verifies that $X = \{v \in V \mid Tv \in U\}$ is a subspace, applies
-%    Rank-Nullity to $T|_X : X \to W$, and proves $\myrange(T|_X) = U \cap \myrange T$
-%    via two-way inclusion.
-% ==============================================================================
-% \begin{xrcs}
-%   Suppose $V$ is finite-dimensional, $U$ is a subspace of $V$, and $T \in \linmap (V,W)$.
-%   Prove that $X :\equiv \{v \in V \mid Tv \in U\}$ is a subspace of $V$ and
-%   \begin{equation}
-%     \dim \{v \in V \mid Tv \in U\} = \dim \mynull T + \dim (U \cap \myrange T).
-%   \end{equation}
-% \end{xrcs}
-% \begin{prf}
-%   Let $v_1, v_2 \in X$. Thus $v_1, v_2 \in V$ and $T(v_1 + v_2) = T v_1 + T v_2 \in U$,
-%   because $U$ is closed under addition. This implies $v_1 + v_2 \in X$.
-%   Similarly, $\lambda v_1 \in X$ for $\lambda \in \myF$.
-%   The additive identity $0 \in X$ because $T0 = 0 \in U$. Therefore, $X$ is a subspace of $V$.
-%
-%   Applying the Rank-Nullity Theorem to the restriction $T|_X : X \to W$:
-%   \begin{equation}
-%     \label{eq: dim X}
-%     \dim X = \dim \mynull T|_X + \dim \myrange T|_X = \dim \mynull T + \dim (U \cap \myrange T).
-%   \end{equation}
-%   Since $0 \in U$, $\mynull T|_X = \mynull T$.
-%
-%   Next, we establish $\myrange T|_X = U \cap \myrange T$:
-%   (1) If $u \in \myrange T|_X$, then $u = T(w)$ for some $w \in X$, so $u \in U$ and $u \in \myrange T$.
-%   (2) If $u \in U \cap \myrange T$, then $u = Tv$ with $Tv \in U \implies v \in X \implies u \in \myrange T|_X$.
-%   Thus $\myrange T|_X = U \cap \myrange T$, completing the proof.
-% \end{prf}
+\begin{ainote}[The bound is attained, so $2$ cannot be improved]
+  The exercise asks only for $\leq 2$, but it is worth knowing the bound is sharp --- and exercise 3B.22(b) already supplies the witness. There $S(x) = (0,0,0,x_4,x_5)$ and $T(x) = (x_1+x_4, x_2+x_5,0,0,0)$ satisfy $ST = 0$ and $\dim \myrange TS = 2$ exactly, with $\dim \mynull S = 3$ and $\dim \mynull T = 3$.
+
+  Note also where the hypothesis $ST = 0$ enters: it forces $\dim \mynull ST = \dim V = 5$, which is what turns the general inequality of 3B.22 into the usable constraint $s + t \geq 5$. Without it, $s$ and $t$ could both be $0$ and $\dim \myrange TS$ could be as large as $5$.
+\end{ainote}
 
 \exercise{25}
 \begin{xrcs}
@@ -668,17 +630,17 @@
 
    The equation above also made use of the fact that $\myrange S|_U = \myrange S$. This is because any vector $v \in V$ can be written as $v = r + u$, where $r \in \mynull S$ and $u \in U$. For this $v$ we have:
    \begin{equation}
-     S(v) = S(r) + S(u) = S(u) = S|_U(u) = S|_U(r) + S|_U(u)= S|_U(v).
+     S(v) = S(r) + S(u) = 0 + S(u) = S(u) = S|_U(u).
    \end{equation}
 
-   Thus, $S$ and $S|_U$ have the same range, $\myrange S|_U = \myrange S$.
+   So every value taken by $S$ is already taken by $S|_U$, giving $\myrange S \subseteq \myrange S|_U$; the reverse inclusion is immediate because $U \subseteq V$. Thus, $S$ and $S|_U$ have the same range, $\myrange S|_U = \myrange S$.
 
    Now if $u_1, \ddd, u_n$ is a basis of $U$, then $S u_1, \ddd, S u_n$ is a basis of $\myrange S \subseteq W$. Therefore, we can extend $S u_1, \ddd, S u_n$ to a basis
    \begin{equation}
      S u_1, \ddd, S u_n, w_{n+1}, \ddd, w_{m}
    \end{equation}
 
-   of $W$. Note that the extension might be empty and no $w$'s are added. If $n = m$ the basis of $W$ just consists of $S u_1, \ddd, S u_n$ and $\myrange S = W$. So we have $n \leq m$ for $n = \dim \myspan S$ and $m = \dim W$.
+   of $W$. Note that the extension might be empty and no $w$'s are added. If $n = m$ the basis of $W$ just consists of $S u_1, \ddd, S u_n$ and $\myrange S = W$. So we have $n \leq m$ for $n = \dim \myrange S$ and $m = \dim W$.
 
    Now we define $E: W \to W$ for $w \in W$, letting
    \begin{equation}
