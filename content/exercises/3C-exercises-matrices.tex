@@ -42,3 +42,24 @@
     Combining both inequalities yields $\operatorname{rank}(AC) \leq \min\{\operatorname{rank} A, \operatorname{rank} C\}$.
   \end{xprf}
 \end{xrcs}
+\exercise{6}
+\begin{xrcs}
+  Suppose $A \in \myF^{m,n}$. Prove that $\operatorname{rank} A = 1$ if and only if there exist nonzero $c \in \myF^{m,1}$ and $d \in \myF^{1,n}$ such that
+  \begin{equation}
+    A = c d.
+  \end{equation}
+
+% \begin{xprf}
+%   \Rightarrowdirection Suppose $\operatorname{rank} A = 1$. The column space of $A$ has dimension $1$.
+%   Choose a nonzero column $c \in \myF^{m,1}$ of $A$. Then $c$ is a basis of the column space of $A$.
+%   Thus every column $A_{\mathsmaller{\bullet}, k}$ of $A$ is a scalar multiple of $c$, so there exists $d_k \in \myF$ such that $A_{\mathsmaller{\bullet}, k} = d_k c = c d_k$ for each $k \in \{1, \dots, n\}$.
+%   Defining the row vector $d = (d_1, \dots, d_n) \in \myF^{1,n}$, we have $A = c d$.
+%   Since $A \neq 0$, $d$ must be nonzero.
+%
+%   \Leftarrowdirection Conversely, suppose $A = cd$ where $c = (c_1, \dots, c_m)^\top \in \myF^{m,1} \setminus \{0\}$ and $d = (d_1, \dots, d_n) \in \myF^{1,n} \setminus \{0\}$.
+%   Then the $k$-th column of $A$ is $A_{\mathsmaller{\bullet}, k} = d_k c \in \myspan\{c\}$.
+%   Therefore, the column space of $A$ is contained in $\myspan\{c\}$.
+%   Since $c \neq 0$ and $d \neq 0$, at least one column $d_k c$ is nonzero, so the column space equals $\myspan\{c\}$.
+%   Hence $\operatorname{rank} A = \dim \myspan\{c\} = 1$.
+% \end{xprf}
+\end{xrcs}
