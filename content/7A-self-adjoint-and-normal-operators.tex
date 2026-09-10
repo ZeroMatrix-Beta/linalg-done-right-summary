@@ -17,6 +17,23 @@ $\myF$ denotes $\real$ or $\compl$. $V$ and $W$ are nonzero finite-dimensional i
   \exists ! v \in V: \varphi(u) = \ip{u}{v} \quad \forall u \in V.
 \]
 
+The definition above speaks of \emph{the} adjoint, so before using it we should know that such a function exists and that there is only one. Riesz supplies both. Fix $w \in W$ and consider
+\[
+  \varphi_w : V \to \myF, \qquad \varphi_w(v) :\equiv \ip{Tv}{w}.
+\]
+
+This $\varphi_w$ is a linear functional on $V$, being the composition of the linear map $T$ with the linear map $x \mapsto \ip{x}{w}$ of \ref{thm: riesz representation theorem}. Hence there is a \emph{unique} vector in $V$, which we name $T^{*}w$, such that
+\[
+  \varphi_w(v) = \ip{v}{T^{*}w} \quad \forall v \in V,
+\]
+and that is precisely the defining equation $\ip{Tv}{w} = \ip{v}{T^{*}w}$. Doing this for each $w \in W$ defines $T^{*}$ on all of $W$, and the uniqueness half of Riesz means no other function could serve.
+
+\begin{ainote}[Two habits worth forming about $T^{*}$]
+  \emph{Uniqueness is the working tool.} Nearly every proof in this section ends by producing an identity of the form $\ip{v}{a} = \ip{v}{b}$ for all $v \in V$ and concluding $a = b$. That step is legitimate because $\ip{v}{a-b} = 0$ for all $v$, and taking $v = a-b$ gives $\norm{a-b}^2 = 0$. Whenever you see \qt{$\implies$} after such a chain below, this is what is happening.
+
+  \emph{The starred object lives on the other side.} If $T \in \lvw$, then $T^{*} \in \linmap(W,V)$: the arrow reverses. This is why $(ST)^{*} = T^{*}S^{*}$ in \ref{thm: properties of the adjoint}(d) comes out in the opposite order --- it is the only order for which the composition is even defined.
+\end{ainote}
+
 \begin{example}[adjoint linear map from $\real^3$ to $\real^2$]
   \phantom{.} \\
   Let $T: \real^3 \to \real^2, \; T(x_1,x_2,x_3):\equiv (x_2+3x_3,2x_1).$
@@ -518,27 +535,36 @@ Every self-adjoint operator is normal, because if $T^* = T$, then $T$ commutes w
     T \mytext{is normal} \;
     & \iff T^*T - TT^* = 0 \\
     & \iff \ip{(T^*T - TT^*)v}{v} = 0 \quad \forall v \in V \\
-    & \iff \ip{T^*Tv}{v}= \ip{TT^*v}{v} \\
+    & \iff \ip{T^*Tv}{v}= \ip{TT^*v}{v} \quad \forall v \in V \\
     & \iff \ip{Tv}{Tv} = \ip{T^*v}{T^*v} \quad \forall v \in V \\
     & \iff \norm{Tv}^2 = \norm{T^*v}^2 \quad \forall v \in V \\
     & \iff \norm{Tv} = \norm{T^*v} \quad \forall v \in V,
   }$
 
   \vspace*{0.3em}
-  where the second equivalence follows from \ref{thm: T self-adjoint and <Tv,v>=0 for all v <=> T=0}. The operator $T^*T - TT^*$ is self-adjoint for every operator $T\in \linmap(V)$. This is because, for all $v \in V$:
+  where the second equivalence follows from \ref{thm: T self-adjoint and <Tv,v>=0 for all v <=> T=0}. That theorem may only be applied to a \emph{self-adjoint} operator, so we owe a check: $T^*T - TT^*$ is self-adjoint for every operator $T\in \linmap(V)$. Using \ref{thm: properties of the adjoint}(a), (c) and (d),
   \[
   \begin{aligned}
-    \ip{(T^*T - TT^*)v}{v}
-    &= \ip{T^*Tv}{v} - \ip{TT^*v}{v} \\
-    &= \ip{v}{(T^*T)^*v} - \ip{v}{(TT^*)^*v} \\
-    &= \ip{v}{T^*(T^*)^*v} - \ip{v}{(T^*)^*T^*v} \\
-    &= \ip{v}{T^*Tv} - \ip{v}{TT^*v} \\
-    &= \ip{v}{(T^*T - TT^*)v}.
+    \left(T^*T - TT^*\right)^*
+    &= (T^*T)^* - (TT^*)^*
+    &&\text{by \ref{thm: properties of the adjoint}(a)} \\
+    &= T^*(T^*)^* - (T^*)^*T^*
+    &&\text{by \ref{thm: properties of the adjoint}(d), which reverses the order} \\
+    &= T^*T - TT^*
+    &&\text{by \ref{thm: properties of the adjoint}(c), since $(T^*)^* = T$.}
   \end{aligned}
   \]
 
-  One can also just calculate $(T^*T - TT^*)^*$ directly using \ref{thm: properties of the adjoint} and verify that $T^*T - TT^*=(T^*T - TT^*)^*$.
+  So $T^*T - TT^*$ equals its own adjoint, which is what \ref{thm: T self-adjoint and <Tv,v>=0 for all v <=> T=0} requires. Note in passing that the same two lines show $T^*T$ and $TT^*$ are each self-adjoint on their own.
 \end{prf}
+
+\begin{ainote}[Why the self-adjointness check cannot be skipped]
+  The second equivalence in the chain is the only substantial step, and it runs in the direction \qt{$\ip{Sv}{v} = 0$ for all $v$ $\implies S = 0$}. That implication is \emph{false} for a general operator on a real inner product space --- the rotation $T(x,y) = (-y,x)$ on $\real^2$ satisfies $\ip{Tv}{v} = 0$ for every $v$ without being $0$, as noted after \ref{thm: T self-adjoint and <Tv,v>=0 for all v <=> T=0}.
+
+  What rescues the argument is that $S = T^*T - TT^*$ is self-adjoint, which is exactly the extra hypothesis \ref{thm: T self-adjoint and <Tv,v>=0 for all v <=> T=0} carries. Over $\compl$ one could instead quote \ref{thm: Tv orthogonality to v} and skip the check, but the theorem as stated covers $\myF = \real$ too, so the check is doing real work.
+
+  It is worth noticing what the conclusion buys: normality, an algebraic condition on operators, is equivalent to the purely metric statement $\norm{Tv} = \norm{T^*v}$. Most of the results that follow --- $\mynull T = \mynull T^*$, eigenvectors of $T$ being eigenvectors of $T^*$ with conjugated eigenvalue --- are read off from this one reformulation.
+\end{ainote}
 
 \begin{thm}[range, null space, and eigenvectors of a normal operator]
   \label{thm: range, null space, and eigenvectors of a normal operator}
