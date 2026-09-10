@@ -218,3 +218,13 @@
   \prooffont{Uniqueness:} Suppose $u, \widetilde{u} \in V$ satisfy $\ip{v}{u} = \varphi(v) = \ip{v}{\widetilde{u}}$ for all $v \in V$.
   Then $\ip{v}{u - \widetilde{u}} = 0$ for all $v \in V$. Taking $v = u - \widetilde{u}$ gives $\norm{u - \widetilde{u}}^2 = 0 \implies u = \widetilde{u}$.
 \end{prf}
+
+\begin{ainote}[Riesz in three readings]
+  \emph{As a statement about $\dual{V}$.} Every functional is \qt{inner product with a fixed vector}, so $\varphi \mapsto u$ is a bijection $\dual{V} \to V$. It is not linear, though: from $\varphi(v) = \ip{v}{u}$ one gets $(\lambda\varphi)(v) = \lambda\ip{v}{u} = \ip{v}{\overline{\lambda} u}$, so $\lambda \varphi$ corresponds to $\overline{\lambda}u$. The correspondence is \emph{conjugate}-linear, for the same reason the second slot is.
+
+  \emph{As a formula.} The vector produced is $u = \sum_k \overline{\varphi(e_k)}\,e_k$, which looks basis-dependent but is not --- uniqueness forces the same $u$ whichever orthonormal basis is used. That is often the quickest way to see that some construction defined via a basis is in fact canonical: exhibit it as the Riesz vector of a basis-free functional.
+
+  \emph{As the source of adjoints.} This theorem is what makes $T^*$ exist in 7A. For fixed $w$, the map $v \mapsto \ip{Tv}{w}$ is a linear functional on $V$, so by Riesz there is a unique vector --- called $T^*w$ --- with $\ip{Tv}{w} = \ip{v}{T^*w}$. Every property of the adjoint traces back to the uniqueness half of the proof above.
+
+  Finite-dimensionality is essential: in infinite dimensions the theorem needs completeness (Hilbert spaces) and fails for general inner product spaces.
+\end{ainote}

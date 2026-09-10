@@ -61,6 +61,37 @@ For $z = (z_1, \ldots, z_n) \in \compl^n$, we define the norm of $z$ by
     \item $\ip{u}{\lambda v} = \overline{\lambda} \ip{u}{v}$.
   \end{enumerate}
 \end{thm}
+\begin{prf}
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item This is exactly additivity and homogeneity in the first slot, read together: the map preserves sums by the additivity axiom and scalar multiples by the homogeneity axiom.
+    \item By (a) the map $x \mapsto \ip{x}{v}$ is linear, and a linear map sends $0$ to $0$ by \ref{thm: linear maps take 0 to 0}.
+    \item Using conjugate symmetry and then (b),
+    \begin{equation}
+      \ip{v}{0} = \overline{\ip{0}{v}} = \overline{0} = 0.
+    \end{equation}
+    \item Conjugate symmetry turns the second slot into the first, where additivity is available:
+    \begin{equation}
+      \ip{u}{v+w} = \overline{\ip{v+w}{u}} = \overline{\ip{v}{u} + \ip{w}{u}} = \overline{\ip{v}{u}} + \overline{\ip{w}{u}} = \ip{u}{v} + \ip{u}{w}.
+    \end{equation}
+    \item The same manoeuvre, now with homogeneity:
+    \begin{equation}
+      \ip{u}{\lambda v} = \overline{\ip{\lambda v}{u}} = \overline{\lambda \ip{v}{u}} = \overline{\lambda} \; \overline{\ip{v}{u}} = \overline{\lambda} \ip{u}{v}.
+    \end{equation}
+  \end{enumerate}
+  \vspace{-1em}
+\end{prf}
+
+\begin{ainote}[The second slot is conjugate-linear, and that is not a blemish]
+  Parts (d) and (e) say that the inner product is additive in the second slot but pulls scalars out \emph{conjugated}. A map with those two properties is called \emph{conjugate-linear} (or antilinear), and the asymmetry is forced rather than chosen: given conjugate symmetry, linearity in the first slot leaves no other option.
+
+  It also has to be this way for positivity to survive. If the second slot were linear too, then for $\lambda = i$ we would get
+  \begin{equation}
+    \ip{iv}{iv} = i \cdot i \ip{v}{v} = -\ip{v}{v},
+  \end{equation}
+  so $\ip{v}{v}$ and $\ip{iv}{iv}$ would have opposite signs and \qt{$\ip{v}{v} \geq 0$ for all $v$} would be impossible for $v \neq 0$. With the conjugate in place one gets $\ip{iv}{iv} = i \overline{i} \ip{v}{v} = |i|^2 \ip{v}{v} = \ip{v}{v}$ instead, which is exactly what \ref{thm: properties of the norm}(b) records as $\norm{\lambda v} = |\lambda| \norm{v}$.
+
+  Over $\real$ the conjugation is invisible, which is why real inner products are symmetric and linear in both slots. Be aware that many physics texts put the conjugate in the \emph{first} slot instead; the mathematics is identical, but formulas copied across the two conventions will be off by a conjugate.
+\end{ainote}
 
 \subsection{Norms}
 
@@ -129,6 +160,30 @@ For $z = (z_1, \ldots, z_n) \in \compl^n$, we define the norm of $z$ by
     u = cv+w = \frac{\ip{u}{v}}{\norm{v}^2} v + \left( u- \frac{\ip{u}{v}}{\norm{v}^2} v \right  ) \myand \ip{w}{v}=0.
   \end{equation}
 \end{thm}
+\begin{prf}
+  The decomposition $u = cv + w$ holds by the very definition of $w$, since $w = u - cv$ rearranges to $u = cv + w$. Note that $c$ is well defined because $v \neq 0$ gives $\norm{v}^2 \neq 0$.
+
+  Only the orthogonality needs checking. Using additivity and homogeneity in the first slot,
+  \begin{equation}
+    \begin{aligned}
+      \ip{w}{v}
+      &= \ip{u - \tfrac{\ip{u}{v}}{\norm{v}^2} v}{v} \\
+      &= \ip{u}{v} - \frac{\ip{u}{v}}{\norm{v}^2} \ip{v}{v}
+      &&\text{additivity and homogeneity in the first slot} \\
+      &= \ip{u}{v} - \frac{\ip{u}{v}}{\norm{v}^2} \norm{v}^2
+      &&\text{since } \ip{v}{v} = \norm{v}^2 \\
+      &= \ip{u}{v} - \ip{u}{v} = 0.
+    \end{aligned}
+  \end{equation}
+\end{prf}
+
+\begin{ainote}[This is orthogonal projection, one dimension at a time]
+  The scalar $c = \ip{u}{v} / \norm{v}^2$ is chosen for exactly one reason: it is the unique scalar making $u - cv$ orthogonal to $v$. Solving $\ip{u - cv}{v} = 0$ for $c$ gives $\ip{u}{v} - c\norm{v}^2 = 0$, hence that value and no other.
+
+  So $cv$ is the orthogonal projection of $u$ onto $\myspan{v}$, and $w$ is what is left over. Almost everything in this chapter is a repetition of this one move at larger scale: Cauchy--Schwarz below is \qt{$\norm{w}^2 \geq 0$} rewritten, Gram--Schmidt applies it repeatedly to build orthonormal bases, and the minimisation results of 6C are the same decomposition with $\myspan{v}$ replaced by an arbitrary subspace.
+
+  If $v$ happens to be a unit vector the formula simplifies to $c = \ip{u}{v}$, which is why orthonormal bases are worth the trouble of constructing.
+\end{ainote}
 
 \begin{thm}[Cauchy-Schwarz inequality]
   \label{thm: Cauchy-Schwarz inequality}
@@ -193,6 +248,13 @@ For $z = (z_1, \ldots, z_n) \in \compl^n$, we define the norm of $z$ by
         &=    (\norm{u} + \norm{v})^2. &
       \end{aligned}
     \end{equation}
+Both $\norm{u+v}$ and $\norm{u}+\norm{v}$ are non-negative real numbers, so taking square roots preserves the inequality and gives $\norm{u+v} \leq \norm{u}+\norm{v}$, as claimed.
+
+For equality, note that exactly two steps above were inequalities, so equality holds throughout $\iff$ both are equalities:
+\begin{equation}
+  \realpart \ip{u}{v} = |\ip{u}{v}| \myand |\ip{u}{v}| = \norm{u} \, \norm{v}.
+\end{equation}
+The first says $\ip{u}{v}$ is a non-negative real number; the second is the equality case of Cauchy--Schwarz \ref{thm: Cauchy-Schwarz inequality}, i.e. one of $u,v$ is a scalar multiple of the other. Combining them, writing $u = cv$ (say), we get $\ip{u}{v} = c \norm{v}^2 \geq 0$ and hence $c \geq 0$.
 We have equality in the triangle inequality $\iff \ip{u}{v} = \norm{u}\cdot\norm{v} \iff u = c v$ for some $c \geq 0$ (or $v = 0$).
 \end{prf}
 \end{minipage}

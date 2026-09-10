@@ -89,7 +89,21 @@
   \]
 
   $\implies v = u + w, \where u \in U \myand w \in U^{\bot}$.
+
+  Since $v \in V$ was arbitrary, this shows $V = U + U^{\bot}$. It remains to see that the sum is \emph{direct}, which is what makes the decomposition unique. By \ref{thm: properties of the orthogonal complement}(d) we have $U \cap U^{\bot} \subseteq \{0\}$, and $0$ lies in both subspaces, so
+  \begin{equation}
+    U \cap U^{\bot} = \{0\}.
+  \end{equation}
+  By \ref{thm: sum and intersection of two subspaces} the sum of two subspaces meeting only in $0$ is direct. Hence $V = U \oplus U^{\bot}$, and every $v \in V$ has exactly one decomposition $v = u + w$ with $u \in U$ and $w \in U^{\bot}$.
 \end{prf}
+
+\begin{ainote}[Where the finite-dimensionality of $U$ is spent]
+  Note that $V$ itself is not assumed finite-dimensional here --- only $U$ is. That is exactly what the proof consumes: it needs an orthonormal basis $e_1, \ddd, e_m$ of $U$, which \ref{thm: existence of orthonormal basis} supplies precisely because $U$ is finite-dimensional. Everything after that is a finite computation, regardless of how big $V$ is.
+
+  The hypothesis cannot simply be dropped. For an infinite-dimensional $U$ inside an incomplete inner product space, $V = U \oplus U^{\bot}$ can fail, and $U^{\bot}$ may even be $\{0\}$ for a proper subspace $U$ --- in which case $U + U^{\bot} = U \neq V$. This is why the subject moves to Hilbert spaces, where completeness restores the result for \emph{closed} subspaces.
+
+  The formula for $u$ deserves a name: $u = \sum_k \ip{v}{e_k} e_k$ is the orthogonal projection $P_U v$ of 6C, and the whole of the minimisation theory below is the observation that this $u$ is the point of $U$ closest to $v$.
+\end{ainote}
 
 \mce{51}
 \begin{thm}[dimension of orthogonal complement]
@@ -190,7 +204,15 @@
 \end{thm}
 \begin{prf}
   \begin{enumerate}[label=\textbf{(\alph*)}]
-    \item Linearity follows from the uniqueness of the direct sum decomposition $V = U \oplus U^\bot$.
+    \item Linearity follows from the uniqueness of the direct sum decomposition $V = U \oplus U^\bot$. In detail, let $v_1, v_2 \in V$ and $\lambda \in \myF$, and write
+    \begin{equation}
+      v_1 = u_1 + w_1, \qquad v_2 = u_2 + w_2, \qquad u_j \in U, \; w_j \in U^\bot,
+    \end{equation}
+    so that $P_U v_1 = u_1$ and $P_U v_2 = u_2$. Adding,
+    \begin{equation}
+      v_1 + v_2 = \underbrace{(u_1 + u_2)}_{\in \, U} + \underbrace{(w_1 + w_2)}_{\in \, U^\bot},
+    \end{equation}
+    and since $U$ and $U^\bot$ are subspaces, this is \emph{a} decomposition of $v_1+v_2$ of the required shape; by uniqueness it is \emph{the} decomposition, so $P_U(v_1+v_2) = u_1 + u_2 = P_U v_1 + P_U v_2$. The same argument applied to $\lambda v_1 = \lambda u_1 + \lambda w_1$ gives $P_U(\lambda v_1) = \lambda u_1 = \lambda P_U v_1$. Hence $P_U$ is linear.
     \item If $u \in U$, then $u = u + 0$ with $u \in U$ and $0 \in U^\bot$, so $P_U u = u$.
     \item If $w \in U^\bot$, then $w = 0 + w$ with $0 \in U$ and $w \in U^\bot$, so $P_U w = 0$.
     \item By definition, $P_U v \in U$ for all $v$, and $P_U u = u$ for all $u \in U$, so $\myrange P_U = U$.
