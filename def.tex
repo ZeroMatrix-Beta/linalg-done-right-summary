@@ -422,3 +422,37 @@ drop lifted shadow,
 
 \titleformat{\subsection}{\relscale{1.15}\bfseries\scshape}{}{0em}{#1 {\normalfont\footnotesize (Sub-Section \thesubsection)}} %large
 % END custom chapter format ********************************
+% BEGIN AI notes ********************************************
+% A visually distinct box for remarks added during the AI audit:
+% sanity checks, alternative routes, worked micro-examples,
+% mnemonics and warnings about common traps.
+% Usage:  \begin{ainote} ... \end{ainote}
+%         \begin{ainote}[Sanity check] ... \end{ainote}
+\definecolor{ainoterule}{RGB}{70,95,130}
+\definecolor{ainotebg}{RGB}{244,247,251}
+\definecolor{ainotetitle}{RGB}{40,60,90}
+
+\newtcolorbox{ainote}[1][AI Note]{%
+  enhanced jigsaw,
+  breakable,
+  colback   = ainotebg,
+  colframe  = ainoterule,
+  boxrule   = 0pt,
+  leftrule  = 1.2pt,
+  sharp corners,
+  boxsep    = 0pt,
+  left      = 0.7em,
+  right     = 0.5em,
+  top       = 0.35em,
+  bottom    = 0.35em,
+  before skip = 0.45em,
+  after skip  = 0.45em,
+  fontupper = \small,
+  coltitle  = ainotetitle,
+  attach title to upper = {\hspace{0.4em}},
+  title     = {\prooffont{#1:}},
+}
+
+% Inline variant, for a one-clause aside that does not deserve a box.
+\newcommand{\ainoteinline}[1]{{\small\color{ainotetitle}\prooffont{AI Note:} #1}}
+% END AI notes **********************************************
