@@ -5,7 +5,13 @@
   Prove that $-(-v) = v \quad \forall v \in V$.
 
   \begin{xprf}
-    Let $v \in V$. By definition, we know that $v + (-v) = 0$. We also know by definition that the additive inverse of $(-v)$, which is unique by \ref{thm: unique additive identity}, is denoted by $-(-v)$. The very first equation shows that $-(-v) = v$, since $v + (-v) = -(-v) + (-v) = 0$.
+    Let $v \in V$. By definition, we know that $v + (-v) = 0$. We also know by definition that the additive inverse of $(-v)$, which is unique by \ref{thm: unique additive inverse}, is denoted by $-(-v)$. The very first equation shows that $-(-v) = v$, since $v + (-v) = -(-v) + (-v) = 0$.
+
+    Spelled out in single steps: commutativity turns $v + (-v) = 0$ into
+    \begin{equation}
+      (-v) + v = 0,
+    \end{equation}
+    which says that $v$ is \emph{an} additive inverse of $-v$. By \ref{thm: unique additive inverse} the vector $-v$ has only \emph{one} additive inverse, and $-(-v)$ is by definition the name of that one. So $-(-v)$ and $v$ are two names for the same vector, i.e., $-(-v) = v$.
   \end{xprf}
 \end{xrcs}
 
@@ -14,14 +20,28 @@
   Suppose for $a \in \myF$ and $v \in V$ we have $a \cdot v = 0$. Prove that $a=0$ or $v=0$.
 
   \begin{xprf}
-    There are two cases for $a$. Either $a=0$ or $a\neq 0$. If $a=0$, we are done. If $a \neq 0$, then
+    There are two cases for $a$. Either $a=0$ or $a\neq 0$. If $a=0$, we are done. If $a \neq 0$, then $\tfrac{1}{a} \in \myF$ exists and
     \[
-    av=0 \iff \tfrac{1}{a}(av)=\tfrac{1}{a}0 \iff \left(\tfrac{1}{a} \right)v = 0 \iff v = 0.
+      \begin{aligned}
+        av=0
+        &\iff \tfrac{1}{a}(av)=\tfrac{1}{a}0
+        &&\text{multiply both sides by } \tfrac{1}{a} \\
+        &\iff \left(\tfrac{1}{a} a \right)v = 0
+        &&\text{associativity on the left, \ref{thm: a number times the vector zero} on the right} \\
+        &\iff 1v = 0
+        &&\text{since } \tfrac{1}{a} a = 1 \text{ in } \myF \\
+        &\iff v = 0
+        &&\text{by the multiplicative identity axiom } 1v = v.
+      \end{aligned}
     \]
 
     So either $a=0$ or $v=0$.
   \end{xprf}
 \end{xrcs}
+
+\begin{ainote}[Why the case split is unavoidable]
+  The statement is an \emph{or}, and only the branch $a \neq 0$ carries content: the whole proof turns on dividing by $a$, which is exactly the step that is illegal when $a = 0$. Note also what is \emph{not} being claimed. $\myF$ is a field, so it has no zero divisors, but $v$ lives in $V$, not in $\myF$, so the field's zero-divisor law says nothing about $av$ on its own. The scalar $\tfrac{1}{a}$ is what bridges the two worlds.
+\end{ainote}
 
 \exercise{3}
 \begin{xrcs}
@@ -29,8 +49,29 @@
 
   \begin{xsol}
     To solve this equation for $x$, we first need to subtract $v$ from $w$ and afterwards divide by $3$. The additive inverse of $v$ is unique. But also the result of multiplying a vector by a number is unique.
+
+    Carrying that out step by step:
+    \[
+      \begin{aligned}
+        v + 3x = w
+        &\iff 3x = w - v
+        &&\text{add } -v \text{ to both sides} \\
+        &\iff \tfrac{1}{3}(3x) = \tfrac{1}{3}(w-v)
+        &&\text{multiply both sides by } \tfrac{1}{3} \in \myF \\
+        &\iff \left(\tfrac{1}{3} \cdot 3\right) x = \tfrac{1}{3}(w-v)
+        &&\text{associativity of scalar multiplication} \\
+        &\iff x = \tfrac{1}{3}(w-v)
+        &&\text{since } \tfrac{1}{3} \cdot 3 = 1 \myand 1x = x.
+      \end{aligned}
+    \]
+
+    Every step is an $\iff$, so the chain does double duty: read downwards it shows that \emph{any} solution has to equal $\tfrac{1}{3}(w-v)$, which is uniqueness, and read upwards it shows that $x := \tfrac{1}{3}(w-v)$ really is a solution, which is existence.
   \end{xsol}
 \end{xrcs}
+
+\begin{ainote}[What the $3$ is doing]
+  Nothing here is special about $3$ except that it is invertible in $\myF$: the same argument solves $v + ax = w$ uniquely for every $a \in \myF$ with $a \neq 0$. That caveat is not empty. In this summary $\myF$ is $\real$ or $\compl$, where $3 \neq 0$ automatically, but over a field of characteristic $3$ one has $3 = 0$, and then $v + 3x = v$ for \emph{every} $x$, so the equation has either no solution at all or infinitely many, never exactly one.
+\end{ainote}
 
 \exercise{4}
 \begin{xrcs}
@@ -38,6 +79,8 @@
 
   \begin{xsol}
     The only requirement for a vector space the empty set fails to satisfy is the existence of an additive identity (since the empty set contains no elements, it cannot contain a $0$ element).
+
+    The reason the other requirements survive is that they all start with $\forall$, and a statement quantified over an empty collection is vacuously true, since there is no element around that could violate it. The additive identity condition is the one axiom that starts with $\exists$ instead, and an $\exists$ statement over an empty set is always false.
   \end{xsol}
 \end{xrcs}
 
@@ -49,7 +92,9 @@
   \]
 
   \begin{xprf}
-    By the distributive properties, we get $\forall v \in V:$
+    Saying that one condition \qt{can be replaced} by another means that the two lists of axioms prove the same things, so there are two directions to check.
+
+    \prooffont{New condition $\implies$ additive inverses:} By the distributive properties, we get $\forall v \in V:$
     \[
     \begin{aligned}
       0 = 0v &= (1 + (-1))v \\
@@ -59,5 +104,13 @@
     \]
 
     So, $\forall v \in V$ it holds that $0 = v + (-1)v$, meaning that for every $v$ we have an additive inverse, namely $(-1)v$.
+
+    \prooffont{Additive inverses $\implies$ new condition:} This direction is exactly \ref{thm: zero times a vector}, whose proof uses only axioms that both lists share, together with the additive inverse of the single vector $0v$ in order to cancel it.
+
+    Hence, the two lists of axioms describe the same objects, and the swap is legitimate.
   \end{xprf}
 \end{xrcs}
+
+\begin{ainote}[Reading the swap]
+  It is worth noticing which axioms each half leans on. The forward half uses only distributivity and $1v = v$; it never needs an additive inverse to exist, which is the whole point, because that is the axiom being removed. The backward half is \ref{thm: zero times a vector}, and its proof \emph{does} subtract $0v$ from both sides, i.e., it uses the additive inverse of that one vector $0v$. So the two conditions are interchangeable as axioms, but they are not interchangeable in the middle of a proof: an argument in the new system may not quietly help itself to $-v$ before it has produced $(-1)v$.
+\end{ainote}

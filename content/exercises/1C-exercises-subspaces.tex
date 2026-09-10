@@ -37,13 +37,18 @@
 
       \begin{xsol}
         If $b=0$, the condition $x_3 = 5x_4$ defines a subspace containing $0$ and closed under addition and scalar multiplication. If $b \neq 0$, then $0 = (0,0,0,0) \notin U$ because $0 \neq 5(0) + b = b$.
-        Moreover, for $u,v \in U$,
+        Moreover, for $u,v \in U$ we know $u_3 = 5u_4 + b$ and $v_3 = 5v_4 + b$, so the third component of the sum is
+        \begin{equation}
+          u_3 + v_3 = (5u_4 + b) + (5v_4 + b) = 5(u_4+v_4) + 2b,
+        \end{equation}
+        and hence
         \begin{equation}
           \begin{aligned}
             u+v &= (u_1+v_1, u_2+v_2, u_3+v_3, u_4+v_4) \\
                 &= (u_1+v_1, u_2+v_2, 5(u_4 + v_4) + 2b, u_4+v_4).
           \end{aligned}
         \end{equation}
+        For $u+v$ to lie in $U$ again, its third component would have to be $5$ times its fourth component plus $b$.
         The third component equals $5(u_4+v_4) + b$ if and only if $2b = b$, which forces $b=0$.
         Thus, $U$ is a subspace of $\myF^4$ if and only if $b=0$.
       \end{xsol}

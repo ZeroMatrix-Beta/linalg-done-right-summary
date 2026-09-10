@@ -455,4 +455,34 @@ drop lifted shadow,
 
 % Inline variant, for a one-clause aside that does not deserve a box.
 \newcommand{\ainoteinline}[1]{{\small\color{ainotetitle}\prooffont{AI Note:} #1}}
+
+% A proof attempt that does not work, kept on purpose so the mistake stays
+% visible and instructive. Always follow it with an \ainote that names the
+% exact step which breaks, then give the correct argument.
+% Usage:  \begin{failedattempt} ... \end{failedattempt}
+%         \begin{failedattempt}[Second attempt (also fails)] ... \end{failedattempt}
+\definecolor{failrule}{RGB}{160,110,105}
+\definecolor{failbg}{RGB}{251,248,247}
+\definecolor{failtitle}{RGB}{120,70,65}
+
+\newtcolorbox{failedattempt}[1][First attempt (does not work)]{%
+  enhanced jigsaw,
+  breakable,
+  colback   = failbg,
+  colframe  = failrule,
+  boxrule   = 0pt,
+  sharp corners,
+  boxsep    = 0pt,
+  left      = 0.7em,
+  right     = 0.5em,
+  top       = 0.35em,
+  bottom    = 0.35em,
+  before skip = 0.45em,
+  after skip  = 0.45em,
+  fontupper = \small,
+  coltitle  = failtitle,
+  attach title to upper = {\hspace{0.4em}},
+  title     = {\prooffont{#1:}},
+  borderline west = {1.2pt}{0pt}{failrule, dashed},
+}
 % END AI notes **********************************************
