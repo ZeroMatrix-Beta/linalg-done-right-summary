@@ -123,3 +123,22 @@
 %   Hence the eigenvalue $\lambda$ is the same for all vectors in $V$, which proves $Tv = \lambda v$ for all $v \in V$, i.e. $T = \lambda I$.
 % \end{xprf}
 \end{xrcs}
+
+\exercise{11}
+\begin{xrcs}
+  Suppose $V$ is finite-dimensional and $S, T \in \linmap(V)$. Prove that $ST$ is invertible if and only if both $S$ and $T$ are invertible.
+
+% \begin{xprf}
+%   \Leftarrowdirection If $S$ and $T$ are invertible, then by Exercise 2, $ST$ is invertible and $(ST)^{-1} = T^{-1} S^{-1}$.
+%
+%   \Rightarrowdirection Conversely, suppose $ST$ is invertible.
+%   If $Tv = 0$ for some $v \in V$, then $(ST)v = S(Tv) = S(0) = 0$.
+%   Since $ST$ is invertible, $\mynull(ST) = \{0\}$, which forces $v = 0$.
+%   Thus $\mynull T = \{0\}$, meaning $T$ is injective.
+%   Since $V$ is finite-dimensional, an injective operator on $V$ is invertible (Theorem \ref{thm: injectivity is equivalent to surjectivity}).
+%   Now since $T$ is invertible, $T^{-1}$ exists.
+%   Multiplying the invertible operator $ST$ on the right by $T^{-1}$ gives $S = (ST) T^{-1}$.
+%   Since the product of two invertible operators is invertible, $S$ is invertible.
+%   Therefore, both $S$ and $T$ are invertible.
+% \end{xprf}
+\end{xrcs}

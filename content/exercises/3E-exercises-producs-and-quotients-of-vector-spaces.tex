@@ -1,5 +1,24 @@
 \section*{Exercises about Products and Quotients of Vector Spaces}
 
+\exercise{3}
+\begin{xrcs}
+  Suppose $V_1, \ddd, V_m$ are vector spaces. Prove that $\linmap(V_1 \times \dots \times V_m, W)$ and $\linmap(V_1, W) \times \dots \times \linmap(V_m, W)$ are isomorphic vector spaces.
+
+% \begin{xprf}
+%   Define a map $\Psi: \linmap(V_1 \times \dots \times V_m, W) \to \linmap(V_1, W) \times \dots \times \linmap(V_m, W)$ by
+%   \[
+%     \Psi(T) = (T_1, \dots, T_m), \quad \text{where } T_k(v) = T(0, \dots, 0, v, 0, \dots, 0) \text{ for } v \in V_k.
+%   \]
+%   Each $T_k \in \linmap(V_k, W)$ is linear, and $\Psi$ is clearly linear.
+%   To show $\Psi$ is an isomorphism, define the inverse map $\Phi: \linmap(V_1, W) \times \dots \times \linmap(V_m, W) \to \linmap(V_1 \times \dots \times V_m, W)$ by
+%   \[
+%     \Phi(S_1, \dots, S_m)(v_1, \dots, v_m) = S_1(v_1) + \dots + S_m(v_m).
+%   \]
+%   Then $\Phi(S_1, \dots, S_m)$ is a linear map, and it is straightforward to verify that $\Psi \circ \Phi = I$ and $\Phi \circ \Psi = I$.
+%   Thus $\Psi$ is an isomorphism.
+% \end{xprf}
+\end{xrcs}
+
 \exercise{6}
 \begin{xrcs}
   Suppose that $v, x \in V$ and that $U, W$ are subspaces of $V$ such that $v + U = x + W$. Prove that $U = W$.
@@ -105,3 +124,50 @@
 % \end{xprf}
 \end{xrcs}
 
+
+\exercise{14}
+\begin{xrcs}
+  Suppose $U$ and $W$ are subspaces of $V$ and $V = U \oplus W$. Suppose $w_1, \ddd, w_m$ is a basis of $W$. Prove that
+  \begin{equation}
+    w_1 + U, \ddd, w_m + U \text{ is a basis of } V/U.
+  \end{equation}
+
+% \begin{xprf}
+%   \StepOne We show spanning. Let $v + U \in V/U$. Since $V = U \oplus W$, $v = u + w$ for some $u \in U, w \in W$.
+%   Since $w_1, \dots, w_m$ is a basis of $W$, $w = c_1 w_1 + \dots + c_m w_m$ for some scalars $c_j$.
+%   Then $v + U = (u + w) + U = w + U = (c_1 w_1 + \dots + c_m w_m) + U = c_1(w_1+U) + \dots + c_m(w_m+U)$.
+%   Thus $w_1+U, \dots, w_m+U$ spans $V/U$.
+%
+%   \StepTwo We show linear independence. Suppose $c_1(w_1+U) + \dots + c_m(w_m+U) = 0 + U$.
+%   Then $(c_1 w_1 + \dots + c_m w_m) + U = 0 + U$, which implies $c_1 w_1 + \dots + c_m w_m \in U$.
+%   Since each $w_j \in W$, $c_1 w_1 + \dots + c_m w_m \in W$.
+%   Thus $c_1 w_1 + \dots + c_m w_m \in U \cap W = \{0\}$, so $c_1 w_1 + \dots + c_m w_m = 0$.
+%   Since $w_1, \dots, w_m$ is a basis of $W$, $c_1 = \dots = c_m = 0$.
+%   Therefore, $w_1+U, \dots, w_m+U$ is linearly independent, hence a basis of $V/U$.
+% \end{xprf}
+\end{xrcs}
+
+\exercise{15}
+\begin{xrcs}
+  Suppose $U$ is a subspace of $V$, $v_1 + U, \ddd, v_m + U$ is a basis of $V/U$, and $u_1, \ddd, u_n$ is a basis of $U$. Prove that
+  \begin{equation}
+    v_1, \ddd, v_m, u_1, \ddd, u_n \text{ is a basis of } V.
+  \end{equation}
+
+% \begin{xprf}
+%   \StepOne We show spanning. Let $v \in V$.
+%   Since $v_1+U, \dots, v_m+U$ is a basis of $V/U$, there exist scalars $a_1, \dots, a_m$ such that $v + U = a_1(v_1+U) + \dots + a_m(v_m+U) = (a_1 v_1 + \dots + a_m v_m) + U$.
+%   This means $v - (a_1 v_1 + \dots + a_m v_m) \in U$.
+%   Since $u_1, \dots, u_n$ is a basis of $U$, there exist scalars $b_1, \dots, b_n$ such that $v - \sum_{j=1}^m a_j v_j = \sum_{k=1}^n b_k u_k$.
+%   Thus $v = a_1 v_1 + \dots + a_m v_m + b_1 u_1 + \dots + b_n u_n$.
+%   Therefore, $v_1, \dots, v_m, u_1, \dots, u_n$ spans $V$.
+%
+%   \StepTwo We show linear independence. Suppose $a_1 v_1 + \dots + a_m v_m + b_1 u_1 + \dots + b_n u_n = 0$.
+%   Applying the quotient map $\pi: V \to V/U$ gives $a_1(v_1+U) + \dots + a_m(v_m+U) + 0 = 0 + U$.
+%   Since $v_1+U, \dots, v_m+U$ is a basis of $V/U$, $a_1 = \dots = a_m = 0$.
+%   The equation then reduces to $b_1 u_1 + \dots + b_n u_n = 0$.
+%   Since $u_1, \dots, u_n$ is a basis of $U$, $b_1 = \dots = b_n = 0$.
+%   Thus all coefficients are zero, which proves linear independence.
+%   Therefore, the list is a basis of $V$.
+% \end{xprf}
+\end{xrcs}
