@@ -1,57 +1,8 @@
 \section*{Exercises about Diagonalizable Operators}
 
-% ==============================================================================
-% ORIGINAL ATTEMPT 1 (Commented out): Initial Draft
-% ------------------------------------------------------------------------------
-% AI FEEDBACK:
-% 1. Mathematical Gap: The attempt assumes without proof that a subcollection of the
-%    diagonalizing basis vectors forms a basis of $E(\lambda, T)$.
-%    To make the argument rigorous, one must prove that any vector $w \in E(\lambda, T)$
-%    has zero coefficients on basis vectors corresponding to eigenvalues $\neq \lambda$.
-% ==============================================================================
-% \begin{xrcs}
-%   Suppose $T \in \op(V)$ has a diagonal matrix $A=\m{T}$ with respect to some basis of $V$.
-%   Prove that if $\lambda \in F$, then $\lambda$ appears on the diagonal of $A$ precisely $\dim E (\lambda , T)$ times.
-%   \begin{xprf}
-%     If $\lambda$ is not an eigenvalue, then $\dim E(\lambda, T) = \dim \set{ v : Tv = \lambda v } = \dim \set{0} = 0$, and it does not appear on the diagonal of $A$.
-%     Now, assume $\lambda$ is an eigenvalue of $T$. Since $T$ has a diagonal matrix with respect to some basis of $V$, say $v_1, \ddd, v_\ell$ with $\ell = \dim V$,
-%     all those vectors are eigenvectors of $T$. A subcollection that satisfies $Tv = \lambda v$ forms a basis of $E(\lambda, T)$.
-%     Let $v_{n_1}, \ddd, v_{n_m}$ be a basis of $E(\lambda, T)$ with $\dim E(\lambda, T) = m$ and $n_j \in \set{1, \ddd, \ell}$ for $j = 1, \ddd, m$.
-%     This implies that $T v_{n_j} = \lambda v_{n_j}$ for $j \in \set{1, \ddd, m }$, which can only happen if $\lambda$ appears on $A$ exactly $m = \dim E(\lambda, T)$ times.
-%   \end{xprf}
-% \end{xrcs}
-
-% ==============================================================================
-% ORIGINAL ATTEMPT 2 (Commented out): Intermediate Full Proof
-% ------------------------------------------------------------------------------
-% AI FEEDBACK:
-% 1. Mathematical Validity: Sound and complete.
-% 2. Structure: Carefully defines $S = \{v_j \mid Tv_j = \lambda v_j\}$, proves two-way
-%    inclusion $\myspan S = E(\lambda, T)$ using coordinate uniqueness, and computes
-%    $|S| = \dim E(\lambda, T)$.
-% ==============================================================================
-% \begin{xrcs}
-%   Suppose $T \in \op(V)$ has a diagonal matrix $A=\m{T}$ with respect to some basis of $V$.
-%   Prove that if $\lambda \in F$, then $\lambda$ appears on the diagonal of $A$ precisely $\dim E (\lambda , T)$ times.
-%   \begin{xprf}
-%     If $\lambda$ is not an eigenvalue, then $\dim E(\lambda, T) = \dim\{v:Tv=\lambda v\} = \dim\{0\}=0$,
-%     and hence $\lambda$ does not appear on the diagonal of $A$.
-%
-%     Now assume $\lambda$ is an eigenvalue. Let $\mathcal B=\{v_1,\dots,v_\ell\}$ be a basis of $V$ with respect to which $A$ is diagonal,
-%     so $A=\operatorname{diag}(a_1,\dots,a_\ell)$ and $T v_j = a_j v_j$ for each $j$.
-%
-%     Define $S=\{v_j : T v_j=\lambda v_j\}$. Clearly $\myspan S \subseteq E(\lambda,T)$.
-%     Conversely, if $w\in E(\lambda,T)$ then writing $w=\sum_{j=1}^\ell c_j v_j$ and applying $T$ yields
-%     $\lambda\sum_{j=1}^\ell c_j v_j = T w = \sum_{j=1}^\ell c_j a_j v_j$.
-%     By uniqueness of coordinates relative to $\mathcal B$, $c_j=0$ whenever $a_j\neq\lambda$.
-%     Hence $w\in\myspan S$, so $\myspan S=E(\lambda,T)$.
-%     Since $S \subseteq \mathcal B$ is linearly independent, $|S|=\dim E(\lambda,T)$.
-%   \end{xprf}
-% \end{xrcs}
-
 \exercise{2}
 \begin{xrcs}
-  Suppose $T \in \linmap(V)$ has a diagonal matrix $A=\mmatrix{T}$ with respect to some basis of $V$. Prove that if $\lambda \in \myF$, then $\lambda$ appears on the diagonal of $A$ precisely $\dim E (\lambda , T)$ times.
+  Suppose $T \in \linmap(V)$ has a diagonal matrix $A=\m{T}$ with respect to some basis of $V$. Prove that if $\lambda \in \myF$, then $\lambda$ appears on the diagonal of $A$ precisely $\dim E (\lambda , T)$ times.
 
   \begin{xprf}
     If $\lambda$ is not an eigenvalue of $T$, then
@@ -60,7 +11,7 @@
     \end{equation}
     and therefore $\lambda$ does not appear among the diagonal entries of $A$.
 
-    Now assume $\lambda$ is an eigenvalue. Let $\mathcal{B} = \{v_1, \dots, v_\ell\}$ be a basis of $V$ with respect to which $A = \mmatrix{T}$ is diagonal; write
+    Now assume $\lambda$ is an eigenvalue. Let $\mathcal{B} = \{v_1, \dots, v_\ell\}$ be a basis of $V$ with respect to which $A = \m{T}$ is diagonal; write
     \begin{equation}
       A = \operatorname{diag}(\mu_1, \dots, \mu_\ell),
     \end{equation}
@@ -95,6 +46,24 @@
     \end{equation}
     Finally, by definition $|S|$ is exactly the number of diagonal entries of $A$ equal to $\lambda$. We conclude that the scalar $\lambda$ appears on the diagonal of $A$ precisely $\dim E(\lambda, T)$ times.
   \end{xprf}
+
+  \begin{failedattempt}
+    If $\lambda$ is not an eigenvalue, then $\dim E(\lambda, T) = \dim \set{ v : Tv = \lambda v } = \dim \set{0} = 0$, and it does not appear on the diagonal of $A$.
+    Now, assume $\lambda$ is an eigenvalue of $T$. Since $T$ has a diagonal matrix with respect to some basis of $V$, say $v_1, \ddd, v_\ell$ with $\ell = \dim V$,
+    all those vectors are eigenvectors of $T$. A subcollection that satisfies $Tv = \lambda v$ forms a basis of $E(\lambda, T)$.
+    Let $v_{n_1}, \ddd, v_{n_m}$ be a basis of $E(\lambda, T)$ with $\dim E(\lambda, T) = m$ and $n_j \in \set{1, \ddd, \ell}$ for $j = 1, \ddd, m$.
+    This implies that $T v_{n_j} = \lambda v_{n_j}$ for $j \in \set{1, \ddd, m }$, which can only happen if $\lambda$ appears on $A$ exactly $m = \dim E(\lambda, T)$ times.
+  \end{failedattempt}
+
+  \begin{ainote}[Where it breaks]
+    One sentence carries the entire exercise and is asserted rather than proved: \qt{A subcollection that satisfies $Tv = \lambda v$ forms a basis of $E(\lambda, T)$.}
+
+    Half of it is easy. Those basis vectors do lie in $E(\lambda, T)$, and being part of a basis they are linearly independent. What is \emph{not} obvious is that they \emph{span} $E(\lambda, T)$ --- i.e. that the eigenspace contains nothing beyond what those particular basis vectors generate. Nothing said so far rules out some $w \in E(\lambda,T)$ having a nonzero coefficient on a $v_j$ whose eigenvalue $\mu_j$ differs from $\lambda$, and without that ruled out the count $|S| = \dim E(\lambda,T)$ is unsupported.
+
+    Closing the gap is the whole of the reverse inclusion in the corrected proof: expand $w$ in the basis, apply $T$, and compare coordinates to get $(\lambda - \mu_j)c_j = 0$, which forces $c_j = 0$ exactly when $\mu_j \neq \lambda$. The step that makes it work is \emph{uniqueness} of coordinates with respect to a basis --- the one property that distinguishes a basis from a mere spanning list.
+
+    The lesson generalises: whenever an argument says \qt{take the subcollection with property $P$ --- it is a basis of the relevant subspace}, independence is usually free and spanning is where the work is.
+  \end{ainote}
 \end{xrcs}
 
 \exercise{14}

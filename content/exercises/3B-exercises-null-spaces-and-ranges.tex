@@ -663,32 +663,6 @@
   \end{xprf}
 \end{xrcs}
 
-% ==============================================================================
-% ORIGINAL ATTEMPT (Commented out): Exercise 31 Draft ($\myrange S \subseteq \myrange T \iff S=TE$)
-% ------------------------------------------------------------------------------
-% AI FEEDBACK:
-% 1. False Implication: Line 718 claims $\myrange S \subseteq \myrange T \implies \mynull T \subseteq \mynull S$.
-%    This is not true in general without dual maps or inner product orthogonal complements.
-% 2. Invalid Identification: Line 734 claims $S|_U$ and $T|_U$ are identical, which fails
-%    because $T$ and $S$ can be completely different operators on $U$.
-% 3. Correct Strategy: The active proof below chooses a basis $q_1, \dots, q_m$ for a complement
-%    $Q$ of $\mynull S$. Since $Sq_j \in \myrange S \subseteq \myrange T$, choose preimages $p_j \in V$
-%    with $Tp_j = Sq_j$, and define $E(q_j) = p_j$ and $E|_{\mynull S} = 0$.
-% ==============================================================================
-% \begin{xrcs}
-%   Suppose that $V$ is finite-dimensional and $S, T \in \linmap (V,W)$. Prove that $\myrange S \subseteq \myrange T$ $\iff$ there exists $E \in \linmap(V)$ such that $S=TE$.
-%
-%   \begin{prf}
-%     \Rightarrowdirection Suppose $V$ is finite-dimensional. Suppose $S, T \in \linmap (V,W)$ such that $\myrange S \subseteq \myrange T$.
-%
-%     Let $U \subseteq V$ such that $V = \mynull S \oplus U$. Observe that $\forall u \in U: S(u) \in \myrange T$.
-%     This means that $\forall u \in U$ we have a $v \in V$ such that $S(u) = T(v)$.
-%
-%     Let $u_1, \ddd, u_n$ be a basis of $U$, and extend it to a basis $u_1, \ddd, u_n, r_{n+1}, \ddd, r_m$ of $V$.
-%     Define $E \in \linmap(V)$ on the basis, and verify $S=TE$.
-%   \end{prf}
-% \end{xrcs}
-
 \begin{xrcs}
   Suppose that $V$ is finite-dimensional and $S, T \in \linmap (V,W)$. Prove that $\myrange S \subseteq \myrange T$ $\iff$ there exists $E \in \linmap(V)$ such that $S=TE$.
 
@@ -748,6 +722,30 @@
     Therefore, $S = TE$.
 
     \Leftarrowdirection Suppose there exists $E \in \linmap (V)$ such that $S=TE$. Then for any $v \in V$, $S(v) = T(E(v))$ implies that $S(v) \in \myrange T$. Hence, $\myrange S \subseteq \myrange T$.
+
+    \begin{failedattempt}[Earlier draft (never finished)]
+      \Rightarrowdirection Suppose $V$ is finite-dimensional. Suppose $S, T \in \linmap (V,W)$ such that $\myrange S \subseteq \myrange T$.
+
+      Let $U \subseteq V$ such that $V = \mynull S \oplus U$. Observe that $\forall u \in U: S(u) \in \myrange T$.
+      This means that $\forall u \in U$ we have a $v \in V$ such that $S(u) = T(v)$.
+
+      Let $u_1, \ddd, u_n$ be a basis of $U$, and extend it to a basis $u_1, \ddd, u_n, r_{n+1}, \ddd, r_m$ of $V$.
+      Define $E \in \linmap(V)$ on the basis, and verify $S=TE$.
+    \end{failedattempt}
+
+    \begin{ainote}[What this draft got right, and two traps it avoided by stopping]
+      This one is incomplete rather than wrong. The setup is exactly the setup of the finished proof --- split off $\mynull S$, work on a complement, use $\myrange S \subseteq \myrange T$ to obtain preimages --- and it stops at \qt{define $E$ on the basis, and verify}, which is where the actual work begins. Two things have to be got right at that point, and both are easy to get wrong:
+
+      \emph{Do not try to route the proof through null spaces.} A natural-looking move is to claim $\myrange S \subseteq \myrange T \implies \mynull T \subseteq \mynull S$. That implication is false. On $V = W = \myF^2$ take
+      \begin{equation}
+        S(x,y) := (x,0) \myand T(x,y) := (y,0).
+      \end{equation}
+      Then $\myrange S = \myrange T = \myspan{(1,0)}$, so the hypothesis holds, yet $\mynull T = \myspan{(1,0)}$ while $\mynull S = \myspan{(0,1)}$, and neither contains the other. Range containment simply carries no information about null spaces in this direction.
+
+      \emph{Do not identify $S$ and $T$ on the complement.} It is tempting to write $S|_U = T|_U$ once preimages have been chosen, but $S$ and $T$ are unrelated maps; the hypothesis only says their \emph{ranges} are nested. The preimage $p_j$ with $T p_j = S q_j$ generally has nothing to do with $q_j$, and that is precisely why $E$ must be built to send $q_j \mapsto p_j$ rather than being read off from $S$ and $T$ directly.
+
+      The finished proof above does exactly that, and it is worth noticing that the choice of $E$ is not unique: any preimage $p_j$ will do, and the vectors $r_k$ spanning $\mynull S$ may be sent anywhere in $\mynull T$, not only to $0$.
+    \end{ainote}
   \end{xprf}
 \end{xrcs}
 

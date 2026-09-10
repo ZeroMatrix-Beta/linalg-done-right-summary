@@ -89,7 +89,7 @@
     \begin{equation}
       p(T) - \alpha I = c(T - \lambda_1 I)(T - \lambda_2 I)\cdots(T - \lambda_m I).
     \end{equation}
-    Since $p(T) - \alpha I$ is not injective, at least one of the factors $T - \lambda_j I$ must not be injective.
+    Since $p(T) - \alpha I$ is not injective, at least one of the factors $T - \lambda_j I$ must not be injective: a composition of injective maps is injective, and multiplying by the nonzero scalar $c$ changes nothing, so if every factor were injective the whole product would be too.
     Thus, $\lambda_j$ is an eigenvalue of $T$ for some $j \in \{1, \dots, m\}$.
     Evaluating $p(z) - \alpha$ at $z = \lambda_j$ gives
     \begin{equation}
@@ -97,41 +97,48 @@
     \end{equation}
     This completes the proof.
   \end{xprf}
+
+  \begin{failedattempt}
+    If $\lambda$ is an eigenvalue of $T$, then $\exists v \in V$ such that
+    \begin{equation}
+      \begin{aligned}
+        T v   &= \lambda   v \\
+        T^2 v &= \lambda^2 v \\
+        T^k v &= \lambda^k v \quad \forall k \in \nat_{>0}.
+      \end{aligned}
+    \end{equation}
+
+    \Rightarrowdirection If $\alpha$ is an eigenvalue of $p(T)$, then $\exists u \in V$ such that
+    \begin{equation}
+      \begin{aligned}
+        \alpha u &= p(T)(u)  \\
+        \alpha u &= c_0 u + c_1 T u + \cdots + c_{m-1} T^{m-1} u + T^m u \\
+        \alpha u &= c_0 \lambda^0 u + c_1 \lambda^1 u + \cdots + c_{m-1} \lambda^{m-1} u + \lambda ^m u \\
+        \alpha u &= (c_0 \lambda^0 + c_1 \lambda^1 + \cdots + c_{m-1} \lambda^{m-1} + \lambda ^m ) u \\
+        \alpha   &= c_0 \lambda^0 + c_1 \lambda^1 + \cdots + c_{m-1} \lambda^{m-1} + \lambda ^m \\
+        \alpha   &= p(\lambda)
+      \end{aligned}
+    \end{equation}
+
+    But where have we been using the fact that $\myF = \compl$?
+  \end{failedattempt}
+
+  \begin{ainote}[Where it breaks --- and the closing question is the clue]
+    The break is between the second and third lines. There $T^k u$ is replaced by $\lambda^k u$, which is legitimate only if $u$ is an eigenvector of $T$ with eigenvalue $\lambda$. But $u$ was introduced as an eigenvector of $p(T)$, and whether such a $u$ is also an eigenvector of $T$ is precisely the content of the exercise. The argument assumes what it is trying to prove.
+
+    The trap is easy to fall into because the $\Leftarrow$ direction, which opens the draft, \emph{does} legitimately have an eigenvector of $T$ in hand, and the computation there is correct. Reusing the letter $\lambda$ in the second half makes the swap look like bookkeeping rather than a new assumption.
+
+    It is worth noticing that the draft diagnoses itself. Its final question --- \qt{where have we been using the fact that $\myF = \compl$?} --- has the answer \emph{nowhere}, and that is exactly the symptom. Any argument that never uses $\myF = \compl$ cannot be a proof of this statement, because the statement is \emph{false} over $\real$: take $V = \real^2$, let $T$ be rotation by $90^\circ$, and $p(z) = z^2$. Then $p(T) = -I$ has $\alpha = -1$ as an eigenvalue, yet $T$ has no real eigenvalue at all, so there is no $\lambda$ with $\alpha = p(\lambda)$. A hypothesis that goes unused in a proof of a statement that needs it is always a sign the proof is broken.
+
+    The corrected $\Rightarrow$ direction earns the hypothesis honestly: it uses the fundamental theorem of algebra to split $p(z) - \alpha$ into linear factors, which is available over $\compl$ and not over $\real$, and then reads off which factor fails to be injective.
+  \end{ainote}
 \end{xrcs}
 
-% ==============================================================================
-% ORIGINAL ATTEMPT (Commented out): Exercise 4 Draft
-% ------------------------------------------------------------------------------
-% AI FEEDBACK:
-% 1. Logical Flaw: In the $\Rightarrow$ direction, the draft assumes an eigenvector $u$
-%    of $p(T)$ satisfies $Tu = \lambda u$ (i.e., assuming $u$ is also an eigenvector of $T$).
-%    This assumes the very claim to be proved.
-% 2. Role of the Complex Field $\compl$: The draft asks "where have we been using the fact
-%    that $\myF = \compl$?". Over $\compl$, every non-constant polynomial factors completely
-%    into linear factors (Fundamental Theorem of Algebra). Factoring $p(z) - \alpha$ into
-%    $c \prod (z - \lambda_j)$ gives $p(T) - \alpha I = c \prod (T - \lambda_j I)$, which fails
-%    injectivity if and only if some factor $T - \lambda_j I$ fails injectivity.
-% ==============================================================================
-% \begin{xprf}
-%   If $\lambda$ is an eigenvalue of $T$, then $\exists v \in V$ such that
-%   \begin{align}
-%     T v   &= \lambda   v \\
-%     T^2 v &= \lambda^2 v \\
-%     T^k v &= \lambda^k v \quad \forall k \in \nat_{>0}.
-%   \end{align}
-%
-%   \Rightarrowdirection If $\alpha$ is an eigenvalue of $p(T)$, then $\exists u \in V$ such that
-%   \begin{align}
-%     \alpha u &= p(T)(u)  \\
-%     \alpha u &= c_0 u + c_1 T u + \cdots + c_{m-1} T^{m-1} u + T^m u \\
-%     \alpha u &= c_0 \lambda^0 u + c_1 \lambda^1 u + \cdots + c_{m-1} \lambda^{m-1} u + \lambda ^m u \\
-%     \alpha u &= (c_0 \lambda^0 + c_1 \lambda^1 + \cdots + c_{m-1} \lambda^{m-1} + \lambda ^m ) u \\
-%     \alpha   &= c_0 \lambda^0 + c_1 \lambda^1 + \cdots + c_{m-1} \lambda^{m-1} + \lambda ^m \\
-%     \alpha   &= p(\lambda)
-%   \end{align}
-%
-%   But where have we been using the fact that $\myF = \compl$?
-% \end{xprf}
+\begin{ainote}[The degenerate case of a constant $p$]
+  If $p$ is a constant polynomial $p(z) = c_0$, then $p(z) - \alpha$ is constant too and the factorisation used above is unavailable --- there are no linear factors, and for $\alpha = c_0$ the difference is the zero polynomial, to which the fundamental theorem does not apply.
+
+  The statement survives anyway. Here $p(T) = c_0 I$, whose only eigenvalue is $c_0$, so $\alpha = c_0$. And since $\myF = \compl$ and $V \neq \{0\}$ is finite-dimensional, $T$ has \emph{some} eigenvalue $\lambda$; as $p$ is constant, $p(\lambda) = c_0 = \alpha$. Note this is the one place where the existence of an eigenvalue for $T$ has to be quoted rather than produced by the factorisation, and it too rests on $\myF = \compl$.
+\end{ainote}
 
 \exercise{7}
 \begin{xrcs}

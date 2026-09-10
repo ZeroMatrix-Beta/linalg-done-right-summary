@@ -48,19 +48,6 @@
 \end{xrcs}
 
 \exercise{15}
-% ==============================================================================
-% AI FEEDBACK: Exercise 15
-% ------------------------------------------------------------------------------
-% 1. Dual Functional Construction (Lines 64-92):
-%    Defining $\varphi$ by $\varphi(u)=1, \varphi(v_i)=0$ on a basis ensures $(\dual{T}\varphi)(u) = \lambda \varphi(u)$,
-%    but for other basis vectors $v_i$, $(\dual{T}\varphi)(v_i) = \varphi(Tv_i)$ is not necessarily $0$
-%    unless $\myspan(v_2, \dots, v_n)$ is already $T$-invariant.
-% 2. Clean Equivalence Chain (Line 94):
-%    $\lambda \in \operatorname{spec}(T) \iff T - \lambda I \text{ is not injective}
-%    \iff \dual{(T - \lambda I)} = \dual{T} - \lambda I \text{ is not surjective}
-%    \iff \dual{T} - \lambda I \text{ is not invertible} \iff \lambda \in \operatorname{spec}(\dual{T})$.
-%    This is completely sound in finite dimensions.
-% ==============================================================================
 \begin{xrcs}
   Suppose $V$ is finite-dimensional, $T \in \linmap (V)$, and $\lambda \in \myF$. Show that $\lambda$ is an eigenvalue of $T$ $\iff$ $\lambda$ is an eigenvalue of the dual operator $\dual{T} \in \linmap(V')$.
 
@@ -79,6 +66,22 @@
   \end{xsol}
 \end{xrcs}
 
+\begin{ainote}[Do not try to build the eigenvector of $\dual{T}$ by hand]
+  A tempting route is to start from an eigenvector $u$ of $T$, extend $u$ to a basis $u, v_2, \ddd, v_n$ of $V$, and define $\varphi \in \dual{V}$ by
+  \begin{equation}
+    \varphi(u) := 1, \qquad \varphi(v_i) := 0 \quad (i = 2, \ddd, n),
+  \end{equation}
+  hoping that $\varphi$ is an eigenvector of $\dual{T}$. It is not, in general. Checking $\dual{T}\varphi = \lambda \varphi$ means checking it on \emph{every} basis vector, and while
+  \begin{equation}
+    (\dual{T}\varphi)(u) = \varphi(Tu) = \varphi(\lambda u) = \lambda = \lambda \varphi(u)
+  \end{equation}
+  works out, the remaining conditions $(\dual{T}\varphi)(v_i) = \varphi(T v_i) = 0$ say that $T v_i$ has no $u$-component --- i.e. that $\myspan{v_2, \ddd, v_n}$ is itself $T$-invariant. Nothing in the hypotheses provides that, and choosing a different complement does not help.
+
+  The equivalence chain above avoids the issue by never naming an eigenvector at all. It works entirely with the \emph{failure} of injectivity and surjectivity, using that $\dual{S}$ is surjective exactly when $S$ is injective, and that in finite dimensions an operator is invertible as soon as it is injective. Existence statements are often easier to prove by ruling out invertibility than by exhibiting a witness.
+
+  One caution on the chain: it uses finite-dimensionality twice, once for $\dual{(T-\lambda I)} = \dual{T} - \lambda I$ to behave and once for \qt{not surjective $\iff$ not invertible}. In infinite dimensions the last step fails.
+\end{ainote}
+
 \exercise{21}
 \begin{xrcs}
   Suppose $T \in \linmap(V)$ is invertible.
@@ -92,20 +95,6 @@
 \end{xrcs}
 
 \exercise{22}
-% ==============================================================================
-% AI FEEDBACK: Exercise 22
-% ------------------------------------------------------------------------------
-% 1. Logical Issue in Draft: Changing the definition of $T$ to $T(u)=3(-w)$ changes the
-%    given operator rather than proving the property for the given operator.
-% 2. Rigorous Proof for the Given $T$:
-%    Observe $T(u+w) = Tu + Tw = 3w + 3u = 3(u+w)$.
-%    Also $T(u-w) = Tu - Tw = 3w - 3u = -3(u-w)$.
-%    Since $u \neq 0$, the vectors $u+w$ and $u-w$ cannot both be zero (their sum is $2u \neq 0$).
-%    Thus:
-%    - If $u+w \neq 0$, it is an eigenvector of $T$ with eigenvalue $3$.
-%    - If $u-w \neq 0$, it is an eigenvector of $T$ with eigenvalue $-3$.
-%    Therefore, $3$ or $-3$ is guaranteed to be an eigenvalue of $T$.
-% ==============================================================================
 \begin{xrcs}
   Suppose $T \in \linmap(V)$ and there exist nonzero vectors $u, w \in V$ such that
   \begin{equation}
@@ -123,22 +112,15 @@
   \end{xsol}
 \end{xrcs}
 
+\begin{ainote}[Two things to get right here]
+  \emph{You may not adjust $T$.} A tempting move when the case $u + w = 0$ is inconvenient is to redefine $T$, e.g. by declaring $Tu = 3(-w)$. That proves a statement about a \emph{different} operator. $T$ is given by the hypotheses $Tu = 3w$ and $Tw = 3u$, and the conclusion has to be reached for that $T$ --- the only freedom is in which \emph{vectors} we feed to it, which is why $u+w$ and $u-w$ are the right things to try.
+
+  \emph{The exercise says \qt{or}, and it has to.} Neither eigenvalue can be forced on its own, because each degenerate case genuinely occurs. If $w = -u$ then $u + w = 0$ and only $-3$ is obtained; if $w = u$ then $u - w = 0$ and only $3$ is. Both are consistent with the hypotheses, e.g. on $V = \myF$ with $T$ multiplication by $3$ (take $u = w = 1$) or by $-3$ (take $u = 1, w = -1$). So the proof must split into cases, and the step that makes the split safe is $(u+w) + (u-w) = 2u \neq 0$: the two candidates cannot vanish simultaneously.
+
+  Incidentally, $T^2 u = T(3w) = 9u$ and likewise $T^2 w = 9w$, so $T^2$ acts as $9I$ on $\myspan{u,w}$. That is the structural reason $\pm 3$ are the only candidates: the eigenvalues in play must square to $9$.
+\end{ainote}
+
 \exercise{23}
-% ==============================================================================
-% AI FEEDBACK: Exercise 23
-% ------------------------------------------------------------------------------
-% 1. Incomplete Drafts: Attempting to find an invariant codimension-1 subspace by modifying
-%    a basis of $U$ in $V = U \oplus \myspan{v_0}$ is tricky because $Tu_k$ can have components
-%    in both $U$ and $\myspan{v_0}$.
-% 2. Clean Dual Space Proof:
-%    $(\Rightarrow)$ If $T$ has an eigenvalue $\lambda$, then by Exercise 15 $\dual{T}$ has
-%    eigenvalue $\lambda$. Let $\varphi \in \dual{V} \setminus \{0\}$ with $\dual{T}(\varphi) = \lambda \varphi$.
-%    Then $U = \mynull \varphi$ has $\dim U = \dim V - 1$. For $u \in U$,
-%    $\varphi(Tu) = (\dual{T}\varphi)(u) = (\lambda \varphi)(u) = \lambda \varphi(u) = 0$, so $Tu \in U$.
-%    $(\Leftarrow)$ If $U$ is a $T$-invariant subspace of dimension $\dim V - 1$, the quotient
-%    map $T/U \in \linmap(V/U)$ acts on a 1-dimensional space $V/U$, so it has an eigenvalue $\lambda$.
-%    This yields an eigenvalue for $T$.
-% ==============================================================================
 \begin{xrcs}
   Suppose $V$ is finite-dimensional and $T \in \linmap(V)$. Prove that $T$ has an eigenvalue $\iff$ there exists a subspace of $V$ of dimension $\mydim V - 1$ that is invariant under $T$.
 
@@ -151,9 +133,28 @@
 
     \Leftarrowdirection Suppose $U$ is a $T$-invariant subspace of $V$ with $\dim U = \dim V - 1$.
     The quotient space $V/U$ has dimension $\dim V - \dim U = 1$.
-    The induced quotient operator $T/U \in \linmap(V/U)$ on a 1-dimensional space is multiplication by some scalar $\lambda \in \myF$, so $T$ has an eigenvalue $\lambda$.
+    The induced quotient operator $T/U \in \linmap(V/U)$ on a $1$-dimensional space is multiplication by some scalar $\lambda \in \myF$, by Exercise 3A.7.
+
+    It remains to turn that $\lambda$ into an eigenvalue of $T$ itself, which does not follow merely from the words. Saying that $T/U$ is multiplication by $\lambda$ means
+    \begin{equation}
+      (T/U)(v + U) = Tv + U = \lambda v + U \quad \forall v \in V,
+    \end{equation}
+    i.e. $Tv - \lambda v \in U$ for every $v \in V$. In other words
+    \begin{equation}
+      \myrange (T - \lambda I) \subseteq U.
+    \end{equation}
+
+    Hence $\dim \myrange (T-\lambda I) \leq \dim U = \dim V - 1 < \dim V$, so $T - \lambda I$ is not surjective. Since $V$ is finite-dimensional, an operator on $V$ is surjective if and only if it is injective by \ref{thm: injectivity is equivalent to surjectivity}, so $T - \lambda I$ is not injective either. Therefore $\mynull (T - \lambda I) \neq \{0\}$, which is precisely to say that $\lambda$ is an eigenvalue of $T$.
   \end{xprf}
 \end{xrcs}
+
+\begin{ainote}[Why the obvious approach to $\Rightarrow$ does not work]
+  The natural first attempt at the $\Rightarrow$ direction is to build the codimension-one subspace by hand: write $V = U \oplus \myspan{v_0}$ for some hyperplane $U$ and try to adjust a basis $u_1, \ddd, u_{n-1}$ of $U$ until $U$ becomes invariant. It does not come out. The obstruction is that each $T u_k$ decomposes as a part in $U$ \emph{plus} a part along $v_0$, and killing all $n-1$ of those $v_0$-components simultaneously is exactly as hard as the original problem --- there is no reason a basis change of $U$ should clear them.
+
+  Passing to the dual sidesteps this entirely. A hyperplane is the same thing as the null space of a nonzero functional, so instead of choosing $n-1$ vectors one chooses a \emph{single} $\varphi \in \dual{V}$, and the invariance of $\mynull \varphi$ is the one condition $\dual{T} \varphi = \lambda \varphi$. The problem shrinks from adjusting a basis to finding one eigenvector --- of $\dual{T}$ rather than of $T$, which Exercise 15 supplies.
+
+  This is the recurring payoff of duality: conditions on a subspace of codimension $k$ become conditions on a $k$-dimensional space of functionals, and small numbers are easier to handle than large ones.
+\end{ainote}
 
 \exercise{24}
 \begin{xrcs}
@@ -161,16 +162,22 @@
   \begin{equation}
     E(\lambda_1, T) + \cdots + E(\lambda_m, T) = E(\lambda_1, T) \oplus \cdots \oplus E(\lambda_m, T).
   \end{equation}
-% \begin{xprf}
-%   To show that the sum is direct, suppose $u_1 + \dots + u_m = 0$, where $u_j \in E(\lambda_j, T)$ for each $j \in \{1, \dots, m\}$.
-%   We must show that every $u_j = 0$.
-%   Suppose for contradiction that not all $u_j$ are zero.
-%   Discarding the terms where $u_j = 0$, we obtain a non-empty sum of nonzero eigenvectors corresponding to distinct eigenvalues that equals zero.
-%   However, by Theorem \ref{thm: linearly independent eigenvectors}, eigenvectors corresponding to distinct eigenvalues are linearly independent.
-%   Thus no non-trivial linear combination of them can equal zero, a contradiction.
-%   Therefore, $u_1 = \dots = u_m = 0$, which proves that the sum is a direct sum.
-% \end{xprf}
+  \begin{xprf}
+    To show that the sum is direct, suppose $u_1 + \dots + u_m = 0$, where $u_j \in E(\lambda_j, T)$ for each $j \in \{1, \dots, m\}$.
+    By \ref{thm: condition for a direct sum} it suffices to show that every $u_j = 0$.
+    Suppose for contradiction that not all $u_j$ are zero.
+    Discarding the terms where $u_j = 0$, we obtain a non-empty sum of nonzero eigenvectors corresponding to distinct eigenvalues that equals zero.
+    However, by Theorem \ref{thm: linearly independent eigenvectors}, eigenvectors corresponding to distinct eigenvalues are linearly independent.
+    Thus no non-trivial linear combination of them can equal zero, a contradiction.
+    Therefore, $u_1 = \dots = u_m = 0$, which proves that the sum is a direct sum.
+  \end{xprf}
 \end{xrcs}
+
+\begin{ainote}[The discarding step is what makes this work]
+  It is worth being precise about why the zero terms are thrown away. \ref{thm: linearly independent eigenvectors} says that eigenvectors belonging to distinct eigenvalues are linearly independent, and \qt{eigenvector} means \emph{nonzero} by definition. So the theorem cannot be applied to the list $u_1, \ddd, u_m$ as it stands: some $u_j$ may be $0$, and $0$ is not an eigenvector.
+
+  Discarding them repairs exactly that. What is left is a genuine list of eigenvectors for distinct eigenvalues summing to $0$ with all coefficients equal to $1 \neq 0$, which contradicts their independence. If \emph{every} term was discarded there is nothing to contradict --- but that is the case $u_1 = \cdots = u_m = 0$, which is what we wanted anyway.
+\end{ainote}
 
 \exercise{25}
 \begin{xrcs}
