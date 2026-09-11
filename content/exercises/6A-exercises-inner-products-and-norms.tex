@@ -9,16 +9,16 @@
     \item Use (b) to show that the diagonals of a rhombus are perpendicular to each other.
   \end{enumerate}
 
-% \begin{xprf}
-%   \StepOne (a) Expanding using bilinearity and symmetry of the real inner product:
-%   \[
-%     \langle u+v, u-v \rangle = \langle u, u \rangle - \langle u, v \rangle + \langle v, u \rangle - \langle v, v \rangle = \|u\|^2 - \|v\|^2.
-%   \]
-%
-%   \StepTwo (b) If $\|u\| = \|v\|$, then $\|u\|^2 - \|v\|^2 = 0$. By (a), $\langle u+v, u-v \rangle = 0$, so $u+v \perp u-v$.
-%
-%   \StepThree (c) A rhombus in $\real^2$ is a parallelogram whose sides have equal length $\|u\| = \|v\|$. The vectors along the diagonals are $u+v$ and $u-v$. By (b), $\langle u+v, u-v \rangle = 0$, meaning the diagonals are perpendicular.
-% \end{xprf}
+\begin{xprf}
+  \StepOne (a) Expanding using bilinearity and symmetry of the real inner product:
+  \[
+    \langle u+v, u-v \rangle = \langle u, u \rangle - \langle u, v \rangle + \langle v, u \rangle - \langle v, v \rangle = \|u\|^2 - \|v\|^2.
+  \]
+
+  \StepTwo (b) If $\|u\| = \|v\|$, then $\|u\|^2 - \|v\|^2 = 0$. By (a), $\langle u+v, u-v \rangle = 0$, so $u+v \perp u-v$.
+
+  \StepThree (c) A rhombus in $\real^2$ is a parallelogram whose sides have equal length $\|u\| = \|v\|$. The vectors along the diagonals are $u+v$ and $u-v$. By (b), $\langle u+v, u-v \rangle = 0$, meaning the diagonals are perpendicular.
+\end{xprf}
 \end{xrcs}
 
 \exercise{6}
@@ -28,28 +28,28 @@
     \|u\| \leq \|u + a v\| \quad \forall a \in \myF.
   \end{equation}
 
-% \begin{xprf}
-%   \Rightarrowdirection Suppose $\langle u, v \rangle = 0$. For any $a \in \myF$, the Pythagorean Theorem yields:
-%   \[
-%     \|u + av\|^2 = \|u\|^2 + \|av\|^2 = \|u\|^2 + |a|^2 \|v\|^2 \geq \|u\|^2.
-%   \]
-%   Taking square roots gives $\|u\| \leq \|u + av\|$ for all $a \in \myF$.
-%
-%   \Leftarrowdirection Conversely, suppose $\|u\| \leq \|u + av\|$ for all $a \in \myF$.
-%   Squaring both sides gives:
-%   \[
-%     \|u\|^2 \leq \|u + av\|^2 = \|u\|^2 + 2\realpart(a \langle v, u \rangle) + |a|^2 \|v\|^2 \implies 0 \leq 2\realpart(a \langle v, u \rangle) + |a|^2 \|v\|^2.
-%   \]
-%   If $v = 0$, then $\langle u, v \rangle = 0$ holds trivially.
-%   If $v \neq 0$, set $a = -t \frac{\langle u, v \rangle}{\|v\|^2}$ for $t > 0$. Then:
-%   \[
-%     0 \leq -2t \frac{|\langle u, v \rangle|^2}{\|v\|^2} + t^2 \frac{|\langle u, v \rangle|^2}{\|v\|^2} = t(t-2) \frac{|\langle u, v \rangle|^2}{\|v\|^2}.
-%   \]
-%   Choosing $t = 1$ gives $t(t-2) = -1$, which implies:
-%   \[
-%     0 \leq -\frac{|\langle u, v \rangle|^2}{\|v\|^2} \implies |\langle u, v \rangle|^2 \leq 0 \implies \langle u, v \rangle = 0.
-%   \]
-% \end{xprf}
+\begin{xprf}
+  \Rightarrowdirection Suppose $\langle u, v \rangle = 0$. For any $a \in \myF$, the Pythagorean Theorem yields:
+  \[
+    \|u + av\|^2 = \|u\|^2 + \|av\|^2 = \|u\|^2 + |a|^2 \|v\|^2 \geq \|u\|^2.
+  \]
+  Taking square roots gives $\|u\| \leq \|u + av\|$ for all $a \in \myF$.
+
+  \Leftarrowdirection Conversely, suppose $\|u\| \leq \|u + av\|$ for all $a \in \myF$.
+  Squaring both sides gives:
+  \[
+    \|u\|^2 \leq \|u + av\|^2 = \|u\|^2 + 2\realpart(a \langle v, u \rangle) + |a|^2 \|v\|^2 \implies 0 \leq 2\realpart(a \langle v, u \rangle) + |a|^2 \|v\|^2.
+  \]
+  If $v = 0$, then $\langle u, v \rangle = 0$ holds trivially.
+  If $v \neq 0$, set $a = -t \frac{\langle u, v \rangle}{\|v\|^2}$ for $t > 0$. Then:
+  \[
+    0 \leq -2t \frac{|\langle u, v \rangle|^2}{\|v\|^2} + t^2 \frac{|\langle u, v \rangle|^2}{\|v\|^2} = t(t-2) \frac{|\langle u, v \rangle|^2}{\|v\|^2}.
+  \]
+  Choosing $t = 1$ gives $t(t-2) = -1$, which implies:
+  \[
+    0 \leq -\frac{|\langle u, v \rangle|^2}{\|v\|^2} \implies |\langle u, v \rangle|^2 \leq 0 \implies \langle u, v \rangle = 0.
+  \]
+\end{xprf}
 \end{xrcs}
 
 \exercise{20}
@@ -59,17 +59,17 @@
     |\|u\| - \|v\|| \leq \|u - v\|.
   \end{equation}
 
-% \begin{xprf}
-%   By the triangle inequality:
-%   \[
-%     \|u\| = \|(u - v) + v\| \leq \|u - v\| + \|v\| \implies \|u\| - \|v\| \leq \|u - v\|.
-%   \]
-%   Interchanging the roles of $u$ and $v$ gives:
-%   \[
-%     \|v\| - \|u\| \leq \|v - u\| = \|u - v\| \implies -(\|u\| - \|v\|) \leq \|u - v\|.
-%   \]
-%   Combining both inequalities yields $|\|u\| - \|v\|| \leq \|u - v\|$.
-% \end{xprf}
+\begin{xprf}
+  By the triangle inequality:
+  \[
+    \|u\| = \|(u - v) + v\| \leq \|u - v\| + \|v\| \implies \|u\| - \|v\| \leq \|u - v\|.
+  \]
+  Interchanging the roles of $u$ and $v$ gives:
+  \[
+    \|v\| - \|u\| \leq \|v - u\| = \|u - v\| \implies -(\|u\| - \|v\|) \leq \|u - v\|.
+  \]
+  Combining both inequalities yields $|\|u\| - \|v\|| \leq \|u - v\|$.
+\end{xprf}
 \end{xrcs}
 
 \exercise{28}
@@ -80,19 +80,19 @@
   \end{equation}
   if and only if there exists an inner product on $V$ such that $\|v\| = \sqrt{\langle v, v \rangle}$ for all $v \in V$.
 
-% \begin{xprf}
-%   \Rightarrowdirection Define $\langle u, v \rangle := \frac{1}{4}\left(\|u+v\|^2 - \|u-v\|^2\right)$.
-%   Using the parallelogram identity:
-%   \[
-%     \langle u+w, v \rangle + \langle u-w, v \rangle = 2\langle u, v \rangle.
-%   \]
-%   Setting $w = u$ gives $\langle 2u, v \rangle = 2\langle u, v \rangle$.
-%   Setting $u = \frac{x+y}{2}$ and $w = \frac{x-y}{2}$ gives additivity $\langle x+y, v \rangle = \langle x, v \rangle + \langle y, v \rangle$.
-%   Induction yields $\langle c u, v \rangle = c \langle u, v \rangle$ for $c \in \mathbb{Q}$, and continuity extends homogeneity to all $c \in \real$.
-%   Positivity and symmetry are immediate from the norm properties.
-%
-%   \Leftarrowdirection If $\|\cdot\|$ is induced by an inner product $\langle \cdot, \cdot \rangle$, expanding $\|u+v\|^2 = \langle u+v, u+v \rangle$ and $\|u-v\|^2 = \langle u-v, u-v \rangle$ and adding them yields $2\|u\|^2 + 2\|v\|^2$.
-% \end{xprf}
+\begin{xprf}
+  \Rightarrowdirection Define $\langle u, v \rangle := \frac{1}{4}\left(\|u+v\|^2 - \|u-v\|^2\right)$.
+  Using the parallelogram identity:
+  \[
+    \langle u+w, v \rangle + \langle u-w, v \rangle = 2\langle u, v \rangle.
+  \]
+  Setting $w = u$ gives $\langle 2u, v \rangle = 2\langle u, v \rangle$.
+  Setting $u = \frac{x+y}{2}$ and $w = \frac{x-y}{2}$ gives additivity $\langle x+y, v \rangle = \langle x, v \rangle + \langle y, v \rangle$.
+  Induction yields $\langle c u, v \rangle = c \langle u, v \rangle$ for $c \in \mathbb{Q}$, and continuity extends homogeneity to all $c \in \real$.
+  Positivity and symmetry are immediate from the norm properties.
+
+  \Leftarrowdirection If $\|\cdot\|$ is induced by an inner product $\langle \cdot, \cdot \rangle$, expanding $\|u+v\|^2 = \langle u+v, u+v \rangle$ and $\|u-v\|^2 = \langle u-v, u-v \rangle$ and adding them yields $2\|u\|^2 + 2\|v\|^2$.
+\end{xprf}
 \end{xrcs}
 
 % ==============================================================================

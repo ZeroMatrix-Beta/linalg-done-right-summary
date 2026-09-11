@@ -7,37 +7,37 @@
     |\|S\| - \|T\|| \leq \|S - T\|.
   \end{equation}
 
-% \begin{xprf}
-%   By the triangle inequality for operator norms (Theorem \ref{thm: basic properties of norms of linear maps}(d)):
-%   \[
-%     \|S\| = \|(S - T) + T\| \leq \|S - T\| + \|T\| \implies \|S\| - \|T\| \leq \|S - T\|.
-%   \]
-%   Interchanging the roles of $S$ and $T$ gives:
-%   \[
-%     \|T\| - \|S\| \leq \|T - S\| = \|S - T\| \implies -(\|S\| - \|T\|) \leq \|S - T\|.
-%   \]
-%   Combining both inequalities yields $|\|S\| - \|T\|| \leq \|S - T\|$.
-% \end{xprf}
+\begin{xprf}
+  By the triangle inequality for operator norms (Theorem \ref{thm: basic properties of norms of linear maps}(d)):
+  \[
+    \|S\| = \|(S - T) + T\| \leq \|S - T\| + \|T\| \implies \|S\| - \|T\| \leq \|S - T\|.
+  \]
+  Interchanging the roles of $S$ and $T$ gives:
+  \[
+    \|T\| - \|S\| \leq \|T - S\| = \|S - T\| \implies -(\|S\| - \|T\|) \leq \|S - T\|.
+  \]
+  Combining both inequalities yields $|\|S\| - \|T\|| \leq \|S - T\|$.
+\end{xprf}
 \end{xrcs}
 
 \exercise{3}
 \begin{xrcs}
   Suppose $T \in \linmap(V,W)$ and $v \in V$. Prove that
   \begin{equation}
-    \|Tv\| = \|T\| \|v\| \iff \dual{T}Tv = \|T\|^2 v.
+    \|Tv\| = \|T\| \|v\| \iff T^*Tv = \|T\|^2 v.
   \end{equation}
 
-% \begin{xprf}
-%   If $v = 0$, both sides are trivially true. Assume $v \neq 0$.
-%   Let $s_1 = \|T\|$ be the largest singular value of $T$.
-%   By Theorem \ref{thm: properties of T^*T}, $\dual{T}T$ is a positive operator with largest eigenvalue $s_1^2 = \|T\|^2$.
-%   Consider the inner product $\langle (\|T\|^2 I - \dual{T}T)v, v \rangle = \|T\|^2 \|v\|^2 - \|Tv\|^2 \ge 0$.
-%   Since $\|T\|^2 I - \dual{T}T$ is a positive operator (by Theorem \ref{thm: characterizations of positive operators}), Theorem \ref{thm: T positive and <Tv,v> = 0 => Tv = 0} implies:
-%   \[
-%     \langle (\|T\|^2 I - \dual{T}T)v, v \rangle = 0 \iff (\|T\|^2 I - \dual{T}T)v = 0 \iff \dual{T}Tv = \|T\|^2 v.
-%   \]
-%   Since $\langle (\|T\|^2 I - \dual{T}T)v, v \rangle = \|T\|^2 \|v\|^2 - \|Tv\|^2$, this equals $0$ if and only if $\|Tv\|^2 = \|T\|^2 \|v\|^2 \iff \|Tv\| = \|T\| \|v\|$.
-% \end{xprf}
+\begin{xprf}
+  If $v = 0$, both sides are trivially true. Assume $v \neq 0$.
+  Let $s_1 = \|T\|$ be the largest singular value of $T$.
+  By Theorem \ref{thm: properties of T^*T}, $T^*T$ is a positive operator with largest eigenvalue $s_1^2 = \|T\|^2$.
+  Consider the inner product $\langle (\|T\|^2 I - T^*T)v, v \rangle = \|T\|^2 \|v\|^2 - \|Tv\|^2 \ge 0$.
+  Since $\|T\|^2 I - T^*T$ is a positive operator (by Theorem \ref{thm: characterizations of positive operators}), Theorem \ref{thm: T positive and <Tv,v> = 0 => Tv = 0} implies:
+  \[
+    \langle (\|T\|^2 I - T^*T)v, v \rangle = 0 \iff (\|T\|^2 I - T^*T)v = 0 \iff T^*Tv = \|T\|^2 v.
+  \]
+  Since $\langle (\|T\|^2 I - T^*T)v, v \rangle = \|T\|^2 \|v\|^2 - \|Tv\|^2$, this equals $0$ if and only if $\|Tv\|^2 = \|T\|^2 \|v\|^2 \iff \|Tv\| = \|T\| \|v\|$.
+\end{xprf}
 \end{xrcs}
 
 \exercise{5}
@@ -47,33 +47,33 @@
     \|ST\| \leq \|S\| \|T\|.
   \end{equation}
 
-% \begin{xprf}
-%   By Theorem \ref{thm: alternative formulas for ||T||}(c), for every $v \in V$:
-%   \[
-%     \|(ST)v\| = \|S(Tv)\| \leq \|S\| \|Tv\| \leq \|S\| \big(\|T\| \|v\|\big) = \big(\|S\| \|T\|\big) \|v\|.
-%   \]
-%   Taking the maximum over all $v \in V$ with $\|v\| \le 1$ yields:
-%   \[
-%     \|ST\| = \max_{\substack{v \in V \\ \|v\| \leq 1}} \|(ST)v\| \leq \|S\| \|T\|.
-%   \]
-% \end{xprf}
+\begin{xprf}
+  By Theorem \ref{thm: alternative formulas for ||T||}(c), for every $v \in V$:
+  \[
+    \|(ST)v\| = \|S(Tv)\| \leq \|S\| \|Tv\| \leq \|S\| \big(\|T\| \|v\|\big) = \big(\|S\| \|T\|\big) \|v\|.
+  \]
+  Taking the maximum over all $v \in V$ with $\|v\| \le 1$ yields:
+  \[
+    \|ST\| = \max_{\substack{v \in V \\ \|v\| \leq 1}} \|(ST)v\| \leq \|S\| \|T\|.
+  \]
+\end{xprf}
 \end{xrcs}
 
 \exercise{19}
 \begin{xrcs}
   Prove that if $T \in \linmap(V,W)$, then
   \begin{equation}
-    \|\dual{T}T\| = \|T\|^2.
+    \|T^*T\| = \|T\|^2.
   \end{equation}
 
-% \begin{xprf}
-%   By Exercise 5, $\|\dual{T}T\| \le \|\dual{T}\| \|T\|$.
-%   By Theorem \ref{thm: norm of the adjoint}, $\|\dual{T}\| = \|T\|$, so $\|\dual{T}T\| \le \|T\|^2$.
-%   Conversely, for any $v \in V$ with $\|v\| \le 1$:
-%   \[
-%     \|Tv\|^2 = \langle Tv, Tv \rangle = \langle \dual{T}Tv, v \rangle \leq \|\dual{T}Tv\| \|v\| \leq \|\dual{T}T\| \|v\|^2 \leq \|\dual{T}T\|.
-%   \]
-%   Taking the maximum over all $v \in V$ with $\|v\| \le 1$ gives $\|T\|^2 \le \|\dual{T}T\|$.
-%   Combining both inequalities yields $\|\dual{T}T\| = \|T\|^2$.
-% \end{xprf}
+\begin{xprf}
+  By Exercise 5, $\|T^*T\| \le \|T^*\| \|T\|$.
+  By Theorem \ref{thm: norm of the adjoint}, $\|T^*\| = \|T\|$, so $\|T^*T\| \le \|T\|^2$.
+  Conversely, for any $v \in V$ with $\|v\| \le 1$:
+  \[
+    \|Tv\|^2 = \langle Tv, Tv \rangle = \langle T^*Tv, v \rangle \leq \|T^*Tv\| \|v\| \leq \|T^*T\| \|v\|^2 \leq \|T^*T\|.
+  \]
+  Taking the maximum over all $v \in V$ with $\|v\| \le 1$ gives $\|T\|^2 \le \|T^*T\|$.
+  Combining both inequalities yields $\|T^*T\| = \|T\|^2$.
+\end{xprf}
 \end{xrcs}

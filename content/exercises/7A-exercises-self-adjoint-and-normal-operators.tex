@@ -4,71 +4,71 @@
 \begin{xrcs}
   Suppose $T \in \linmap(V,W)$. Prove that
   \begin{equation}
-    T = 0 \iff \dual{T} = 0 \iff \dual{T}T = 0 \iff T\dual{T} = 0.
+    T = 0 \iff T^* = 0 \iff T^*T = 0 \iff TT^* = 0.
   \end{equation}
 
-% \begin{xprf}
-%   \StepOne If $T = 0$, then for all $v \in V, w \in W$: $\langle v, \dual{T}w \rangle = \langle Tv, w \rangle = \langle 0, w \rangle = 0$, so $\dual{T} = 0$.
-%   Conversely, if $\dual{T} = 0$, then $T = (\dual{T})^* = 0^* = 0$. Thus $T = 0 \iff \dual{T} = 0$.
-%
-%   \StepTwo If $T = 0$, clearly $\dual{T}T = 0$. Conversely, if $\dual{T}T = 0$, then for all $v \in V$:
-%   \[
-%     \|Tv\|^2 = \langle Tv, Tv \rangle = \langle \dual{T}Tv, v \rangle = \langle 0, v \rangle = 0 \implies Tv = 0 \implies T = 0.
-%   \]
-%   Thus $T = 0 \iff \dual{T}T = 0$.
-%
-%   \StepThree Applying Step 2 to $\dual{T}$ gives $\dual{T} = 0 \iff (\dual{T})^*(\dual{T}) = 0 \iff T\dual{T} = 0$.
-%   Combining with Step 1 gives all the equivalences.
-% \end{xprf}
+\begin{xprf}
+  \StepOne If $T = 0$, then for all $v \in V, w \in W$: $\langle v, T^*w \rangle = \langle Tv, w \rangle = \langle 0, w \rangle = 0$, so $T^* = 0$.
+  Conversely, if $T^* = 0$, then $T = (T^*)^* = 0^* = 0$. Thus $T = 0 \iff T^* = 0$.
+
+  \StepTwo If $T = 0$, clearly $T^*T = 0$. Conversely, if $T^*T = 0$, then for all $v \in V$:
+  \[
+    \|Tv\|^2 = \langle Tv, Tv \rangle = \langle T^*Tv, v \rangle = \langle 0, v \rangle = 0 \implies Tv = 0 \implies T = 0.
+  \]
+  Thus $T = 0 \iff T^*T = 0$.
+
+  \StepThree Applying Step 2 to $T^*$ gives $T^* = 0 \iff (T^*)^*(T^*) = 0 \iff TT^* = 0$.
+  Combining with Step 1 gives all the equivalences.
+\end{xprf}
 \end{xrcs}
 
 \exercise{3}
 \begin{xrcs}
   Suppose $T \in \linmap(V)$ and $\lambda \in \myF$. Prove that
   \begin{equation}
-    \lambda \text{ is an eigenvalue of } T \iff \overline{\lambda} \text{ is an eigenvalue of } \dual{T}.
+    \lambda \text{ is an eigenvalue of } T \iff \overline{\lambda} \text{ is an eigenvalue of } T^*.
   \end{equation}
 
-% \begin{xprf}
-%   $\lambda$ is an eigenvalue of $T$ $\iff$ $T - \lambda I$ is not injective $\iff$ $T - \lambda I$ is not invertible.
-%   Since an operator is invertible if and only if its adjoint is invertible (Theorem \ref{thm: properties of the adjoint}), this is equivalent to:
-%   \[
-%     (T - \lambda I)^* = \dual{T} - \overline{\lambda} I \text{ is not invertible}.
-%   \]
-%   On a finite-dimensional space, $\dual{T} - \overline{\lambda} I$ is not invertible if and only if it is not injective, which means $\overline{\lambda}$ is an eigenvalue of $\dual{T}$.
-% \end{xprf}
+\begin{xprf}
+  $\lambda$ is an eigenvalue of $T$ $\iff$ $T - \lambda I$ is not injective $\iff$ $T - \lambda I$ is not invertible.
+  Since an operator is invertible if and only if its adjoint is invertible (Theorem \ref{thm: properties of the adjoint}), this is equivalent to:
+  \[
+    (T - \lambda I)^* = T^* - \overline{\lambda} I \text{ is not invertible}.
+  \]
+  On a finite-dimensional space, $T^* - \overline{\lambda} I$ is not invertible if and only if it is not injective, which means $\overline{\lambda}$ is an eigenvalue of $T^*$.
+\end{xprf}
 \end{xrcs}
 
 \exercise{4}
 \begin{xrcs}
   Suppose $T \in \linmap(V)$ and $U$ is a subspace of $V$. Prove that
   \begin{equation}
-    U \text{ is invariant under } T \iff U^\perp \text{ is invariant under } \dual{T}.
+    U \text{ is invariant under } T \iff U^\perp \text{ is invariant under } T^*.
   \end{equation}
 
-% \begin{xprf}
-%   \Rightarrowdirection Suppose $U$ is invariant under $T$. Let $w \in U^\perp$. For every $u \in U$, we have $Tu \in U$, so
-%   \[
-%     \langle u, \dual{T}w \rangle = \langle Tu, w \rangle = 0.
-%   \]
-%   Thus $\dual{T}w \in U^\perp$, proving $U^\perp$ is invariant under $\dual{T}$.
-%
-%   \Leftarrowdirection Conversely, suppose $U^\perp$ is invariant under $\dual{T}$. Applying the forward direction to $\dual{T}$ and the subspace $U^\perp$, we find that $(U^\perp)^\perp = U$ is invariant under $(\dual{T})^* = T$.
-% \end{xprf}
+\begin{xprf}
+  \Rightarrowdirection Suppose $U$ is invariant under $T$. Let $w \in U^\perp$. For every $u \in U$, we have $Tu \in U$, so
+  \[
+    \langle u, T^*w \rangle = \langle Tu, w \rangle = 0.
+  \]
+  Thus $T^*w \in U^\perp$, proving $U^\perp$ is invariant under $T^*$.
+
+  \Leftarrowdirection Conversely, suppose $U^\perp$ is invariant under $T^*$. Applying the forward direction to $T^*$ and the subspace $U^\perp$, we find that $(U^\perp)^\perp = U$ is invariant under $(T^*)^* = T$.
+\end{xprf}
 \end{xrcs}
 
 \exercise{9}
 \begin{xrcs}
   Prove that the product of two self-adjoint operators on $V$ is self-adjoint if and only if the two operators commute.
 
-% \begin{xprf}
-%   Let $S, T \in \linmap(V)$ be self-adjoint, so $\dual{S} = S$ and $\dual{T} = T$.
-%   Then $(ST)^* = \dual{T}\dual{S} = TS$.
-%   Therefore:
-%   \[
-%     ST \text{ is self-adjoint} \iff (ST)^* = ST \iff TS = ST \iff S \text{ and } T \text{ commute}.
-%   \]
-% \end{xprf}
+\begin{xprf}
+  Let $S, T \in \linmap(V)$ be self-adjoint, so $S^* = S$ and $T^* = T$.
+  Then $(ST)^* = T^*S^* = TS$.
+  Therefore:
+  \[
+    ST \text{ is self-adjoint} \iff (ST)^* = ST \iff TS = ST \iff S \text{ and } T \text{ commute}.
+  \]
+\end{xprf}
 \end{xrcs}
 
 \exercise{20}
@@ -80,17 +80,17 @@
     \item There is a subspace $U$ of $V$ such that $P = P_U$.
   \end{enumerate}
 
-% \begin{xprf}
-%   (a) $\implies$ (b): Every self-adjoint operator is normal.
-%
-%   (b) $\implies$ (c): Suppose $P$ is normal. Since $P^2 = P$, by Exercise 3B.27 we have $V = \mynull P \oplus \myrange P$.
-%   Since $P$ is normal, by Theorem \ref{thm: range, null space, and eigenvectors of a normal operator}, $\mynull P = \mynull \dual{P}$.
-%   By Theorem \ref{thm: null space and range of T^*}, $\mynull \dual{P} = (\myrange P)^\perp$.
-%   Thus $\mynull P = (\myrange P)^\perp$, which means $\mynull P \perp \myrange P$.
-%   Let $U = \myrange P$. For any $v = u + w$ with $u \in U$ and $w \in U^\perp = \mynull P$, we have $Pv = Pu + Pw = u + 0 = u = P_U v$. Thus $P = P_U$.
-%
-%   (c) $\implies$ (a): If $P = P_U$, then by Theorem \ref{thm: properties orthogonal projection}, $P_U$ is self-adjoint.
-% \end{xprf}
+\begin{xprf}
+  (a) $\implies$ (b): Every self-adjoint operator is normal.
+
+  (b) $\implies$ (c): Suppose $P$ is normal. Since $P^2 = P$, by Exercise 3B.27 we have $V = \mynull P \oplus \myrange P$.
+  Since $P$ is normal, by Theorem \ref{thm: range, null space, and eigenvectors of a normal operator}, $\mynull P = \mynull P^*$.
+  By Theorem \ref{thm: null space and range of T^*}, $\mynull P^* = (\myrange P)^\perp$.
+  Thus $\mynull P = (\myrange P)^\perp$, which means $\mynull P \perp \myrange P$.
+  Let $U = \myrange P$. For any $v = u + w$ with $u \in U$ and $w \in U^\perp = \mynull P$, we have $Pv = Pu + Pw = u + 0 = u = P_U v$. Thus $P = P_U$.
+
+  (c) $\implies$ (a): If $P = P_U$, then by Theorem \ref{thm: properties orthogonal projection}, $P_U$ is self-adjoint.
+\end{xprf}
 \end{xrcs}
 
 % ==============================================================================
