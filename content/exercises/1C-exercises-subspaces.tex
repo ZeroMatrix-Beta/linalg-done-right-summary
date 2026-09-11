@@ -164,15 +164,25 @@
   \begin{equation}
     \dim(V_1 + \dots + V_m) = \dim V_1 + \dots + \dim V_m.
   \end{equation}
-% \begin{xprf}
-%   For each $j \in \{1, \dots, m\}$, choose a basis $v_{j,1}, \dots, v_{j,\dim V_j}$ of $V_j$.
-%   The concatenated list
-%   \[
-%     v_{1,1}, \dots, v_{1,\dim V_1}, \dots, v_{m,1}, \dots, v_{m,\dim V_m}
-%   \]
-%   spans $V_1 + \dots + V_m$ and has length $\sum_{j=1}^m \dim V_j$.
-%   By definition, $V_1 + \dots + V_m$ is a direct sum if and only if this concatenated list is linearly independent in $V$.
-%   A spanning list is linearly independent if and only if its length equals the dimension of its span, which holds if and only if
-%   $\dim(V_1 + \dots + V_m) = \sum_{j=1}^m \dim V_j$.
-% \end{xprf}
+\begin{xprf}
+  For each $j \in \{1, \dots, m\}$, choose a basis $v_{j,1}, \dots, v_{j,\dim V_j}$ of $V_j$.
+  The concatenated list
+  \[
+    v_{1,1}, \dots, v_{1,\dim V_1}, \dots, v_{m,1}, \dots, v_{m,\dim V_m}
+  \]
+  spans $V_1 + \dots + V_m$ and has length $\sum_{j=1}^m \dim V_j$.
+
+  Next we claim that the sum is direct if and only if this concatenated list is linearly independent. This is not a definition and needs an argument, so here it is in both directions.
+
+  Suppose first that the sum is direct, and let
+  \begin{equation}
+    \sum_{j=1}^{m} \underbrace{\sum_{k=1}^{\dim V_j} c_{j,k} v_{j,k}}_{=: \; u_j \, \in \, V_j} = 0.
+  \end{equation}
+  Each inner sum $u_j$ lies in $V_j$, so this writes $0$ as $u_1 + \cdots + u_m$ with $u_j \in V_j$. By \ref{thm: condition for a direct sum}, directness forces every $u_j = 0$, and then the linear independence of the basis $v_{j,1}, \ddd, v_{j,\dim V_j}$ of $V_j$ forces every $c_{j,k} = 0$. So the concatenated list is linearly independent.
+
+  Conversely, suppose the concatenated list is linearly independent and $u_1 + \cdots + u_m = 0$ with $u_j \in V_j$. Expanding each $u_j$ in the basis of $V_j$ turns this into a vanishing linear combination of the concatenated list, so all its coefficients are $0$, hence every $u_j = 0$. By \ref{thm: condition for a direct sum} the sum is direct.
+
+  Finally, a spanning list is linearly independent if and only if its length equals the dimension of its span, which holds if and only if
+  $\dim(V_1 + \dots + V_m) = \sum_{j=1}^m \dim V_j$.
+\end{xprf}
 \end{xrcs}

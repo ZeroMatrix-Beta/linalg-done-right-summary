@@ -92,53 +92,53 @@
 \exercise{9}
 \begin{xrcs}
   Suppose $V$ is finite-dimensional and $S, T \in \linmap(V)$ satisfy $ST = I$. Prove that $T$ is invertible and $T^{-1} = S$ (and hence $TS = I$).
-% \begin{xprf}
-%   Suppose $v \in V$ satisfies $Tv = 0$. Then
-%   \[
-%     v = Iv = (ST)v = S(Tv) = S(0) = 0.
-%   \]
-%   Thus $\mynull T = \{0\}$, which means $T$ is injective.
-%   Since $V$ is finite-dimensional, an injective linear operator on $V$ is invertible (Theorem \ref{thm: injectivity is equivalent to surjectivity}).
-%   Multiplying the equation $ST = I$ on the right by $T^{-1}$ yields:
-%   \[
-%     (ST)T^{-1} = I T^{-1} \iff S(TT^{-1}) = T^{-1} \iff S = T^{-1}.
-%   \]
-%   Therefore, $T$ is invertible with $T^{-1} = S$, and consequently $TS = T T^{-1} = I$.
-% \end{xprf}
+\begin{xprf}
+  Suppose $v \in V$ satisfies $Tv = 0$. Then
+  \[
+    v = Iv = (ST)v = S(Tv) = S(0) = 0.
+  \]
+  Thus $\mynull T = \{0\}$, which means $T$ is injective.
+  Since $V$ is finite-dimensional, an injective linear operator on $V$ is invertible (Theorem \ref{thm: injectivity is equivalent to surjectivity}).
+  Multiplying the equation $ST = I$ on the right by $T^{-1}$ yields:
+  \[
+    (ST)T^{-1} = I T^{-1} \iff S(TT^{-1}) = T^{-1} \iff S = T^{-1}.
+  \]
+  Therefore, $T$ is invertible with $T^{-1} = S$, and consequently $TS = T T^{-1} = I$.
+\end{xprf}
 \end{xrcs}
 
 \exercise{10}
 \begin{xrcs}
   Suppose $V$ is finite-dimensional and $T \in \linmap(V)$ commutes with every operator on $V$ (i.e. $TS = ST$ for all $S \in \linmap(V)$). Prove that $T$ is a scalar multiple of the identity operator.
-% \begin{xprf}
-%   Let $v \in V \setminus \{0\}$. Extend $v$ to a basis $v, v_2, \dots, v_n$ of $V$.
-%   Define $S \in \linmap(V)$ by $Sv := v$ and $S v_j := 0$ for each $j \ge 2$.
-%   Since $T$ and $S$ commute, $T(Sv) = S(Tv)$.
-%   Because $Sv = v$, this gives $Tv = S(Tv)$.
-%   The range of $S$ is $\myspan{v}$, so $S(Tv) \in \myspan{v}$, which forces $Tv = \lambda_v v$ for some scalar $\lambda_v \in \myF$.
-%   Thus every nonzero vector in $V$ is an eigenvector of $T$.
-%   Now let $u, w \in V$ be linearly independent. Then $Tu = \lambda_u u$, $Tw = \lambda_w w$, and $T(u+w) = \lambda_{u+w}(u+w)$.
-%   This gives $\lambda_u u + \lambda_w w = \lambda_{u+w} u + \lambda_{u+w} w$, so $(\lambda_u - \lambda_{u+w})u + (\lambda_w - \lambda_{u+w})w = 0$.
-%   By linear independence, $\lambda_u = \lambda_{u+w} = \lambda_w$.
-%   Hence the eigenvalue $\lambda$ is the same for all vectors in $V$, which proves $Tv = \lambda v$ for all $v \in V$, i.e. $T = \lambda I$.
-% \end{xprf}
+\begin{xprf}
+  Let $v \in V \setminus \{0\}$. Extend $v$ to a basis $v, v_2, \dots, v_n$ of $V$.
+  Define $S \in \linmap(V)$ by $Sv := v$ and $S v_j := 0$ for each $j \ge 2$.
+  Since $T$ and $S$ commute, $T(Sv) = S(Tv)$.
+  Because $Sv = v$, this gives $Tv = S(Tv)$.
+  The range of $S$ is $\myspan{v}$, so $S(Tv) \in \myspan{v}$, which forces $Tv = \lambda_v v$ for some scalar $\lambda_v \in \myF$.
+  Thus every nonzero vector in $V$ is an eigenvector of $T$.
+  Now let $u, w \in V$ be linearly independent. Then $Tu = \lambda_u u$, $Tw = \lambda_w w$, and $T(u+w) = \lambda_{u+w}(u+w)$.
+  This gives $\lambda_u u + \lambda_w w = \lambda_{u+w} u + \lambda_{u+w} w$, so $(\lambda_u - \lambda_{u+w})u + (\lambda_w - \lambda_{u+w})w = 0$.
+  By linear independence, $\lambda_u = \lambda_{u+w} = \lambda_w$.
+  Hence the eigenvalue $\lambda$ is the same for all vectors in $V$, which proves $Tv = \lambda v$ for all $v \in V$, i.e. $T = \lambda I$.
+\end{xprf}
 \end{xrcs}
 
 \exercise{11}
 \begin{xrcs}
   Suppose $V$ is finite-dimensional and $S, T \in \linmap(V)$. Prove that $ST$ is invertible if and only if both $S$ and $T$ are invertible.
 
-% \begin{xprf}
-%   \Leftarrowdirection If $S$ and $T$ are invertible, then by Exercise 2, $ST$ is invertible and $(ST)^{-1} = T^{-1} S^{-1}$.
-%
-%   \Rightarrowdirection Conversely, suppose $ST$ is invertible.
-%   If $Tv = 0$ for some $v \in V$, then $(ST)v = S(Tv) = S(0) = 0$.
-%   Since $ST$ is invertible, $\mynull(ST) = \{0\}$, which forces $v = 0$.
-%   Thus $\mynull T = \{0\}$, meaning $T$ is injective.
-%   Since $V$ is finite-dimensional, an injective operator on $V$ is invertible (Theorem \ref{thm: injectivity is equivalent to surjectivity}).
-%   Now since $T$ is invertible, $T^{-1}$ exists.
-%   Multiplying the invertible operator $ST$ on the right by $T^{-1}$ gives $S = (ST) T^{-1}$.
-%   Since the product of two invertible operators is invertible, $S$ is invertible.
-%   Therefore, both $S$ and $T$ are invertible.
-% \end{xprf}
+\begin{xprf}
+  \Leftarrowdirection If $S$ and $T$ are invertible, then by Exercise 2, $ST$ is invertible and $(ST)^{-1} = T^{-1} S^{-1}$.
+
+  \Rightarrowdirection Conversely, suppose $ST$ is invertible.
+  If $Tv = 0$ for some $v \in V$, then $(ST)v = S(Tv) = S(0) = 0$.
+  Since $ST$ is invertible, $\mynull(ST) = \{0\}$, which forces $v = 0$.
+  Thus $\mynull T = \{0\}$, meaning $T$ is injective.
+  Since $V$ is finite-dimensional, an injective operator on $V$ is invertible (Theorem \ref{thm: injectivity is equivalent to surjectivity}).
+  Now since $T$ is invertible, $T^{-1}$ exists.
+  Multiplying the invertible operator $ST$ on the right by $T^{-1}$ gives $S = (ST) T^{-1}$.
+  Since the product of two invertible operators is invertible, $S$ is invertible.
+  Therefore, both $S$ and $T$ are invertible.
+\end{xprf}
 \end{xrcs}
