@@ -68,17 +68,17 @@
     \beta = c \varphi.
   \end{equation}
 
-% \begin{xprf}
-%   \Leftarrowdirection If $\beta = c \varphi$, then $\varphi(v) = 0 \implies \beta(v) = c \varphi(v) = 0$, so $\mynull \varphi \subseteq \mynull \beta$.
-%
-%   \Rightarrowdirection Conversely, suppose $\mynull \varphi \subseteq \mynull \beta$.
-%   If $\varphi = 0$, then $\mynull \varphi = V \subseteq \mynull \beta \implies \beta = 0 = 0\varphi$, so take $c = 0$.
-%   If $\varphi \neq 0$, choose $w \in V$ such that $\varphi(w) \neq 0$.
-%   For any $v \in V$, consider $u = v - \frac{\varphi(v)}{\varphi(w)} w$.
-%   Then $\varphi(u) = \varphi(v) - \frac{\varphi(v)}{\varphi(w)} \varphi(w) = 0$, so $u \in \mynull \varphi \subseteq \mynull \beta$.
-%   Thus $\beta(u) = 0$, which gives $\beta(v) - \frac{\varphi(v)}{\varphi(w)} \beta(w) = 0 \implies \beta(v) = \frac{\beta(w)}{\varphi(w)} \varphi(v)$.
-%   Setting $c = \frac{\beta(w)}{\varphi(w)} \in \myF$ yields $\beta = c\varphi$.
-% \end{xprf}
+\begin{xprf}
+  \Leftarrowdirection If $\beta = c \varphi$, then $\varphi(v) = 0 \implies \beta(v) = c \varphi(v) = 0$, so $\mynull \varphi \subseteq \mynull \beta$.
+
+  \Rightarrowdirection Conversely, suppose $\mynull \varphi \subseteq \mynull \beta$.
+  If $\varphi = 0$, then $\mynull \varphi = V \subseteq \mynull \beta \implies \beta = 0 = 0\varphi$, so take $c = 0$.
+  If $\varphi \neq 0$, choose $w \in V$ such that $\varphi(w) \neq 0$.
+  For any $v \in V$, consider $u = v - \frac{\varphi(v)}{\varphi(w)} w$.
+  Then $\varphi(u) = \varphi(v) - \frac{\varphi(v)}{\varphi(w)} \varphi(w) = 0$, so $u \in \mynull \varphi \subseteq \mynull \beta$.
+  Thus $\beta(u) = 0$, which gives $\beta(v) - \frac{\varphi(v)}{\varphi(w)} \beta(w) = 0 \implies \beta(v) = \frac{\beta(w)}{\varphi(w)} \varphi(v)$.
+  Setting $c = \frac{\beta(w)}{\varphi(w)} \in \myF$ yields $\beta = c\varphi$.
+\end{xprf}
 \end{xrcs}
 
 \exercise{10}
@@ -334,23 +334,23 @@
   \begin{equation}
     (U + W)^0 = U^0 \cap W^0 \quad \text{and} \quad (U \cap W)^0 = U^0 + W^0.
   \end{equation}
-% \begin{xprf}
-%   \StepOne We prove $(U+W)^0 = U^0 \cap W^0$.
-%   Let $\varphi \in \dual{V}$. Then $\varphi \in (U+W)^0 \iff \varphi(u+w) = 0$ for all $u \in U, w \in W$.
-%   Taking $w = 0$ gives $\varphi(u) = 0$ for all $u \in U$ ($\varphi \in U^0$), and taking $u = 0$ gives $\varphi(w) = 0$ for all $w \in W$ ($\varphi \in W^0$).
-%   Thus $\varphi \in (U+W)^0 \iff \varphi \in U^0 \cap W^0$.
-%
-%   \StepTwo We prove $(U \cap W)^0 = U^0 + W^0$.
-%   Since $U \cap W \subseteq U$ and $U \cap W \subseteq W$, taking annihilators gives $U^0 \subseteq (U \cap W)^0$ and $W^0 \subseteq (U \cap W)^0$, so $U^0 + W^0 \subseteq (U \cap W)^0$.
-%   To show equality, we compare dimensions:
-%   \[
-%   \begin{aligned}
-%     \dim(U^0 + W^0) &= \dim U^0 + \dim W^0 - \dim(U^0 \cap W^0) \\
-%     &= (\dim V - \dim U) + (\dim V - \dim W) - \dim((U+W)^0) \\
-%     &= 2\dim V - \dim U - \dim W - (\dim V - \dim(U+W)) \\
-%     &= \dim V - (\dim U + \dim W - \dim(U+W)) = \dim V - \dim(U \cap W) = \dim((U \cap W)^0).
-%   \end{aligned}
-%   \]
-%   Since $U^0 + W^0$ is a subspace of $(U \cap W)^0$ of the same dimension, $U^0 + W^0 = (U \cap W)^0$.
-% \end{xprf}
+\begin{xprf}
+  \StepOne We prove $(U+W)^0 = U^0 \cap W^0$.
+  Let $\varphi \in \dual{V}$. Then $\varphi \in (U+W)^0 \iff \varphi(u+w) = 0$ for all $u \in U, w \in W$.
+  Taking $w = 0$ gives $\varphi(u) = 0$ for all $u \in U$ ($\varphi \in U^0$), and taking $u = 0$ gives $\varphi(w) = 0$ for all $w \in W$ ($\varphi \in W^0$).
+  Thus $\varphi \in (U+W)^0 \iff \varphi \in U^0 \cap W^0$.
+
+  \StepTwo We prove $(U \cap W)^0 = U^0 + W^0$.
+  Since $U \cap W \subseteq U$ and $U \cap W \subseteq W$, taking annihilators gives $U^0 \subseteq (U \cap W)^0$ and $W^0 \subseteq (U \cap W)^0$, so $U^0 + W^0 \subseteq (U \cap W)^0$.
+  To show equality, we compare dimensions:
+  \[
+  \begin{aligned}
+    \dim(U^0 + W^0) &= \dim U^0 + \dim W^0 - \dim(U^0 \cap W^0) \\
+    &= (\dim V - \dim U) + (\dim V - \dim W) - \dim((U+W)^0) \\
+    &= 2\dim V - \dim U - \dim W - (\dim V - \dim(U+W)) \\
+    &= \dim V - (\dim U + \dim W - \dim(U+W)) = \dim V - \dim(U \cap W) = \dim((U \cap W)^0).
+  \end{aligned}
+  \]
+  Since $U^0 + W^0$ is a subspace of $(U \cap W)^0$ of the same dimension, $U^0 + W^0 = (U \cap W)^0$.
+\end{xprf}
 \end{xrcs}

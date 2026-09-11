@@ -4,31 +4,31 @@
 \begin{xrcs}
   Prove or give a counterexample: If $T \in \linmap(V)$ and $T^2$ has an upper-triangular matrix with respect to some basis of $V$, then $T$ has an upper-triangular matrix with respect to some basis of $V$.
 
-% \begin{xsol}
-%   The statement is false if $\myF = \real$, but true if $\myF = \compl$.
-%
-%   \prooffont{Counterexample over $\real$:} Let $V = \real^2$ and let $T \in \linmap(\real^2)$ be the counterclockwise rotation by $90^\circ$, defined by $T(x,y) = (-y, x)$.
-%   Then $T^2 = -I$, whose matrix with respect to any basis is $\begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}$, which is diagonal (hence upper triangular).
-%   However, $T$ has no real eigenvalues, so by Theorem \ref{thm:determination-of-eigenvalue-from-upper-triangular-matrix}, $T$ cannot have an upper-triangular matrix with respect to any basis of $\real^2$.
-%
-%   \prooffont{Remark over $\compl$:} If $\myF = \compl$, then by Theorem \ref{thm: if F = C then every operator has an upper-triangular matrix}, every operator on a finite-dimensional complex vector space has an upper-triangular matrix with respect to some basis, so the implication holds trivially.
-% \end{xsol}
+\begin{xsol}
+  The statement is false if $\myF = \real$, but true if $\myF = \compl$.
+
+  \prooffont{Counterexample over $\real$:} Let $V = \real^2$ and let $T \in \linmap(\real^2)$ be the counterclockwise rotation by $90^\circ$, defined by $T(x,y) = (-y, x)$.
+  Then $T^2 = -I$, whose matrix with respect to any basis is $\begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}$, which is diagonal (hence upper triangular).
+  However, $T$ has no real eigenvalues, so by Theorem \ref{thm:determination-of-eigenvalue-from-upper-triangular-matrix}, $T$ cannot have an upper-triangular matrix with respect to any basis of $\real^2$.
+
+  \prooffont{Remark over $\compl$:} If $\myF = \compl$, then by Theorem \ref{thm: if F = C then every operator has an upper-triangular matrix}, every operator on a finite-dimensional complex vector space has an upper-triangular matrix with respect to some basis, so the implication holds trivially.
+\end{xsol}
 \end{xrcs}
 
 \exercise{6}
 \begin{xrcs}
   Suppose $\myF = \compl$, $V$ is finite-dimensional, and $T \in \linmap(V)$. Prove that if $k \in \{1, \ddd, \dim V\}$, then $V$ has a $k$-dimensional subspace invariant under $T$.
 
-% \begin{xprf}
-%   Since $\myF = \compl$, Theorem \ref{thm: if F = C then every operator has an upper-triangular matrix} implies that there exists a basis $v_1, \dots, v_n$ of $V$ (where $n = \dim V$) with respect to which $\mmatrix(T)$ is upper triangular.
-%   By Theorem \ref{thm: conditions for upper-triangular matrix}, the subspace
-%   \[
-%     U_k = \myspan{v_1, \dots, v_k}
-%   \]
-%   is invariant under $T$ for each $k \in \{1, \dots, n\}$.
-%   Since $v_1, \dots, v_k$ is linearly independent, $\dim U_k = k$.
-%   Thus $U_k$ is a $k$-dimensional subspace of $V$ invariant under $T$.
-% \end{xprf}
+\begin{xprf}
+  Since $\myF = \compl$, Theorem \ref{thm: if F = C then every operator has an upper-triangular matrix} implies that there exists a basis $v_1, \dots, v_n$ of $V$ (where $n = \dim V$) with respect to which $\mmatrix(T)$ is upper triangular.
+  By Theorem \ref{thm: conditions for upper-triangular matrix}, the subspace
+  \[
+    U_k = \myspan{v_1, \dots, v_k}
+  \]
+  is invariant under $T$ for each $k \in \{1, \dots, n\}$.
+  Since $v_1, \dots, v_k$ is linearly independent, $\dim U_k = k$.
+  Thus $U_k$ is a $k$-dimensional subspace of $V$ invariant under $T$.
+\end{xprf}
 \end{xrcs}
 
 \exercise{10}
