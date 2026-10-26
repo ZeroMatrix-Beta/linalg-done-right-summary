@@ -386,7 +386,42 @@ If this equation has a unique solution, as happens most of the time,
   c_0, c_1, c_2, \dots, c_{\dim V-1}, 1
 \end{equation}
 are the coefficients of the minimal polynomial of $T$.
-%TODO: do more.
+
+\begin{ainote}[Why the shortcut works, and when it does not]
+  Let $n = \dim V$. If the equation has a unique solution, then the list $v, Tv, \ddd, T^{n-1}v$ is linearly independent (otherwise one could add a nontrivial dependence to any solution and get a second one). So no monic polynomial of degree $< n$ sends $v$ to $0$, hence the minimal polynomial $q$ of $T$ has $\deg q \geq n$. By \ref{thm: unique monic polynomial of smallest degree} we have $\deg q \leq n$, so $\deg q = n$. Now $q(T)v = 0$ means the coefficients of $q$ solve the equation as well, and by uniqueness they are exactly $c_0, \ddd, c_{n-1}, 1$.
+
+  If the solution is not unique (or there is none), this $v$ tells us nothing final; try another $v$ or fall back to the first method. Example: $T = 2I$ on $\myF^2$ gives $Tv = 2v$ for every $v$, so $v, Tv$ is never linearly independent. Indeed the minimal polynomial is $z - 2$, of degree $1 < \dim V$, and no $v$ can detect it with the shortcut.
+\end{ainote}
+
+% 5.25
+\setcounter{thm}{24}
+\begin{example}[minimal polynomial of an operator on $\myF^5$]
+  Let $T \in \linmap(\myF^5)$ be defined by
+  \begin{equation}
+    T(z_1, z_2, z_3, z_4, z_5) = (-3z_5,\ z_1 + 6z_5,\ z_2,\ z_3,\ z_4),
+    \quad \text{so} \quad
+    \mmatrix(T) =
+    \begin{pmatrix}
+      0 & 0 & 0 & 0 & -3 \\
+      1 & 0 & 0 & 0 & 6 \\
+      0 & 1 & 0 & 0 & 0 \\
+      0 & 0 & 1 & 0 & 0 \\
+      0 & 0 & 0 & 1 & 0
+    \end{pmatrix}
+  \end{equation}
+  with respect to the standard basis $e_1, \ddd, e_5$. Take $v = e_1$. Then
+  \begin{equation}
+    Tv = e_2, \quad T^2v = e_3, \quad T^3v = e_4, \quad T^4v = e_5, \quad T^5v = Te_5 = -3e_1 + 6e_2.
+  \end{equation}
+  The equation $c_0v + c_1Tv + c_2T^2v + c_3T^3v + c_4T^4v = -T^5v$ becomes
+  \begin{equation}
+    c_0e_1 + c_1e_2 + c_2e_3 + c_3e_4 + c_4e_5 = 3e_1 - 6e_2,
+  \end{equation}
+  which has the unique solution $c_0 = 3$, $c_1 = -6$, $c_2 = c_3 = c_4 = 0$. Hence the minimal polynomial of $T$ is
+  \begin{equation}
+    z^5 - 6z + 3.
+  \end{equation}
+\end{example}
 
 \setcounter{thm}{26}
 \begin{thm} [eigenvalues are the zeros of the minimal polynomial]
