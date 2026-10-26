@@ -305,3 +305,10 @@ TSWLatexianTemp*
 # option is specified. Footnotes are the stored in a file with suffix Notes.bib.
 # Uncomment the next line to have this generated file ignored.
 #*Notes.bib
+
+## Local build outputs and copies (this project ships no PDFs in git)
+*.pdf
+*-test.pdf
+* - Kopie.*
+kopie_*.txt
+test_*.txt
