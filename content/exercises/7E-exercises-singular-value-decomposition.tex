@@ -38,6 +38,8 @@
     |\lambda_1|, \ddd, |\lambda_n| \quad \text{(arranged in non-increasing order)}.
   \end{equation}
 
+  \emph{Note: LADR4 (Exercise 7E.7) also allows the case $\myF = \compl$ and $T$ normal, and lists each eigenvalue $\lambda$ as many times as $\dim E(\lambda, T)$. The proof below treats the self-adjoint case stated here; for a normal $T$ on a complex space the same argument works with the complex spectral theorem, since then $T^*T e_j = |\lambda_j|^2 e_j$.}
+
 \begin{xprf}
   Since $T$ is self-adjoint ($T^* = T$), we have $T^*T = T^2$.
   By the Spectral Theorem (Theorem \ref{thm: real spectral theorem} or \ref{thm: complex spectral theorem}), there exists an orthonormal basis $e_1, \dots, e_n$ of $V$ such that $T e_j = \lambda_j e_j$ for each $j \in \{1, \dots, n\}$.
@@ -57,6 +59,8 @@
   \begin{equation}
     \frac{1}{s_n} \ge \frac{1}{s_{n-1}} \ge \dots \ge \frac{1}{s_1} > 0.
   \end{equation}
+
+  \emph{Note: LADR4 (Exercise 7E.10) states this for an invertible linear map $T \in \linmap(V,W)$ between two inner product spaces, not only for an operator on $V$. The proof below treats the operator case stated here.}
 
 \begin{xprf}
   By the Singular Value Decomposition (Theorem \ref{thm: singular value decomposition}), there exist orthonormal bases $e_1, \dots, e_n$ and $f_1, \dots, f_n$ of $V$ such that for all $v \in V$:
