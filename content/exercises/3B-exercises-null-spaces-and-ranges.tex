@@ -1,7 +1,8 @@
 \section*{Exercises about Null Spaces and Ranges}
 
+\exercise{1}
 \begin{xrcs}
-  Exercise 1
+  Give an example of a linear map $T$ with $\dim \mynull T = 3$ and $\dim \myrange T = 2$.
 \end{xrcs}
 
 \exercise{2}
@@ -19,7 +20,7 @@
 \end{xrcs}
 
 
-\setcounter{xrcscount}{7}
+\setcounter{xrcscount}{8}
 \begin{xrcs}
   Let $T \in \linmap(V,W)$ be injective and suppose $v_1, \ddd, v_n$ is linearly independent in $V$. Prove that $Tv_1, \ddd, Tv_n$ is linearly independent in $W$.
 
@@ -126,7 +127,7 @@
 \begin{xrcs}
   Suppose $T$ is a linear map from $\myF^4$ to $\myF^2$ such that
   \begin{equation}
-    \mynull T :\equiv \{(x_1, x_2, x_3, x_4) \in \myF \mid x_1 = 5x_2 \text{and} x_3 = 7x_4 \}.
+    \mynull T :\equiv \{(x_1, x_2, x_3, x_4) \in \myF^4 \mid x_1 = 5x_2 \text{ and } x_3 = 7x_4 \}.
   \end{equation}
 
   Prove that $T$ is surjective.
@@ -434,7 +435,7 @@
 
 
 \begin{xrcs}
-  Suppose $V$ is finite-dimensional, $U$ is a subspace  of $V$ and $T \in \linmap (V,W)$. Prove that
+  Suppose $V$ is finite-dimensional, $U$ is a subspace of $W$ and $T \in \linmap (V,W)$. Prove that
   \begin{equation}
     X :\equiv \{v  \in V \mid Tv \in U \}
   \end{equation}
@@ -480,62 +481,107 @@
 
 \exercise{22}
 \begin{xrcs}
+  Suppose $U$ and $V$ are finite-dimensional vector spaces and $S \in \linmap (V,W)$ and $T \in \linmap(U,V)$. Prove that $\dim \mynull ST \leq \dim \mynull S + \dim \mynull T$.
+
+  \begin{xprf}
+    Note that $ST \in \linmap(U,W)$ and $\mynull T \subseteq \mynull ST$ (this implies $\dim \mynull T \leq \dim \mynull ST$). According to the rank-nullity theorem, the following two formulas hold:
+    \begin{equation}
+      \begin{aligned}
+        \dim U &= \dim \myrange T\phantom{S} + \dim \mynull T\phantom{S} \\
+        \dim U &= \dim \myrange ST + \dim \mynull ST
+      \end{aligned}
+    \end{equation}
+
+    Equating the two formulas, we obtain:
+    \begin{equation}
+      \label{eq: dim null ST}
+      \dim \mynull ST = \dim \myrange T - \dim \myrange ST + \dim \mynull T
+    \end{equation}
+
+    So, what is $\dim \myrange T - \dim \myrange ST$? It equals the dimension of the null space of the restriction map $S|_{\myrange T}$. If we can show that $\dim \myrange T - \dim \myrange ST \leq \dim \mynull S$, the proof is complete. Consider the restriction map
+    \begin{equation}
+      S|_{\myrange T}: \myrange T \to W.
+    \end{equation}
+
+    Notice two things. First, for every $x \in U$ we have $S(T(x)) = (S|_{\myrange T}) (T(x))$; hence,
+    \begin{equation}
+      \label{eq: myrange S|_T = myrange ST}
+      \myrange S|_{\myrange T} = \myrange ST.
+    \end{equation}
+
+    Second, $\mynull (S|_{\myrange T}) = \{ y \in \myrange T \mid S(y) = 0 \}$. Clearly, every such $y$ is contained in $\mynull S$, so
+    \begin{equation}
+      \label{eq: null S|_range T subseteq null S}
+      \mynull S|_{\myrange T} \subseteq \mynull S.
+    \end{equation}
+
+    Now we can apply the Rank-Nullity Theorem to $S|_{\myrange T}$ and use \eqref{eq: myrange S|_T = myrange ST} and \eqref{eq: null S|_range T subseteq null S} consecutively. Thus,
+    \begin{equation}
+      \begin{aligned}
+        \dim \myrange T & =    \dim \mynull S|_{\myrange T} + \dim \myrange S|_{\myrange T} \\
+                        & =    \dim \mynull S|_{\myrange T} + \dim \myrange ST \\
+                        & \leq \dim \mynull S + \dim \myrange ST.
+      \end{aligned}
+    \end{equation}
+
+    Rearranging, we obtain:
+    \begin{equation}
+      \dim \myrange T - \dim \myrange ST \leq \dim \mynull S.
+    \end{equation}
+
+    Therefore, \eqref{eq: dim null ST} becomes
+    \begin{equation}
+      \dim \mynull ST \leq \dim \mynull S + \dim \mynull T.
+    \end{equation}
+
+    Note: If $\dim \myrange T = \dim \myrange ST$, \eqref{eq: dim null ST} becomes $\dim \mynull ST = \dim \mynull T$.
+  \end{xprf}
+\end{xrcs}
+
+\exercise{24}
+\begin{xrcs}
   \begin{enumerate}[label=\textbf{(\alph*)}]
     \item {
-    Suppose $U$, $V$ and $W$ are finite-dimensional vector spaces and $S \in \linmap (V,W)$ and $T \in \linmap(U,V)$. Prove that $\dim \mynull ST \leq \dim \mynull S + \dim \mynull T$.
+    Suppose $\dim V = 5$ and $S, T \in \linmap (V)$ are such that $ST = 0$. Prove that $\dim \myrange TS \leq 2$.
 
     \begin{xprf}
-      Note that $ST \in \linmap(U,W)$ and $\mynull T \subseteq \mynull ST$ (this implies $\dim \mynull T \leq \dim \mynull ST$). According to the rank-nullity theorem, the following two formulas hold:
+      According to the rank-nullity theorem, we have
       \begin{equation}
         \begin{aligned}
-          \dim U &= \dim \myrange T\phantom{S} + \dim \mynull T\phantom{S} \\
-          \dim U &= \dim \myrange ST + \dim \mynull ST
+          5 &= \dim \myrange T + \dim \mynull T. \\
+          5 &= \dim \myrange S + \dim \mynull S
         \end{aligned}
       \end{equation}
 
-      Equating the two formulas, we obtain:
-      \begin{equation}
-        \label{eq: dim null ST}
-        \dim \mynull ST = \dim \myrange T - \dim \myrange ST + \dim \mynull T
-      \end{equation}
-
-      So, what is $\dim \myrange T - \dim \myrange ST$? It equals the dimension of the null space of the restriction map $S|_{\myrange T}$. If we can show that $\dim \myrange T - \dim \myrange ST \leq \dim \mynull S$, the proof is complete. Consider the restriction map
-      \begin{equation}
-        S|_{\myrange T}: \myrange T \to W.
-      \end{equation}
-
-      Notice two things. First, for every $x \in U$ we have $S(T(x)) = (S|_{\myrange T}) (T(x))$; hence,
-      \begin{equation}
-        \label{eq: myrange S|_T = myrange ST}
-        \myrange S|_{\myrange T} = \myrange ST.
-      \end{equation}
-
-      Second, $\mynull (S|_{\myrange T}) = \{ y \in \myrange T \mid S(y) = 0 \}$. Clearly, every such $y$ is contained in $\mynull S$, so
-      \begin{equation}
-        \label{eq: null S|_range T subseteq null S}
-        \mynull S|_{\myrange T} \subseteq \mynull S.
-      \end{equation}
-
-      Now we can apply the Rank-Nullity Theorem to $S|_{\myrange T}$ and use \eqref{eq: myrange S|_T = myrange ST} and \eqref{eq: null S|_range T subseteq null S} consecutively. Thus,
+      From exercise 3B.22, we know
       \begin{equation}
         \begin{aligned}
-          \dim \myrange T & =    \dim \mynull S|_{\myrange T} + \dim \myrange S|_{\myrange T} \\
-                          & =    \dim \mynull S|_{\myrange T} + \dim \myrange ST \\
-                          & \leq \dim \mynull S + \dim \myrange ST.
+          \label{eq: null space of ST}
+          \dim \mynull ST & \leq \dim \mynull S + \dim \mynull T, \\
+          5 & \leq \dim \mynull S + \dim \mynull T.
         \end{aligned}
       \end{equation}
 
-      Rearranging, we obtain:
+      From exercise 3B.23, we know
       \begin{equation}
-        \dim \myrange T - \dim \myrange ST \leq \dim \mynull S.
+        \begin{aligned}
+          \label{eq: dim myrange TS}
+          \dim \myrange TS & \leq \min \{ \dim \myrange S, \dim \myrange T\} \\
+          & =     \min \{ 5 - \dim \mynull S, 5 - \dim \mynull T \}
+        \end{aligned}
       \end{equation}
 
-      Therefore, \eqref{eq: dim null ST} becomes
+      Write $s := \dim \mynull S$ and $t := \dim \mynull T$, so that \eqref{eq: null space of ST} reads $s + t \geq 5$ and \eqref{eq: dim myrange TS} reads
       \begin{equation}
-        \dim \mynull ST \leq \dim \mynull S + \dim \mynull T.
+        \dim \myrange TS \leq \min \{5-s, \, 5-t\}.
       \end{equation}
 
-      Note: If $\dim \myrange T = \dim \myrange ST$, \eqref{eq: dim null ST} becomes $\dim \mynull ST = \dim \mynull T$.
+      We are therefore asking how large $\min \{5-s,\, 5-t\}$ can be subject to $s+t \geq 5$, with $s,t$ integers in $\{0, \ddd, 5\}$. The bound is largest when $s$ and $t$ are as equal as possible, and since $s+t \geq 5$ cannot be met with $s = t = 2$, the best case is $\{s,t\} = \{2,3\}$, giving
+      \begin{equation}
+        \min \{5-2, \, 5-3\} = \min \{3,2\} = 2.
+      \end{equation}
+
+      Every other admissible pair gives a smaller value: pushing $s$ down forces $t$ up, and the minimum then tracks $5-t$ downwards. Hence $\dim \myrange TS \leq 2$ in all cases.
     \end{xprf}
     }
     \item{
@@ -557,58 +603,12 @@
 
       Hence, $\dim \myrange TS = 2$.
     }
-
   \end{enumerate}
 
 \end{xrcs}
 
-\exercise{24}
-\begin{xrcs}
-  Suppose $\dim V = 5$ and $S, T \in \linmap (V)$ are such that $ST = 0$. Prove that $\dim \myrange TS \leq 2$.
-
-  \begin{xprf}
-    According to the rank-nullity theorem, we have
-    \begin{equation}
-      \begin{aligned}
-        5 &= \dim \myrange T + \dim \mynull T. \\
-        5 &= \dim \myrange S + \dim \mynull S
-      \end{aligned}
-    \end{equation}
-
-    From exercise 3B.22, we know
-    \begin{equation}
-      \begin{aligned}
-        \label{eq: null space of ST}
-        \dim \mynull ST & \leq \dim \mynull S + \dim \mynull T, \\
-        5 & \leq \dim \mynull S + \dim \mynull T.
-      \end{aligned}
-    \end{equation}
-
-    From exercise 3B.23, we know
-    \begin{equation}
-      \begin{aligned}
-        \label{eq: dim myrange TS}
-        \dim \myrange TS & \leq \min \{ \dim \myrange S, \dim \myrange T\} \\
-        & =     \min \{ 5 - \dim \mynull S, 5 - \dim \mynull T \}
-      \end{aligned}
-    \end{equation}
-
-    Write $s := \dim \mynull S$ and $t := \dim \mynull T$, so that \eqref{eq: null space of ST} reads $s + t \geq 5$ and \eqref{eq: dim myrange TS} reads
-    \begin{equation}
-      \dim \myrange TS \leq \min \{5-s, \, 5-t\}.
-    \end{equation}
-
-    We are therefore asking how large $\min \{5-s,\, 5-t\}$ can be subject to $s+t \geq 5$, with $s,t$ integers in $\{0, \ddd, 5\}$. The bound is largest when $s$ and $t$ are as equal as possible, and since $s+t \geq 5$ cannot be met with $s = t = 2$, the best case is $\{s,t\} = \{2,3\}$, giving
-    \begin{equation}
-      \min \{5-2, \, 5-3\} = \min \{3,2\} = 2.
-    \end{equation}
-
-    Every other admissible pair gives a smaller value: pushing $s$ down forces $t$ up, and the minimum then tracks $5-t$ downwards. Hence $\dim \myrange TS \leq 2$ in all cases.
-  \end{xprf}
-\end{xrcs}
-
 \begin{ainote}[The bound is attained, so $2$ cannot be improved]
-  The exercise asks only for $\leq 2$, but it is worth knowing the bound is sharp --- and exercise 3B.22(b) already supplies the witness. There $S(x) = (0,0,0,x_4,x_5)$ and $T(x) = (x_1+x_4, x_2+x_5,0,0,0)$ satisfy $ST = 0$ and $\dim \myrange TS = 2$ exactly, with $\dim \mynull S = 3$ and $\dim \mynull T = 3$.
+  Part (a) asks only for $\leq 2$, but it is worth knowing the bound is sharp --- and part (b) of this exercise supplies exactly the witness for that. There $S(x) = (0,0,0,x_4,x_5)$ and $T(x) = (x_1+x_4, x_2+x_5,0,0,0)$ satisfy $ST = 0$ and $\dim \myrange TS = 2$ exactly, with $\dim \mynull S = 3$ and $\dim \mynull T = 3$.
 
   Note also where the hypothesis $ST = 0$ enters: it forces $\dim \mynull ST = \dim V = 5$, which is what turns the general inequality of 3B.22 into the usable constraint $s + t \geq 5$. Without it, $s$ and $t$ could both be $0$ and $\dim \myrange TS$ could be as large as $5$.
 \end{ainote}
