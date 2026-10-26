@@ -1,5 +1,5 @@
-% KI Bemerkung: Dieser Abschnitt wurde von der KI entworfen. Die Nummern (\mce) folgen Axler, 4. Auflage,
-% wurden aber aus dem Gedaechtnis gesetzt und nicht gegen das Buch geprueft.
+% KI Bemerkung: Dieser Abschnitt wurde von der KI entworfen. Nummern und Aussagen wurden gegen den Text
+% von Axler, 4. Auflage, geprueft. Die Beweise von 8.11 und 8.12 weichen vom Buch ab, sind aber vollstaendig.
 \section{Generalized Eigenvectors and Nilpotent Operators}
 
 Throughout this chapter, $V$ denotes a \fd nonzero vector space over $\myF$.
@@ -84,7 +84,8 @@ Throughout this chapter, $V$ denotes a \fd nonzero vector space over $\myF$.
   By \ref{thm: subspace of full dimension equals the whole space}, $\mynull T^n \oplus \myrange T^n = V$.
 \end{prf}
 
-\begin{example}
+\mce{6}
+\begin{example}[$\myF^3 = \mynull T^3 \oplus \myrange T^3$ for $T \in \linmap(\myF^3)$]
   Define $T \in \linmap(\myF^3)$ by $T(z_1, z_2, z_3) = (4z_2, 0, 5z_3)$. Then
   \begin{equation}
     \mynull T = \set{(z_1, 0, 0) : z_1 \in \myF} \myand \myrange T = \set{(z_1, 0, z_3) : z_1, z_3 \in \myF}.
@@ -146,7 +147,7 @@ Every eigenvector is a generalized eigenvector (take $k = 1$).
   Putting a basis of $\mynull (T - \lambda I)^n$ together with this basis of $W$ gives a basis of $V$ (because the sum is direct and the dimensions add up to $n$), consisting of generalized eigenvectors of $T$.
 \end{prf}
 
-\begin{example}
+\begin{example}[generalized eigenvectors of an operator on $\compl^3$]
   Let $T \in \linmap(\compl^3)$ be as in the previous example, $T(z_1, z_2, z_3) = (4z_2, 0, 5z_3)$. Its eigenvalues are $0$ and $5$, with eigenspaces
   \begin{equation}
     E(0, T) = \set{(z_1, 0, 0) : z_1 \in \compl} \myand E(5, T) = \set{(0, 0, z_3) : z_3 \in \compl},
@@ -207,6 +208,7 @@ Every eigenvector is a generalized eigenvector (take $k = 1$).
 
 \subsection{Nilpotent Operators}
 
+\mce{14}
 \begin{mydef}[nilpotent]
   An operator is called \qt{nilpotent} if some power of it equals $0$.
 \end{mydef}
@@ -214,6 +216,9 @@ Every eigenvector is a generalized eigenvector (take $k = 1$).
 \begin{example}[nilpotent operators]
   \begin{enumerate}[label=\textbf{(\alph*)}]
     \item $T \in \linmap(\myF^4)$ defined by $T(z_1, z_2, z_3, z_4) = (0, 0, z_1, z_2)$ is nilpotent, since $T^2 = 0$.
+    \item The operator on $\myF^3$ whose matrix with respect to the standard basis is
+    $\left(\begin{smallmatrix} -3 & 9 & 0 \\ -7 & 9 & 6 \\ 4 & 0 & -6 \end{smallmatrix}\right)$
+    is nilpotent, as can be checked by cubing the matrix to get the zero matrix.
     \item The differentiation operator $D \in \linmap(\polyn_m(\real))$ is nilpotent, since $D^{m+1} = 0$ (each differentiation lowers the degree by one).
   \end{enumerate}
 \end{example}

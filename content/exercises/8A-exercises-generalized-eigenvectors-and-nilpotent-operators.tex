@@ -1,5 +1,5 @@
-% KI Bemerkung: Aufgaben und Loesungen wurden von der KI entworfen. Die Aufgabennummern folgen Axler, 4. Auflage,
-% wurden aber aus dem Gedaechtnis gesetzt und nicht gegen das Buch geprueft.
+% KI Bemerkung: Aufgaben und Loesungen wurden von der KI entworfen. Nummern und Aufgabentexte wurden gegen
+% den Text von Axler, 4. Auflage, geprueft.
 \section*{Exercises about Generalized Eigenvectors and Nilpotent Operators}
 
 \exercise{1}
@@ -118,20 +118,17 @@
 
 \exercise{11}
 \begin{xrcs}
-  Suppose $T \in \linmap(V)$ is invertible. Prove that $v$ is a generalized eigenvector of $T$ corresponding to $\lambda$ if and only if $v$ is a generalized eigenvector of $T^{-1}$ corresponding to $\lambda^{-1}$.
+  Suppose that $T \in \linmap(V)$. Prove that there is a basis of $V$ consisting of generalized eigenvectors of $T$ if and only if the minimal polynomial of $T$ equals $(z - \lambda_1) \cdots (z - \lambda_m)$ for some $\lambda_1, \ddd, \lambda_m \in \myF$.
 
 \begin{xprf}
-  Eigenvalues of an invertible operator are nonzero, so $\lambda \neq 0$ in both directions. We have
-  \begin{equation}
-    T^{-1} - \lambda^{-1} I = -\lambda^{-1} T^{-1} (T - \lambda I),
-  \end{equation}
+  Let $n = \dim V$. We first note a small fact.
 
-  and the factors $T^{-1}$ and $T - \lambda I$ commute. Hence, for every positive integer $k$,
-  \begin{equation}
-    (T^{-1} - \lambda^{-1} I)^k = (-\lambda^{-1})^k \, T^{-k} (T - \lambda I)^k.
-  \end{equation}
+  \prooffont{Claim:} If $q = (z - \lambda_1) \cdots (z - \lambda_m)$ with $\lambda$'s in $\myF$ and $p \in \polyn(\myF)$ is a monic polynomial \st $q$ is a polynomial multiple of $p$, then $p$ is also a product of linear factors $(z - \mu)$ with $\mu \in \myF$.
+  Indeed, by the fundamental theorem of algebra \ref{fundamental-theorem-of-algebra-second-version}, $p = (z - \mu_1) \cdots (z - \mu_k)$ with $\mu$'s in $\compl$. Each $\mu_j$ is a zero of $p$, hence of $q$, so $\mu_j \in \{\lambda_1, \ddd, \lambda_m\} \subseteq \myF$.
 
-  Since $(-\lambda^{-1})^k T^{-k}$ is invertible, $(T^{-1} - \lambda^{-1} I)^k v = 0 \iff (T - \lambda I)^k v = 0$. In particular ($k = 1$), $\lambda$ is an eigenvalue of $T$ if and only if $\lambda^{-1}$ is an eigenvalue of $T^{-1}$, and the claim follows from the definition of generalized eigenvectors.
+  \Rightarrowdirection Let $v_1, \ddd, v_n$ be a basis of generalized eigenvectors and let $\alpha_1, \ddd, \alpha_k$ be the distinct eigenvalues they correspond to. Put $q(z) = (z - \alpha_1)^n \cdots (z - \alpha_k)^n$. The factors of $q(T)$ commute, so for $v_j$ corresponding to $\alpha_i$ we can move $(T - \alpha_i I)^n$ to the front and get $q(T) v_j = 0$ by the description of generalized eigenvectors (after \ref{def: generalized eigenvector}). Thus $q(T) = 0$, and by \ref{thm: every zero polynomial is a multiple of the minimal polynomial} $q$ is a polynomial multiple of the minimal polynomial. By the claim, the minimal polynomial is a product of linear factors over $\myF$.
+
+  \Leftarrowdirection Induction on $n$, exactly as in the proof of \ref{thm: a basis of generalized eigenvectors}. For $n = 1$, every nonzero vector is an eigenvector. For $n > 1$: the minimal polynomial has a zero $\lambda_1 \in \myF$, which is an eigenvalue of $T$ by \ref{thm: eigenvalues are the zeros of the minimal polynomial}. Let $W = \myrange (T - \lambda_1 I)^n$, so that $V = \mynull (T - \lambda_1 I)^n \oplus W$ by \ref{thm: V is the direct sum of null T^dim V and range T^dim V}. If $W = \{0\}$, every basis of $V$ works. Otherwise $0 < \dim W < n$ and $W$ is invariant under $T$. The minimal polynomial of $T|_W$ divides that of $T$ (\ref{thm: minimal polynomial of a restriction operator}), so by the claim it is a product of linear factors over $\myF$. The induction hypothesis gives a basis of $W$ of generalized eigenvectors of $T|_W$ (hence of $T$), and adjoining a basis of $\mynull (T - \lambda_1 I)^n$ gives the desired basis of $V$.
 \end{xprf}
 \end{xrcs}
 
