@@ -1,0 +1,281 @@
+% KI Bemerkung: Dieser Abschnitt wurde von der KI entworfen. Nummern und Aussagen wurden gegen den Text
+% von Axler, 4. Auflage, geprueft. Die Beweise von 8.11 und 8.12 weichen vom Buch ab, sind aber vollstaendig.
+\section{Generalized Eigenvectors and Nilpotent Operators}
+
+Throughout this chapter, $V$ denotes a \fd nonzero vector space over $\myF$.
+
+\subsection{Null Spaces of Powers of an Operator}
+
+\mce{1}
+\begin{thm}[sequence of increasing null spaces]
+  \label{thm: sequence of increasing null spaces}
+  Suppose $T \in \linmap(V)$. Then
+  \begin{equation}
+    \{0\} = \mynull T^0 \subseteq \mynull T^1 \subseteq \cdots \subseteq \mynull T^k \subseteq \mynull T^{k+1} \subseteq \cdots.
+  \end{equation}
+\end{thm}
+\begin{prf}
+  $T^0 = I$ is injective, so $\mynull T^0 = \{0\}$.
+  Let $k$ be a nonnegative integer and $v \in \mynull T^k$. Then
+  \begin{equation}
+    T^{k+1} v = T(T^k v) = T(0) = 0,
+  \end{equation}
+
+  so $v \in \mynull T^{k+1}$. Thus $\mynull T^k \subseteq \mynull T^{k+1}$.
+\end{prf}
+
+\begin{thm}[equality in the sequence of null spaces]
+  \label{thm: equality in the sequence of null spaces}
+  Suppose $T \in \linmap(V)$ and $m$ is a nonnegative integer \st $\mynull T^m = \mynull T^{m+1}$. Then
+  \begin{equation}
+    \mynull T^m = \mynull T^{m+1} = \mynull T^{m+2} = \cdots.
+  \end{equation}
+\end{thm}
+\begin{prf}
+  Let $k$ be a positive integer. We show $\mynull T^{m+k} = \mynull T^{m+k+1}$.
+  The inclusion $\subseteq$ holds by \ref{thm: sequence of increasing null spaces}.
+  For $\supseteq$, let $v \in \mynull T^{m+k+1}$. Then
+  \begin{equation}
+    T^{m+1} (T^k v) = T^{m+k+1} v = 0,
+  \end{equation}
+
+  so $T^k v \in \mynull T^{m+1} = \mynull T^m$. Hence $T^{m+k} v = T^m (T^k v) = 0$, i.e., $v \in \mynull T^{m+k}$.
+\end{prf}
+
+\begin{thm}[null spaces stop growing]
+  \label{thm: null spaces stop growing}
+  Suppose $T \in \linmap(V)$. Then
+  \begin{equation}
+    \mynull T^{\dim V} = \mynull T^{\dim V + 1} = \mynull T^{\dim V + 2} = \cdots.
+  \end{equation}
+\end{thm}
+\begin{prf}
+  Let $n = \dim V$. By \ref{thm: equality in the sequence of null spaces}, it suffices to show $\mynull T^n = \mynull T^{n+1}$.
+  Suppose not. Then, again by \ref{thm: equality in the sequence of null spaces}, no two consecutive null spaces among $\mynull T^0, \ddd, \mynull T^{n+1}$ are equal (an earlier equality would force all later ones to be equal). Together with \ref{thm: sequence of increasing null spaces} this gives
+  \begin{equation}
+    \{0\} = \mynull T^0 \subsetneq \mynull T^1 \subsetneq \cdots \subsetneq \mynull T^n \subsetneq \mynull T^{n+1}.
+  \end{equation}
+
+  Each strict inclusion raises the dimension by at least $1$ (\ref{thm: subspace of full dimension equals the whole space}), so $\dim \mynull T^{n+1} \geq n+1 > \dim V$, a contradiction.
+\end{prf}
+
+\begin{thm}[$V$ is the direct sum of $\mynull T^{\dim V}$ and $\myrange T^{\dim V}$]
+  \label{thm: V is the direct sum of null T^dim V and range T^dim V}
+  Suppose $T \in \linmap(V)$. Then
+  \begin{equation}
+    V = \mynull T^{\dim V} \oplus \myrange T^{\dim V}.
+  \end{equation}
+\end{thm}
+\begin{prf}
+  Let $n = \dim V$.
+
+  \StepOne We show $\mynull T^n \cap \myrange T^n = \{0\}$. Let $v \in \mynull T^n \cap \myrange T^n$. Then $T^n v = 0$ and $v = T^n u$ for some $u \in V$. Hence $T^{2n} u = T^n v = 0$, so
+  \begin{equation}
+    u \in \mynull T^{2n} \eqwtxt{\ref{thm: null spaces stop growing}} \mynull T^n,
+  \end{equation}
+
+  which gives $v = T^n u = 0$. Thus the sum $\mynull T^n + \myrange T^n$ is a direct sum (the only way to write $0 = a + b$ with $a \in \mynull T^n$, $b \in \myrange T^n$ is $a = -b \in \mynull T^n \cap \myrange T^n = \{0\}$, see \ref{thm: condition for a direct sum}).
+
+  \StepTwo By \ref{thm: dimension of a sum of subspaces} and the Fundamental Theorem of Linear Maps \ref{rank-nullity-theorem}:
+  \begin{equation}
+    \dim (\mynull T^n \oplus \myrange T^n) = \dim \mynull T^n + \dim \myrange T^n - \underbrace{\dim (\mynull T^n \cap \myrange T^n)}_{=0} = \dim V.
+  \end{equation}
+
+  By \ref{thm: subspace of full dimension equals the whole space}, $\mynull T^n \oplus \myrange T^n = V$.
+\end{prf}
+
+\mce{6}
+\begin{example}[$\myF^3 = \mynull T^3 \oplus \myrange T^3$ for $T \in \linmap(\myF^3)$]
+  Define $T \in \linmap(\myF^3)$ by $T(z_1, z_2, z_3) = (4z_2, 0, 5z_3)$. Then
+  \begin{equation}
+    \mynull T = \set{(z_1, 0, 0) : z_1 \in \myF} \myand \myrange T = \set{(z_1, 0, z_3) : z_1, z_3 \in \myF}.
+  \end{equation}
+
+  So $\mynull T \cap \myrange T \neq \{0\}$, and $\mynull T + \myrange T$ is \emph{not} a direct sum. However, $T^3(z_1, z_2, z_3) = (0, 0, 125 z_3)$, hence
+  \begin{equation}
+    \mynull T^3 = \set{(z_1, z_2, 0) : z_1, z_2 \in \myF} \myand \myrange T^3 = \set{(0, 0, z_3) : z_3 \in \myF},
+  \end{equation}
+
+  and indeed $\myF^3 = \mynull T^3 \oplus \myrange T^3$.
+\end{example}
+
+\subsection{Generalized Eigenvectors}
+
+Some operators do not have enough eigenvectors to form a basis (e.g. the operator from the example above, see the next example). Generalized eigenvectors fix this on complex vector spaces.
+
+\mce{8}
+\begin{mydef}[generalized eigenvector]
+  \label{def: generalized eigenvector}
+  Suppose $T \in \linmap(V)$ and $\lambda$ is an eigenvalue of $T$. A vector $v \in V$ is called a \qt{generalized eigenvector of $T$ corresponding to $\lambda$} if $v \neq 0$ and
+  \begin{equation}
+    (T - \lambda I)^k v = 0 \quad \text{for some positive integer } k.
+  \end{equation}
+\end{mydef}
+
+Every eigenvector is a generalized eigenvector (take $k = 1$).
+
+\begin{thm-non}[description of generalized eigenvectors]
+  Suppose $T \in \linmap(V)$ and $\lambda \in \myF$. Then for every $v \in V$,
+  \begin{equation}
+    (T - \lambda I)^k v = 0 \text{ for some positive integer } k \iff (T - \lambda I)^{\dim V} v = 0.
+  \end{equation}
+\end{thm-non}
+\begin{prf}
+  \Leftarrowdirection Take $k = \dim V$ ($\geq 1$, since $V \neq \{0\}$).
+
+  \Rightarrowdirection By \ref{thm: sequence of increasing null spaces} and \ref{thm: null spaces stop growing} applied to $T - \lambda I$, we have $\mynull (T - \lambda I)^k \subseteq \mynull (T - \lambda I)^{\dim V}$ for every positive integer $k$.
+\end{prf}
+
+\begin{thm}[a basis of generalized eigenvectors]
+  \label{thm: a basis of generalized eigenvectors}
+  Suppose $\myF = \compl$ and $T \in \linmap(V)$. Then there is a basis of $V$ consisting of generalized eigenvectors of $T$.
+\end{thm}
+\begin{prf}
+  Induction on $n = \dim V$.
+
+  \prooffont{Base case:} If $n = 1$, every nonzero vector of $V$ is an eigenvector of $T$, so any basis of $V$ works.
+
+  \prooffont{Induction step:} Let $n > 1$ and assume the result for all complex vector spaces of smaller (positive) dimension. By \ref{thm: existence of eigenvalues}, $T$ has an eigenvalue $\lambda$. Applying \ref{thm: V is the direct sum of null T^dim V and range T^dim V} to $T - \lambda I$ gives
+  \begin{equation}
+    V = \mynull (T - \lambda I)^n \oplus W, \where W := \myrange (T - \lambda I)^n.
+  \end{equation}
+
+  Every nonzero vector in $\mynull (T - \lambda I)^n$ is a generalized eigenvector of $T$ corresponding to $\lambda$. So if $W = \{0\}$, any basis of $V = \mynull (T - \lambda I)^n$ works.
+
+  Otherwise $W \neq \{0\}$. Since $\mynull (T - \lambda I)^n$ contains an eigenvector for $\lambda$, it is nonzero, so $0 < \dim W < n$. $W = \myrange p(T)$ with $p(z) = (z - \lambda)^n$, hence $W$ is invariant under $T$ by \ref{thm: null space and range of p(T) are invariant under T}. By the induction hypothesis applied to $T|_W \in \linmap(W)$, there is a basis of $W$ consisting of generalized eigenvectors of $T|_W$, and these are clearly also generalized eigenvectors of $T$ (an eigenvalue of $T|_W$ is an eigenvalue of $T$).
+
+  Putting a basis of $\mynull (T - \lambda I)^n$ together with this basis of $W$ gives a basis of $V$ (because the sum is direct and the dimensions add up to $n$), consisting of generalized eigenvectors of $T$.
+\end{prf}
+
+\begin{example}[generalized eigenvectors of an operator on $\compl^3$]
+  Let $T \in \linmap(\compl^3)$ be as in the previous example, $T(z_1, z_2, z_3) = (4z_2, 0, 5z_3)$. Its eigenvalues are $0$ and $5$, with eigenspaces
+  \begin{equation}
+    E(0, T) = \set{(z_1, 0, 0) : z_1 \in \compl} \myand E(5, T) = \set{(0, 0, z_3) : z_3 \in \compl},
+  \end{equation}
+
+  so there is \emph{no} basis of eigenvectors. But
+  \begin{equation}
+    \mynull T^3 = \set{(z_1, z_2, 0) : z_1, z_2 \in \compl} \myand \mynull (T - 5I)^3 = \set{(0, 0, z_3) : z_3 \in \compl}.
+  \end{equation}
+
+  (For the second: on the first two coordinates $T - 5I$ acts as the invertible matrix $\left(\begin{smallmatrix} -5 & 4 \\ 0 & -5 \end{smallmatrix}\right)$, and it kills the third coordinate.) Hence the standard basis $e_1, e_2, e_3$ is a basis of generalized eigenvectors of $T$: $e_1, e_2$ correspond to $0$ and $e_3$ corresponds to $5$.
+\end{example}
+
+\mce{11}
+\begin{thm}[generalized eigenvector corresponds to a unique eigenvalue]
+  \label{thm: generalized eigenvector corresponds to a unique eigenvalue}
+  Suppose $T \in \linmap(V)$. Then each generalized eigenvector of $T$ corresponds to only one eigenvalue of $T$.
+\end{thm}
+\begin{prf}
+  Let $n = \dim V$ and suppose $v$ is a generalized eigenvector of $T$ corresponding to both $\alpha$ and $\beta$. Let $m$ be the largest nonnegative integer \st $(T - \alpha I)^m v \neq 0$ (it exists because $v \neq 0$ and $(T - \alpha I)^n v = 0$ by the description of generalized eigenvectors (after \ref{def: generalized eigenvector})), and set
+  \begin{equation}
+    w := (T - \alpha I)^m v \neq 0.
+  \end{equation}
+
+  Then $(T - \alpha I) w = 0$, i.e., $T w = \alpha w$, and thus $(T - \beta I) w = (\alpha - \beta) w$ and $(T - \beta I)^n w = (\alpha - \beta)^n w$. On the other hand, polynomials in $T$ commute, so
+  \begin{equation}
+    (T - \beta I)^n w = (T - \beta I)^n (T - \alpha I)^m v = (T - \alpha I)^m \underbrace{(T - \beta I)^n v}_{= 0} = 0.
+  \end{equation}
+
+  Hence $(\alpha - \beta)^n w = 0$, and since $w \neq 0$, $\alpha = \beta$.
+\end{prf}
+
+\begin{thm}[linearly independent generalized eigenvectors]
+  \label{thm: linearly independent generalized eigenvectors}
+  Suppose $T \in \linmap(V)$. Then every list of generalized eigenvectors of $T$ corresponding to distinct eigenvalues of $T$ is linearly independent.
+\end{thm}
+\begin{prf}
+  Let $n = \dim V$, let $\onetillm{\lambda}$ be distinct eigenvalues of $T$ and $\onetillm{v}$ corresponding generalized eigenvectors. Suppose $a_1, \ddd, a_m \in \myF$ with
+  \begin{equation}
+    \label{eq: lin comb of generalized eigenvectors}
+    0 = a_1 v_1 + \cdots + a_m v_m.
+  \end{equation}
+
+  We show $a_1 = 0$; the same argument with the indices relabeled gives $a_k = 0$ for every $k$.
+
+  As in the proof of \ref{thm: generalized eigenvector corresponds to a unique eigenvalue}, let $k$ be the largest nonnegative integer \st $w := (T - \lambda_1 I)^k v_1 \neq 0$. Then $T w = \lambda_1 w$, so $(T - \lambda_j I)^n w = (\lambda_1 - \lambda_j)^n w$ for every $j$. Apply the operator
+  \begin{equation}
+    S := (T - \lambda_1 I)^k (T - \lambda_2 I)^n \cdots (T - \lambda_m I)^n
+  \end{equation}
+
+  to \eqref{eq: lin comb of generalized eigenvectors}. The factors of $S$ commute. For $j \geq 2$ we can move $(T - \lambda_j I)^n$ to the front, and $(T - \lambda_j I)^n v_j = 0$ by the description of generalized eigenvectors (after \ref{def: generalized eigenvector}), so $S v_j = 0$. Hence
+  \begin{equation}
+    0 = a_1 S v_1 = a_1 (T - \lambda_2 I)^n \cdots (T - \lambda_m I)^n w = a_1 (\lambda_1 - \lambda_2)^n \cdots (\lambda_1 - \lambda_m)^n w.
+  \end{equation}
+
+  The $\lambda$'s are distinct and $w \neq 0$, so $a_1 = 0$.
+\end{prf}
+
+\subsection{Nilpotent Operators}
+
+\mce{14}
+\begin{mydef}[nilpotent]
+  An operator is called \qt{nilpotent} if some power of it equals $0$.
+\end{mydef}
+
+\begin{example}[nilpotent operators]
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item $T \in \linmap(\myF^4)$ defined by $T(z_1, z_2, z_3, z_4) = (0, 0, z_1, z_2)$ is nilpotent, since $T^2 = 0$.
+    \item The operator on $\myF^3$ whose matrix with respect to the standard basis is
+    $\left(\begin{smallmatrix} -3 & 9 & 0 \\ -7 & 9 & 6 \\ 4 & 0 & -6 \end{smallmatrix}\right)$
+    is nilpotent, as can be checked by cubing the matrix to get the zero matrix.
+    \item The differentiation operator $D \in \linmap(\polyn_m(\real))$ is nilpotent, since $D^{m+1} = 0$ (each differentiation lowers the degree by one).
+  \end{enumerate}
+\end{example}
+
+\mce{16}
+\begin{thm}[nilpotent operator raised to dimension of domain is $0$]
+  \label{thm: nilpotent operator raised to dimension of domain is 0}
+  Suppose $T \in \linmap(V)$ is nilpotent. Then $T^{\dim V} = 0$.
+\end{thm}
+\begin{prf}
+  Let $T^k = 0$ for some positive integer $k$. Then, by \ref{thm: sequence of increasing null spaces} and \ref{thm: null spaces stop growing},
+  \begin{equation}
+    V = \mynull T^k \subseteq \mynull T^{\dim V},
+  \end{equation}
+
+  so $T^{\dim V} = 0$.
+\end{prf}
+
+\begin{thm}[eigenvalues of nilpotent operator]
+  \label{thm: eigenvalues of nilpotent operator}
+  Suppose $T \in \linmap(V)$.
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item If $T$ is nilpotent, then $0$ is an eigenvalue of $T$ and $T$ has no other eigenvalues.
+    \item If $\myF = \compl$ and $0$ is the only eigenvalue of $T$, then $T$ is nilpotent.
+  \end{enumerate}
+\end{thm}
+\begin{prf}
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item Let $n = \dim V \geq 1$. By \ref{thm: nilpotent operator raised to dimension of domain is 0}, $T^n = 0$. If $T$ were injective, then $T^n$ would be injective as a composition of injective maps, but $T^n = 0$ on $V \neq \{0\}$ is not. So $\mynull T \neq \{0\}$, i.e., $0$ is an eigenvalue of $T$.
+    If $Tv = \lambda v$ with $v \neq 0$, then $0 = T^n v = \lambda^n v$, hence $\lambda = 0$.
+    \item By \ref{thm: a basis of generalized eigenvectors}, there is a basis $\onetilln{v}$ of $V$ consisting of generalized eigenvectors of $T$. Each corresponds to an eigenvalue of $T$, which must be $0$. By the description of generalized eigenvectors (after \ref{def: generalized eigenvector}), $T^n v_j = 0$ for each $j$, and thus $T^n = 0$.
+  \end{enumerate}
+  \vspace{-\baselineskip}
+\end{prf}
+
+\begin{thm}[minimal polynomial and upper-triangular matrix of nilpotent operator]
+  \label{thm: minimal polynomial and upper-triangular matrix of nilpotent operator}
+  Suppose $T \in \linmap(V)$. Then the following are equivalent:
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item $T$ is nilpotent.
+    \item The minimal polynomial of $T$ is $z^m$ for some positive integer $m$.
+    \item There is a basis of $V$ with respect to which the matrix of $T$ has the form
+    \begin{equation}
+      \begin{pmatrix}
+        0 &        & * \\
+          & \ddots &   \\
+        0 &        & 0
+      \end{pmatrix}
+    \end{equation}
+
+    where all entries on and below the diagonal equal $0$.
+  \end{enumerate}
+\end{thm}
+\begin{prf}
+  \StepOne (a) $\implies$ (b): Suppose $T^k = 0$ and let $p$ be the minimal polynomial of $T$. By \ref{thm: every zero polynomial is a multiple of the minimal polynomial}, $z^k = p(z) q(z)$ for some $q \in \polyn(\myF)$. Write $p(z) = z^j r(z)$ with $r(0) \neq 0$. Comparing lowest-degree terms in $z^k = z^j r(z) q(z)$ shows $j \leq k$, and cancelling $z^j$ gives $r(z) q(z) = z^{k-j}$. The lowest-degree term of $rq$ has the same degree as the lowest-degree term of $q$ (because $r(0) \neq 0$), which is at most $\deg q$. But $rq$ is a monomial, so its lowest and highest degree agree: $\deg q \leq \deg (rq) = \deg r + \deg q$ must be an equality, hence $\deg r = 0$. Since $p$ is monic, $r = 1$ and $p(z) = z^j$ with $j = \deg p \geq 1$ (the constant polynomial $1$ does not annihilate $T$ on $V \neq \{0\}$).
+
+  \StepTwo (b) $\implies$ (c): The minimal polynomial $z^m = (z - 0) \cdots (z - 0)$ is a product of linear factors, so by \ref{thm: necessary and sufficient condition to have an upper-triangular-matrix} there is a basis of $V$ with respect to which $\mmatrix(T)$ is upper triangular. By \ref{thm:determination-of-eigenvalue-from-upper-triangular-matrix}, its diagonal entries are eigenvalues of $T$, and by \ref{thm: eigenvalues are the zeros of the minimal polynomial} the only eigenvalue of $T$ is the only zero of $z^m$, namely $0$. So all entries on and below the diagonal are $0$.
+
+  \StepThree (c) $\implies$ (a): The matrix in (c) is upper triangular with all diagonal entries $0$, so by \ref{thm: equation satisfied by operator with upper triangular matrix}, $T^{\dim V} = (T - 0I) \cdots (T - 0I) = 0$.
+\end{prf}

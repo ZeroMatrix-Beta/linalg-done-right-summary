@@ -1,0 +1,214 @@
+% KI Bemerkung: Aufgaben und Loesungen wurden von der KI entworfen. Nummern und Aufgabentexte wurden gegen
+% den Text von Axler, 4. Auflage, geprueft.
+\section*{Exercises about Generalized Eigenvectors and Nilpotent Operators}
+
+\exercise{1}
+\begin{xrcs}
+  Suppose $T \in \linmap(V)$. Prove that if $\dim \mynull T^4 = 8$ and $\dim \mynull T^6 = 9$, then $\dim \mynull T^m = 9$ for all integers $m \geq 5$.
+
+\begin{xprf}
+  By \ref{thm: sequence of increasing null spaces}, $\mynull T^4 \subseteq \mynull T^5 \subseteq \mynull T^6$, so $8 \leq \dim \mynull T^5 \leq 9$.
+
+  If $\dim \mynull T^5 = 8$, then $\mynull T^4 = \mynull T^5$ (\ref{thm: subspace of full dimension equals the whole space}), and \ref{thm: equality in the sequence of null spaces} gives $\mynull T^4 = \mynull T^6$, contradicting $8 \neq 9$.
+
+  Hence $\dim \mynull T^5 = 9 = \dim \mynull T^6$, so $\mynull T^5 = \mynull T^6$. Again by \ref{thm: equality in the sequence of null spaces}, $\mynull T^m = \mynull T^5$ for all $m \geq 5$, which has dimension $9$.
+\end{xprf}
+\end{xrcs}
+
+\exercise{2}
+\begin{xrcs}
+  Suppose $T \in \linmap(V)$, $m$ is a positive integer, $v \in V$, and $T^{m-1} v \neq 0$ but $T^m v = 0$. Prove that $v, Tv, T^2 v, \ddd, T^{m-1} v$ is linearly independent.
+
+\begin{xprf}
+  Suppose $a_0 v + a_1 Tv + \cdots + a_{m-1} T^{m-1} v = 0$ with not all $a$'s equal to $0$. Let $j$ be the smallest index with $a_j \neq 0$. Applying $T^{m-1-j}$ gives
+  \begin{equation}
+    a_j T^{m-1} v + a_{j+1} T^m v + \cdots + a_{m-1} T^{2m-2-j} v = 0.
+  \end{equation}
+
+  Every term except the first contains $T^k v$ with $k \geq m$, hence vanishes (since $T^k v = T^{k-m} T^m v = 0$). So $a_j T^{m-1} v = 0$, and $T^{m-1} v \neq 0$ forces $a_j = 0$, a contradiction.
+\end{xprf}
+\end{xrcs}
+
+\exercise{3}
+\begin{xrcs}
+  Suppose $T \in \linmap(V)$. Prove that
+  \begin{equation}
+    V = \mynull T \oplus \myrange T \iff \mynull T^2 = \mynull T.
+  \end{equation}
+
+\begin{xprf}
+  \Rightarrowdirection $\mynull T \subseteq \mynull T^2$ by \ref{thm: sequence of increasing null spaces}. Conversely, let $v \in \mynull T^2$. Then $Tv \in \mynull T$ (since $T(Tv) = 0$) and $Tv \in \myrange T$. Because the sum is direct, $\mynull T \cap \myrange T = \{0\}$, so $Tv = 0$, i.e., $v \in \mynull T$.
+
+  \Leftarrowdirection Let $v \in \mynull T \cap \myrange T$, say $v = Tu$. Then $T^2 u = Tv = 0$, so $u \in \mynull T^2 = \mynull T$ and $v = Tu = 0$. Thus $\mynull T \cap \myrange T = \{0\}$ and the sum is direct. By \ref{thm: dimension of a sum of subspaces} and \ref{rank-nullity-theorem},
+  \begin{equation}
+    \dim (\mynull T \oplus \myrange T) = \dim \mynull T + \dim \myrange T = \dim V,
+  \end{equation}
+
+  so $\mynull T \oplus \myrange T = V$ by \ref{thm: subspace of full dimension equals the whole space}.
+\end{xprf}
+\end{xrcs}
+
+\exercise{5}
+\begin{xrcs}
+  Suppose $T \in \linmap(V)$ and $m$ is a positive integer. Prove that
+  \begin{equation}
+    \dim \mynull T^m \leq m \dim \mynull T.
+  \end{equation}
+
+\begin{xprf}
+  We show $\dim \mynull T^{k+1} \leq \dim \mynull T^k + \dim \mynull T$ for every nonnegative integer $k$; the claim then follows by induction on $m$ (starting from $\dim \mynull T^0 = 0$).
+
+  Define $S \in \linmap(\mynull T^{k+1}, \mynull T)$ by $Su = T^k u$. This is well defined: $T(T^k u) = T^{k+1} u = 0$. Its null space is $\mynull T^{k+1} \cap \mynull T^k = \mynull T^k$ (\ref{thm: sequence of increasing null spaces}). By \ref{rank-nullity-theorem},
+  \begin{equation}
+    \dim \mynull T^{k+1} = \dim \mynull S + \dim \myrange S \leq \dim \mynull T^k + \dim \mynull T.
+  \end{equation}
+  \vspace{-\baselineskip}
+\end{xprf}
+\end{xrcs}
+
+\exercise{6}
+\begin{xrcs}
+  Suppose $T \in \linmap(V)$. Show that
+  \begin{equation}
+    V = \myrange T^0 \supseteq \myrange T^1 \supseteq \cdots \supseteq \myrange T^k \supseteq \myrange T^{k+1} \supseteq \cdots.
+  \end{equation}
+
+\begin{xprf}
+  $\myrange T^0 = \myrange I = V$. If $w \in \myrange T^{k+1}$, then $w = T^{k+1} u = T^k (Tu)$ for some $u \in V$, so $w \in \myrange T^k$.
+\end{xprf}
+\end{xrcs}
+
+\exercise{7}
+\begin{xrcs}
+  Suppose $T \in \linmap(V)$ and $m$ is a nonnegative integer \st $\myrange T^m = \myrange T^{m+1}$. Prove that $\myrange T^k = \myrange T^m$ for all $k > m$.
+
+\begin{xprf}
+  For every nonnegative integer $j$ we have $T(\myrange T^j) = \myrange T^{j+1}$. We prove $\myrange T^k = \myrange T^m$ by induction on $k \geq m$. The case $k = m$ is trivial. If $\myrange T^k = \myrange T^m$, then
+  \begin{equation}
+    \myrange T^{k+1} = T(\myrange T^k) = T(\myrange T^m) = \myrange T^{m+1} = \myrange T^m.
+  \end{equation}
+  \vspace{-\baselineskip}
+\end{xprf}
+\end{xrcs}
+
+\exercise{9}
+\begin{xrcs}
+  Suppose $T \in \linmap(V)$ and $m$ is a nonnegative integer. Prove that
+  \begin{equation}
+    \mynull T^m = \mynull T^{m+1} \iff \myrange T^m = \myrange T^{m+1}.
+  \end{equation}
+
+\begin{xprf}
+  By \ref{thm: sequence of increasing null spaces} and Exercise 6, $\mynull T^m \subseteq \mynull T^{m+1}$ and $\myrange T^{m+1} \subseteq \myrange T^m$. By \ref{thm: subspace of full dimension equals the whole space}, each of these inclusions is an equality if and only if the dimensions agree. By \ref{rank-nullity-theorem}, $\dim \myrange T^j = \dim V - \dim \mynull T^j$, so
+  \begin{equation}
+    \dim \mynull T^m = \dim \mynull T^{m+1} \iff \dim \myrange T^m = \dim \myrange T^{m+1}.
+  \end{equation}
+  \vspace{-\baselineskip}
+\end{xprf}
+\end{xrcs}
+
+\exercise{10}
+\begin{xrcs}
+  Define $T \in \linmap(\compl^2)$ by $T(w, z) = (z, 0)$. Find all generalized eigenvectors of $T$.
+
+\begin{xsol}
+  $T^2(w, z) = T(z, 0) = (0, 0)$, so $T$ is nilpotent and, by \ref{thm: eigenvalues of nilpotent operator}, $0$ is its only eigenvalue. Since $\mynull T^2 = \compl^2$, every nonzero vector is a generalized eigenvector. So the generalized eigenvectors of $T$ are exactly the vectors $(w, z) \neq (0,0)$, all corresponding to the eigenvalue $0$. (Only those with $z = 0$ are eigenvectors.)
+\end{xsol}
+\end{xrcs}
+
+\exercise{11}
+\begin{xrcs}
+  Suppose that $T \in \linmap(V)$. Prove that there is a basis of $V$ consisting of generalized eigenvectors of $T$ if and only if the minimal polynomial of $T$ equals $(z - \lambda_1) \cdots (z - \lambda_m)$ for some $\lambda_1, \ddd, \lambda_m \in \myF$.
+
+\begin{xprf}
+  Let $n = \dim V$. We first note a small fact.
+
+  \prooffont{Claim:} If $q = (z - \lambda_1) \cdots (z - \lambda_m)$ with $\lambda$'s in $\myF$ and $p \in \polyn(\myF)$ is a monic polynomial \st $q$ is a polynomial multiple of $p$, then $p$ is also a product of linear factors $(z - \mu)$ with $\mu \in \myF$.
+  Indeed, by the fundamental theorem of algebra \ref{fundamental-theorem-of-algebra-second-version}, $p = (z - \mu_1) \cdots (z - \mu_k)$ with $\mu$'s in $\compl$. Each $\mu_j$ is a zero of $p$, hence of $q$, so $\mu_j \in \{\lambda_1, \ddd, \lambda_m\} \subseteq \myF$.
+
+  \Rightarrowdirection Let $v_1, \ddd, v_n$ be a basis of generalized eigenvectors and let $\alpha_1, \ddd, \alpha_k$ be the distinct eigenvalues they correspond to. Put $q(z) = (z - \alpha_1)^n \cdots (z - \alpha_k)^n$. The factors of $q(T)$ commute, so for $v_j$ corresponding to $\alpha_i$ we can move $(T - \alpha_i I)^n$ to the front and get $q(T) v_j = 0$ by the description of generalized eigenvectors (after \ref{def: generalized eigenvector}). Thus $q(T) = 0$, and by \ref{thm: every zero polynomial is a multiple of the minimal polynomial} $q$ is a polynomial multiple of the minimal polynomial. By the claim, the minimal polynomial is a product of linear factors over $\myF$.
+
+  \Leftarrowdirection Induction on $n$, exactly as in the proof of \ref{thm: a basis of generalized eigenvectors}. For $n = 1$, every nonzero vector is an eigenvector. For $n > 1$: the minimal polynomial has a zero $\lambda_1 \in \myF$, which is an eigenvalue of $T$ by \ref{thm: eigenvalues are the zeros of the minimal polynomial}. Let $W = \myrange (T - \lambda_1 I)^n$, so that $V = \mynull (T - \lambda_1 I)^n \oplus W$ by \ref{thm: V is the direct sum of null T^dim V and range T^dim V}. If $W = \{0\}$, every basis of $V$ works. Otherwise $0 < \dim W < n$ and $W$ is invariant under $T$. The minimal polynomial of $T|_W$ divides that of $T$ (\ref{thm: minimal polynomial of a restriction operator}), so by the claim it is a product of linear factors over $\myF$. The induction hypothesis gives a basis of $W$ of generalized eigenvectors of $T|_W$ (hence of $T$), and adjoining a basis of $\mynull (T - \lambda_1 I)^n$ gives the desired basis of $V$.
+\end{xprf}
+\end{xrcs}
+
+\exercise{13}
+\begin{xrcs}
+  Suppose $S, T \in \linmap(V)$ and $ST$ is nilpotent. Prove that $TS$ is nilpotent.
+
+\begin{xprf}
+  Let $(ST)^k = 0$. Then
+  \begin{equation}
+    (TS)^{k+1} = T (ST)^k S = T \, 0 \, S = 0.
+  \end{equation}
+  \vspace{-\baselineskip}
+\end{xprf}
+\end{xrcs}
+
+\exercise{14}
+\begin{xrcs}
+  Suppose $T \in \linmap(V)$ is nilpotent and $T \neq 0$. Prove that $T$ is not diagonalizable.
+
+\begin{xprf}
+  Suppose $T$ is diagonalizable. Then $V$ has a basis $\onetilln{v}$ of eigenvectors of $T$ (\ref{thm: conditions equivalent to diagonalizability}). By \ref{thm: eigenvalues of nilpotent operator}(a), each corresponding eigenvalue is $0$, so $T v_j = 0$ for all $j$, and hence $T = 0$, a contradiction.
+\end{xprf}
+\end{xrcs}
+
+\exercise{15}
+\begin{xrcs}
+  Suppose $\myF = \compl$ and $T \in \linmap(V)$. Prove that $T$ is diagonalizable if and only if every generalized eigenvector of $T$ is an eigenvector of $T$.
+
+\begin{xprf}
+  \Rightarrowdirection Let $\onetillm{\lambda}$ be the distinct eigenvalues of $T$. By \ref{thm: conditions equivalent to diagonalizability}, $V = E(\lambda_1, T) \oplus \cdots \oplus E(\lambda_m, T)$. Let $v$ be a generalized eigenvector corresponding to $\lambda$ and write $v = u_1 + \cdots + u_m$ with $u_j \in E(\lambda_j, T)$. With $n = \dim V$,
+  \begin{equation}
+    0 = (T - \lambda I)^n v = (\lambda_1 - \lambda)^n u_1 + \cdots + (\lambda_m - \lambda)^n u_m.
+  \end{equation}
+
+  The sum is direct and each summand lies in $E(\lambda_j, T)$, so each summand is $0$ (\ref{thm: condition for a direct sum}). Thus $u_j = 0$ whenever $\lambda_j \neq \lambda$, so $v = u_j \in E(\lambda, T)$ for the $j$ with $\lambda_j = \lambda$. As $v \neq 0$, $v$ is an eigenvector. (This direction does not need $\myF = \compl$.)
+
+  \Leftarrowdirection By \ref{thm: a basis of generalized eigenvectors}, $V$ has a basis of generalized eigenvectors of $T$. By assumption, these are eigenvectors, so $T$ is diagonalizable by \ref{thm: conditions equivalent to diagonalizability}.
+\end{xprf}
+\end{xrcs}
+
+\exercise{16}
+\begin{xrcs}
+  \begin{enumerate}
+    \item Give an example of nilpotent operators $S, T$ on the same vector space \st neither $S + T$ nor $ST$ is nilpotent.
+    \item Suppose $S, T \in \linmap(V)$ are nilpotent and $ST = TS$. Prove that $S + T$ and $ST$ are nilpotent.
+  \end{enumerate}
+
+\begin{xsol}
+  \begin{enumerate}
+    \item On $\myF^2$ let $S(x, y) = (y, 0)$ and $T(x, y) = (0, x)$. Then $S^2 = T^2 = 0$, but $(S + T)(x, y) = (y, x)$ satisfies $(S+T)^2 = I$, and $ST(x, y) = S(0, x) = (x, 0)$ satisfies $(ST)^k = ST \neq 0$ for all $k \geq 1$.
+    \item Let $n = \dim V$, so $S^n = T^n = 0$ (\ref{thm: nilpotent operator raised to dimension of domain is 0}). Since $S$ and $T$ commute, $(ST)^n = S^n T^n = 0$, and the binomial theorem applies:
+    \begin{equation}
+      (S + T)^{2n} = \sum_{j=0}^{2n} \binom{2n}{j} S^j T^{2n-j}.
+    \end{equation}
+
+    In every term, $j \geq n$ or $2n - j \geq n$, so every term is $0$ and $(S+T)^{2n} = 0$.
+  \end{enumerate}
+  \vspace{-\baselineskip}
+\end{xsol}
+\end{xrcs}
+
+\exercise{17}
+\begin{xrcs}
+  Suppose $T \in \linmap(V)$ is nilpotent and $m$ is a positive integer \st $T^m = 0$.
+  \begin{enumerate}
+    \item Prove that $I - T$ is invertible and that $(I - T)^{-1} = I + T + \cdots + T^{m-1}$.
+    \item Explain how you would guess the formula above.
+  \end{enumerate}
+
+\begin{xsol}
+  \begin{enumerate}
+    \item The sum telescopes:
+    \begin{equation}
+      (I - T)(I + T + \cdots + T^{m-1}) = I - T^m = I,
+    \end{equation}
+
+    and in the same way $(I + T + \cdots + T^{m-1})(I - T) = I - T^m = I$. Hence $I - T$ is invertible with the stated inverse.
+    \item For $|x| < 1$, $\frac{1}{1 - x} = 1 + x + x^2 + \cdots$. Replacing $x$ by $T$, the series breaks off after $T^{m-1}$ because all higher powers are $0$.
+  \end{enumerate}
+  \vspace{-\baselineskip}
+\end{xsol}
+\end{xrcs}
