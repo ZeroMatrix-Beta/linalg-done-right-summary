@@ -136,9 +136,26 @@ $T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ hold for $m,n \in \mathbb{Z}$ if $T$ is
   Note that $p(T) \in \linmap(V)$.
 \end{mydef}
 
-%TODO: example 5.15??
+% 5.15
+\begin{example}[a polynomial applied to the differentiation operator]
+  Let $D \in \linmap(\polyn(\real))$ be the differentiation operator, $Dq = q'$, and let $p(x) = 7 - 3x + 5x^2$. Then
+  \begin{equation}
+    p(D) = 7I - 3D + 5D^2, \quad \text{i.e.} \quad (p(D))q = 7q - 3q' + 5q'' \quad \forall q \in \polyn(\real).
+  \end{equation}
+  So $p(D)$ is again an operator on $\polyn(\real)$, just as the definition promises.
+\end{example}
 
-%TODO: example 5.16??
+\begin{ainote}[Fix $T$, vary $p$]
+  For a fixed $T \in \linmap(V)$, the map $\polyn(\myF) \to \linmap(V)$, $p \mapsto p(T)$, is linear: $(p+q)(T) = p(T) + q(T)$ and $(\lambda p)(T) = \lambda\, p(T)$. Both follow straight from the definition, since $T$ just replaces $z$ term by term. \autoref{multiplicative-properties} below says this map also respects products.
+\end{ainote}
+
+% 5.16
+\begin{mydef}[product of polynomials]
+  For $p, q \in \polyn(\myF)$, the polynomial $pq \in \polyn(\myF)$ is defined by
+  \begin{equation}
+    (pq)(z) :\equiv p(z)q(z) \quad \forall z \in \myF.
+  \end{equation}
+\end{mydef}
 
 \setcounter{thm}{16}
 \begin{thm} [multiplicative properties]
